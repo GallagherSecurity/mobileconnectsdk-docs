@@ -1,0 +1,91 @@
+﻿@model GallagherUniversityStudentPortalSampleSite.StudentDetailsViewModel
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<div class="text-center">
+    <h1>
+        Hi
+        @Model.Student.Username, Welcome to the Gallagher University Student Portal
+    </h1>
+    <p>
+        This is a sample website intended to demonstrate how a third party system might interact with the Command Centre REST
+        api
+    </p>
+
+    @if (Model.MobileCredentials.Count == 0)
+    {
+        <p>You have no registered mobile credentials</p>
+    }
+    else
+    {
+        <p class="text-left"><strong>Your Mobile Credentials:</strong></p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Invitation&nbsp;Status</th>
+                    <th>Invitation&nbsp;HREF</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var credential in Model.MobileCredentials)
+                {
+                    <tr>
+                        <td>@credential.Number</td>
+                        <td>@credential.Invitation?.Status</td>
+                        <td>@credential.Invitation?.Href</td>
+                        <td>
+                            <form method="POST" action="@Url.Action("DeleteMobileCredential", "Students")">
+                                <input type="hidden" name="userId" value="@Model.Student.Id" />
+                                <input type="hidden" name="credentialHref" value="@credential.Href" />
+                                <input type="submit" value="Delete" class="btn btn-xs btn-danger" style="margin: 2px">
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    <hr />
+
+    <form method="POST" action="@Url.Action("RequestMobileCredential", "Students")">
+        <div class="form-group text-left">
+            <h3>Request new mobile credential</h3><input type="hidden" name="userId" value="@Model.Student.Id" />
+            <input type="text" name="email" placeholder="Invitation Email (leave blank not to send an email)" class="form-control" /> <br />
+            <input type="text" name="sms" placeholder="Invitation SMS Number (leave blank not to send an sms)" class="form-control" /> <br />
+
+            <div class="form-check text-left">
+                <input class="form-check-input" type="checkbox" value="" id="singleFactorOnly" name="singleFactorOnly">
+                <label class="form-check-label" for="singleFactorOnly">
+                    Single factor only
+                </label>
+                <div class="font-weight-light font-italic small">Single factor credentials cannot use PIN/Fingerprint for access</div>
+            </div>
+
+            <input type="submit" value="Submit" class="btn btn-lg btn-info" style="margin-top: 16px;" />
+        </div>
+    </form>
+
+    <hr />
+</div>
+
+<div>
+    @if (Model.Cardholder is GglApi.Cardholder cardholder)
+    {
+        <p><strong>Command Centre Details:</strong></p>
+        <div>First Name: @cardholder.FirstName</div>
+        <div>Last Name: @cardholder.LastName</div>
+        <div>id: @cardholder.Id</div>
+        <div>href: @cardholder.Href</div>
+        <div>notifications enabled: @(cardholder.Notifications?.Enabled ?? false)</div>
+        @if(cardholder.PersonalData != null)
+        {
+            foreach(var pdf in cardholder.PersonalData)
+            {
+                <div>@pdf.Name: @pdf.Value</div>
+            }
+        }
+    }
+</div>

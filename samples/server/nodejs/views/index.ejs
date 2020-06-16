@@ -1,0 +1,25 @@
+<style type="text/css">
+    .mainbtn {
+        margin:10px;
+        height:100px;
+        width:200px;
+        font-size:1.3em
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Gallagher University</h1>
+    <p>This is a sample application designed to demonstrate the use of the Gallagher Command Centre REST api</p>
+    <p>In particular, it focuses on Mobile Credentials and the creation and deletion of cardholders in support of issuing Mobile Credentials</p>
+
+    <button class="btn btn-primary mainbtn" onclick="window.location='/students'">
+        I am a Student
+    </button>
+
+    <button class="btn btn-primary mainbtn" onclick="window.location='/admin'">
+        I am an Administrator
+    </button>
+</div>
+
+<%- contentFor('title') %>
+Home Page

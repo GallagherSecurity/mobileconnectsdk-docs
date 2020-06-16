@@ -1,0 +1,29 @@
+{
+  "host": "https://sample-commandcentre-server:8904",
+  "apiKey": "02FB-970F-0898-6BCB-D562-4BA3-C471-BBF3",
+  
+  "clientCertificate": "clientcertificate.pem", 
+  "clientCertificatePrivateKey": "clientprivatekey.pem",
+  "clientCertificatePrivateKeyPassword": "secret",
+
+  "pdfName": "Student ID",
+  "accessGroupName": "Students Access Group",
+  "cardTypeName": "Mobile Credential",
+
+  "comments": [
+    "The Thumbprint of the clientcertificate.pem that is provided with the sample app is ",
+    "7F:D4:07:8D:23:E6:81:79:EE:CA:68:79:B8:25:99:C2:58:28:B2:E6",
+    
+    "You'll need to replace the apiKey in this file with the one that Command Centre generates",
+    "And then paste the thumbprint in.",
+    
+    "For your real system, you should generate your own certificate, do not use the sample one as.",
+
+    "To generate the sample certificate:",
+    "openssl req -x509 -newkey rsa:2048 -keyout clientprivatekey.pem -out clientcertificate.pem -days 14600",
+    "   Then input appropriate details - I specified a passphrase of 'secret'",
+
+    "To obtain it's thumbprint for loading into command centre:",
+    "openssl x509 -noout -fingerprint -sha1 -inform pem -in clientcertificate.pem"
+  ]
+}

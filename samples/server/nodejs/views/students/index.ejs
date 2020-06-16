@@ -1,0 +1,29 @@
+<div class="text-center">
+
+    <h1 class="display-6">Gallagher University Student Portal</h1>
+    <p><strong>This is a sample website intended to demonstrate how a third party system might interact with the Command Centre REST api</strong></p>
+
+    <p>
+        To get started, please log on using your Student ID and password below
+    </p>
+    <p>
+        Student Services should have provided these to you in your enrolment pack
+    </p>
+
+    <form action="/students/login" method="post">
+        <p>
+            <input name="studentId" type="text" placeholder="Student ID" required class="form-control" value="<%= studentId %>">
+        </p>
+        <p>
+            <input name="password" type="password" required class="form-control">
+        </p>
+        <p>
+            <input type="submit" value="Log in" class="btn btn-lg btn-success">
+        </p>
+    </form>
+
+    <p>Use the Administration page to add students, or try the pre-created student John, with Student ID '12345' and password 'abc'</p>
+
+</div>
+<%- contentFor('title') %>
+Student Logon

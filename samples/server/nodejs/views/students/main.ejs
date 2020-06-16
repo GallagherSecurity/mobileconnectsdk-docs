@@ -1,0 +1,80 @@
+<h1>Hi
+    <%= student.username %>, Welcome to the Gallagher University Student Portal</h1>
+<h3>This is a sample website intended to demonstrate how a third party system might interact with the Command Centre REST
+    api
+</h3>
+<p>
+    This is a sample website intended to demonstrate how a third party system might interact with the Command Centre REST
+    api
+</p>
+
+<% if(credentials.length == 0) { %>
+    <p>You have no registered mobile credentials</p>
+<% } else { %>
+    <p>Mobile Credentials:</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Invitation&nbsp;Status</th>
+                <th>Invitation&nbsp;HREF</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% credentials.forEach(credential => { %>
+            <tr>
+                <td><%= credential.number %></td>
+                <td><%= credential.invitation.status %></td>
+                <td><%= credential.invitation.href %></td>
+                <td>
+                    <form method="POST" action="/students/deleteMobileCredential">
+                        <input type="hidden" name="userId" value="<%= student.id %>" />
+                        <input type="hidden" name="credentialHref" value="<%= credential.href %>" />
+                        <input type="submit" value="Delete" class="btn btn-xs btn-danger" style="margin: 2px">
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+<% } %>
+<hr />
+
+<form method="POST" action="requestMobileCredential">
+    <div class="form-group">
+        <h3>Request new mobile credential</h3><input type="hidden" name="userId" value="<%= student.id %>" />
+        <input type="text" name="email" placeholder="Invitation Email (leave blank not to send an email)" class="form-control"/> <br />
+        <input type="text" name="sms" placeholder="Invitation SMS Number (leave blank not to send an sms)" class="form-control"/> <br />
+        
+        <div class="form-check text-left">
+            <input class="form-check-input" type="checkbox" value="" id="singleFactorOnly" name="singleFactorOnly">
+            <label class="form-check-label" for="singleFactorOnly">
+                Single factor only
+            </label>
+            <div class="font-weight-light font-italic small">Single factor credentials cannot use PIN/Fingerprint for access</div>
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-lg btn-info" style="margin-top: 16px;" />
+    </div>
+</form>
+
+<hr />
+
+<% if(this["cardholderDetails"]) { %>
+    <p>Command Centre Details:</p>
+    <div>First Name: <%= cardholderDetails["firstName"] %></div>
+    <div>Last Name: <%= cardholderDetails["lastName"] %></div>
+    <div>id: <%= cardholderDetails["id"] %></div>
+    <div>href: <%= cardholderDetails["href"] %></div>
+    <div>notifications enabled: <%= cardholderDetails["notifications"] && cardholderDetails["notifications"]["enabled"] %></div>
+    <% if(cardholderDetails["personalDataDefinitions"]) {
+        cardholderDetails.personalDataDefinitions.forEach(obj => { // command centre wraps the pdf in a container object with a keyed name e.g. { "@Photo": { ... } } 
+            const pdf = Object.keys(obj).map((k) => obj[k])[0]; %>
+            <div><%= pdf.definition.name %>: <%= pdf.value %> </div>
+    <%    })
+    } %>
+<% } %>
+
+<%- contentFor('title') %>
+Student Details

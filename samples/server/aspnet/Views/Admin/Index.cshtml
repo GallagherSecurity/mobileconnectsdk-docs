@@ -1,0 +1,56 @@
+﻿@model AdminIndexViewModel
+@{
+    ViewData["Title"] = "Admin";
+}
+
+    <div class="text-center">
+        <h1 class="display-6">Gallagher University Administration</h1>
+        <p><strong>This is a sample website intended to demonstrate how a third party system might interact with the Command Centre REST api</strong></p>
+
+        <p class="text-lg-left">Students:</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Username</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.Students)
+                {
+                    <tr>
+                        <td>@student.StudentId</td>
+                        <td>@student.Username</td>
+                        <td>
+                            <form method="POST" action="@Url.Action("DeleteStudent", "Admin", new { id = student.Id })">
+                                <input type="submit" value="Delete" class="btn btn-xs btn-danger" style="margin: 2px">
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (Model.Students.Count == 0)
+        {
+            <p>You have no enrolled students</p>
+        }
+        <hr />
+
+        <form method="POST" action="@Url.Action("CreateStudent")">
+            <div class="form-group">
+                <h3>Enrol new student</h3>
+                <input type="text" name="firstName" placeholder="First Name" class="form-control" /> <br />
+                <input type="text" name="lastName" placeholder="Last Name" class="form-control" /> <br />
+                <input type="text" name="studentId" placeholder="Student ID" class="form-control" /> <br />
+                <input type="text" name="username" placeholder="Username" class="form-control" /> <br />
+                <input type="text" name="password" placeholder="Password" class="form-control" /> <br />
+
+                <input type="submit" value="Submit" class="btn btn-lg btn-info" />
+            </div>
+        </form>
+
+        <hr />
+
+    </div>
