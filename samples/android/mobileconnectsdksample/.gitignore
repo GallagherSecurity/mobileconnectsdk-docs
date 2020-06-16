@@ -1,0 +1,3 @@
+# The sample app expects you to unzip and paste the SDK into app/gallagher-mobile-access
+# However it should NOT be checked into source control as it's full of binaries
+app/gallagher-mobile-access

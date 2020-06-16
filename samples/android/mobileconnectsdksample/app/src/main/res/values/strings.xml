@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Mobile Connect Sdk Sample</string>
+
+    <!-- Message shown in the center of the fingerprint authentication dialog -->
+    <string name="ggl_fingerprint_authentication_status">TOUCH SENSOR:</string>
+
+    <!-- "Please Unlock" notification title - will be passed to String.format with an argument of the reader name -->
+    <string name="ggl_unlock_notification_title">UNLOCK: %s</string>
+    <!-- "Please Unlock" notification body - will be passed to String.format with an argument of the reader name -->
+    <string name="ggl_unlock_notification_message">UNLOCK FOR: "%s"</string>
+
+    <!-- Second factor registration title - will be passed to String.format with an argument of the site name -->
+    <string name="ggl_mobilecredential_register_title">REGISTER: "%s"</string>
+    <!-- Second factor registration title - will be passed to String.format with an argument of the site name -->
+    <string name="ggl_mobilecredential_register_message">REGISTER FOR: "%s"</string>
+
+    <!-- Second factor authentication title - will be passed to String.format with an argument of the reader name -->
+    <string name="ggl_mobilecredential_authenticate_title">AUTH: "%s"</string>
+    <!-- Second factor authentication body - will be passed to String.format with an argument of the reader name -->
+    <string name="ggl_mobilecredential_authenticate_message">AUTHENTICATE FOR: "%s"</string>
+
+    <!-- to set the icon, create a drawable called R.drawable.ic_ggl_mobile_access_scanning_icon -->
+
+    <!-- Foreground notification -->
+    <string name="ggl_foreground_notification_title">SCANNING FOR DOORS:</string>
+
+</resources>
