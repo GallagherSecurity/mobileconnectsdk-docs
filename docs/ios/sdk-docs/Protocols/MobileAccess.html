@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MobileAccess Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/MobileAccess" class="dashAnchor"></a>
+    <a title="MobileAccess Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MobileAccess Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../developer-guide.html">developer-guide</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/DefaultNetworkServiceFactory.html">DefaultNetworkServiceFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MobileAccessProvider.html">MobileAccessProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:23GallagherMobileAccessNN35defaultNetworkServiceRequestTimeoutSdvp">defaultNetworkServiceRequestTimeout</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AccessDecision.html">AccessDecision</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AccessMode.html">AccessMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AuthenticationTokenError.html">AuthenticationTokenError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CloudTlsValidationMode.html">CloudTlsValidationMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HttpMethod.html">HttpMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HttpStatusCode.html">HttpStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MobileAccessState.html">MobileAccessState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MobileCredentialKeyStatus.html">MobileCredentialKeyStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderActionType.html">ReaderActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderConnectionError.html">ReaderConnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderConnectionState.html">ReaderConnectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderDistance.html">ReaderDistance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderUpdateType.html">ReaderUpdateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RegistrationError.html">RegistrationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RequestFlags.html">RequestFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SecondFactorAuthenticationType.html">SecondFactorAuthenticationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SecondFactorVerificationType.html">SecondFactorVerificationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:23GallagherMobileAccessNN2eeoiySbAA0C6ResultV_ADtF">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AccessDelegate.html">AccessDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ExtraData.html">ExtraData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HttpDataResponse.html">HttpDataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HttpJsonResponse.html">HttpJsonResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HttpResponse.html">HttpResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JwtResultDelegate.html">JwtResultDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MobileAccess.html">MobileAccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MobileCredential.html">MobileCredential</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NetworkService.html">NetworkService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NetworkServiceFactory.html">NetworkServiceFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Reader.html">Reader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ReaderAttributes.html">ReaderAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ReaderUpdateDelegate.html">ReaderUpdateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RegistrationDelegate.html">RegistrationDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SdkStateDelegate.html">SdkStateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StringValueConvertible.html">StringValueConvertible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AccessResult.html">AccessResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MobileAccessLocalization.html">MobileAccessLocalization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MobileCredentialStatus.html">MobileCredentialStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReaderAction.html">ReaderAction</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN29AuthenticationDetailsProvidera">AuthenticationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN32CredentialDeleteCompletedHandlera">CredentialDeleteCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN3Jwta">Jwt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN27NotificationDetailsProvidera">NotificationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN28ReaderActionCompletedHandlera">ReaderActionCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN39ReaderActionEnumerationCompletedHandlera">ReaderActionEnumerationCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN27RegistrationDetailsProvidera">RegistrationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN38SecondFactorAuthenticationTypeSelectora">SecondFactorAuthenticationTypeSelector</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MobileAccess</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MobileAccess</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Interface to the Gallagher mobile access SDK</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P18registerCredential3url8delegatey10Foundation3URLV_AA20RegistrationDelegate_ptF"></a>
+                    <a name="//apple_ref/swift/Method/registerCredential(url:delegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P18registerCredential3url8delegatey10Foundation3URLV_AA20RegistrationDelegate_ptF">registerCredential(url:delegate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempts to add a credential to the Mobile Credential database. The specified RegistrationDelegate is called back to as appropriate.
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">registerCredential</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RegistrationDelegate.html">RegistrationDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>credential registration URL</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a delegate that allows receiving callbacks on the registration process success/errors</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P17mobileCredentialsSayAA0B10Credential_pGvp"></a>
+                    <a name="//apple_ref/swift/Property/mobileCredentials" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P17mobileCredentialsSayAA0B10Credential_pGvp">mobileCredentials</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets all Mobile Credentials from the database
+Must be invoked on the main thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">mobileCredentials</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/MobileCredential.html">MobileCredential</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P03getB10Credential12credentialIdAA0bF0_pSgSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/getMobileCredential(credentialId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P03getB10Credential12credentialIdAA0bF0_pSgSS_tF">getMobileCredential(credentialId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a Mobile Credential by it&rsquo;s identifier. Nil will be returned if the credential could not be found
+Must be invoked on the main thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getMobileCredential</span><span class="p">(</span><span class="nv">credentialId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/MobileCredential.html">MobileCredential</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>credentialId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>credential id of the credential to find</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the found credential or nil if no credential is found</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P06deleteB10Credential_02onF15DeleteCompletedyAA0bF0_p_yAaF_p_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/deleteMobileCredential(_:onCredentialDeleteCompleted:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P06deleteB10Credential_02onF15DeleteCompletedyAA0bF0_p_yAaF_p_s5Error_pSgtctF">deleteMobileCredential(_:onCredentialDeleteCompleted:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes a mobile credential from the database. If the credential does not exist then a failure
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMobileCredential</span><span class="p">(</span><span class="n">_</span> <span class="nv">mobileCredential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MobileCredential.html">MobileCredential</a></span><span class="p">,</span> <span class="nv">onCredentialDeleteCompleted</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:23GallagherMobileAccessNN32CredentialDeleteCompletedHandlera">CredentialDeleteCompletedHandler</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mobileCredential</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The mobile credential to delete</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onCredentialDeleteCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Returns the <code>mobileCredential</code> to delete with a <code>nil</code> error if the delete was successful. Otherwise, a non-nil error to indicate failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P11setScanning7enabledySb_tF"></a>
+                    <a name="//apple_ref/swift/Method/setScanning(enabled:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P11setScanning7enabledySb_tF">setScanning(enabled:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts or Stops scanning for readers.
+This will start/stop auto-connect attempts if the current SDK instance is configured to do automatic access attempts</p>
+<div class="aside aside-precondition">
+    <p class="aside-title">Precondition</p>
+    For the SDK to start scanning it requires
+
+<ul>
+<li>At least one credential registered.</li>
+<li>Passcode must be set.</li>
+<li>Bluetooth ON</li>
+</ul>
+
+</div>
+
+<p>You can call setScanning(true) at any point, and the SDK in the background will only
+ start scanning once all preconditions are true.</p>
+
+<p><strong>Note</strong>: There is no <code>isScanning</code> because the value of whether or not we are scanning
+depends on a variety of things and can change rapidly. If you want to track whether the
+SDK is currently scanning or not, please use <code>addSdkStateDelegate</code> to provide a callback.</p>
+
+<p>Refer to <code>states:[MobileAccessState]</code> for potential scanning problems and warnings</p>
+
+<p>Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setScanning</span><span class="p">(</span><span class="nv">enabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>enabled</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If true, will try and start scanning. If false, will stop scanning</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P07requestC06reader8delegateyAA6Reader_p_AA0C8Delegate_ptF"></a>
+                    <a name="//apple_ref/swift/Method/requestAccess(reader:delegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P07requestC06reader8delegateyAA6Reader_p_AA0C8Delegate_ptF">requestAccess(reader:delegate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Requests access via a particular reader and calls back to the appropriate functions on the specified delegate
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">requestAccess</span><span class="p">(</span><span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Reader.html">Reader</a></span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AccessDelegate.html">AccessDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reader</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The reader to request access by</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The delegate to callback on when access is granted, denied or a general error condition occurs.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P19requestReaderAction6reader6action02onfG9CompletedyAA0F0_p_AA0fG0VyAaH_p_AjA0F15ConnectionErrorOSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/requestReaderAction(reader:action:onReaderActionCompleted:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P19requestReaderAction6reader6action02onfG9CompletedyAA0F0_p_AA0fG0VyAaH_p_AjA0F15ConnectionErrorOSgtctF">requestReaderAction(reader:action:onReaderActionCompleted:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Requests an action to a reader
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">requestReaderAction</span><span class="p">(</span><span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Reader.html">Reader</a></span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Structs/ReaderAction.html">ReaderAction</a></span><span class="p">,</span> <span class="nv">onReaderActionCompleted</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:23GallagherMobileAccessNN28ReaderActionCompletedHandlera">ReaderActionCompletedHandler</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reader</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The reader to request action for</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>action to perform</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onReaderActionCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Returns <code>reader</code> and <code>action</code> of the request with `nil&rsquo; error if the request completed successfully. Otherwise, returns a non-nil error to indicate request failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P22enumerateReaderActions6reader02onF26ActionEnumerationCompletedyAA0F0_p_yAaG_p_SayAA0fJ0VGSgAA0F15ConnectionErrorOSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/enumerateReaderActions(reader:onReaderActionEnumerationCompleted:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P22enumerateReaderActions6reader02onF26ActionEnumerationCompletedyAA0F0_p_yAaG_p_SayAA0fJ0VGSgAA0F15ConnectionErrorOSgtctF">enumerateReaderActions(reader:onReaderActionEnumerationCompleted:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enumerates the list of reader actions
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enumerateReaderActions</span><span class="p">(</span><span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Reader.html">Reader</a></span><span class="p">,</span> <span class="nv">onReaderActionEnumerationCompleted</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:23GallagherMobileAccessNN39ReaderActionEnumerationCompletedHandlera">ReaderActionEnumerationCompletedHandler</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reader</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The reader to enumerate the actions for</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onReaderActionEnumerationCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Returns the <code>reader</code> and list of actions with `nil&rsquo; error if the enumerate completed successfully. Otherwise, returns a non-nil error to indicate request failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P20resolveInvitationUrl_10invitation10Foundation3URLVSgSS_SStF"></a>
+                    <a name="//apple_ref/swift/Method/resolveInvitationUrl(_:invitation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P20resolveInvitationUrl_10invitation10Foundation3URLVSgSS_SStF">resolveInvitationUrl(_:invitation:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Build a correct format for invitation URL used typically when manually registering
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resolveInvitationUrl</span><span class="p">(</span><span class="n">_</span> <span class="nv">rawUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">invitation</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URL</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rawUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region URL</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>invitation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>invitation code</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>formatted invitation URL that can be passed to register credential</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P23addReaderUpdateDelegateyyAA0fgH0_pF"></a>
+                    <a name="//apple_ref/swift/Method/addReaderUpdateDelegate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P23addReaderUpdateDelegateyyAA0fgH0_pF">addReaderUpdateDelegate(_:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a delegate for listening to updates from readers
+Can be invoked from any thread</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Extension which lets you call <code>addReaderUpdateDelegate</code> and provide a block as the callback handler
+rather than having to implement the <code>ReaderUpdateDelegate</code> protocol yourself on a concrete class</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addReaderUpdateDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ReaderUpdateDelegate.html">ReaderUpdateDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P26removeReaderUpdateDelegateyyAA0fgH0_pF"></a>
+                    <a name="//apple_ref/swift/Method/removeReaderUpdateDelegate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P26removeReaderUpdateDelegateyyAA0fgH0_pF">removeReaderUpdateDelegate(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes a delegate for listening to updates from readers
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeReaderUpdateDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ReaderUpdateDelegate.html">ReaderUpdateDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P19addSdkStateDelegateyyAA0fgH0_pF"></a>
+                    <a name="//apple_ref/swift/Method/addSdkStateDelegate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P19addSdkStateDelegateyyAA0fgH0_pF">addSdkStateDelegate(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a delegate to listen to the state of the SDK. Warnings and errors will be announced via the handler provided
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addSdkStateDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SdkStateDelegate.html">SdkStateDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P22removeSdkStateDelegateyyAA0fgH0_pF"></a>
+                    <a name="//apple_ref/swift/Method/removeSdkStateDelegate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P22removeSdkStateDelegateyyAA0fgH0_pF">removeSdkStateDelegate(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove the delegate to stop listening to the state of the SDK
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeSdkStateDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SdkStateDelegate.html">SdkStateDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P012addAutomaticC8DelegateyyAA0cG0_pF"></a>
+                    <a name="//apple_ref/swift/Method/addAutomaticAccessDelegate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P012addAutomaticC8DelegateyyAA0cG0_pF">addAutomaticAccessDelegate(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a delegate to listen out for automatic access attempts from inside the SDK
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addAutomaticAccessDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AccessDelegate.html">AccessDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The access delegate that will start having it&rsquo;s relevant methods called in response to automatic access attempts/errors/results</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P015removeAutomaticC8DelegateyyAA0cG0_pF"></a>
+                    <a name="//apple_ref/swift/Method/removeAutomaticAccessDelegate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P015removeAutomaticC8DelegateyyAA0cG0_pF">removeAutomaticAccessDelegate(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes an automatic access delegate by reference.
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeAutomaticAccessDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AccessDelegate.html">AccessDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An instance of an access delegate to remove. The functions on this object will not be called back on anymore</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P6statesSayAA0bC5StateOGvp"></a>
+                    <a name="//apple_ref/swift/Property/states" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P6statesSayAA0bC5StateOGvp">states</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A list of current global errors or warnings from the SDK
+Must get on the main thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">states</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/MobileAccessState.html">MobileAccessState</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P011isAutomaticC7EnabledSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isAutomaticAccessEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P011isAutomaticC7EnabledSbvp">isAutomaticAccessEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows or Prevents the SDK from making automatic access attempts.
+If automatic access attempts are already allowed, then this does nothing.
+Automatic access attempts are disabled by default.</p>
+
+<p>In order for automatic access attempts to work you must also instruct the SDK to start scanning for devices.
+Must get on the main thread, set on any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isAutomaticAccessEnabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P22backgroundScanningModeAA010BackgroundfG0Ovp"></a>
+                    <a name="//apple_ref/swift/Property/backgroundScanningMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P22backgroundScanningModeAA010BackgroundfG0Ovp">backgroundScanningMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Controls background reader scanning behaviour
+Must get on the main thread, set on any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">backgroundScanningMode</span><span class="p">:</span> <span class="kt">BackgroundScanningMode</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P30bluetoothAdvertisementDelegateAA09BluetoothfG0_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/bluetoothAdvertisementDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P30bluetoothAdvertisementDelegateAA09BluetoothfG0_pSgvp">bluetoothAdvertisementDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The intended usage is for Mobile Connect to calibrate readers at a much lower level than what is required.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">bluetoothAdvertisementDelegate</span><span class="p">:</span> <span class="kt">BluetoothAdvertisementDelegate</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P21networkServiceFactoryAA07NetworkfG0_pvp"></a>
+                    <a name="//apple_ref/swift/Property/networkServiceFactory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P21networkServiceFactoryAA07NetworkfG0_pvp">networkServiceFactory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A factory which enables the creation of network services</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">networkServiceFactory</span><span class="p">:</span> <span class="kt"><a href="../Protocols/NetworkServiceFactory.html">NetworkServiceFactory</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0P22authenticateCredential_14isSecondFactor8delegate14requestTimeoutyAA0bF0_p_SbAA17JwtResultDelegate_pSdtF"></a>
+                    <a name="//apple_ref/swift/Method/authenticateCredential(_:isSecondFactor:delegate:requestTimeout:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0P22authenticateCredential_14isSecondFactor8delegate14requestTimeoutyAA0bF0_p_SbAA17JwtResultDelegate_pSdtF">authenticateCredential(_:isSecondFactor:delegate:requestTimeout:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">authenticateCredential</span><span class="p">(</span><span class="n">_</span> <span class="nv">mobileCredential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MobileCredential.html">MobileCredential</a></span><span class="p">,</span> <span class="nv">isSecondFactor</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JwtResultDelegate.html">JwtResultDelegate</a></span><span class="p">,</span> <span class="nv">requestTimeout</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0PAAE22authenticateCredential_14isSecondFactor14requestTimeout25onAuthenticationCompletedAA17JwtResultDelegate_pAA0bF0_p_SbSdySSSg_AA0M10TokenErrorOSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/authenticateCredential(_:isSecondFactor:requestTimeout:onAuthenticationCompleted:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0PAAE22authenticateCredential_14isSecondFactor14requestTimeout25onAuthenticationCompletedAA17JwtResultDelegate_pAA0bF0_p_SbSdySSSg_AA0M10TokenErrorOSgtctF">authenticateCredential(_:isSecondFactor:requestTimeout:onAuthenticationCompleted:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Extension which lets you call <code>authenticateCredential</code> and provide a block as the callback handler,
+rather than having to implement the <code><a href="../Protocols/JwtResultDelegate.html">JwtResultDelegate</a></code> protocol yourself on a concrete class</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">func</span> <span class="nf">authenticateCredential</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">mobileCredential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MobileCredential.html">MobileCredential</a></span><span class="p">,</span>
+    <span class="nv">isSecondFactor</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
+    <span class="nv">requestTimeout</span><span class="p">:</span><span class="kt">TimeInterval</span> <span class="o">=</span> <span class="n"><a href="../Global%20Variables.html#/s:23GallagherMobileAccessNN35defaultNetworkServiceRequestTimeoutSdvp">defaultNetworkServiceRequestTimeout</a></span><span class="p">,</span>
+    <span class="nv">onAuthenticationCompleted</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">jwt</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:23GallagherMobileAccessNN3Jwta">Jwt</a></span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Enums/AuthenticationTokenError.html">AuthenticationTokenError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/JwtResultDelegate.html">JwtResultDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0PAAE18registerCredential3url23onRegistrationCompleted0H36AuthenticationTypeSelectionRequestedAA0I8Delegate_p10Foundation3URLV_yAA0bF0_pSg_AA0I5ErrorOSgtcyySb_AA012SecondFactorkL0OSgtcctF"></a>
+                    <a name="//apple_ref/swift/Method/registerCredential(url:onRegistrationCompleted:onAuthenticationTypeSelectionRequested:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0PAAE18registerCredential3url23onRegistrationCompleted0H36AuthenticationTypeSelectionRequestedAA0I8Delegate_p10Foundation3URLV_yAA0bF0_pSg_AA0I5ErrorOSgtcyySb_AA012SecondFactorkL0OSgtcctF">registerCredential(url:onRegistrationCompleted:onAuthenticationTypeSelectionRequested:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Extension which lets you call <code>registerCredential</code> and provide two blocks as handlers for <code>onRegistrationCompleted</code> and <code>onAuthenticationTypeSelectionRequested</code>,
+rather than having to implement the <code><a href="../Protocols/RegistrationDelegate.html">RegistrationDelegate</a></code> protocol yourself on a concrete class</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">func</span> <span class="nf">registerCredential</span><span class="p">(</span>
+    <span class="nv">url</span><span class="p">:</span><span class="kt">URL</span><span class="p">,</span>
+    <span class="nv">onRegistrationCompleted</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">credential</span><span class="p">:</span><span class="kt"><a href="../Protocols/MobileCredential.html">MobileCredential</a></span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span><span class="kt"><a href="../Enums/RegistrationError.html">RegistrationError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">(),</span>
+    <span class="nv">onAuthenticationTypeSelectionRequested</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:23GallagherMobileAccessNN38SecondFactorAuthenticationTypeSelectora">SecondFactorAuthenticationTypeSelector</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/RegistrationDelegate.html">RegistrationDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0PAAE012addAutomaticC8Delegate02onC5Start0hC9CompletedAA0cG0_pyAA6Reader_pc_yAaH_p_AA0C6ResultVSgAA0K15ConnectionErrorOSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/addAutomaticAccessDelegate(onAccessStart:onAccessCompleted:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0PAAE012addAutomaticC8Delegate02onC5Start0hC9CompletedAA0cG0_pyAA6Reader_pc_yAaH_p_AA0C6ResultVSgAA0K15ConnectionErrorOSgtctF">addAutomaticAccessDelegate(onAccessStart:onAccessCompleted:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Extension which lets you call <code>addAutomaticAccessDelegate</code> and provide two blocks as handlers for <code>onAccessStart</code> and <code>onAccessCompleted</code>,
+rather than having to implement the <code><a href="../Protocols/AccessDelegate.html">AccessDelegate</a></code> protocol yourself on a concrete class</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">func</span> <span class="nf">addAutomaticAccessDelegate</span><span class="p">(</span>
+    <span class="nv">onAccessStart</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Reader.html">Reader</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(),</span>
+    <span class="nv">onAccessCompleted</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span><span class="kt"><a href="../Protocols/Reader.html">Reader</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">result</span><span class="p">:</span><span class="kt"><a href="../Structs/AccessResult.html">AccessResult</a></span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span><span class="kt"><a href="../Enums/ReaderConnectionError.html">ReaderConnectionError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/AccessDelegate.html">AccessDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0PAAE07requestC06reader02onC5Start0gC9CompletedAA0C8Delegate_pAA6Reader_p_yAaI_pcyAaI_p_AA0C6ResultVSgAA0K15ConnectionErrorOSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/requestAccess(reader:onAccessStart:onAccessCompleted:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0PAAE07requestC06reader02onC5Start0gC9CompletedAA0C8Delegate_pAA6Reader_p_yAaI_pcyAaI_p_AA0C6ResultVSgAA0K15ConnectionErrorOSgtctF">requestAccess(reader:onAccessStart:onAccessCompleted:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Extension which lets you call <code>requestAccess</code> and provide two blocks as handlers for <code>onAccessStart</code> and <code>onAccessCompleted</code>,
+rather than having to implement the <code><a href="../Protocols/AccessDelegate.html">AccessDelegate</a></code> protocol yourself on a concrete class</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">func</span> <span class="nf">requestAccess</span><span class="p">(</span>
+    <span class="nv">reader</span><span class="p">:</span><span class="kt"><a href="../Protocols/Reader.html">Reader</a></span><span class="p">,</span>
+    <span class="nv">onAccessStart</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Reader.html">Reader</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(),</span>
+    <span class="nv">onAccessCompleted</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span><span class="kt"><a href="../Protocols/Reader.html">Reader</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">result</span><span class="p">:</span><span class="kt"><a href="../Structs/AccessResult.html">AccessResult</a></span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span><span class="kt"><a href="../Enums/ReaderConnectionError.html">ReaderConnectionError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/AccessDelegate.html">AccessDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN0bC0PAAE19addSdkStateDelegate02onG6ChangeAA0fgH0_pySb_SayAA0bcG0OGtc_tF"></a>
+                    <a name="//apple_ref/swift/Method/addSdkStateDelegate(onStateChange:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN0bC0PAAE19addSdkStateDelegate02onG6ChangeAA0fgH0_pySb_SayAA0bcG0OGtc_tF">addSdkStateDelegate(onStateChange:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Extension which lets you call <code>addSdkStateDelegate</code> and provide a block as the callback handler
+rather than having to implement the <code><a href="../Protocols/SdkStateDelegate.html">SdkStateDelegate</a></code> protocol yourself on a concrete class</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">func</span> <span class="nf">addSdkStateDelegate</span><span class="p">(</span><span class="nv">onStateChange</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">isScanning</span><span class="p">:</span><span class="kt">Bool</span><span class="p">,</span> <span class="n">_</span> <span class="nv">states</span><span class="p">:[</span><span class="kt"><a href="../Enums/MobileAccessState.html">MobileAccessState</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/SdkStateDelegate.html">SdkStateDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
