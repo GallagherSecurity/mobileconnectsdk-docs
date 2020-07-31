@@ -5,14 +5,18 @@
     <!-- Credential registration -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- BLE -->
+    <!-- Bluetooth LE -->
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
+
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
-    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
-
-    <!-- Required for Android Versions >= 6.0 when using Bluetooth LE -->
+    <!-- Required for Android 6.0 and later when using Bluetooth LE -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Required for Android 10 and later when using Bluetooth LE -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Required for Android 10 and later when using Bluetooth LE while the app is not on-screen -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <!-- NFC -->
     <uses-permission android:name="android.permission.NFC" />
@@ -20,7 +24,7 @@
     <!-- Unlock notification wakes the screen -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!-- foreground service permission needed to scan in the background or app will crash on Android 9 -->
+    <!-- permission to run as a foreground service to enable BLE scanning https://developer.android.com/about/versions/pie/android-9.0-changes-28 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application

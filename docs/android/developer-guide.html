@@ -49,8 +49,9 @@ h1, h2, h3, h4, h5, h6 {
 </ul>
 <h2>Pre-requisites<a name=prerequisites></a></h2>
 <ul>
-<li>Android Studio (This document tested against Android Studio 3.5 build #AI-191.8026.42.35.5791312)</li>
-<li>An app targeting Android 5 or later</li>
+<li>This developer guide references version <strong>14.0.010</strong> of the Gallagher Mobile Connect SDK for Android</li>
+<li>Android Studio (This document tested against Android Studio 4.0)</li>
+<li>An app targeting Android 5.0 or later</li>
 </ul>
 <h2>Getting Started<a name=gettingstarted></a></h2>
 <h3>1. Add the SDK files to your project</h3>
@@ -71,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 android {
-    compileSdkVersion <span class="hljs-number">28</span>
+    compileSdkVersion <span class="hljs-number">29</span>
 
     compileOptions {
         <span class="hljs-keyword">sourceCompatibility</span> JavaVersion.VERSION_1_8
@@ -82,8 +83,8 @@ android {
 }
 
 <span class="hljs-keyword">dependencies</span> {
-    <span class="hljs-comment">// android appcompat, etc</span>
-    implementation <span class="hljs-string">'com.gallagher.security:gallaghermobileaccess:VERSION'</span>
+    <span class="hljs-comment">// androidx, etc</span>
+    implementation <span class="hljs-string">'com.gallagher.security:gallaghermobileaccess:&lt;VERSION&gt;'</span>
     <span class="hljs-comment">// other libs</span>
 }
 </code></pre>
@@ -115,17 +116,18 @@ android {
 <pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Credential registration --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.INTERNET"</span> /&gt;</span>
 
-<span class="hljs-comment">&lt;!-- BLE --&gt;</span>
+<span class="hljs-comment">&lt;!-- Bluetooth LE --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">uses-feature</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.hardware.bluetooth_le"</span> <span class="hljs-attr">android:required</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+
 <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.BLUETOOTH"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.BLUETOOTH_ADMIN"</span> /&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">uses-feature</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.hardware.bluetooth_le"</span> <span class="hljs-attr">android:required</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Required for Android Versions &gt;= 6.0  when using Bluetooth LE --&gt;</span>
+<span class="hljs-comment">&lt;!-- Required for Android 6.0 and later when using Bluetooth LE --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.ACCESS_COARSE_LOCATION"</span> /&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Required for Android 10 and later when using BLuetooth LE --&gt;</span>
+<span class="hljs-comment">&lt;!-- Required for Android 10 and later when using Bluetooth LE --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.ACCESS_FINE_LOCATION"</span> /&gt;</span>
+<span class="hljs-comment">&lt;!-- Required for Android 10 and later when using Bluetooth LE while the app is not on-screen --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.ACCESS_BACKGROUND_LOCATION"</span> /&gt;</span>
 
 <span class="hljs-comment">&lt;!-- NFC --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.NFC"</span> /&gt;</span>
@@ -133,12 +135,12 @@ android {
 <span class="hljs-comment">&lt;!-- Unlock notification wakes the screen --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.WAKE_LOCK"</span> /&gt;</span>
 
-<span class="hljs-comment">&lt;!-- permission for BLE scanning in the background if you wish to enable that feature - https://developer.android.com/about/versions/pie/android-9.0-changes-28 --&gt;</span>
+<span class="hljs-comment">&lt;!-- permission to run as a foreground service to enable BLE scanning https://developer.android.com/about/versions/pie/android-9.0-changes-28 --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.FOREGROUND_SERVICE"</span> /&gt;</span>
 </code></pre>
 <h3>4. Configure the Mobile Connect SDK within your application.<a name=configure_sdk></a></h3>
-<p>The SDK has to be configured before it can be used, call the <code>MobileAccessProvider.configure()</code> method.
-We strongly recommend you do this in your <code>Application onCreate</code> method. If you are using background access (either bluetooth or NFC) and you do not configure the SDK at or before <code>Application onCreate</code>, then the SDK may crash on launch.</p>
+<p>The SDK must be configured before it can be used. To do this, call the <code>MobileAccessProvider.configure</code> method.
+We recommend you do this in your <code>Application onCreate</code> method. If you are using background access (either bluetooth or NFC) and you do not configure the SDK at or before <code>Application onCreate</code>, then the SDK may crash on launch.</p>
 <p>The configure method has the following arguments:</p>
 <ul>
 <li><code>application</code>: Required. A reference to the Android Application instance</li>
@@ -150,43 +152,41 @@ We strongly recommend you do this in your <code>Application onCreate</code> meth
 <p><strong>Reference:</strong><br>
 <a href="javadoc/com/gallagher/security/mobileaccess/MobileAccessProvider.html">MobileAccessProvider</a><br>
 <a href="javadoc/com/gallagher/security/mobileaccess/MobileAccess.html">MobileAccess</a></p>
-<p>In order to get the SDK up and running, you will most likely want to call the <code>setScanning(boolean)</code> method. Here is an example of an application which starts scanning and auto-connect upon launch.</p>
-<p>Here is an example of an application which starts scanning and auto-connect upon launch.</p>
-<p>If you do not have any such existing infrastructure, the simplest way to do this is to implement a custom Application class for your android app.</p>
+<p>In order to get the SDK up and running, you will most likely want to call <code>setScanning(true)</code>.</p>
+<p>Below is an example of an application which starts scanning and auto-connect upon launch.</p>
+<p>If you do not have any such existing infrastructure, the simplest way to do this is to implement a custom <code>Application</code> class for your android app.</p>
 <ul>
 <li>Find the <code>&lt;application&gt;</code> tag in your AndroidManifest.xml, and add the following attribute:
 <code>android:name=&quot;.Application&quot;</code></li>
 <li>Create a class called <code>Application</code>, with the following content (note: package imports omitted)</li>
 </ul>
 <pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">android</span>.<span class="hljs-title">app</span>.<span class="hljs-title">Application</span> </span>{
-    <span class="hljs-meta">@NonNull</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> MobileAccess mMobileAccess;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Application</span><span class="hljs-params">()</span> </span>{
-        mMobileAccess = MobileAccessProvider.configure(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);
-    }
+    <span class="hljs-keyword">private</span> MobileAccess mMobileAccess;
 
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
         <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
 
-        mMobileAccess.setScanning(true);
-        mMobileAccess.setAutomaticAccessEnabled(true);
+        mMobileAccess = MobileAccessProvider.configure(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);
+
+        mMobileAccess.setScanning(<span class="hljs-keyword">true</span>);
+        mMobileAccess.setAutomaticAccessEnabled(<span class="hljs-keyword">true</span>);
     }
 }
 </code></pre>
-<p>At this point you should be able to compile and launch your app, and the setScanning method should not crash.
-The SDK will not do anything however, until you register at least one mobile credential.</p>
+<p>At this point you should be able to compile and launch your app successfully.</p>
+<p>The SDK is now waiting until you register at least one mobile credential, after which point it can be used for access.</p>
 <h2>Mobile Credentials<a name=mobilecredentials></a></h2>
 <p>In order to gain access or communicate with readers over Bluetooth or NFC, you must first have a registered credential to authenticate your user and device.</p>
 <p>Mobile credentials are created in Command Centre, either using the Command Centre Client, or via the Command Centre REST api.</p>
-<p>For more information, see the REST api documentation.</p>
 <h3>1. <a name=mobilecredentials_register></a>Registering a Mobile Credential</h3>
-<p>You will need to obtain an invitation URL. If you are creating credentials using the REST api, you will also be able to use it to retrieve the invitation URL. Please refer to the server-side integration guide and REST api documentation for more information.</p>
+<p>The key piece of information which enables you to register a mobile credential is the <strong>invitation URL</strong>. The invitation URL consists of the address of the Gallagher Cloud service, and a unique one-time-use invitation code.</p>
+<p>If you are creating credentials using the REST api, you will also be able to use it to retrieve the invitation URL. Please refer to the server-side integration guide and REST api documentation for more information.</p>
 <p>You can also build the invitation url using the <code>resolveInvitationUri(invitationBaseUrl, invitationCode)</code> method in the Mobile Connect SDK.<br>
 Given an invitation code, and the hostname of the Gallagher Cloud Server (https://commandcentre-ap-southeast-2.security.gallagher.cloud) you may call this method to generate the invitation URL.</p>
-<p>When getting started, the easiest option will most likely be to use the Command Centre client to send yourself an invitation via email, and use the invitation code from the &quot;Manual Registration&quot; section of the standard Gallagher invitation email message.</p>
-<p>If you do this, be sure to create a new Mobile Credential Card Type, and untick the &quot;Send SMS Verification Code&quot; option for the Mobile Credential Card Type.<br>
-<strong>SMS verification is not supported for third-party apps using the Mobile Connect SDK.</strong></p>
+<p>When getting started, the easiest option will most likely be to use the Command Centre client to send yourself a credential invitation email in the same way you would for the Gallagher Mobile Connect app.
+Rather than opening the invitation with the Gallagher app, instead, scroll down and copy the <strong>invitation code</strong> from the &quot;Manual Registration&quot; section of the standard Gallagher invitation email message.</p>
+<p><strong>Note:</strong> By default, credentials sent for the Mobile Connect app will also require a second step of SMS verification. <strong>SMS verification is not supported for third-party apps using the Mobile Connect SDK</strong>, so in order to email yourself a credential without the SMS step you must create a new Mobile Credential Card Type using the Command Centre Configuration client, and use this card type when sending your test credential email.</p>
 <p><img src="img/mobile-credential-cardtype-no-sms.png" alt="Mobile Credential Configuration screenshot"></p>
 <p>Once you have obtained the invitation URL, use the <code>registerCredential(invitationUri, registrationListener)</code> method to begin the registration process. The SDK will asynchronously call the callback methods on the <code>registrationListener</code> to inform you of success or failure. Callbacks will arive on the main thread.</p>
 <p><em>Example:</em></p>
@@ -206,7 +206,8 @@ Given an invitation code, and the hostname of the Gallagher Cloud Server (https:
         <span class="hljs-comment">// to ask the user which method they'd prefer; Fingerprint or PIN?</span>
         <span class="hljs-meta">@Override</span>
         <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAuthenticationTypeSelectionRequested</span><span class="hljs-params">(SecondFactorAuthenticationTypeSelector selector)</span> </span>{
-            <span class="hljs-comment">// pop a dialog here and ask the user their preference</span>
+            <span class="hljs-comment">// pop a dialog here and ask the user their preference. </span>
+            <span class="hljs-comment">// In response to the dialog call selector.select</span>
             selector.select(<span class="hljs-keyword">true</span>, SecondFactorAuthenticationType.FINGERPRINT); 
         }
     });
@@ -245,7 +246,7 @@ Given an invitation code, and the hostname of the Gallagher Cloud Server (https:
 <a href="javadoc/com/gallagher/security/mobileaccess/MobileCredential.html">MobileCredential</a></p>
 <h2>Reader Discovery and Access<a name=readeraccess></a></h2>
 <h3>1. Verifying if the SDK is functioning<a name=reader_verifysdk></a></h3>
-<p>There are a variety of reasons why the SDK may not work even though you have called <code>setScanning(true)</code>, such as Bluetooth or NFC being disabled in your device system settings, lack of permissions, etc.</p>
+<p>There are a variety of reasons why the SDK may not work even though you have called <code>setScanning</code>, such as Bluetooth or NFC being disabled in your device system settings, lack of permissions, etc.</p>
 <p>You should use the <code>addSdkStateListener(sdkStateListener)</code> method. The SDK will asynchronously call the callback methods on the <code>sdkStateListener</code> to inform you of state changes. Callbacks will arive on the main thread.</p>
 <p>You may wish to log these state changes, or prompt the user to perform some action (such as granting permissions, or giving them a button to click to enable Bluetooth, etc)</p>
 <p><em>Example:</em></p>
@@ -272,7 +273,7 @@ Given an invitation code, and the hostname of the Gallagher Cloud Server (https:
 <a href="javadoc/com/gallagher/security/mobileaccess/SdkStateListener.html">SdkStateListener</a><br>
 <a href="javadoc/com/gallagher/security/mobileaccess/MobileAccessState.html">MobileAccessState</a></p>
 <h3>1. Auto-connect<a name=reader_autoconnect></a></h3>
-<p>You must call the <code>setAutomaticAccessEnabled(true)</code> method in order to enable auto-connect. You can call <code>setAutomaticAccessEnabled(false)</code> to disable it later if you require. Note that enabling and disabling automatic access does not affect bluetooth scanning, which continues until you call <code>stopScanning()</code></p>
+<p>You must call the <code>enableAutomaticAccess()</code> method in order to enable auto-connect. You can call <code>disableAutomaticAccess()</code> to disable it later if you require. Note that enabling and disabling automatic access does not affect bluetooth scanning, which continues until you call <code>stopScanning()</code></p>
 <p>By default, the Mobile Connect SDK will automatically attempt to connect to any nearby readers if the device enters the configured range.</p>
 <p>If you wish to be informed about auto connect events, use the <code>addAutomaticAccessListener(automaticAccessListener)</code> method. The SDK will asynchronously call the callback methods on the <code>automaticAccessListener</code> to inform you of success or failure. Callbacks will arive on the main thread.</p>
 <p>Any calls to <code>addAutomaticAccessListener</code> should be balanced by a call to <code>removeAutomaticAccessListener</code> to prevent memory leaks.</p>
@@ -453,6 +454,7 @@ If you do not customise this, the default is an empty string, which will not sho
 If you do not customise this, the default is [Register for "%s"] --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ggl_mobilecredential_register_message"</span>&gt;</span>Register for "%s"<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 </code></pre>
+<p><span style='color:red'>Still to be confirmed: the remaining resources and text for the PIN and fingerprint UI</span></p>
 <h4>3.3 Authentication Details</h4>
 <p>When the user attempts to access a door that requires second factor authentication, the SDK will ask them for either their PIN or Fingerprint - whatever they chose when they previously registered their credential.</p>
 <p>To customise the apperance of the authentication prompts, do the following:</p>
