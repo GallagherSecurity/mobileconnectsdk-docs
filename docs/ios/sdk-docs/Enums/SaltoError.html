@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SaltoError Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Enum/SaltoError" class="dashAnchor"></a>
+    <a title="SaltoError Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SaltoError Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../developer-guide.html">developer-guide</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/MobileAccessProvider.html">MobileAccessProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AccessDecision.html">AccessDecision</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AccessMode.html">AccessMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CloudNetworkConnectionError.html">CloudNetworkConnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CloudTlsValidationMode.html">CloudTlsValidationMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DeleteOption.html">DeleteOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DigitalIdError.html">DigitalIdError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DigitalIdStatusType.html">DigitalIdStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MobileAccessState.html">MobileAccessState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MobileCredentialFilter.html">MobileCredentialFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MobileCredentialKeyStatus.html">MobileCredentialKeyStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderActionType.html">ReaderActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderConnectionError.html">ReaderConnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderDistance.html">ReaderDistance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderUpdateType.html">ReaderUpdateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RegistrationError.html">RegistrationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SaltoAccessDecision.html">SaltoAccessDecision</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SaltoError.html">SaltoError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SdkFeatureState.html">SdkFeatureState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SecondFactorAuthenticationType.html">SecondFactorAuthenticationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SecondFactorVerificationType.html">SecondFactorVerificationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/SqliteDatabase">SqliteDatabase</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AccessDelegate.html">AccessDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DigitalIdDelegate.html">DigitalIdDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ExtraData.html">ExtraData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MobileAccess.html">MobileAccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MobileCredential.html">MobileCredential</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NotificationsDelegate.html">NotificationsDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Reader.html">Reader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ReaderAttributes.html">ReaderAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ReaderUpdateDelegate.html">ReaderUpdateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RegistrationDelegate.html">RegistrationDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SaltoAccessDelegate.html">SaltoAccessDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SaltoUpdateDelegate.html">SaltoUpdateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SdkFeatureStateDelegate.html">SdkFeatureStateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SdkStateDelegate.html">SdkStateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StringValueConvertible.html">StringValueConvertible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AccessResult.html">AccessResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DigitalId.html">DigitalId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MobileAccessLocalization.html">MobileAccessLocalization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MobileCredentialStatus.html">MobileCredentialStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:23GallagherMobileAccessNN0B16CredentialUpdateV">MobileCredentialUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReaderAction.html">ReaderAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SaltoAccessResult.html">SaltoAccessResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SaltoKeyIdentifier.html">SaltoKeyIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SdkFeature.html">SdkFeature</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN29AuthenticationDetailsProvidera">AuthenticationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN32CredentialDeleteCompletedHandlera">CredentialDeleteCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN27NotificationDetailsProvidera">NotificationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN28ReaderActionCompletedHandlera">ReaderActionCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN39ReaderActionEnumerationCompletedHandlera">ReaderActionEnumerationCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN27RegistrationDetailsProvidera">RegistrationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN38SecondFactorAuthenticationTypeSelectora">SecondFactorAuthenticationTypeSelector</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SaltoError</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">SaltoError</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN10SaltoErrorO015deserializationF0yACSSSgcACmF"></a>
+                    <a name="//apple_ref/swift/Element/deserializationError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN10SaltoErrorO015deserializationF0yACSSSgcACmF">deserializationError(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">deserializationError</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN10SaltoErrorO24mobileCredentialNotFoundyAcA0bH0_pcACmF"></a>
+                    <a name="//apple_ref/swift/Element/mobileCredentialNotFound(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN10SaltoErrorO24mobileCredentialNotFoundyAcA0bH0_pcACmF">mobileCredentialNotFound(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">mobileCredentialNotFound</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MobileCredential.html">MobileCredential</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN10SaltoErrorO12addKeyFailedyACs0F0_pcACmF"></a>
+                    <a name="//apple_ref/swift/Element/addKeyFailed(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN10SaltoErrorO12addKeyFailedyACs0F0_pcACmF">addKeyFailed(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">addKeyFailed</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN10SaltoErrorO15deleteKeyFailedyACs0F0_pcACmF"></a>
+                    <a name="//apple_ref/swift/Element/deleteKeyFailed(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN10SaltoErrorO15deleteKeyFailedyACs0F0_pcACmF">deleteKeyFailed(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">deleteKeyFailed</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN10SaltoErrorO13getKeysFailedyACs0F0_pSg_SSSgtcACmF"></a>
+                    <a name="//apple_ref/swift/Element/getKeysFailed(_:message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN10SaltoErrorO13getKeysFailedyACs0F0_pSg_SSSgtcACmF">getKeysFailed(_:<wbr>message:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">getKeysFailed</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN10SaltoErrorO015cloudConnectionF0yACs0F0_pSgcACmF"></a>
+                    <a name="//apple_ref/swift/Element/cloudConnectionError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN10SaltoErrorO015cloudConnectionF0yACs0F0_pSgcACmF">cloudConnectionError(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">cloudConnectionError</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN10SaltoErrorO010decryptionF0yACs0F0_pcACmF"></a>
+                    <a name="//apple_ref/swift/Element/decryptionError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN10SaltoErrorO010decryptionF0yACs0F0_pcACmF">decryptionError(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">decryptionError</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN10SaltoErrorO08saltoSdkF0yACs0F0_pSgcACmF"></a>
+                    <a name="//apple_ref/swift/Element/saltoSdkError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN10SaltoErrorO08saltoSdkF0yACs0F0_pSgcACmF">saltoSdkError(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">saltoSdkError</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN10SaltoErrorO10unexpectedyACSScACmF"></a>
+                    <a name="//apple_ref/swift/Element/unexpected(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN10SaltoErrorO10unexpectedyACSScACmF">unexpected(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">unexpected</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:SQ2eeoiySbx_xtFZ"></a>
+                    <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:SQ2eeoiySbx_xtFZ">==(_:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">SaltoError</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">SaltoError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN10SaltoErrorO017isCloudConnectionF0Sbvp"></a>
+                    <a name="//apple_ref/swift/Property/isCloudConnectionError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN10SaltoErrorO017isCloudConnectionF0Sbvp">isCloudConnectionError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isCloudConnectionError</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:SH4hash4intoys6HasherVz_tF"></a>
+                    <a name="//apple_ref/swift/Method/hash(into:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:SH4hash4intoys6HasherVz_tF">hash(into:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">hash</span><span class="p">(</span><span class="n">into</span> <span class="nv">hasher</span><span class="p">:</span> <span class="k">inout</span> <span class="kt">Hasher</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-12-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

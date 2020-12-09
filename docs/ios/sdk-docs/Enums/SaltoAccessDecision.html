@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SaltoAccessDecision Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Enum/SaltoAccessDecision" class="dashAnchor"></a>
+    <a title="SaltoAccessDecision Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SaltoAccessDecision Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../developer-guide.html">developer-guide</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/MobileAccessProvider.html">MobileAccessProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AccessDecision.html">AccessDecision</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AccessMode.html">AccessMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CloudNetworkConnectionError.html">CloudNetworkConnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CloudTlsValidationMode.html">CloudTlsValidationMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DeleteOption.html">DeleteOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DigitalIdError.html">DigitalIdError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DigitalIdStatusType.html">DigitalIdStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MobileAccessState.html">MobileAccessState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MobileCredentialFilter.html">MobileCredentialFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MobileCredentialKeyStatus.html">MobileCredentialKeyStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderActionType.html">ReaderActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderConnectionError.html">ReaderConnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderDistance.html">ReaderDistance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReaderUpdateType.html">ReaderUpdateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RegistrationError.html">RegistrationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SaltoAccessDecision.html">SaltoAccessDecision</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SaltoError.html">SaltoError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SdkFeatureState.html">SdkFeatureState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SecondFactorAuthenticationType.html">SecondFactorAuthenticationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SecondFactorVerificationType.html">SecondFactorVerificationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/SqliteDatabase">SqliteDatabase</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AccessDelegate.html">AccessDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DigitalIdDelegate.html">DigitalIdDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ExtraData.html">ExtraData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MobileAccess.html">MobileAccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MobileCredential.html">MobileCredential</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NotificationsDelegate.html">NotificationsDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Reader.html">Reader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ReaderAttributes.html">ReaderAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ReaderUpdateDelegate.html">ReaderUpdateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RegistrationDelegate.html">RegistrationDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SaltoAccessDelegate.html">SaltoAccessDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SaltoUpdateDelegate.html">SaltoUpdateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SdkFeatureStateDelegate.html">SdkFeatureStateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SdkStateDelegate.html">SdkStateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StringValueConvertible.html">StringValueConvertible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AccessResult.html">AccessResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DigitalId.html">DigitalId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MobileAccessLocalization.html">MobileAccessLocalization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MobileCredentialStatus.html">MobileCredentialStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:23GallagherMobileAccessNN0B16CredentialUpdateV">MobileCredentialUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ReaderAction.html">ReaderAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SaltoAccessResult.html">SaltoAccessResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SaltoKeyIdentifier.html">SaltoKeyIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SdkFeature.html">SdkFeature</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN29AuthenticationDetailsProvidera">AuthenticationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN32CredentialDeleteCompletedHandlera">CredentialDeleteCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN27NotificationDetailsProvidera">NotificationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN28ReaderActionCompletedHandlera">ReaderActionCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN39ReaderActionEnumerationCompletedHandlera">ReaderActionEnumerationCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN27RegistrationDetailsProvidera">RegistrationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:23GallagherMobileAccessNN38SecondFactorAuthenticationTypeSelectora">SecondFactorAuthenticationTypeSelector</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SaltoAccessDecision</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoAccessDecision</span> <span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                </div>
+              </div>
+            <p>Access decision results returned from the Salto JustIN mobile SDK after attempting to open a Salto door.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO27AUTH_SUCCESS_UNKNOWN_RESULTyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_UNKNOWN_RESULT" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO27AUTH_SUCCESS_UNKNOWN_RESULTyA2CmF">AUTH_SUCCESS_UNKNOWN_RESULT</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication but no information about the operation result.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_UNKNOWN_RESULT</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO27AUTH_SUCCESS_ACCESS_GRANTEDyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_ACCESS_GRANTED" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO27AUTH_SUCCESS_ACCESS_GRANTEDyA2CmF">AUTH_SUCCESS_ACCESS_GRANTED</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication and access granted (lock opened).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_ACCESS_GRANTED</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO28AUTH_SUCCESS_ACCESS_REJECTEDyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_ACCESS_REJECTED" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO28AUTH_SUCCESS_ACCESS_REJECTEDyA2CmF">AUTH_SUCCESS_ACCESS_REJECTED</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication and access rejected.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_ACCESS_REJECTED</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO27AUTH_SUCCESS_DOOR_IN_OFFICEyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_DOOR_IN_OFFICE" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO27AUTH_SUCCESS_DOOR_IN_OFFICEyA2CmF">AUTH_SUCCESS_DOOR_IN_OFFICE</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication and door opened with office mode set.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_DOOR_IN_OFFICE</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO23AUTH_SUCCESS_END_OFFICEyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_END_OFFICE" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO23AUTH_SUCCESS_END_OFFICEyA2CmF">AUTH_SUCCESS_END_OFFICE</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication and door closed with office mode removed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_END_OFFICE</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO27AUTH_SUCCESS_OPENING_ROLLERyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_OPENING_ROLLER" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO27AUTH_SUCCESS_OPENING_ROLLERyA2CmF">AUTH_SUCCESS_OPENING_ROLLER</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication and opening roller.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_OPENING_ROLLER</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO27AUTH_SUCCESS_CLOSING_ROLLERyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_CLOSING_ROLLER" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO27AUTH_SUCCESS_CLOSING_ROLLERyA2CmF">AUTH_SUCCESS_CLOSING_ROLLER</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication and closing roller.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_CLOSING_ROLLER</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO24AUTH_SUCCESS_STOP_ROLLERyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_STOP_ROLLER" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO24AUTH_SUCCESS_STOP_ROLLERyA2CmF">AUTH_SUCCESS_STOP_ROLLER</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication and stop roller.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_STOP_ROLLER</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO29AUTH_SUCCESS_WAIT_SECOND_CARDyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_WAIT_SECOND_CARD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO29AUTH_SUCCESS_WAIT_SECOND_CARDyA2CmF">AUTH_SUCCESS_WAIT_SECOND_CARD</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication and waiting for a second valid key for opening.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_WAIT_SECOND_CARD</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO25AUTH_SUCCESS_PIN_REQUIREDyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_PIN_REQUIRED" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO25AUTH_SUCCESS_PIN_REQUIREDyA2CmF">AUTH_SUCCESS_PIN_REQUIRED</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication, access rejected, PIN required. Introduce PIN before key.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_PIN_REQUIRED</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO26AUTH_SUCCESS_CANCELLED_KEYyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_CANCELLED_KEY" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO26AUTH_SUCCESS_CANCELLED_KEYyA2CmF">AUTH_SUCCESS_CANCELLED_KEY</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication, access rejected and key should be deleted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_CANCELLED_KEY</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO28AUTH_SUCCESS_FINGER_REQUIREDyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_FINGER_REQUIRED" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO28AUTH_SUCCESS_FINGER_REQUIREDyA2CmF">AUTH_SUCCESS_FINGER_REQUIRED</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication, access rejected, fingerprint required. Input fingerprint before key.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_FINGER_REQUIRED</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:23GallagherMobileAccessNN05SaltoC8DecisionO26AUTH_SUCCESS_KEY_PROCESSEDyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/AUTH_SUCCESS_KEY_PROCESSED" class="dashAnchor"></a>
+                    <a class="token" href="#/s:23GallagherMobileAccessNN05SaltoC8DecisionO26AUTH_SUCCESS_KEY_PROCESSEDyA2CmF">AUTH_SUCCESS_KEY_PROCESSED</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Successful authentication, key data was processed successfully. Doesn&rsquo;t imply any further outcome.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">AUTH_SUCCESS_KEY_PROCESSED</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:s23CustomStringConvertibleP11descriptionSSvp"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s23CustomStringConvertibleP11descriptionSSvp">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-12-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
