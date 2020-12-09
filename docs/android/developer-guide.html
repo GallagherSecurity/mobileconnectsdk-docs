@@ -58,6 +58,9 @@ pre code {
 pre code * {
     font-family: monospace !important;
 }
+body {
+  margin-left: 20px; margin-right: 20px;
+}
 
 /* some styles copied from gallagher.com */
 
@@ -107,7 +110,7 @@ h1, h2 {
 </style>
 </head>
 <body>
-<h1>Mobile Connect SDK for Android - Developer Guide</h1>
+<h1>Gallagher Mobile Connect SDK for Android - Developer Guide</h1>
 <h2>Contents</h2>
 <ul>
 <li><a href="#prerequisites">Pre-requisites</a></li>
@@ -133,13 +136,23 @@ h1, h2 {
 </li>
 <li><a href="#salto">Salto</a></li>
 <li><a href="#digital_id">Digital ID</a></li>
-<li><a href="#faq">Frequently Asked Questions</a></li>
-<li><a href="#customising">Troubleshooting / Customising the SDK</a>
+<li><a href="#faq">Frequently Asked Questions</a>
 <ul>
-<li><a href="#configure_logging">Configure logging (optional)</a></li>
+<li><a href="#faq_location_permissions">Why does the SDK need permission to access the user's location?</a></li>
+<li><a href="#faq_device_pin_required">Why does the device need screen lock / system-level PIN enabled?</a></li>
+</ul>
+</li>
+<li><a href="#customising">Customising the SDK</a>
+<ul>
 <li><a href="#configure_notifications">Configure Android Notifications</a></li>
 <li><a href="#configure_messages">Customising SDK messages</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="#troubleshooting">Troubleshooting</a>
+<ul>
+<li><a href="#configure_logging">Configure logging (optional)</a></li>
+<li><a href="#ts_no_feature_updates">I'm not receiving Digital ID or Salto Updates from the cloud</a></li>
+<li><a href="#ts_duplicate_bouncycastle">I get &quot;Duplicate class org.bouncycastle...&quot; errors when compiling</a></li>
 </ul>
 </li>
 </ul>
@@ -237,52 +250,45 @@ android {
 
 <span class="hljs-comment">&lt;!-- Unlock notification wakes the screen --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.WAKE_LOCK"</span> /&gt;</span>
+</code></pre>
+<h3>4. Configure the Mobile Connect SDK within your application<a name=configure_sdk></a></h3>
+<p>The SDK must be configured before it can be used. To do this, call the <code>MobileAccessProvider.configure</code> method.
+We recommend you do this in your <code>Application onCreate</code> method. If you are using background access (either bluetooth or NFC) and you do not configure the SDK at or before <code>Application onCreate</code>, then the SDK may crash on launch.</p>
+<p>The configure method has the following arguments:</p>
+<ul>
+<li><code>application</code>:<br>
+Required. A reference to the Android Application instance</li>
+<li><code>databaseFilePath</code>:<br>
+Optional (you may pass <code>null</code>). The filesystem location at which the SDK stores it's internal SQLite database</li>
+<li><code>unlockNotificationChannelId</code>:<br>
+Required if you are going to use either Bluetooth or NFC Background access, otherwise you may pass <code>null</code>. See <strong>Configuring Android Notifications</strong> under the <strong>Troubleshooting / Customising the SDK</strong> section at the end of this document.</li>
+<li><code>bleForegroundServiceNotificationChannelId</code>:
+Required if you are going to use Bluetooth Background Access, otherwise you may pass <code>null</code>. See <strong>Configuring Android Notifications</strong> under the <strong>Troubleshooting / Customising the SDK</strong> section at the end of this document.</li>
+<li><code>notificationsChannelId</code>:<br>
+Required if you are going to use Command Centre Notifications, otherwise you may pass <code>null</code>. See <strong>Configuring Android Notifications</strong> under the <strong>Troubleshooting / Customising the SDK</strong> section at the end of this document.</li>
+<li><code>enabledFeatures</code>:<br>
+Required list of SDK features going to be used in your app, or an empty list if no extra features will be used.</li>
+</ul>
+<p>You may use the <code>MobileAccessProvider.getInstance()</code> method to obtain a reference to the SDK via the <code>MobileAccess</code> interface from any point in your application, however you MUST have called <code>MobileAccessProvider.configure()</code> first. Attempting to get <code>getInstance()</code> without configure will result in a Runtime exception being thrown.</p>
+<p><strong>Reference:</strong><br>
+<a href="javadoc/com/gallagher/security/mobileaccess/MobileAccessProvider.html">MobileAccessProvider</a><br>
+<a href="javadoc/com/gallagher/security/mobileaccess/MobileAccess.html">MobileAccess</a></p>
+<p>In order to get the SDK up and running, you will most likely want to call the <code>setScanning()</code> method and pass true.</p>
+<p>Here is an example of an application which starts scanning and auto-connect upon launch. If you do not have any such existing infrastructure, the simplest way to do this is to implement a custom Application class for your android app.</p>
+<ul>
+<li>Find the <code>&lt;application&gt;</code> tag in your AndroidManifest.xml, and add the following attribute:
+<code>android:name=&quot;.Application&quot;</code></li>
+<li>Create a class called <code>Application</code>, with the following content (note: package imports omitted)</li>
+</ul>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">android</span>.<span class="hljs-title">app</span>.<span class="hljs-title">Application</span> </span>{
+    <span class="hljs-keyword">private</span> MobileAccess mMobileAccess;
 
-### 4. Configure the Mobile Connect SDK within your application<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">configure_sdk</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
 
-The SDK must be configured before it can be used. To do this, call the `MobileAccessProvider.configure` method. 
-We recommend you do this in your `Application onCreate` method. If you are using background access (either bluetooth or NFC) and you do not configure the SDK at or before `Application onCreate`, then the SDK may crash on launch.
-
-The configure method has the following arguments:
-
-- `application`:  
-Required. A reference to the Android Application instance
-- `databaseFilePath`:  
-Optional (you may pass `null`). The filesystem location at which the SDK stores it's internal SQLite database
-- `unlockNotificationChannelId`:  
-Required if you are going to use either Bluetooth or NFC Background access, otherwise you may pass `null`. See **Configuring Android Notifications** under the **Troubleshooting / Customising the SDK** section at the end of this document.
-- `bleForegroundServiceNotificationChannelId`:
-Required if you are going to use Bluetooth Background Access, otherwise you may pass `null`. See **Configuring Android Notifications** under the **Troubleshooting / Customising the SDK** section at the end of this document.
-- `notificationsChannelId`:  
-Required if you are going to use Command Centre Notifications, otherwise you may pass `null`. See **Configuring Android Notifications** under the **Troubleshooting / Customising the SDK** section at the end of this document.
-- `enabledFeatures`:  
-Required list of SDK features going to be used in your app, or an empty list if no extra features will be used.
-
-You may use the `MobileAccessProvider.getInstance()` method to obtain a reference to the SDK via the `MobileAccess` interface from any point in your application, however you MUST have called `MobileAccessProvider.configure()` first. Attempting to get `getInstance()` without configure will result in a Runtime exception being thrown.
-
-**Reference:**  
-[MobileAccessProvider](javadoc/com/gallagher/security/mobileaccess/MobileAccessProvider.html)  
-[MobileAccess](javadoc/com/gallagher/security/mobileaccess/MobileAccess.html)  
-
-
-In order to get the SDK up and running, you will most likely want to call the `setScanning()` method and pass true.
-
-Here is an example of an application which starts scanning and auto-connect upon launch. If you do not have any such existing infrastructure, the simplest way to do this is to implement a custom Application class for your android app.
-
-* Find the `<span class="hljs-tag">&lt;<span class="hljs-name">application</span>&gt;</span>` tag in your AndroidManifest.xml, and add the following attribute:
-`android:name=".Application"`
-* Create a class called `Application`, with the following content (note: package imports omitted)
-
-```java
-public class Application extends android.app.Application {
-    private MobileAccess mMobileAccess;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        mMobileAccess.setScanning(true);
-        mMobileAccess.setAutomaticAccessEnabled(true);
+        mMobileAccess.setScanning(<span class="hljs-keyword">true</span>);
+        mMobileAccess.setAutomaticAccessEnabled(<span class="hljs-keyword">true</span>);
     }
 }
 </code></pre>
@@ -697,7 +703,17 @@ Connection problems and other issues may occur which prevent updates from being 
 <a href="javadoc/com/gallagher/security/mobileaccess/SdkFeatureStateListener.html">SdkFeatureStateListener</a>
 <a href="javadoc/com/gallagher/security/mobileaccess/SdkFeatureState.html">SdkFeatureState</a></p>
 <h2>Frequently Asked Questions<a name=faq></a></h2>
-<h3>1. Why does the device need screen lock / system-level PIN enabled? <a name=faq_device_pin_required></a></h3>
+<h3>Why does the SDK need permission to access the user's location?<a name=faq_location_permissions></a></h3>
+<p>Android does not let Apps use Bluetooth without location permissions. This is because an app manufacturer could use Bluetooth beacons with known locations (such as department store) to triangulage the location of your device.</p>
+<p>The Mobile Connect SDK does not obtain or calculate the user's location at any time, nor does it activate the GPS.</p>
+<p>Android 6.0 or higher devices require <code>android.permission.ACCESS_COARSE_LOCATION</code> in your android manifest, and you must also request this programatically from within your app's code using the <a href=""><code>requestPermissions</code></a> method. The SDK will not do this for you.</p>
+<p>For more information please see <a href="https://developer.android.com/training/permissions/requesting">developer.android.com/training/permissions/requesting</a></p>
+<p>Android 10.0 added further restrictions. <code>android.permission.ACCESS_FINE_LOCATION</code> is now required to use bluetooth while the app is visible on-screen, and <code>android.permission.ACCESS_BACKGROUND_LOCATION</code> is now required to use bluetooth when the app is not visible.</p>
+<p>For more information please see <a href="https://developer.android.com/about/versions/10/privacy/changes">developer.android.com/about/versions/10/privacy/changes</a></p>
+<p>The Mobile Connect SDK sample app contains code which demonstrates this. The Mobile Connect SDK will tell you (via <code>onStateChanged</code> callbacks) if you are missing some permissions, and it will then prompt when required.</p>
+<h4>Note regarding <code>BLE_ERROR_NO_BACKGROUND_LOCATION_PERMISSION</code></h4>
+<p>The Mobile Connect SDK will always present this error via <code>onStateChanged</code> if your app is running on Android 10, and you do not have the permission. It does this all the time, regardless of whether you have configured background scanning or not. If your app is not configured to use Bluetooth in the background, you can ignore <code>BLE_ERROR_NO_BACKGROUND_LOCATION_PERMISSION</code></p>
+<h3>Why does the device need screen lock / system-level PIN enabled? <a name=faq_device_pin_required></a></h3>
 <p>If a user attempts to register a mobile credential on an Android device which does not have screen lock enabled, the registration operation will fail.</p>
 <p>This is due to a technical implementation detail and is to improve security.</p>
 <p>Internally, the Mobile Connect SDK stores two FIDO credentials for each site.</p>
@@ -706,17 +722,10 @@ Connection problems and other issues may occur which prevent updates from being 
 <li>The second-factor credential requires the mobile device user to input either a PIN or their fingerprint, and is used when the Command Centre Access Zone is in PINs mode.</li>
 </ol>
 <p>The second-factor credential needs to be more secure, because zones in PINs mode typically have much higher physical security requirements. As such, the Mobile Connect SDK requests that Android performs additional encryption on the keys associated with second-factor credentials. This is implemented in Android by using the screen lock feature, which is why credential registration requires screen lock to be enabled.</p>
-<p>Refer <a href="https://developer.android.com/training/articles/keystore#UserAuthentication">https://developer.android.com/training/articles/keystore#UserAuthentication</a> for Android documentation.</p>
+<p>Refer <a href="https://developer.android.com/training/articles/keystore#UserAuthentication">developer.android.com/training/articles/keystore#UserAuthentication</a> for Android documentation.</p>
 <p>Note that as per the Android documentation, if the user registers, then subsequently turns off their device level screen lock, then the second-factor keys will be invalidated. They will be able to authenticate against readers where the Access Zone is not in PINs mode, however if they attempt to authenticate where the second factor is required, this will fail. The only available solution is for that user to re-enable their screen lock, then repeat the registration process.</p>
-<h2>Troubleshooting / Customising the SDK<a name=customising></a></h2>
-<h3>1. Configuring Logging (optional) <a name=configure_logging></a></h3>
-<p>If you encounter unexpected errors or behaviour, you may wish to enable logging from the SDK to help with troubleshooting.</p>
-<p>Internally, the Android SDK uses the standard Java <strong>slf4j</strong> logging abstractions.
-If your app uses an slf4j compatible logging framework, then log output from the SDK will be appended to your logs automatically.</p>
-<p>If your app has a high log level (debug, verbose, etc) you may wish to filter out debug or verbose messages from the SDK; You can do this
-by filtering log output from the package <code>com.gallagher.security</code></p>
-<p>Configuration of Android logging frameworks is beyond the scope of this document, however the Android SDK sample application demonstrates using the logback-android framework to enable SDK log output.</p>
-<h3>2. Configuring Android Notifications<a name=configure_notifications></a></h3>
+<h2>Customising the SDK<a name=customising></a></h2>
+<h3>Configuring Android Notifications<a name=configure_notifications></a></h3>
 <p>If your application uses the background access feature of the Mobile Connect SDK, then when the user encounters a reader that is configured to require a second factor, they will need to unlock the phone in order to complete the request. (For example, You can't prompt someone to enter a PIN when the phone is locked)</p>
 <p>In order to facilitate this, the SDK will show a pop-up notification asking the user to unlock their phone.</p>
 <p>On Android versions 7 and older, the SDK is able to achieve this without requiring any support from the surrounding app (although you may optionally wish to customise the display of this pop-up notification - see <strong>Customising SDK messages</strong> below)</p>
@@ -726,33 +735,63 @@ by filtering log output from the package <code>com.gallagher.security</code></p>
 <li>On Android 8+, all notifications must be assigned a notification channel (<a href="https://developer.android.com/training/notify-user/channels.html">More Information</a>)</li>
 <li>On Android 8+, persistent services are not allowed unless they display a &quot;foreground notification&quot; informing the user of their existence (<a href="https://developer.android.com/about/versions/oreo/background.html">More information</a>)</li>
 </ul>
-<p>What this means is that if you wish to use the Background Access feature of the SDK, you should create notification channels for the pop-up and persistent foreground notifications, and pass the channel ID's to the <code>MobileAccessProvider.configure(...)</code> method.</p>
-<p>For more information, refer to <a href="https://developer.android.com/training/notify-user/channels.html">Google's &quot;Create and Manage Notification Channels&quot; documentation</a>, and refer to the <code>configureNotificationChannels</code> method in <code>Application.java</code> in the SDK sample application.</p>
-<h3>3. Customising SDK messages<a name=configure_messages></a></h3>
+<p>What this means is that if you wish to use the Background Access feature of the SDK, you should create notification channels for the pop-up and persistent foreground notifications, and pass the channel ID's to the <code>MobileAccessProvider.configure(...)</code> method using the <code>NotitificationsConfiguration</code> object.</p>
+<p>For more information, refer to <a href="https://developer.android.com/training/notify-user/channels.html">Google's &quot;Create and Manage Notification Channels&quot; documentation</a>, and refer to the <code>onCreate</code> method in <code>Application.java</code> in the SDK sample application.</p>
+<p>Here is a code snippet taken from the SDK sample application which demonstrates this</p>
+<pre><code class="language-java"><span class="hljs-comment">// Notification channel IDs for android 8+</span>
+String unlockNotificationChannelId = <span class="hljs-string">"com.yourapp.UnlockNotificationChannelId"</span>;
+String foregroundNotificationChannelId = <span class="hljs-string">"com.yourapp.ForegroundNotificationChannelId"</span>;
+
+<span class="hljs-comment">// Configure an intent which opens our app when the user taps on a notification.</span>
+<span class="hljs-comment">// You can specify the activity you'd like to launch and any other flags here,</span>
+<span class="hljs-comment">// or use different intents for the different kinds of notification that the SDK may show</span>
+Intent resultIntent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, MainActivity.class);
+resultIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+resultIntent.setAction(Intent.ACTION_MAIN);
+resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+PendingIntent notificationTappedIntent = PendingIntent.getActivity(<span class="hljs-keyword">this</span>, <span class="hljs-number">0</span>, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+NotificationsConfiguration notificationsConfiguration = <span class="hljs-keyword">new</span> NotificationsConfiguration(
+       unlockNotificationChannelId,
+       notificationTappedIntent,
+       foregroundNotificationChannelId,
+       notificationTappedIntent);
+
+MobileAccess mobileAccess = MobileAccessProvider.configure(
+       <span class="hljs-keyword">this</span>, <span class="hljs-comment">// reference to android Application</span>
+       <span class="hljs-keyword">null</span>, <span class="hljs-comment">// databaseFilePath: supply null to use the default</span>
+       notificationsConfiguration, <span class="hljs-comment">// notifications config, as above</span>
+       EnumSet.noneOf(SdkFeature.class), <span class="hljs-comment">// Not using Salto or Digital ID</span>
+       CloudTlsValidationMode.ANY_VALID_CERTIFICATE_REQUIRED,
+       <span class="hljs-keyword">null</span>);
+</code></pre>
+<h3>2. Customising SDK messages<a name=configure_messages></a></h3>
 <p>The SDK will at times need to prompt the user for information, such as to enter their fingerprint or passcode. By default the SDK will generate messages in English, however you have the ability to alter these messages - either to simply change the message text to better suit your application, or to translate it into other languages.</p>
 <p>The SDK uses Android's resource system to manage these messages. In the SDK we define a number of string and image resources; If you wish to customise them, you can declare resources with the same ID's in your host application, which will override the resources from the SDK.</p>
 <p>For a full example refer to the strings.xml, colors.xml and other resources in the SDK sample application</p>
-<h4>3.1. Notification Details</h4>
+<h4>2.1. Notification Details</h4>
 <p><strong>Pop-up &quot;unlock device&quot; notifications:</strong></p>
 <p>As above, if you have enabled background access, the SDK will show a pop-up notification asking the user to unlock their device if needed.</p>
 <p>To customise the appearance of this notification, do the following:</p>
 <p><code>strings.xml</code></p>
-<pre><code class="language-xml"><span class="hljs-comment">&lt;!-- This will be passed to String.format, %s is optional and will be substituted for the reader name.
-If you do not customise this, the default is [%s]. 
-The Gallagher Mobile Connect application customises this to put the App name here with no substitution --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ggl_unlock_notification_title"</span>&gt;</span>Unlock Title: %s<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+<pre><code class="language-xml"><span class="hljs-comment">&lt;!-- %s is optional and will be substituted for the door reader name.
+If you do not customise this, the default is [%s]
+The Gallagher Mobile Connect app customises this to "Unlock Device to Open Door" --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ggl_unlock_notification_title"</span>&gt;</span>Unlock Device to Open Door<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 
-<span class="hljs-comment">&lt;!-- This will be passed to String.format, %s is optional and will be substituted for the reader name.
-If you do not customise this, the default is [Unlock for "%s"]. --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ggl_unlock_notification_message"</span>&gt;</span>Your Unlock Message: "%s"<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- %s is optional and will be substituted for the reader name.
+If you do not customise this, the default is: [Unlock for "%s"]
+The Gallagher Mobile Connect app does not customise this. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ggl_unlock_notification_message"</span>&gt;</span>Please Unlock: "%s"<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 
-<span class="hljs-comment">&lt;!-- This will be passed to String.format, %s is optional and will be substituted for the reader name.
-If you do not customise this, the default is [%s].
-The Gallagher Mobile Connect application customises this to put the App name here with no substitution --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ggl_open_notification_title"</span>&gt;</span>Open Title: %s<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- %s is optional and will be substituted for the door reader name.
+If you do not customise this, the default is [%s]
+The Gallagher Mobile Connect application customises this as "Open Mobile Connect to Open Door" --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ggl_open_notification_title"</span>&gt;</span>Open App to Open Door<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 
-<span class="hljs-comment">&lt;!-- This will be passed to String.format, %s is optional and will be substituted for the reader name.
-If you do not customise this, the default is [Open for "%s"]. --&gt;</span>
+<span class="hljs-comment">&lt;!-- %s is optional and will be substituted for the reader name.
+If you do not customise this, the default is [Open for "%s"]
+The Gallagher Mobile Connect app does not customise this. --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ggl_open_notification_message"</span>&gt;</span>Your Open Message: "%s"<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 </code></pre>
 <p><code>icon:</code></p>
@@ -773,7 +812,7 @@ To customise the appearance of this notification, do the following:</p>
 <p>Create a vector xml drawable and give it the name of <code>ic_ggl_mobile_access_scanning_icon</code>.
 If you do not customise this, the default icon is the <a href="https://material.io/icons/#ic_tap_and_play">&quot;tap and play&quot; icon from the Material Design icon set</a></p>
 <p>Note: the same icon is used for unlock notifications and the persistent foreground notification.</p>
-<h4>3.2 Registration Details</h4>
+<h4>2.2 Registration Details</h4>
 <p>When the user registers a mobile credential, the SDK will ask them for either their PIN or Fingerprint, as per the <a href="#registration">registration</a> section earlier in this document.</p>
 <p>To customise the appearance of the registration prompts, do the following:</p>
 <p><code>strings.xml</code></p>
@@ -784,7 +823,7 @@ If you do not customise this, the default is an empty string, which will not sho
 If you do not customise this, the default is [Register for "%s"] --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ggl_mobilecredential_register_message"</span>&gt;</span>Register for "%s"<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 </code></pre>
-<h4>3.3 Authentication Details</h4>
+<h4>2.3 Authentication Details</h4>
 <p>When the user attempts to access a door that requires second factor authentication, the SDK will ask them for either their PIN or Fingerprint - whatever they chose when they previously registered their credential.</p>
 <p>To customise the appearance of the authentication prompts, do the following:</p>
 <p><code>strings.xml</code></p>
@@ -806,11 +845,35 @@ If you do not customise this, the default is [Register for "%s"] --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ggl_fingerprint_success"</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 
 </code></pre>
-<h3>4. Troubleshooting<a name=troubleshooting></a></h3>
-<p><strong>Why aren't I receiving Digital ID or Salto Updates?</strong></p>
+<h2>Troubleshooting <a name=troubleshooting></a></h2>
+<h3>Configuring Logging (optional) <a name=configure_logging></a></h3>
+<p>If you encounter unexpected errors or behaviour, you may wish to enable logging from the SDK to help with troubleshooting.</p>
+<p>Internally, the Android SDK uses the standard Java <strong>slf4j</strong> logging abstractions.
+If your app uses an slf4j compatible logging framework, then log output from the SDK will be appended to your logs automatically.</p>
+<p>If your app has a high log level (debug, verbose, etc) you may wish to filter out debug or verbose messages from the SDK; You can do this
+by filtering log output from the package <code>com.gallagher.security</code></p>
+<p>Configuration of Android logging frameworks is beyond the scope of this document, however the Android SDK sample application demonstrates using the logback-android framework to enable SDK log output.</p>
+<h3>I'm not receiving Digital ID or Salto Updates from the cloud<a name=ts_no_feature_updates></a></h3>
 <p>Ensure you have added your listeners and are requesting to sync with the Cloud e.g.</p>
 <pre><code class="language-java">mMobileAccess.addDigitalIdListener(<span class="hljs-keyword">this</span>);
 mMobileAccess.syncCredentialItemUpdates();
+</code></pre>
+<h3>I get &quot;Duplicate class org.bouncycastle...&quot; errors when compiling <a name=ts_duplicate_bouncycastle></a></h3>
+<p>Release 15 of the Mobile Connect SDK for Android uses BouncyCastle for End to End encryption of Salto keys and Digital ID's. <a href="https://www.bouncycastle.org/">BouncyCastle</a> is an open source cryptography library which is very widely used, and is deployed as part of the Android operating system itself. Unfortunately the version that ships with older Android devices may be out of date; as such we need to explicitly reference a newer version.</p>
+<p>Our SDK specifically references the following packages:</p>
+<ul>
+<li><code>bcprov-jdk15to18:1.66</code></li>
+<li><code>bcpkix-jdk15to18:1.66</code></li>
+</ul>
+<p>If your application also references BouncyCastle (either directly yourself, or indirectly via some other library) then this may cause two copies of BouncyCastle to be included, resulting in the &quot;Duplicate class&quot; compile errors.</p>
+<p>For example, a third party app was referencing <code>bcprov-jdk15on:1.61</code> and <code>bcpkix-jdk15on:1.61</code> which triggers this error. To resolve it, in your app's gradle file where you reference our SDK, tell it to exclude the transitive reference. This means the SDK will use your other version, rather than trying to pull in a second copy.</p>
+<p>E.g.</p>
+<pre><code class="language-gradle"><span class="hljs-keyword">dependencies</span> {
+    ...
+    implementation(<span class="hljs-string">'com.gallagher.security:gallaghermobileaccess:15.01.032'</span>) {
+        <span class="hljs-keyword">exclude</span> <span class="hljs-keyword">group</span>: <span class="hljs-string">'org.bouncycastle'</span> <span class="hljs-comment">// other bouncycastle is already loaded</span>
+    }
+    ...
 </code></pre>
 </body>
 </html>
