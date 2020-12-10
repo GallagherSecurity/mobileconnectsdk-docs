@@ -3,33 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3279EA2257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3279EA1257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework */; };
+		D3279EA3257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3279EA1257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D32ABEA3257C66E500C2817A /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3170AAD25185FC7008512AA /* RxSwift.xcframework */; };
+		D32ABEA4257C66E500C2817A /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3170AAD25185FC7008512AA /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D33B6C83257E372A005E233D /* GallagherMobileAccess.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3170AAE25185FC7008512AA /* GallagherMobileAccess.xcframework */; };
+		D33B6C84257E372A005E233D /* GallagherMobileAccess.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3170AAE25185FC7008512AA /* GallagherMobileAccess.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D33E70D4206895FA00DABEA3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D33E70D3206895FA00DABEA3 /* README.md */; };
-		D34F6FBD2052282B00E95FDA /* GallagherMobileAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D34F6FBA2052281300E95FDA /* GallagherMobileAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D383723F257CE2CB0082BDC8 /* DigitalIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D383723E257CE2CB0082BDC8 /* DigitalIdViewController.swift */; };
+		D3837244257E2E240082BDC8 /* SaltoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3837243257E2E240082BDC8 /* SaltoViewController.swift */; };
 		D384B009204C97A000A16260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384B008204C97A000A16260 /* AppDelegate.swift */; };
 		D384B00E204C97A000A16260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D384B00C204C97A000A16260 /* Main.storyboard */; };
 		D384B010204C97A000A16260 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D384B00F204C97A000A16260 /* Assets.xcassets */; };
 		D384B013204C97A000A16260 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D384B011204C97A000A16260 /* LaunchScreen.storyboard */; };
-		D384B020204CD5E000A16260 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D384B01F204CD5E000A16260 /* RxSwift.framework */; };
-		D384B022204CD5E800A16260 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D384B01F204CD5E000A16260 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D384B024204CDD9900A16260 /* RegistrationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384B023204CDD9900A16260 /* RegistrationsViewController.swift */; };
 		D384B026204CDE3B00A16260 /* ReadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384B025204CDE3B00A16260 /* ReadersViewController.swift */; };
 		D384B028204CE96E00A16260 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384B027204CE96D00A16260 /* Toast.swift */; };
-		D3C4935620522D9900AF7428 /* GallagherMobileAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34F6FBA2052281300E95FDA /* GallagherMobileAccess.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D384B01E204CD46D00A16260 /* Embed Frameworks */ = {
+		D32ABEA5257C66E500C2817A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D34F6FBD2052282B00E95FDA /* GallagherMobileAccess.framework in Embed Frameworks */,
-				D384B022204CD5E800A16260 /* RxSwift.framework in Embed Frameworks */,
+				D32ABEA4257C66E500C2817A /* RxSwift.xcframework in Embed Frameworks */,
+				D3279EA3257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework in Embed Frameworks */,
+				D33B6C84257E372A005E233D /* GallagherMobileAccess.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,15 +42,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D3170AAD25185FC7008512AA /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxSwift.xcframework; sourceTree = "<group>"; };
+		D3170AAE25185FC7008512AA /* GallagherMobileAccess.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GallagherMobileAccess.xcframework; sourceTree = "<group>"; };
+		D3279EA1257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SaltoJustINMobileSDK.xcframework; path = mobileconnectsdksample/SaltoJustINMobileSDK.xcframework; sourceTree = "<group>"; };
 		D33E70D3206895FA00DABEA3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D34F6FBA2052281300E95FDA /* GallagherMobileAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GallagherMobileAccess.framework; sourceTree = "<group>"; };
+		D383723E257CE2CB0082BDC8 /* DigitalIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalIdViewController.swift; sourceTree = "<group>"; };
+		D3837243257E2E240082BDC8 /* SaltoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaltoViewController.swift; sourceTree = "<group>"; };
 		D384B005204C97A000A16260 /* mobileconnectsdksample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileconnectsdksample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D384B008204C97A000A16260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D384B00D204C97A000A16260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D384B00F204C97A000A16260 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D384B012204C97A000A16260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D384B014204C97A000A16260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D384B01F204CD5E000A16260 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = "<group>"; };
 		D384B023204CDD9900A16260 /* RegistrationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationsViewController.swift; sourceTree = "<group>"; };
 		D384B025204CDE3B00A16260 /* ReadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadersViewController.swift; sourceTree = "<group>"; };
 		D384B027204CE96D00A16260 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -56,8 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D384B020204CD5E000A16260 /* RxSwift.framework in Frameworks */,
-				D3C4935620522D9900AF7428 /* GallagherMobileAccess.framework in Frameworks */,
+				D32ABEA3257C66E500C2817A /* RxSwift.xcframework in Frameworks */,
+				D3279EA2257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework in Frameworks */,
+				D33B6C83257E372A005E233D /* GallagherMobileAccess.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,11 +99,13 @@
 				D384B00F204C97A000A16260 /* Assets.xcassets */,
 				D384B011204C97A000A16260 /* LaunchScreen.storyboard */,
 				D384B014204C97A000A16260 /* Info.plist */,
-				D384B01F204CD5E000A16260 /* RxSwift.framework */,
+				D383723E257CE2CB0082BDC8 /* DigitalIdViewController.swift */,
 				D384B023204CDD9900A16260 /* RegistrationsViewController.swift */,
-				D34F6FBA2052281300E95FDA /* GallagherMobileAccess.framework */,
 				D384B025204CDE3B00A16260 /* ReadersViewController.swift */,
 				D384B027204CE96D00A16260 /* Toast.swift */,
+				D3170AAE25185FC7008512AA /* GallagherMobileAccess.xcframework */,
+				D3170AAD25185FC7008512AA /* RxSwift.xcframework */,
+				D3837243257E2E240082BDC8 /* SaltoViewController.swift */,
 			);
 			path = mobileconnectsdksample;
 			sourceTree = "<group>";
@@ -102,6 +113,7 @@
 		D3C4935520522D9900AF7428 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3279EA1257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,7 +128,7 @@
 				D384B001204C97A000A16260 /* Sources */,
 				D384B002204C97A000A16260 /* Frameworks */,
 				D384B003204C97A000A16260 /* Resources */,
-				D384B01E204CD46D00A16260 /* Embed Frameworks */,
+				D32ABEA5257C66E500C2817A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,7 +146,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Gallagher Group Ltd";
 				TargetAttributes = {
 					D384B004204C97A000A16260 = {
@@ -181,7 +193,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3837244257E2E240082BDC8 /* SaltoViewController.swift in Sources */,
 				D384B026204CDE3B00A16260 /* ReadersViewController.swift in Sources */,
+				D383723F257CE2CB0082BDC8 /* DigitalIdViewController.swift in Sources */,
 				D384B024204CDD9900A16260 /* RegistrationsViewController.swift in Sources */,
 				D384B028204CE96E00A16260 /* Toast.swift in Sources */,
 				D384B009204C97A000A16260 /* AppDelegate.swift in Sources */,
@@ -235,6 +249,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -260,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -295,6 +310,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -314,11 +330,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -334,8 +351,16 @@
 					"$(PROJECT_DIR)/mobileconnectsdksample",
 				);
 				INFOPLIST_FILE = mobileconnectsdksample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					GallagherMobileAccess,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gallagher.security.mobileconnectsdksample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -354,8 +379,15 @@
 					"$(PROJECT_DIR)/mobileconnectsdksample",
 				);
 				INFOPLIST_FILE = mobileconnectsdksample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					GallagherMobileAccess,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gallagher.security.mobileconnectsdksample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

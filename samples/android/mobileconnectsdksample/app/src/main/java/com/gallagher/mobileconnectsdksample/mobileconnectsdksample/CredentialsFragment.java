@@ -2,6 +2,8 @@ package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
 import android.content.Context;
 import android.os.Bundle;
+
+import com.gallagher.security.mobileaccess.DeleteOption;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AlertDialog;
@@ -31,9 +33,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-;
-
-public class RegistrationsFragment extends Fragment implements RegisterMobileCredentialDialogFragment.OnInvitationDetailsListener {
+public class CredentialsFragment extends Fragment implements RegisterMobileCredentialDialogFragment.OnInvitationDetailsListener, TabFragment {
 
     // *********************************************************************************
     // Get a reference to the MobileAccess shared instance
@@ -43,7 +43,8 @@ public class RegistrationsFragment extends Fragment implements RegisterMobileCre
 
     private MobileCredentialRecyclerViewAdapter mAdapter;
 
-    public RegistrationsFragment() { }
+    public String getTitle() { return "Credentials"; }
+    public int getActionId() { return R.id.action_credentials; }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,6 +74,7 @@ public class RegistrationsFragment extends Fragment implements RegisterMobileCre
             //noinspection ConstantConditions
             dlg.show(getActivity().getFragmentManager(), "fragment_register_mobile_credential");
         });
+
         return view;
     }
 
@@ -93,13 +95,12 @@ public class RegistrationsFragment extends Fragment implements RegisterMobileCre
         new AlertDialog.Builder(getActivity())
                 .setMessage("Are you sure you want to delete the credential for " + item.getFacilityName())
                 .setPositiveButton("Yes", (dlg, which) -> {
-
                     // *********************************************************************************
                     // Ask the Mobile Connect SDK to delete our credential
                     // *********************************************************************************
-                    mMobileAccess.deleteMobileCredential(item, (credential, error) -> {
+                    mMobileAccess.deleteMobileCredential(item, DeleteOption.DEFAULT, (credential, error) -> {
                         if(error != null) {
-                            Log.e("RegistrationsFragment", "Error deleting credential", error);
+                            Log.e("CredentialsFragment", "Error deleting credential", error);
                             Toast.makeText(getActivity(), "Error " + error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(getActivity(), "Deleted!", Toast.LENGTH_SHORT).show();
@@ -131,7 +132,7 @@ public class RegistrationsFragment extends Fragment implements RegisterMobileCre
                     @Override
                     public void onRegistrationCompleted(@Nullable MobileCredential credential, @Nullable RegistrationError error) {
                         if(error != null) {
-                            Log.e("RegistrationsFragment", "Registration Error", error);
+                            Log.e("CredentialsFragment", "Registration Error", error);
                             Toast.makeText(getActivity(), error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                         } else if(credential != null) {
                             Toast.makeText(getActivity(), "Registered!", Toast.LENGTH_SHORT).show();
@@ -154,7 +155,7 @@ public class RegistrationsFragment extends Fragment implements RegisterMobileCre
                     }
                 });
             } catch (URISyntaxException e) {
-                e.printStackTrace();
+                Log.e("CredentialsFragment", e.getLocalizedMessage());
             }
         }
     }
@@ -188,7 +189,7 @@ public class RegistrationsFragment extends Fragment implements RegisterMobileCre
             holder.mIdView.setText(String.valueOf(mCredentials.get(position).getFacilityId()));
             holder.mContentView.setText(mCredentials.get(position).getFacilityName());
 
-            holder.mView.setOnClickListener(v -> RegistrationsFragment.this.onMobileCredentialClicked(holder.mItem));
+            holder.mView.setOnClickListener(v -> CredentialsFragment.this.onMobileCredentialClicked(holder.mItem));
         }
 
         @Override

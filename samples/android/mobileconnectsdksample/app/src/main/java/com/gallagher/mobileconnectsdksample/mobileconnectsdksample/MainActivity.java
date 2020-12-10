@@ -1,13 +1,34 @@
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
 import android.os.Bundle;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity  {
+import com.gallagher.security.mobileaccess.MobileAccess;
+import com.gallagher.security.mobileaccess.MobileAccessProvider;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+interface TabFragment {
+    String getTitle();
+    int getActionId();
+}
+
+public class MainActivity extends AppCompatActivity {
+
+    @NonNull
+    private final MobileAccess mMobileAccess = MobileAccessProvider.getInstance();
+
+    @NonNull
+    private final TabFragment[] mTabs = {
+            new CredentialsFragment(),
+            new ReadersFragment(),
+            new SaltoFragment(),
+            new DigitalIdFragment(),
+    };
 
     FragmentPagerAdapter mFragmentPagerAdapter;
 
@@ -24,35 +45,46 @@ public class MainActivity extends AppCompatActivity  {
         mFragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public int getCount() {
-                return 2;
+                return mTabs.length;
             }
 
             @Override
             public Fragment getItem(int position) {
-                return position == 0 ? new RegistrationsFragment() :  new ReadersFragment();
+                return (Fragment)mTabs[position];
             }
         };
         viewPager.setAdapter(mFragmentPagerAdapter);
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                if(position == 0) {
-                    setTitle("Credentials");
-                    navigationView.setSelectedItemId(R.id.action_registration);
-                } else {
-                    setTitle("Access");
-                    navigationView.setSelectedItemId(R.id.action_readers);
-                }
+                TabFragment tab = mTabs[position];
+                setTitle(tab.getTitle());
+                navigationView.setSelectedItemId(tab.getActionId());
             }
         });
 
         navigationView.setOnNavigationItemSelectedListener(item -> {
-            int pageIndex = item.getItemId() == R.id.action_registration ? 0 : 1;
+            int pageIndex = -1;
+            for (int i = 0; i < mTabs.length; i++) {
+                if (mTabs[i].getActionId() == item.getItemId()) {
+                    pageIndex = i;
+                    break;
+                }
+            }
+
+            if (pageIndex == -1)
+                throw new IllegalStateException("Missing tab fragment!");
 
             viewPager.clearFocus();
             viewPager.setCurrentItem(pageIndex, true);
             viewPager.invalidate();
             return true;
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mMobileAccess.syncCredentialItemUpdates();
     }
 }

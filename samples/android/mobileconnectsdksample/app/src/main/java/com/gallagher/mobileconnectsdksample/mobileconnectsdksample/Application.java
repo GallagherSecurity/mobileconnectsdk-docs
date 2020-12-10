@@ -3,16 +3,24 @@ package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.media.AudioAttributes;
 import android.os.Build;
 import android.provider.Settings;
 import androidx.annotation.RequiresApi;
 
 import com.gallagher.security.mobileaccess.BluetoothScanMode;
+import com.gallagher.security.mobileaccess.BuildConfig;
+import com.gallagher.security.mobileaccess.CloudTlsValidationMode;
 import com.gallagher.security.mobileaccess.MobileAccess;
 import com.gallagher.security.mobileaccess.MobileAccessProvider;
+import com.gallagher.security.mobileaccess.NotificationsConfiguration;
+import com.gallagher.security.mobileaccess.SdkFeature;
 
 import org.slf4j.LoggerFactory;
+
+import java.util.EnumSet;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
@@ -30,14 +38,54 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
-        MobileAccess mobileAccess = MobileAccessProvider.configure(this, null, unlockNotificationChannelId, foregroundNotificationChannelId);
-        configureMobileAccess(mobileAccess);
+        // *********************************************************************************
+        // Configure the Mobile Connect SDK before we start
+        // *********************************************************************************
+
+        // Configure an intent which opens our app when the user taps on a notification.
+        // You can specify the activity you'd like to launch and any other flags here,
+        // or use different intents for the different kinds of notification that the SDK may show
+        Intent resultIntent = new Intent(this, MainActivity.class);
+        resultIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        resultIntent.setAction(Intent.ACTION_MAIN);
+        resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent notificationTappedIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationsConfiguration notificationsConfiguration = new NotificationsConfiguration(
+                unlockNotificationChannelId,
+                notificationTappedIntent,
+                foregroundNotificationChannelId,
+                notificationTappedIntent);
+
+        MobileAccess mobileAccess = MobileAccessProvider.configure(
+                this, // reference to android Application
+                null, // databaseFilePath: supply null to use the default
+                notificationsConfiguration, // notifications config, as above
+                EnumSet.of(SdkFeature.SALTO, SdkFeature.DIGITAL_ID), // the sample app enables both Salto and Digital ID. If you don't want those you can use EnumSet.noneOf(SdkFeature.class)
+                CloudTlsValidationMode.ANY_VALID_CERTIFICATE_REQUIRED,
+                null);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             configureNotificationChannels();
         }
 
         configureLogging((LoggerContext) LoggerFactory.getILoggerFactory());
+
+        // *********************************************************************************
+        // Now that the SDK is configured, tell it to start scanning for readers
+
+        // The default BluetoothBackgroundScanMode is FOREGROUND_ONLY.
+        // We enable background scanning for sample purposes, but you may not want that
+        mobileAccess.setBluetoothBackgroundScanMode(BluetoothScanMode.BACKGROUND_LOW_LATENCY);
+
+        // The default IsNfcPreferred is true, so this does nothing. It is here for sample purposes
+        mobileAccess.setIsNfcPreferred(true);
+
+        // Automatic access is disabled by default. Call setAutomaticAccessEnabled(false) to turn it off later if you would like
+        mobileAccess.setAutomaticAccessEnabled(true);
+
+        // now start scanning for readers
+        mobileAccess.setScanning(true);
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -72,24 +120,6 @@ public class Application extends android.app.Application {
         foregroundNotificationChannel.setDescription("Foreground Notifications");
 
         notificationManager.createNotificationChannel(foregroundNotificationChannel);
-    }
-
-    private void configureMobileAccess(MobileAccess mobileAccess) {
-        // *********************************************************************************
-        // Configure the SDK
-        // *********************************************************************************
-
-        // The default BluetoothBackgroundScanMode is FOREGROUND_ONLY
-        mobileAccess.setBluetoothBackgroundScanMode(BluetoothScanMode.BACKGROUND_LOW_LATENCY);
-
-        // The default IsNfcPreferred is true
-        mobileAccess.setIsNfcPreferred(true);
-
-        // Automatic access is disabled by default. Call disableAutomaticAccess to turn it off if you turn it on
-        mobileAccess.setAutomaticAccessEnabled(true);
-
-        // more code will go here
-        mobileAccess.setScanning(true);
     }
 
     private void configureLogging(LoggerContext loggerContext) {

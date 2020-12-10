@@ -1,5 +1,5 @@
 //
-// Copyright Gallagher Group Ltd 2018 All Rights Reserved
+// Copyright Gallagher Group Ltd 2020 All Rights Reserved
 //
 import Foundation
 import UIKit
@@ -58,6 +58,8 @@ class ReadersViewController : UITableViewController, SdkStateDelegate, ReaderUpd
     
     deinit {
         mobileAccess.removeAutomaticAccessDelegate(self)
+        mobileAccess.removeReaderUpdateDelegate(self)
+        mobileAccess.removeSdkStateDelegate(self)
     }
 
     // MARK: - State management

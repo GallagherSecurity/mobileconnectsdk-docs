@@ -8,10 +8,14 @@
     <string name="ggl_unlock_notification_title">UNLOCK: %s</string>
     <!-- "Please Unlock" notification body - will be passed to String.format with an argument of the reader name -->
     <string name="ggl_unlock_notification_message">UNLOCK FOR: "%s"</string>
+    <!-- "Please Open" notification title - will be passed to String.format with an argument of the reader name -->
+    <string name="ggl_open_notification_title">OPEN: %s</string>
+    <!-- "Please Open" notification body - will be passed to String.format with an argument of the reader name -->
+    <string name="ggl_open_notification_message">OPEN FOR: "%s"</string>
 
     <!-- Second factor registration title - will be passed to String.format with an argument of the site name -->
     <string name="ggl_mobilecredential_register_title">REGISTER: "%s"</string>
-    <!-- Second factor registration title - will be passed to String.format with an argument of the site name -->
+    <!-- Second factor registration body - will be passed to String.format with an argument of the site name -->
     <string name="ggl_mobilecredential_register_message">REGISTER FOR: "%s"</string>
 
     <!-- Second factor authentication title - will be passed to String.format with an argument of the reader name -->

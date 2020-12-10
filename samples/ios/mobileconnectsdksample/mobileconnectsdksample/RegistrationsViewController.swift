@@ -1,5 +1,5 @@
 //
-// Copyright Gallagher Group Ltd 2018 All Rights Reserved
+// Copyright Gallagher Group Ltd 2020 All Rights Reserved
 //
 import UIKit
 import GallagherMobileAccess
@@ -73,7 +73,7 @@ class RegistrationsViewController : UITableViewController {
             // *********************************************************************************
             // Ask the Mobile Connect SDK to delete our credential
             // *********************************************************************************
-            self.mobileAccess.deleteMobileCredential(credential) { (credential, error) in
+            self.mobileAccess.deleteMobileCredential(credential, deleteOption: .default) { (credential, error) in
                 if let error = error {
                     toast("Error deleting credential \(error)")
                 }

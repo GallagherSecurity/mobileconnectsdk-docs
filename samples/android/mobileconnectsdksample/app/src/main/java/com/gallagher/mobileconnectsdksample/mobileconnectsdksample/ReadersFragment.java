@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class ReadersFragment extends Fragment implements SdkStateListener, AutomaticAccessListener {
+public class ReadersFragment extends Fragment implements SdkStateListener, AutomaticAccessListener, TabFragment {
 
     static final int PERMISSION_REQUEST_FINE_LOCATION = 2;
 
@@ -59,6 +59,9 @@ public class ReadersFragment extends Fragment implements SdkStateListener, Autom
     private final MobileAccess mMobileAccess = MobileAccessProvider.getInstance();
 
     ReaderRecyclerViewAdapter mAdapter;
+
+    public String getTitle() { return "Readers"; }
+    public int getActionId() { return R.id.action_readers; }
 
     public ReadersFragment() { }
 
@@ -95,16 +98,11 @@ public class ReadersFragment extends Fragment implements SdkStateListener, Autom
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroyView() {
         mMobileAccess.removeAutomaticAccessListener(this);
         mMobileAccess.removeReaderUpdateListener(mAdapter);
         mMobileAccess.removeSdkStateListener(this);
-        super.onDestroy();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
+        super.onDestroyView();
     }
 
     // *********************************************************************************
@@ -153,7 +151,7 @@ public class ReadersFragment extends Fragment implements SdkStateListener, Autom
                     break;
 
                 case ERROR_NO_BLE_FEATURE:
-                    // This isn't likely to happen;
+                    // This isn't likely to happen
                     // Even ultra cheap $20 android devices released 5 years ago tend to  have bluetooth
                     messages.add("This device does not support bluetooth");
                     break;
@@ -162,6 +160,12 @@ public class ReadersFragment extends Fragment implements SdkStateListener, Autom
                     // You can use the google play store to limit installation
                     // of your app to android 5+ to avoid this ever happening
                     messages.add("Your device operating system version is not supported");
+                    break;
+
+                case BLE_ERROR_NO_BACKGROUND_LOCATION_PERMISSION:
+                    // Android 10+ requires the new ACCESS_BACKGROUND_LOCATION permission in order to use BLE in the background.
+                    // If you have configured BLE background access, then you must enable this permission for it to work properly
+                    messages.add("Please grant permission for this application to Always use your location. This is required for BLE to work in the background.");
                     break;
             }
         }

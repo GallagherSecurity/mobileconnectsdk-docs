@@ -61,6 +61,10 @@
                 android:name="android.nfc.cardemulation.host_apdu_service"
                 android:resource="@xml/ggl_apdu_service" />
         </service>
+
+        <!-- Important: for the SALTO JustIN SDK -->
+        <service android:name="com.saltosystems.justinmobile.sdk.ble.JustinBleService"
+            android:enabled="true" />
     </application>
 
 </manifest>
