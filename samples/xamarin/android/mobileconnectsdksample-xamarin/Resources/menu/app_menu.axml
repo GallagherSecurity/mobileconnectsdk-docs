@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_registration"
+        android:enabled="true"
+        android:icon="@drawable/ic_content_copy_black_24dp"
+        android:title="Credentials"
+        tools:ignore="HardcodedText"/>
+
+    <item android:id="@+id/action_readers"
+        android:enabled="true"
+        android:icon="@drawable/ic_phonelink_ring_black_24dp"
+        android:title="Readers"
+        tools:ignore="HardcodedText" />
+
+</menu>
