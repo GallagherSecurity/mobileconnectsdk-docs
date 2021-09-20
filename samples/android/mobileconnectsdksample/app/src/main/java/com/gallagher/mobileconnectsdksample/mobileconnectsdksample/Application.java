@@ -11,7 +11,6 @@ import android.provider.Settings;
 import androidx.annotation.RequiresApi;
 
 import com.gallagher.security.mobileaccess.BluetoothScanMode;
-import com.gallagher.security.mobileaccess.BuildConfig;
 import com.gallagher.security.mobileaccess.CloudTlsValidationMode;
 import com.gallagher.security.mobileaccess.MobileAccess;
 import com.gallagher.security.mobileaccess.MobileAccessProvider;
@@ -49,7 +48,7 @@ public class Application extends android.app.Application {
         resultIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         resultIntent.setAction(Intent.ACTION_MAIN);
         resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent notificationTappedIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent notificationTappedIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationsConfiguration notificationsConfiguration = new NotificationsConfiguration(
                 unlockNotificationChannelId,

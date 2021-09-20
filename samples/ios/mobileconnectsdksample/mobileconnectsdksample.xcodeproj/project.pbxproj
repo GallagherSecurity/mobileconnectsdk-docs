@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		D3279EA2257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3279EA1257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework */; };
 		D3279EA3257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3279EA1257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D32ABEA3257C66E500C2817A /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3170AAD25185FC7008512AA /* RxSwift.xcframework */; };
-		D32ABEA4257C66E500C2817A /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3170AAD25185FC7008512AA /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D33B6C83257E372A005E233D /* GallagherMobileAccess.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3170AAE25185FC7008512AA /* GallagherMobileAccess.xcframework */; };
 		D33B6C84257E372A005E233D /* GallagherMobileAccess.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3170AAE25185FC7008512AA /* GallagherMobileAccess.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D33E70D4206895FA00DABEA3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D33E70D3206895FA00DABEA3 /* README.md */; };
@@ -32,7 +30,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D32ABEA4257C66E500C2817A /* RxSwift.xcframework in Embed Frameworks */,
 				D3279EA3257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework in Embed Frameworks */,
 				D33B6C84257E372A005E233D /* GallagherMobileAccess.xcframework in Embed Frameworks */,
 			);
@@ -42,7 +39,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D3170AAD25185FC7008512AA /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxSwift.xcframework; sourceTree = "<group>"; };
 		D3170AAE25185FC7008512AA /* GallagherMobileAccess.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GallagherMobileAccess.xcframework; sourceTree = "<group>"; };
 		D3279EA1257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SaltoJustINMobileSDK.xcframework; path = mobileconnectsdksample/SaltoJustINMobileSDK.xcframework; sourceTree = "<group>"; };
 		D33E70D3206895FA00DABEA3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -64,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D32ABEA3257C66E500C2817A /* RxSwift.xcframework in Frameworks */,
 				D3279EA2257E3C180073F0AD /* SaltoJustINMobileSDK.xcframework in Frameworks */,
 				D33B6C83257E372A005E233D /* GallagherMobileAccess.xcframework in Frameworks */,
 			);
@@ -104,7 +99,6 @@
 				D384B025204CDE3B00A16260 /* ReadersViewController.swift */,
 				D384B027204CE96D00A16260 /* Toast.swift */,
 				D3170AAE25185FC7008512AA /* GallagherMobileAccess.xcframework */,
-				D3170AAD25185FC7008512AA /* RxSwift.xcframework */,
 				D3837243257E2E240082BDC8 /* SaltoViewController.swift */,
 			);
 			path = mobileconnectsdksample;
@@ -353,9 +347,13 @@
 				INFOPLIST_FILE = mobileconnectsdksample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
+
 					"$(inherited)",
 					"@executable_path/Frameworks",
+
 				);
+
+
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
@@ -363,6 +361,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gallagher.security.mobileconnectsdksample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -381,6 +380,7 @@
 				INFOPLIST_FILE = mobileconnectsdksample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
+
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
@@ -388,8 +388,10 @@
 					"-weak_framework",
 					GallagherMobileAccess,
 				);
+
 				PRODUCT_BUNDLE_IDENTIFIER = com.gallagher.security.mobileconnectsdksample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

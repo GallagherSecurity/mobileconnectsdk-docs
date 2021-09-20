@@ -36,6 +36,7 @@ import java.util.List;
 public class ReadersFragment extends Fragment implements SdkStateListener, AutomaticAccessListener, TabFragment {
 
     static final int PERMISSION_REQUEST_FINE_LOCATION = 2;
+    static final int PERMISSION_REQUEST_BLUETOOTH_CONNECT = 3;
 
     private enum ReaderVisualState {
         CONNECTING, GRANTED, DENIED
@@ -142,7 +143,10 @@ public class ReadersFragment extends Fragment implements SdkStateListener, Autom
                     messages.add("Please grant permission for this application to use your location.");
                     // Request location permissions from user.
                     // It's recommended you do this in a more sensible place so as not to spam the user with requests
-                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    // For android 12, location permissions are only required for Salto keys
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) { // both FINE and COARSE location must be requested Android 12 and up
+                        requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_FINE_LOCATION);
+                    } else if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_FINE_LOCATION);
                     }
                     break;
@@ -166,6 +170,15 @@ public class ReadersFragment extends Fragment implements SdkStateListener, Autom
                     // Android 10+ requires the new ACCESS_BACKGROUND_LOCATION permission in order to use BLE in the background.
                     // If you have configured BLE background access, then you must enable this permission for it to work properly
                     messages.add("Please grant permission for this application to Always use your location. This is required for BLE to work in the background.");
+                    break;
+                case BLE_ERROR_NO_BLUETOOTH_CONNECT_PERMISSION:
+                case BLE_ERROR_NO_BLUETOOTH_SCAN_PERMISSION:
+                    // Android 12+ requires the new BLUETOOTH_CONNECT permission to scan and connect to BLE devices
+                    messages.add("Please grant permission for this application to scan and connect to nearby devices");
+
+                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                        requestPermissions(new String[]{Manifest.permission.BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_CONNECT}, PERMISSION_REQUEST_BLUETOOTH_CONNECT);
+                    }
                     break;
             }
         }

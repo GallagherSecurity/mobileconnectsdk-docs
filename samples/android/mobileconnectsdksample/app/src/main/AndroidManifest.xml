@@ -17,6 +17,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- Required for Android 10 and later when using Bluetooth LE while the app is not on-screen -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <!-- Required for Android 12 and later when using BLE for scanning -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation"  />
+    <!-- Required for Android 12 and later when using BLE for scanning -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
 
     <!-- NFC -->
     <uses-permission android:name="android.permission.NFC" />
@@ -35,7 +39,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
