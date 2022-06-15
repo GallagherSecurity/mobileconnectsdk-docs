@@ -12,6 +12,8 @@ var searchData=
   ['ble_5ferror_5fno_5fbluetooth_5fscan_5fpermission_42',['BLE_ERROR_NO_BLUETOOTH_SCAN_PERMISSION',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access_state.html#a81844b1fc32866a2be0a2fe433cdf745',1,'com::gallagher::security::mobileaccess::MobileAccessState']]],
   ['ble_5ferror_5fno_5flocation_5fpermission_43',['BLE_ERROR_NO_LOCATION_PERMISSION',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access_state.html#af3dd928f889a7091109a3c5d8d6250d4',1,'com::gallagher::security::mobileaccess::MobileAccessState']]],
   ['ble_5ferror_5funauthorized_44',['BLE_ERROR_UNAUTHORIZED',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access_state.html#a5b346c8c1e58c47aa4017f1ccda03469',1,'com::gallagher::security::mobileaccess::MobileAccessState']]],
-  ['bluetoothconnectionsensitivity_45',['BluetoothConnectionSensitivity',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_connection_sensitivity.html',1,'com::gallagher::security::mobileaccess']]],
-  ['bluetoothscanmode_46',['BluetoothScanMode',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html',1,'com::gallagher::security::mobileaccess']]]
+  ['ble_5fwarning_5flocation_5fservice_5fdisabled_45',['BLE_WARNING_LOCATION_SERVICE_DISABLED',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access_state.html#a89eefd562623dcfb6084b9ad361e56f1',1,'com::gallagher::security::mobileaccess::MobileAccessState']]],
+  ['ble_5fwarning_5fno_5flocation_5fpermission_46',['BLE_WARNING_NO_LOCATION_PERMISSION',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access_state.html#a259f0b196fadee4df77d111f5f2a6869',1,'com::gallagher::security::mobileaccess::MobileAccessState']]],
+  ['bluetoothconnectionsensitivity_47',['BluetoothConnectionSensitivity',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_connection_sensitivity.html',1,'com::gallagher::security::mobileaccess']]],
+  ['bluetoothscanmode_48',['BluetoothScanMode',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html',1,'com::gallagher::security::mobileaccess']]]
 ];
