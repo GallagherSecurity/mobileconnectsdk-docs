@@ -756,32 +756,26 @@ Configuring Android Notifications</h2>
 <p><b>Pop-up "unlock device" notifications:</b></p>
 <p>As above, if you have enabled background access, the SDK will show a pop-up notification asking the user to unlock their device if needed.</p>
 <p>To customise the appearance of this notification, do the following:</p>
-<p><code>strings.xml</code> </p><div class="fragment"><div class="line"><span class="comment"> %1
-^U</span></div>
-<div class="line"><span class="comment">`M∑&#x2414;ê</span></div>
+<p><code>strings.xml</code> </p><div class="fragment"><div class="line"><span class="comment">&lt;!-- %s is optional and will be substituted for the door reader name.</span></div>
+<div class="line"><span class="comment">If you do not customise this, the default is [%s]</span></div>
 <div class="line"><span class="comment">The Gallagher Mobile Connect app customises this to &quot;Unlock Device to Open Door&quot; --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_unlock_notification_title&quot;</span>&gt;<span class="keyword">Unlock</span> <span class="keyword">Device</span> <span class="keyword">to</span> <span class="keyword">Open</span> <span class="keyword">Door</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment"> %1
-^U</span></div>
-<div class="line"><span class="comment"> %1
-^U</span></div>
+<div class="line"><span class="comment">&lt;!-- %s is optional and will be substituted for the reader name.</span></div>
+<div class="line"><span class="comment">If you do not customise this, the default is: [Unlock for &quot;%s&quot;]</span></div>
 <div class="line"><span class="comment">The Gallagher Mobile Connect app does not customise this. --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_unlock_notification_message&quot;</span>&gt;<span class="keyword">Please</span> <span class="keyword">Unlock:</span> <span class="stringliteral">&quot;%s&quot;</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment"> %1
-^U</span></div>
-<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">&lt;!-- %s is optional and will be substituted for the door reader name.</span></div>
+<div class="line"><span class="comment">If you do not customise this, the default is [%s]</span></div>
 <div class="line"><span class="comment">The Gallagher Mobile Connect application customises this as &quot;Open Mobile Connect to Open Door&quot; --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_open_notification_title&quot;</span>&gt;<span class="keyword">Open</span> <span class="keyword">App</span> <span class="keyword">to</span> <span class="keyword">Open</span> <span class="keyword">Door</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment"> %1
-^U</span></div>
-<div class="line"><span class="comment"> %1
-^U</span></div>
+<div class="line"><span class="comment">&lt;!-- %s is optional and will be substituted for the reader name.</span></div>
+<div class="line"><span class="comment">If you do not customise this, the default is [Open for &quot;%s&quot;]</span></div>
 <div class="line"><span class="comment">The Gallagher Mobile Connect app does not customise this. --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_open_notification_message&quot;</span>&gt;<span class="keyword">Your</span> <span class="keyword">Open</span> <span class="keyword">Message:</span> <span class="stringliteral">&quot;%s&quot;</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
-</div><!-- fragment --><p><code>icon:</code></p>
+</div><!-- fragment --><p ><code>icon:</code></p>
 <p>Create a vector xml drawable and give it the name of <code>ic_ggl_mobile_access_scanning_icon</code>. If you do not customise this, the default icon is the <a href="https://material.io/icons/#ic_tap_and_play">"tap and play" icon from the Material Design icon set</a></p>
 <p><b>Persistent foreground notification:</b> As above, Android 8 or newer require a persistent foreground notification to allow scanning for Bluetooth readers in the background. To customise the appearance of this notification, do the following:</p>
 <p><code>strings.xml</code> </p><div class="fragment"><div class="line"><span class="comment">&lt;!-- If you do not customise this, the default message is &quot;Scanning for door access&quot; --&gt;</span></div>
@@ -795,22 +789,20 @@ Configuring Android Notifications</h2>
 2.2 Registration Details</h3>
 <p>When the user registers a mobile credential, the SDK will ask them for either their PIN or Fingerprint, as per the <a href="#registration">registration</a> section earlier in this document.</p>
 <p>To customise the appearance of the registration prompts, do the following:</p>
-<p><code>strings.xml</code> </p><div class="fragment"><div class="line"><span class="comment">–1
-^U</span></div>
+<p><code>strings.xml</code> </p><div class="fragment"><div class="line"><span class="comment">&lt;!-- This will be passed to String.format, %s is optional and will be substituted for the site/company name.</span></div>
 <div class="line"><span class="comment">If you do not customise this, the default is an empty string, which will not show a title --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_mobilecredential_register_title&quot;</span>&gt;<span class="keyword">Your</span> <span class="keyword">title:</span> %<span class="keyword">s</span>&lt;<span class="keywordtype">string</span>&gt;</div>
-<div class="line"><span class="comment">–1
-^U</span></div>
+<div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_mobilecredential_register_title&quot;</span>&gt;<span class="keyword">Your</span> <span class="keyword">title:</span> %<span class="keyword">s</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
+<div class="line"><span class="comment">&lt;!-- This will be passed to String.format, %s is optional and will be substituted for the site/company name.</span></div>
 <div class="line"><span class="comment">If you do not customise this, the default is [Register for &quot;%s&quot;] --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_mobilecredential_register_message&quot;</span>&gt;<span class="keyword">Register</span> <span class="keyword">for</span> <span class="stringliteral">&quot;%s&quot;</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md39"></a>
 2.3 Authentication Details</h3>
 <p>When the user attempts to access a door that requires second factor authentication, the SDK will ask them for either their PIN or Fingerprint - whatever they chose when they previously registered their credential.</p>
 <p>To customise the appearance of the authentication prompts, do the following:</p>
-<p><code>strings.xml</code> </p><div class="fragment"><div class="line"><span class="comment">‡K∑&#x2414;ê</span></div>
+<p><code>strings.xml</code> </p><div class="fragment"><div class="line"><span class="comment">&lt;!-- This will be passed to String.format, %s is optional and will be substituted for the reader name.</span></div>
 <div class="line"><span class="comment">If you do not customise this, the default is [%s] --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_mobilecredential_authenticate_title&quot;</span>&gt;<span class="keyword">Your</span> <span class="keyword">title:</span> %<span class="keyword">s</span>&lt;<span class="keywordtype">string</span>&gt;</div>
-<div class="line"><span class="comment"></span> </div>
+<div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_mobilecredential_authenticate_title&quot;</span>&gt;<span class="keyword">Your</span> <span class="keyword">title:</span> %<span class="keyword">s</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
+<div class="line"><span class="comment">&lt;!-- This will be passed to String.format, %s is optional and will be substituted for the reader name.</span></div>
 <div class="line"><span class="comment">If you do not customise this, the default is [Register for &quot;%s&quot;] --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_mobilecredential_authenticate_message&quot;</span>&gt;<span class="keyword">Authenticate</span> <span class="keyword">for</span> <span class="stringliteral">&quot;%s&quot;</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
 <div class="line"> </div>
@@ -823,7 +815,7 @@ Configuring Android Notifications</h2>
 <div class="line"><span class="comment">&lt;!-- Fingerprints --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_fingerprint_try_again&quot;</span>&gt;<span class="keyword">Please</span> <span class="keyword">try</span> <span class="keyword">again</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_fingerprint_success&quot;</span>&gt;<span class="keyword">Success</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
-</div><!-- fragment --><p><a class="anchor" id="troubleshooting"></a> </p>
+</div><!-- fragment --><p ><a class="anchor" id="troubleshooting"></a> </p>
 <h1><a class="anchor" id="autotoc_md40"></a>
 Troubleshooting</h1>
 <p><a class="anchor" id="configure_logging"></a> </p>
