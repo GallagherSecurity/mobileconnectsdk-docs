@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -216,10 +217,10 @@ namespace GglApi
         public override bool CanConvert(Type objectType)
             => objectType.GetProperties().Any(prop => Attribute.IsDefined(prop, typeof(PersonalDataCollection)));
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
             => throw new NotImplementedException("CardholderWithPersonalDataConverter currently doesn't support deserializing");
 
-        public override object? ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null)
                 return null;
@@ -230,13 +231,14 @@ namespace GglApi
 
             if (!jsonObject.HasValues)
                 return null;
-
+            
+            if (objectType is null) { return null; }
             // Create an object of the target type using the default contract
-            var serializedObj = serializer.ContractResolver.ResolveContract(objectType).DefaultCreator();
+            var serializedObj = serializer.ContractResolver.ResolveContract(objectType).DefaultCreator!();
 
             // Do the default serialization
             using (var subReader = jsonObject.CreateReader())
-                serializer.Populate(subReader, serializedObj);
+                serializer.Populate(subReader, serializedObj!);
 
             var pdfProperties = jsonObject.Properties().Where(e => e.Name.StartsWith("@")).ToList();
 
@@ -245,7 +247,7 @@ namespace GglApi
 
             if (pdfProperties.Count > 0)
             {
-                var pdfCollection = InitialisePersonalDataCollection(serializedObj, objectType);
+                var pdfCollection = InitialisePersonalDataCollection(serializedObj!, objectType);
 
                 using var pdfReader = jsonObject.CreateReader();
                 while (pdfReader.Read())
@@ -253,7 +255,7 @@ namespace GglApi
                     // PDF properties must appear in the root
                     if (pdfReader.TokenType == JsonToken.PropertyName && pdfReader.Depth == 1)
                     {
-                        var propertyName = pdfReader.Value.ToString();
+                        var propertyName = pdfReader.Value?.ToString();
                         if (propertyName != null && propertyName.StartsWith("@"))
                         {
                             object? propertyValue = default;

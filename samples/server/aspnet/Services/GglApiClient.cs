@@ -1,12 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 #nullable enable
 
@@ -20,17 +13,18 @@ namespace GallagherUniversityStudentPortalSampleSite.Services
         {
             // create a single long-lived HttpClient, that's what microsoft's documentation says to do
             var handler = new HttpClientHandler();
-            
+
             // the gallagher server will have a self-signed certificate which won't validate against any certificate authorities. You should pin it's public key instead
             handler.ServerCertificateCustomValidationCallback = (message, certificate, chain, policyErrors) => true;
 
-            var client = new HttpClient(handler) {
+            var client = new HttpClient(handler)
+            {
                 BaseAddress = new Uri(host)
             };
             client.DefaultRequestHeaders.Add("Accept", "application/json");
             client.DefaultRequestHeaders.Add("Authorization", $"GGL-API-KEY {apiKey}");
-            
-            if(clientCertificatePfx != null && clientCertificatePfxPassword != null)
+
+            if (clientCertificatePfx != null && clientCertificatePfxPassword != null)
             {
                 var cert = new X509Certificate2(clientCertificatePfx, clientCertificatePfxPassword);
                 handler.ClientCertificates.Add(cert);
@@ -56,17 +50,20 @@ namespace GallagherUniversityStudentPortalSampleSite.Services
         public GglApiClient(HttpClient httpClient) => _httpClient = httpClient;
 
         public Task<TResponse> GetAsync<TResponse>(string url)
-            => RequestAsync<int, TResponse>(HttpMethod.Get, url, 0);
+            => RequestAsync<object, TResponse>(HttpMethod.Get, url, null);
 
-        public Task<TResponse> PostAsync<TRequest, TResponse>(string url, TRequest body)
+        public Task<TResponse> PostAsync<TRequest, TResponse>(string url, TRequest body) where TRequest : class
             => RequestAsync<TRequest, TResponse>(HttpMethod.Post, url, body);
 
-        public Task<TResponse> PatchAsync<TRequest, TResponse>(string url, TRequest body)
+        public Task<TResponse> PatchAsync<TRequest, TResponse>(string url, TRequest body) where TRequest : class
             => RequestAsync<TRequest, TResponse>(HttpMethod.Patch, url, body);
 
         public Task<HttpResponseMessage> DeleteAsync(string requestUri) => _httpClient.DeleteAsync(requestUri);
 
-        public async Task<TResponse> RequestAsync<TRequest, TResponse>(HttpMethod method, string requestUri, TRequest request)
+        // TRequest can be passed either as a HttpContent object if you want to specify the raw content yourself.
+        // Otherwise, you can pass any object and it will be JSON serialized and set as the application/json content
+        // If TRequest is null, no content will be set for the request.
+        public async Task<TResponse> RequestAsync<TRequest, TResponse>(HttpMethod method, string requestUri, TRequest? request) where TRequest : class
         {
             var message = new HttpRequestMessage(method, requestUri);
 
@@ -92,7 +89,7 @@ namespace GallagherUniversityStudentPortalSampleSite.Services
                 return (TResponse)(object)response;
 
             var responseString = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<TResponse>(responseString);
+            return JsonConvert.DeserializeObject<TResponse>(responseString)!;
         }
     }
 

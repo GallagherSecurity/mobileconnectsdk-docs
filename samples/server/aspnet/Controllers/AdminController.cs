@@ -59,7 +59,7 @@ namespace GallagherUniversityStudentPortalSampleSite.Controllers
             // delete from our local database
             await _db.RunAsync("DELETE FROM students WHERE id = @id;", new { id });
 
-            return Redirect(Url.Action("Index", "Admin", new { message = "Deleted Student" }));
+            return Redirect(Url.Action("Index", "Admin", new { message = "Deleted Student" })!);
         }
 
         [HttpPost("CreateStudent")]
@@ -105,10 +105,10 @@ namespace GallagherUniversityStudentPortalSampleSite.Controllers
                     username = newStudent.Username,
                     studentId = newStudent.StudentId,
                     password = newStudent.Password ?? "password",
-                    commandCentreHref = createdCardholderHref.ToString(),
+                    commandCentreHref = createdCardholderHref?.ToString(),
                 });
 
-                return Redirect(Url.Action("Index", "Admin", new { message = "Created Cardholder" }));
+                return Redirect(Url.Action("Index", "Admin", new { message = "Created Cardholder" })!);
             }
             else
             {
@@ -117,7 +117,7 @@ namespace GallagherUniversityStudentPortalSampleSite.Controllers
                 if(wrapper?.Message != null)
                     responseMessage = wrapper.Message;
 
-                return Redirect(Url.Action("Index", "Admin", new { error = $"Failed to create cardholder! {responseMessage}" }));
+                return Redirect(Url.Action("Index", "Admin", new { error = $"Failed to create cardholder! {responseMessage}" })!);
             }
         }
     }
