@@ -1,10 +1,5 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 #nullable enable
 
@@ -233,12 +228,16 @@ namespace GglApi
                 return null;
             
             if (objectType is null) { return null; }
+
+            var defaultCreator = serializer.ContractResolver.ResolveContract(objectType).DefaultCreator;
+            if (defaultCreator is null) { return null; }
+
             // Create an object of the target type using the default contract
-            var serializedObj = serializer.ContractResolver.ResolveContract(objectType).DefaultCreator!();
+            var serializedObj = defaultCreator();
 
             // Do the default serialization
             using (var subReader = jsonObject.CreateReader())
-                serializer.Populate(subReader, serializedObj!);
+                serializer.Populate(subReader, serializedObj);
 
             var pdfProperties = jsonObject.Properties().Where(e => e.Name.StartsWith("@")).ToList();
 
@@ -247,7 +246,7 @@ namespace GglApi
 
             if (pdfProperties.Count > 0)
             {
-                var pdfCollection = InitialisePersonalDataCollection(serializedObj!, objectType);
+                var pdfCollection = InitialisePersonalDataCollection(serializedObj, objectType);
 
                 using var pdfReader = jsonObject.CreateReader();
                 while (pdfReader.Read())

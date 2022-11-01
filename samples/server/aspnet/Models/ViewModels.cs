@@ -1,8 +1,3 @@
-using GallagherUniversityStudentPortalSampleSite.Models;
-using GglApi;
-using System;
-using System.Collections.Generic;
-
 #nullable enable
 
 namespace GallagherUniversityStudentPortalSampleSite

@@ -89,7 +89,7 @@ namespace GallagherUniversityStudentPortalSampleSite.Services
                 return (TResponse)(object)response;
 
             var responseString = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<TResponse>(responseString)!;
+            return JsonConvert.DeserializeObject<TResponse>(responseString) ?? throw new Exception("Failed to deserialize object TResponse.");
         }
     }
 
