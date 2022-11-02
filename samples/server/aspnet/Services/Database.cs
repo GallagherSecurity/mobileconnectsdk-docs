@@ -1,12 +1,5 @@
-﻿using Microsoft.Data.Sqlite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Dapper;
-using System.IO;
-
-#nullable enable
+﻿using Dapper;
+using Microsoft.Data.Sqlite;
 
 namespace GallagherUniversityStudentPortalSampleSite.Services
 {

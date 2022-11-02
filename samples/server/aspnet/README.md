@@ -30,22 +30,22 @@ You will need to configure the following in Command Centre:
 
 ## Software Pre-requisites:
 
-You will need developer tools capable of compiling and running a .NET core 3 Console application.
+You will need developer tools capable of compiling and running a .NET 6 Console application.
 There are multiple ways of achieving this:
 
-**Option 1.** Use Visual Studio 2019 version 16.3 or higher (this was developed using Visual Studio 16.3.2 on Windows 10)
+**Option 1.** Use Visual Studio 2022 version 17.3.3 or higher.
    Once you open the GallagherUniversityStudentPortalSampleSite.sln file in visual studio, simply build and run it.
 
 **Option 3.** Use Visual Studio Code with the "C# for Visual Studio Code (powered by OmniSharp)" extension.
    Once installed, open the project directory in VSCode and select "Start Debugging" from the Debug menu.
-   You will also need to install the .NET Core 3 SDK from https://dotnet.microsoft.com/download/dotnet-core/3.0 (this was developed against SDK 3.0.100)
+   You will also need to install the .NET 6 SDK from https://dotnet.microsoft.com/en-us/download/visual-studio-sdks (this was developed against SDK 6.0.8)
 
 **Option 2.** Command Line Only:
-   Install the .NET Core 3 SDK from https://dotnet.microsoft.com/download/dotnet-core/3.0 (this was developed against SDK 3.0.100)
+   Install the .NET 6 SDK from https://dotnet.microsoft.com/en-us/download/visual-studio-sdks (this was developed against SDK 6.0.8)
    Once the SDK is installed, open a command prompt window, navigate to the directory containing GallagherUniversityStudentPortalSampleSite.sln, and type 
    dotnet run
 
-**Option 3.** Use Visual Studio for Mac version 8.3 or higher
+**Option 3.** Use Visual Studio 2022 for Mac version 17.3 or higher.
    Once you open the GallagherUniversityStudentPortalSampleSite.sln file in visual studio, simply build and run it.
  
 Once you have compiled and run the sample site, point your browser at http://localhost:5000
@@ -56,7 +56,7 @@ Second, go to the "I am a Student" area, log in as the cardholder you just creat
 ## Tips:
 
 The easiest and recommended way to connect to the Command Centre REST api is to create an instance of System.Net.Http.HttpClient and configure it to use
-the correct headers and client certificate settings. See the code in GglApiClient for an example
+the correct headers and client certificate settings. See the code in GglApiClient for an example.
 
 To create and edit cardholders and mobile credentials, you will need to download a variety of different pieces of data from CommandCentre.
 See the InitialiseCommandCentreConfiguration method in Startup.cs as an example of how you might decide to do this.

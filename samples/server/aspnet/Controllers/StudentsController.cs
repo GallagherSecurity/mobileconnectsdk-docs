@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using GallagherUniversityStudentPortalSampleSite.Models;
-using GallagherUniversityStudentPortalSampleSite.Services;
-using GglApi;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-
-#nullable enable
+using System.Net;
 
 namespace GallagherUniversityStudentPortalSampleSite.Controllers
 {

@@ -1,11 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-#nullable enable
 
 namespace GglApi
 {
@@ -216,10 +210,10 @@ namespace GglApi
         public override bool CanConvert(Type objectType)
             => objectType.GetProperties().Any(prop => Attribute.IsDefined(prop, typeof(PersonalDataCollection)));
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
             => throw new NotImplementedException("CardholderWithPersonalDataConverter currently doesn't support deserializing");
 
-        public override object? ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null)
                 return null;
@@ -230,9 +224,16 @@ namespace GglApi
 
             if (!jsonObject.HasValues)
                 return null;
+            
+            if (objectType is null)
+                return null;
+
+            var defaultCreator = serializer.ContractResolver.ResolveContract(objectType).DefaultCreator;
+            if (defaultCreator is null)
+                return null;
 
             // Create an object of the target type using the default contract
-            var serializedObj = serializer.ContractResolver.ResolveContract(objectType).DefaultCreator();
+            var serializedObj = defaultCreator();
 
             // Do the default serialization
             using (var subReader = jsonObject.CreateReader())
@@ -253,7 +254,7 @@ namespace GglApi
                     // PDF properties must appear in the root
                     if (pdfReader.TokenType == JsonToken.PropertyName && pdfReader.Depth == 1)
                     {
-                        var propertyName = pdfReader.Value.ToString();
+                        var propertyName = pdfReader.Value?.ToString();
                         if (propertyName != null && propertyName.StartsWith("@"))
                         {
                             object? propertyValue = default;

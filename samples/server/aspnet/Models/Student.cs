@@ -1,12 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-#nullable enable
-
-namespace GallagherUniversityStudentPortalSampleSite.Models
+﻿namespace GallagherUniversityStudentPortalSampleSite.Models
 {
     // Represents a student in our local database
     public class Student

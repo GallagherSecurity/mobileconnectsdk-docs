@@ -1,1 +1,8 @@
 docs/ios/sdk-docs/undocumented.json
+/.vs
+/samples/server/aspnet/.vs
+/samples/server/aspnet/obj
+/samples/server/aspnet/bin
+/samples/server/aspnet/Data/database.sqlitedb
+/samples/server/nodejs/node_modules
+/samples/server/nodejs/data
