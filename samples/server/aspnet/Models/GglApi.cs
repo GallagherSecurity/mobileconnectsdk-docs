@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-#nullable enable
-
 namespace GglApi
 {
     // the result of calling GET /api
@@ -227,10 +225,12 @@ namespace GglApi
             if (!jsonObject.HasValues)
                 return null;
             
-            if (objectType is null) { return null; }
+            if (objectType is null)
+                return null;
 
             var defaultCreator = serializer.ContractResolver.ResolveContract(objectType).DefaultCreator;
-            if (defaultCreator is null) { return null; }
+            if (defaultCreator is null)
+                return null;
 
             // Create an object of the target type using the default contract
             var serializedObj = defaultCreator();

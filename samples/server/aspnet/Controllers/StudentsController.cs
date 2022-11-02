@@ -2,8 +2,6 @@
 using Newtonsoft.Json;
 using System.Net;
 
-#nullable enable
-
 namespace GallagherUniversityStudentPortalSampleSite.Controllers
 {
     [Route("Students")]

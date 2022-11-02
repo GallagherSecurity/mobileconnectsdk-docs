@@ -47,7 +47,7 @@ app.Run();
 
 public partial class Program
 {
-    internal static IConfiguration Configuration { get; private set; }
+    internal static IConfiguration? Configuration { get; private set; }
 
     public static async Task<CommandCentreConfiguration> InitialiseCommandCentreConfiguration(GglApiClient gglApi, IConfiguration configuration)
     {
@@ -124,7 +124,7 @@ public partial class Program
         //         },
         //     ]
         // }
-        mobileCredentialTypeHref = cardTypesResponse.Results.FirstOrDefault().Href
+        mobileCredentialTypeHref = cardTypesResponse.Results.FirstOrDefault()?.Href
             ?? throw new Exception($"ERROR: Can't find the card type with name of {keyCardTypeName}");
 
         Console.WriteLine("Success: Found Card Type called {0}; it's link is {1}", keyAccessGroupName, mobileCredentialTypeHref);

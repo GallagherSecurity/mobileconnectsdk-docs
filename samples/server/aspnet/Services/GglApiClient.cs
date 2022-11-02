@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Security.Cryptography.X509Certificates;
 
-#nullable enable
-
 namespace GallagherUniversityStudentPortalSampleSite.Services
 {
     public class GglApiClientFactory

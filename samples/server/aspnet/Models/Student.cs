@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-namespace GallagherUniversityStudentPortalSampleSite.Models
+﻿namespace GallagherUniversityStudentPortalSampleSite.Models
 {
     // Represents a student in our local database
     public class Student

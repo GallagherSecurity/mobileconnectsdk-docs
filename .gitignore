@@ -1,9 +1,7 @@
-docs/ios/sdk-docs/undocumented.json
-/.vs/mobileconnectsdk-docs/v17/.suo
-/samples/server/aspnet/.vs/GallagherUniversityStudentPortalSampleSite/FileContentIndex
-/samples/server/aspnet/obj/Debug/netcoreapp3.0
-/samples/server/aspnet/obj
 /.vs
 /samples/server/aspnet/.vs
-/samples/server/aspnet/bin/Debug/net6.0
+/samples/server/aspnet/obj
+/samples/server/aspnet/bin
 /samples/server/aspnet/Data/database.sqlitedb
+/samples/server/nodejs/node_modules
+/samples/server/nodejs/data

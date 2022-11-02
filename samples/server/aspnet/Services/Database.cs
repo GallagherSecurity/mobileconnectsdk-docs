@@ -1,8 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Data.Sqlite;
 
-#nullable enable
-
 namespace GallagherUniversityStudentPortalSampleSite.Services
 {
     public sealed class Database : IDisposable
