@@ -6,8 +6,8 @@ repositories {
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion = '30.0.3'
+    compileSdkVersion 32
+    buildToolsVersion = '31.0.0'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -17,9 +17,9 @@ android {
     defaultConfig {
         applicationId "com.gallagher.mobileconnectsdksample.mobileconnectsdksample"
         minSdkVersion 21
-        targetSdkVersion 31
-        versionCode 1505061
-        versionName "15.05.061"
+        targetSdkVersion 32
+        versionCode 1601071
+        versionName "16.01.071"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -41,7 +41,7 @@ dependencies {
     implementation 'com.gallagher.security:gallaghermobileaccess:+'
 
     // Salto JustIN Mobile SDK
-    implementation(group: 'com.saltosystems', name: 'salto-justinmobile-sdk', version: '3.0.2', ext: 'aar')
+    implementation(group: 'com.saltosystems', name: 'salto-justinmobile-sdk', version: '3.1.0', ext: 'aar')
     implementation(group: 'com.google.guava', name: 'guava', version: '29.0-android')
 
     implementation 'androidx.appcompat:appcompat:1.2.0'

@@ -1,3 +1,6 @@
+//
+// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+//
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
 import android.app.Notification;
@@ -85,6 +88,10 @@ public class Application extends android.app.Application {
 
         // now start scanning for readers
         mobileAccess.setScanning(true);
+
+        // The default bluetooth enabled setting is true, so this does nothing. It is here for sample purposes. This value
+        // can be set to false to only allow NFC connections
+        mobileAccess.setIsBluetoothEnabledInApp(true);
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

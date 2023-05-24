@@ -1,3 +1,6 @@
+//
+// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+//
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
 import android.Manifest;
@@ -33,7 +36,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class ReadersFragment extends Fragment implements SdkStateListener, AutomaticAccessListener, TabFragment {
+public class ReadersFragment extends Fragment implements TabFragment, SdkStateListener, AutomaticAccessListener {
 
     static final int PERMISSION_REQUEST_FINE_LOCATION = 2;
     static final int PERMISSION_REQUEST_BLUETOOTH_CONNECT = 3;

@@ -1,3 +1,6 @@
+//
+// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+//
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
 import android.os.Bundle;
@@ -23,6 +26,8 @@ import com.gallagher.security.mobileaccess.SaltoKeyIdentifier;
 import com.gallagher.security.mobileaccess.SaltoUpdateListener;
 import com.gallagher.security.mobileaccess.SdkFeatureState;
 import com.gallagher.security.mobileaccess.SdkFeatureStateListener;
+import com.gallagher.security.mobileaccess.SaltoOpeningMode;
+import com.gallagher.security.mobileaccess.SaltoOpeningParams;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -89,7 +94,11 @@ public class SaltoFragment extends Fragment implements SdkFeatureStateListener, 
         }
     }
 
-    public void onSaltoKeyClicked(SaltoKeyIdentifier saltoKey) {
+    public void onSaltoUnlockStandardModeButtonClicked(SaltoKeyIdentifier saltoKey)
+    {
+        Toast.makeText(getContext(), String.format("Unlock using key %s in standard mode", saltoKey.getName()), Toast.LENGTH_SHORT).show();
+
+        // if no SaltoOpeningParams passed then SaltoOpeningMode.STANDARD_MODE is used by default
         mMobileAccess.startOpeningSaltoDoor(saltoKey, new SaltoAccessListener() {
             @Override
             public void onPeripheralFound() {
@@ -102,13 +111,38 @@ public class SaltoFragment extends Fragment implements SdkFeatureStateListener, 
                     Toast.makeText(getContext(), String.format("Salto access failed%n %s", error.getLocalizedMessage()), Toast.LENGTH_LONG).show();
                 }
                 else if (saltoAccessResult != null) {
-                    Toast.makeText(getContext(), String.format("Salto access result%n %s", saltoAccessResult.toString()), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), String.format("Salto access result%n %s", saltoAccessResult), Toast.LENGTH_LONG).show();
                 }
                 else {
                     throw new IllegalStateException("Missing result or error from salto access complete callback");
                 }
             }
         });
+    }
+
+    public void onSaltoUnlockOfficeModeButtonClicked(SaltoKeyIdentifier saltoKey)
+    {
+        Toast.makeText(getContext(), String.format("Unlock using key %s in office mode", saltoKey.getName()), Toast.LENGTH_SHORT).show();
+
+        mMobileAccess.startOpeningSaltoDoor(saltoKey, new SaltoAccessListener() {
+            @Override
+            public void onPeripheralFound() {
+                Toast.makeText(getContext(), "Salto door detected", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSaltoAccessCompleted(@Nullable SaltoAccessResult saltoAccessResult, @Nullable SaltoError error) {
+                if (error != null) {
+                    Toast.makeText(getContext(), String.format("Salto access failed%n %s", error.getLocalizedMessage()), Toast.LENGTH_LONG).show();
+                }
+                else if (saltoAccessResult != null) {
+                    Toast.makeText(getContext(), String.format("Salto access result%n %s", saltoAccessResult), Toast.LENGTH_LONG).show();
+                }
+                else {
+                    throw new IllegalStateException("Missing result or error from salto access complete callback");
+                }
+            }
+        }, new SaltoOpeningParams(SaltoOpeningMode.OFFICE_MODE));
     }
 
     private void updateConnectionErrorBanner() {
@@ -136,10 +170,10 @@ public class SaltoFragment extends Fragment implements SdkFeatureStateListener, 
         public @NonNull SaltoKeyIdentifier getSaltoKey() { return mSaltoKey; }
     }
 
-    class SaltoRecyclerViewAdapter extends RecyclerView.Adapter<SaltoViewHolder> implements SaltoUpdateListener {
+    public class SaltoRecyclerViewAdapter extends RecyclerView.Adapter<SaltoViewHolder> implements SaltoUpdateListener {
 
         @NonNull
-        private ArrayList<SaltoKeyIdentifier> mSaltoKeys = new ArrayList<>();
+        private final ArrayList<SaltoKeyIdentifier> mSaltoKeys = new ArrayList<>();
 
         @NonNull
         @Override
@@ -151,8 +185,13 @@ public class SaltoFragment extends Fragment implements SdkFeatureStateListener, 
         @Override
         public void onBindViewHolder(@NonNull SaltoViewHolder holder, int position) {
             holder.setSaltoKey(mSaltoKeys.get(position));
-            holder.itemView.setOnClickListener(v ->
-                    SaltoFragment.this.onSaltoKeyClicked(holder.getSaltoKey()));
+            Button unlockStandardModeButton = holder.itemView.findViewById(R.id.unlock_standard_mode_button);
+            unlockStandardModeButton.setOnClickListener(v ->
+                    onSaltoUnlockStandardModeButtonClicked(holder.getSaltoKey()));
+            Button unlockOfficeModeButton = holder.itemView.findViewById(R.id.unlock_office_mode_button);
+            unlockOfficeModeButton.setOnClickListener(v ->
+                    onSaltoUnlockOfficeModeButtonClicked(holder.getSaltoKey()));
+
         }
 
         @Override
