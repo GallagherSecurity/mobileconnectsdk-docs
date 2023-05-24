@@ -1,3 +1,6 @@
+//
+// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+//
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
 import android.content.Context;
@@ -33,7 +36,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class CredentialsFragment extends Fragment implements RegisterMobileCredentialDialogFragment.OnInvitationDetailsListener, TabFragment {
+public class CredentialsFragment extends Fragment implements TabFragment, OnInvitationDetailsListener {
 
     // *********************************************************************************
     // Get a reference to the MobileAccess shared instance
@@ -155,7 +158,7 @@ public class CredentialsFragment extends Fragment implements RegisterMobileCrede
                     }
                 });
             } catch (URISyntaxException e) {
-                Log.e("CredentialsFragment", e.getLocalizedMessage());
+                Log.e("CredentialsFragment", e.getMessage());
             }
         }
     }

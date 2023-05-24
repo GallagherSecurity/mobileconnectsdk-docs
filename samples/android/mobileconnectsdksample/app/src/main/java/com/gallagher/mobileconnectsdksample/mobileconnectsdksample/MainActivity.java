@@ -1,3 +1,6 @@
+//
+// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+//
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
 import android.os.Bundle;
@@ -11,11 +14,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.gallagher.security.mobileaccess.MobileAccess;
 import com.gallagher.security.mobileaccess.MobileAccessProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-interface TabFragment {
-    String getTitle();
-    int getActionId();
-}
 
 public class MainActivity extends AppCompatActivity {
 

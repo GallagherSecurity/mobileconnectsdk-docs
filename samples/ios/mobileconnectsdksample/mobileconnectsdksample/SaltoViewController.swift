@@ -1,5 +1,5 @@
 //
-// Copyright Gallagher Group Ltd 2020 All Rights Reserved
+// Copyright Gallagher Group Ltd 2022 All Rights Reserved
 //
 import UIKit
 import GallagherMobileAccess
@@ -93,9 +93,10 @@ class SaltoViewController : UITableViewController, SdkFeatureStateDelegate, Salt
         }
     }
     
-    func onSaltoKeyPressed(saltoKey: SaltoKeyIdentifier) {
-        toast("Using key \(saltoKey.name ?? "?")")
+    func onSaltoUnlockStandardModeButtonPressed(saltoKey: SaltoKeyIdentifier) {
+        toast("Unlock using key \(saltoKey.name ?? "?") in standard mode")
         
+        // if no SaltoOpeningParams passed then SaltoOpeningMode.standardMode is used by default
         mobileAccess.startOpeningSaltoDoor(
             saltoKeyIdentifier: saltoKey,
             peripheralFound: {
@@ -104,11 +105,30 @@ class SaltoViewController : UITableViewController, SdkFeatureStateDelegate, Salt
             saltoAccessCompleted:{ result in
                 switch result {
                 case .failure(let error):
-                    toast("Salto access failed with error \(error.localizedDescription)")
+                    toast("Salto access failed with error \(error)")
                 case .success(let accessResult):
                     toast("Salto access completed with \(accessResult.saltoAccessDecision?.description ?? "?")")
                 }
             })
+    }
+    
+    func onSaltoUnlockOfficeModeButtonPressed(saltoKey: SaltoKeyIdentifier) {
+        toast("Unlock using key \(saltoKey.name ?? "?") in office mode")
+
+        mobileAccess.startOpeningSaltoDoor(
+            saltoKeyIdentifier: saltoKey,
+            peripheralFound: {
+                toast("found Salto peripheral")
+            }, saltoAccessCompleted: { result in
+                switch result {
+                case .failure(let error):
+                    toast("Salto access failed with error \(error)")
+                case .success(let accessResult):
+                    toast("Salto access completed with \(accessResult.saltoAccessDecision?.description ?? "?")")
+                }
+            },
+            params: SaltoOpeningParams(openingMode: .officeMode))
+        
     }
     
     // *********************************************************************************
@@ -139,33 +159,37 @@ class SaltoViewController : UITableViewController, SdkFeatureStateDelegate, Salt
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SaltoKeyTableViewCell") as? SaltoKeyTableViewCell else {
                 fatalError("Could not dequeue cell of type SaltoKeyTableViewCell")
             }
+            cell.parent = self
             cell.setSaltoKey(_saltoKeys[indexPath.row])
             return cell
         default: fatalError("tableView should not have more than two sections")
         }
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        switch indexPath.section {
-        case 1: // they selected a salto key, go and use it
-            let targetKey = _saltoKeys[indexPath.row]
-            onSaltoKeyPressed(saltoKey: targetKey)
-        default:
-            break // selecting rows in other sections doesn't do anything
-        }
-    }
 }
 
-
 class SaltoKeyTableViewCell : UITableViewCell {
+
+    weak var parent: SaltoViewController? = nil
+
+    private var _saltoKey: SaltoKeyIdentifier!
     @IBOutlet private weak var _nameLabel: UILabel!
     @IBOutlet private weak var _serverIdLabel: UILabel!
     
+    @IBOutlet private weak var _unlockStandardModeButton: UIButton!
+    @IBOutlet private weak var _unlockOfficeModeButton: UIButton!
+    
     func setSaltoKey(_ saltoKey: SaltoKeyIdentifier) {
-        _nameLabel.text = saltoKey.name
-        _serverIdLabel.text = saltoKey.saltoServerId.uuidString
+        _saltoKey = saltoKey
+        _nameLabel.text = _saltoKey.name
+        _serverIdLabel.text = _saltoKey.saltoServerId.uuidString
+    }
+    
+    @IBAction func unlockStandardModePressed(_ sender: Any) {
+        parent?.onSaltoUnlockStandardModeButtonPressed(saltoKey: _saltoKey)
+    }
+    
+    @IBAction func unlockOfficeModePressed(_ sender: Any) {
+        parent?.onSaltoUnlockOfficeModeButtonPressed(saltoKey: _saltoKey)
     }
 }
 
@@ -176,3 +200,4 @@ class SaltoWarningTableViewCell : UITableViewCell {
         parent?.onRetryCloudConnection()
     }
 }
+

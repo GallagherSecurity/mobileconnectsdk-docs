@@ -1,3 +1,6 @@
+//
+// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+//
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
 import android.app.DialogFragment;
@@ -17,9 +20,7 @@ import java.util.regex.Pattern;
 
 public class RegisterMobileCredentialDialogFragment extends DialogFragment {
 
-    public interface OnInvitationDetailsListener {
-        void onInvitationDetails(boolean succeeded, @Nullable String invitationCode, @Nullable String serverHost);
-    }
+
 
     @Nullable OnInvitationDetailsListener mInvitationDetailsListener;
 

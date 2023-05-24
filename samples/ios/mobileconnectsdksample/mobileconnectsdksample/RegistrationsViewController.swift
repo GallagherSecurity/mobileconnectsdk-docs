@@ -1,5 +1,5 @@
 //
-// Copyright Gallagher Group Ltd 2020 All Rights Reserved
+// Copyright Gallagher Group Ltd 2022 All Rights Reserved
 //
 import UIKit
 import GallagherMobileAccess
@@ -162,7 +162,7 @@ class CredentialCell : UITableViewCell {
         case .good: return "Good"
         case .notRegistered: return "Not Registered"
         case .unknown: return "Unknown"
-        case .bad(let err): return "Bad: \(err.localizedDescription)"
+        case .bad(let err): return "Bad: \(err?.localizedDescription ?? "")"
         @unknown default: fatalError("Unsupported future type")
         }
     }

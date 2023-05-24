@@ -18,7 +18,8 @@
     <!-- Required for Android 10 and later when using Bluetooth LE while the app is not on-screen -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <!-- Required for Android 12 and later when using BLE for scanning -->
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation"  />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" />
     <!-- Required for Android 12 and later when using BLE for scanning -->
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
 
@@ -30,6 +31,10 @@
 
     <!-- permission to run as a foreground service to enable BLE scanning https://developer.android.com/about/versions/pie/android-9.0-changes-28 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!-- Push Notifications -->
+    <!-- Required for Android 13 and later when using push notifications -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".Application"

@@ -1,3 +1,6 @@
+//
+// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+//
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
 import android.os.Bundle;
@@ -27,7 +30,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-public class DigitalIdFragment extends Fragment implements SdkFeatureStateListener, TabFragment {
+public class DigitalIdFragment extends Fragment implements TabFragment, SdkFeatureStateListener {
 
     @NonNull
     private final MobileAccess mMobileAccess = MobileAccessProvider.getInstance();

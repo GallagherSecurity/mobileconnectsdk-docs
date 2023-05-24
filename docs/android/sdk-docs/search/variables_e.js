@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['very_5flow_462',['VERY_LOW',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_connection_sensitivity.html#ae59adfe8ce5897466d330ac277590d24',1,'com::gallagher::security::mobileaccess::BluetoothConnectionSensitivity']]]
+  ['totp_0',['TOTP',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html#a3900862ed40815ea7eccd33be6dc8be6',1,'com::gallagher::security::mobileaccess::SdkFeature']]]
 ];

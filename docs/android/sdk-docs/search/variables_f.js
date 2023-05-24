@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['with_5fdual_5fauth_463',['WITH_DUAL_AUTH',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_access_decision.html#a61dcc36264f131a4674cd301964dc65c',1,'com::gallagher::security::mobileaccess::AccessDecision']]],
-  ['with_5fescort_464',['WITH_ESCORT',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_access_decision.html#a1aae1a5e0bdd6bca84f3910569ea0d5c',1,'com::gallagher::security::mobileaccess::AccessDecision']]]
+  ['very_5flow_0',['VERY_LOW',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_connection_sensitivity.html#ae59adfe8ce5897466d330ac277590d24',1,'com::gallagher::security::mobileaccess::BluetoothConnectionSensitivity']]]
 ];

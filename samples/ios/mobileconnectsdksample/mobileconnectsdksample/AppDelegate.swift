@@ -1,5 +1,5 @@
 //
-// Copyright Gallagher Group Ltd 2020 All Rights Reserved
+// Copyright Gallagher Group Ltd 2022 All Rights Reserved
 //
 import UIKit
 import CoreLocation
