@@ -187,11 +187,13 @@ Getting Started</h1>
 <div class="line"> </div>
 <div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.BLUETOOTH&quot;</span> /&gt;</div>
 <div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.BLUETOOTH_ADMIN&quot;</span> /&gt;</div>
-<div class="line">        </div>
+<div class="line"> </div>
 <div class="line"><span class="comment">&lt;!-- Required for Android 6.0 to 10 when using Bluetooth LE --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</span> /&gt;</div>
+<div class="line">&lt;<span class="keywordtype">uses-permission-sdk-23</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</span></div>
+<div class="line">    <span class="keyword">tools:node</span>=<span class="stringliteral">&quot;replace&quot;</span> /&gt;</div>
 <div class="line"><span class="comment">&lt;!-- Required for Android 10 to 12 when using Bluetooth LE --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span> /&gt;</div>
+<div class="line">&lt;<span class="keywordtype">uses-permission-sdk-23</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span></div>
+<div class="line">    <span class="keyword">tools:node</span>=<span class="stringliteral">&quot;replace&quot;</span> /&gt;</div>
 <div class="line"><span class="comment">&lt;!-- Required for Android 10 and 11 when using Bluetooth LE in the background --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_BACKGROUND_LOCATION&quot;</span> /&gt;</div>
 <div class="line"> </div>
