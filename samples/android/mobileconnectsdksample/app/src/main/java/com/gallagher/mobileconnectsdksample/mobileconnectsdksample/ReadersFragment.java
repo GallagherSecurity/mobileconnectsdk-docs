@@ -1,5 +1,5 @@
 //
-// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+// Copyright Gallagher Group Ltd 2024 All Rights Reserved
 //
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
@@ -42,7 +42,7 @@ public class ReadersFragment extends Fragment implements TabFragment, SdkStateLi
     static final int PERMISSION_REQUEST_BLUETOOTH_CONNECT = 3;
 
     private enum ReaderVisualState {
-        CONNECTING, GRANTED, DENIED
+        CONNECTING, GRANTED, DENIED, REQUESTED, COMPLETED
     }
 
     // "ViewModel" to render our reader information along with connection state
@@ -219,15 +219,25 @@ public class ReadersFragment extends Fragment implements TabFragment, SdkStateLi
 
     // *********************************************************************************
     // AutomaticAccessListener:
-    // The MobileConnect SDK is telling us access completed for the given reader
+    // The MobileConnect SDK is telling us access completed for the given reader with a non-null result passed back
+    // The MobileConnect SDK is telling us access failed for the given reader with a non-null error passed back
+    // Note: Access result includes those triggered by Mobile Credentials and Aperio Credentials
     // *********************************************************************************
     @Override
     public void onAccessCompleted(@NonNull Reader reader, @Nullable AccessResult accessResult, @Nullable ReaderConnectionError error) {
         // 'error' only occurs if there's some sort of lower-level error (e.g. bluetooth disconnect)
-        // in the normal case error will be null, and you should check accessResult.isAccessGranted().
-        // accessResult.getAccessDecision() is the actual specific result behind the scenes
-        if(accessResult != null && accessResult.isAccessGranted()) {
-            mAdapter.setReaderVisualState(reader, ReaderVisualState.GRANTED);
+        // in the normal case error will be null, and you should check accessResult.isAccessGranted()
+        // and accessResult.isAccessDenied(). There are cases when it will be neither if the door
+        // does not support feedback. accessResult.getAccessDecision() is the actual specific result
+        // behind the scenes
+        if(accessResult != null) {
+            if (accessResult.isAccessGranted()) {
+                mAdapter.setReaderVisualState(reader, ReaderVisualState.GRANTED);
+            } else if (accessResult.isAccessDenied()) {
+                mAdapter.setReaderVisualState(reader, ReaderVisualState.DENIED);
+            } else {
+                mAdapter.setReaderVisualState(reader, ReaderVisualState.REQUESTED);
+            }
         } else {
             mAdapter.setReaderVisualState(reader, ReaderVisualState.DENIED);
         }
@@ -319,6 +329,7 @@ public class ReadersFragment extends Fragment implements TabFragment, SdkStateLi
 
         // *********************************************************************************
         // ReaderUpdateListener
+        // Triggered when nearby Gallagher or Aperio BLE readers state changes
         // *********************************************************************************
         @Override
         public void onReaderUpdated(ReaderAttributes reader, ReaderUpdateType readerUpdateType) {
@@ -363,6 +374,4 @@ public class ReadersFragment extends Fragment implements TabFragment, SdkStateLi
             }
         }
     }
-
-
 }

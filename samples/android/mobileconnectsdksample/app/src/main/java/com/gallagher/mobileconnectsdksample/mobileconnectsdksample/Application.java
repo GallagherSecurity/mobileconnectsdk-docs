@@ -1,5 +1,5 @@
 //
-// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+// Copyright Gallagher Group Ltd 2024 All Rights Reserved
 //
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
@@ -63,7 +63,7 @@ public class Application extends android.app.Application {
                 this, // reference to android Application
                 null, // databaseFilePath: supply null to use the default
                 notificationsConfiguration, // notifications config, as above
-                EnumSet.of(SdkFeature.SALTO, SdkFeature.DIGITAL_ID), // the sample app enables both Salto and Digital ID. If you don't want those you can use EnumSet.noneOf(SdkFeature.class)
+                EnumSet.of(SdkFeature.SALTO, SdkFeature.APERIO, SdkFeature.DIGITAL_ID), // the sample app enables Salto, Aperio, and Digital ID. If you don't want those you can use EnumSet.noneOf(SdkFeature.class)
                 CloudTlsValidationMode.ANY_VALID_CERTIFICATE_REQUIRED,
                 null);
 

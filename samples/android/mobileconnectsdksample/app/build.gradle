@@ -6,7 +6,7 @@ repositories {
 }
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     buildToolsVersion = '31.0.0'
 
     compileOptions {
@@ -17,9 +17,9 @@ android {
     defaultConfig {
         applicationId "com.gallagher.mobileconnectsdksample.mobileconnectsdksample"
         minSdkVersion 21
-        targetSdkVersion 32
-        versionCode 1601071
-        versionName "16.01.071"
+        targetSdkVersion 33
+        versionCode 1604053
+        versionName "16.04.053"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

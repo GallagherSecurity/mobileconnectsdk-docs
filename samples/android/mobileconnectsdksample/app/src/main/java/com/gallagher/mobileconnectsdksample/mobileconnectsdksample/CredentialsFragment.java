@@ -1,5 +1,5 @@
 //
-// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+// Copyright Gallagher Group Ltd 2024 All Rights Reserved
 //
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
@@ -136,7 +136,7 @@ public class CredentialsFragment extends Fragment implements TabFragment, OnInvi
                     public void onRegistrationCompleted(@Nullable MobileCredential credential, @Nullable RegistrationError error) {
                         if(error != null) {
                             Log.e("CredentialsFragment", "Registration Error", error);
-                            Toast.makeText(getActivity(), error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Registration Error " + error.stringValue(), Toast.LENGTH_LONG).show();
                         } else if(credential != null) {
                             Toast.makeText(getActivity(), "Registered!", Toast.LENGTH_SHORT).show();
                             mAdapter.setCredentials(mMobileAccess.getMobileCredentials()); // reload the list

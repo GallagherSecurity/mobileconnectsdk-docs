@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AperioError Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Enum/AperioError" class="dashAnchor"></a>
+
+    <a title="AperioError Enumeration Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+           Docs
+        </a>
+        
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html"> Reference</a>
+      <img class="carat" src="../img/carat.png" alt=""/>
+      AperioError Enumeration Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../developer-guide.html">developer-guide</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MobileAccessProvider.html">MobileAccessProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SaltoOpeningParams.html">SaltoOpeningParams</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/AccessDecision.html">AccessDecision</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/AccessMode.html">AccessMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/AperioError.html">AperioError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/BackgroundScanningMode.html">BackgroundScanningMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/CloudNetworkConnectionError.html">CloudNetworkConnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/CloudTlsValidationMode.html">CloudTlsValidationMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/DeleteOption.html">DeleteOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/DigitalIdError.html">DigitalIdError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/DigitalIdStatusType.html">DigitalIdStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/LogLevel.html">LogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/MobileAccessState.html">MobileAccessState</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/MobileCredentialFilter.html">MobileCredentialFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/MobileCredentialKeyStatus.html">MobileCredentialKeyStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ProvisioningErrorCode.html">ProvisioningErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ReaderActionType.html">ReaderActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ReaderConnectionError.html">ReaderConnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ReaderDistance.html">ReaderDistance</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ReaderUpdateType.html">ReaderUpdateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/RegistrationError.html">RegistrationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SaltoAccessDecision.html">SaltoAccessDecision</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SaltoError.html">SaltoError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SaltoOpeningMode.html">SaltoOpeningMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SdkFeatureState.html">SdkFeatureState</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SecondFactorAuthenticationType.html">SecondFactorAuthenticationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SecondFactorVerificationType.html">SecondFactorVerificationType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/AccessDelegate.html">AccessDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/DigitalIdDelegate.html">DigitalIdDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/LogWriter.html">LogWriter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Logger.html">Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/MobileAccess.html">MobileAccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/MobileCredential.html">MobileCredential</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/NotificationsDelegate.html">NotificationsDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Reader.html">Reader</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/ReaderAttributes.html">ReaderAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/ReaderUpdateDelegate.html">ReaderUpdateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/RegistrationDelegate.html">RegistrationDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SaltoAccessDelegate.html">SaltoAccessDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SaltoUpdateDelegate.html">SaltoUpdateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SdkFeatureStateDelegate.html">SdkFeatureStateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SdkStateDelegate.html">SdkStateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/StringValueConvertible.html">StringValueConvertible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/AccessResult.html">AccessResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/DigitalId.html">DigitalId</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/LogConfiguration.html">LogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/LogParameters.html">LogParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MobileAccessLocalization.html">MobileAccessLocalization</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MobileCredentialStatus.html">MobileCredentialStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ReaderAction.html">ReaderAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SaltoAccessResult.html">SaltoAccessResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SaltoKeyIdentifier.html">SaltoKeyIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SdkFeature.html">SdkFeature</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SharedCredential.html">SharedCredential</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess29AuthenticationDetailsProvidera">AuthenticationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess32CredentialDeleteCompletedHandlera">CredentialDeleteCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess12LogFormattera">LogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess27NotificationDetailsProvidera">NotificationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess28ReaderActionCompletedHandlera">ReaderActionCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess39ReaderActionEnumerationCompletedHandlera">ReaderActionEnumerationCompletedHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess27RegistrationDetailsProvidera">RegistrationDetailsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess38SecondFactorAuthenticationTypeSelectora">SecondFactorAuthenticationTypeSelector</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>AperioError</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AperioError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AperioError</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents Errors that can occur within the Aperio Integration part of the Mobile Connect SDK</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess11AperioErrorO015deserializationE0yACSSSgcACmF"></a>
+                    <a name="//apple_ref/swift/Element/deserializationError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess11AperioErrorO015deserializationE0yACSSSgcACmF">deserializationError(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An Aperio Key update was received from the Gallagher cloud, but could not be deserialized.
+You should not see this error during normal operation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">deserializationError</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess11AperioErrorO24mobileCredentialNotFoundyAcA0bG0_pcACmF"></a>
+                    <a name="//apple_ref/swift/Element/mobileCredentialNotFound(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess11AperioErrorO24mobileCredentialNotFoundyAcA0bG0_pcACmF">mobileCredentialNotFound(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An Aperio Key update was received from the Gallagher cloud, but an associated mobile credential could not be found.
+You should not see this error during normal operation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">mobileCredentialNotFound</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MobileCredential.html">MobileCredential</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess11AperioErrorO12addKeyFailedyACs0E0_pcACmF"></a>
+                    <a name="//apple_ref/swift/Element/addKeyFailed(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess11AperioErrorO12addKeyFailedyACs0E0_pcACmF">addKeyFailed(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An Aperio Key update was received from the Gallagher cloud, but could not be added to the local database
+You should not see this error during normal operation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">addKeyFailed</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess11AperioErrorO15deleteKeyFailedyACs0E0_pcACmF"></a>
+                    <a name="//apple_ref/swift/Element/deleteKeyFailed(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess11AperioErrorO15deleteKeyFailedyACs0E0_pcACmF">deleteKeyFailed(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An Aperio Key could not be deleted from the local database
+You should not see this error during normal operation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">deleteKeyFailed</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess11AperioErrorO13getKeysFailedyACs0E0_pSg_SSSgtcACmF"></a>
+                    <a name="//apple_ref/swift/Element/getKeysFailed(_:message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess11AperioErrorO13getKeysFailedyACs0E0_pSg_SSSgtcACmF">getKeysFailed(_:<wbr>message:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An Aperio Key could not be loaded from the local database
+You should not see this error during normal operation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">getKeysFailed</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess11AperioErrorO09keyFormatE0yACSSSgcACmF"></a>
+                    <a name="//apple_ref/swift/Element/keyFormatError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess11AperioErrorO09keyFormatE0yACSSSgcACmF">keyFormatError(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An Aperio Key contains the wrong data format
+You should not see this error during normal operation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">keyFormatError</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess11AperioErrorO010decryptionE0yACs0E0_pcACmF"></a>
+                    <a name="//apple_ref/swift/Element/decryptionError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess11AperioErrorO010decryptionE0yACs0E0_pcACmF">decryptionError(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An Aperio Key could not be decrypted for use
+You should not see this error during normal operation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">decryptionError</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess11AperioErrorO10unexpectedyACSScACmF"></a>
+                    <a name="//apple_ref/swift/Element/unexpected(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess11AperioErrorO10unexpectedyACSScACmF">unexpected(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An unexpected error occurred
+You should not see this error during normal operation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">unexpected</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-05-23)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>
