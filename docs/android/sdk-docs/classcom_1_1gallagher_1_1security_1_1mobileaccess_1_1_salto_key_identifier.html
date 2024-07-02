@@ -111,17 +111,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   81</span>                                                {</div>
-<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">if</span> (!(obj instanceof SaltoKeyIdentifier))</div>
-<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   84</span> </div>
-<div class="line"><span class="lineno">   85</span>        SaltoKeyIdentifier other = (SaltoKeyIdentifier)obj;</div>
-<div class="line"><span class="lineno">   86</span>        <span class="keywordflow">return</span> credentialId.equals(other.credentialId) &amp;&amp;</div>
-<div class="line"><span class="lineno">   87</span>                saltoServerId.equals(other.saltoServerId) &amp;&amp;</div>
-<div class="line"><span class="lineno">   88</span>                ((name == <span class="keyword">null</span> &amp;&amp; other.name == <span class="keyword">null</span>) || (name != <span class="keyword">null</span> &amp;&amp; name.equals(other.name))) &amp;&amp;</div>
-<div class="line"><span class="lineno">   89</span>                ((issueTime == <span class="keyword">null</span> &amp;&amp; other.issueTime == <span class="keyword">null</span>) || (issueTime != <span class="keyword">null</span> &amp;&amp; issueTime.equals(other.issueTime))) &amp;&amp;</div>
-<div class="line"><span class="lineno">   90</span>                ((expiryTime == <span class="keyword">null</span> &amp;&amp; other.expiryTime == <span class="keyword">null</span>) || (expiryTime != <span class="keyword">null</span> &amp;&amp; expiryTime.equals(other.expiryTime)));</div>
-<div class="line"><span class="lineno">   91</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">  100</span>                                                {</div>
+<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">if</span> (!(obj instanceof SaltoKeyIdentifier))</div>
+<div class="line"><span class="lineno">  102</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>        SaltoKeyIdentifier other = (SaltoKeyIdentifier)obj;</div>
+<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">return</span> credentialId.equals(other.credentialId) &amp;&amp;</div>
+<div class="line"><span class="lineno">  106</span>                saltoServerId.equals(other.saltoServerId) &amp;&amp;</div>
+<div class="line"><span class="lineno">  107</span>                ((name == <span class="keyword">null</span> &amp;&amp; other.name == <span class="keyword">null</span>) || (name != <span class="keyword">null</span> &amp;&amp; name.equals(other.name))) &amp;&amp;</div>
+<div class="line"><span class="lineno">  108</span>                ((issueTime == <span class="keyword">null</span> &amp;&amp; other.issueTime == <span class="keyword">null</span>) || (issueTime != <span class="keyword">null</span> &amp;&amp; issueTime.equals(other.issueTime))) &amp;&amp;</div>
+<div class="line"><span class="lineno">  109</span>                ((expiryTime == <span class="keyword">null</span> &amp;&amp; other.expiryTime == <span class="keyword">null</span>) || (expiryTime != <span class="keyword">null</span> &amp;&amp; expiryTime.equals(other.expiryTime)));</div>
+<div class="line"><span class="lineno">  110</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -139,7 +139,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   64</span>{ <span class="keywordflow">return</span> credentialId; }</div>
+<dl class="section return"><dt>Returns</dt><dd>The ID of the credential the Salto Key belongs to </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   67</span>{ <span class="keywordflow">return</span> credentialId; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -157,7 +158,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   78</span>{ <span class="keywordflow">return</span> expiryTime; }</div>
+<dl class="section return"><dt>Returns</dt><dd>The datetime the Salto Key will expire </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>{ <span class="keywordflow">return</span> expiryTime; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -175,7 +177,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   75</span>{ <span class="keywordflow">return</span> issueTime; }</div>
+<dl class="section return"><dt>Returns</dt><dd>The datetime the Salto Key was issued </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>{ <span class="keywordflow">return</span> issueTime; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -193,7 +196,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   72</span>{ <span class="keywordflow">return</span> name; }</div>
+<dl class="section return"><dt>Returns</dt><dd>The assigned name of the Salto Key </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>{ <span class="keywordflow">return</span> name; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -211,7 +215,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   67</span>{ <span class="keywordflow">return</span> saltoServerId; }</div>
+<dl class="section return"><dt>Returns</dt><dd>The Unique Identifier for the Salto Server the Salto Key belongs to </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>{ <span class="keywordflow">return</span> saltoServerId; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -229,7 +234,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   69</span>{ <span class="keywordflow">return</span> sourceSiteFacilityId; }</div>
+<dl class="section return"><dt>Returns</dt><dd>Facility ID of the site this Salto Key was received from or zero if same as the Mobile Credential </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>{ <span class="keywordflow">return</span> sourceSiteFacilityId; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -247,9 +253,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   94</span>                          {</div>
-<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">return</span> credentialId.hashCode();</div>
-<div class="line"><span class="lineno">   96</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">  116</span>                          {</div>
+<div class="line"><span class="lineno">  117</span>        <span class="keywordflow">return</span> credentialId.hashCode();</div>
+<div class="line"><span class="lineno">  118</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>

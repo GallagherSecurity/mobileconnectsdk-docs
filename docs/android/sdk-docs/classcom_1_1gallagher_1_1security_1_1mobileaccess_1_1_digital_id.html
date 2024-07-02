@@ -126,13 +126,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   91</span>                                                {</div>
-<div class="line"><span class="lineno">   92</span>        <span class="keywordflow">if</span> (<span class="keyword">this</span> == obj)</div>
-<div class="line"><span class="lineno">   93</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   94</span> </div>
-<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">return</span> obj instanceof DigitalId &amp;&amp;</div>
-<div class="line"><span class="lineno">   96</span>                Arrays.equals(mId, ((DigitalId) obj).mId) &amp;&amp; mCredentialId.equals(((DigitalId) obj).mCredentialId);</div>
-<div class="line"><span class="lineno">   97</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   94</span>                                                {</div>
+<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">if</span> (<span class="keyword">this</span> == obj)</div>
+<div class="line"><span class="lineno">   96</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">return</span> obj instanceof DigitalId &amp;&amp;</div>
+<div class="line"><span class="lineno">   99</span>                Arrays.equals(mId, ((DigitalId) obj).mId) &amp;&amp; mCredentialId.equals(((DigitalId) obj).mCredentialId);</div>
+<div class="line"><span class="lineno">  100</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -347,9 +347,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  100</span>                          {</div>
-<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">return</span> Arrays.hashCode(mId) ^ mCredentialId.hashCode();</div>
-<div class="line"><span class="lineno">  102</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">  106</span>                          {</div>
+<div class="line"><span class="lineno">  107</span>        <span class="keywordflow">return</span> Arrays.hashCode(mId) ^ mCredentialId.hashCode();</div>
+<div class="line"><span class="lineno">  108</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>

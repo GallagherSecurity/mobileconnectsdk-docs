@@ -1,5 +1,5 @@
 //
-// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+// Copyright Gallagher Group Ltd 2024 All Rights Reserved
 //
 package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 

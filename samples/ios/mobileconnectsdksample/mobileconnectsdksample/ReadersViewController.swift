@@ -1,12 +1,12 @@
 //
-// Copyright Gallagher Group Ltd 2022 All Rights Reserved
+// Copyright Gallagher Group Ltd 2024 All Rights Reserved
 //
 import Foundation
 import UIKit
 import GallagherMobileAccess
 
 private enum ReaderVisualState : String {
-    case connecting, granted, denied
+    case connecting, granted, denied, requested
 }
 
 // "ViewModel" to render our reader information along with connection state
@@ -109,6 +109,7 @@ class ReadersViewController : UITableViewController, SdkStateDelegate, ReaderUpd
     
     // MARK: - Reader updates
     
+    // Triggered when nearby Gallagher or Aperio BLE readers state changes
     func onReaderUpdated(_ reader: ReaderAttributes, updateType: ReaderUpdateType) {
         if updateType == .attributesChanged {
             if let idx = readers.firstIndex(where: { $0.reader.id == reader.id }) {
@@ -147,15 +148,24 @@ class ReadersViewController : UITableViewController, SdkStateDelegate, ReaderUpd
     
     // *********************************************************************************
     // AccessDelegate:
-    // The MobileConnect SDK is telling us access successfully completed for the given reader when a non-nil result passed back
-    // The MobileConnect SDK is telling us access failed for the given reader when a non-nil error passed back
+    // The MobileConnect SDK is telling us access successfully completed for the given reader with a non-nil result passed back
+    // The MobileConnect SDK is telling us access failed for the given reader with a non-nil error passed back
+    // Note: Access result includes those triggered by Mobile Credentials and Aperio Credentials
     // *********************************************************************************
     func onAccessCompleted(reader: Reader, result: AccessResult?, error: ReaderConnectionError?) {
         // 'error' only occurs if there's some sort of lower-level error (e.g. bluetooth disconnect)
-        // in the normal case error will be null, and you should check result.isAccessGranted().
-        // result.accessDecision is the actual specific result behind the scenes
-        if let accessResult = result, accessResult.isAccessGranted() {
-            setReaderVisualState(reader, .granted)
+        // in the normal case error will be nil, and you should check accessResult.isAccessGranted()
+        // and accessResult.isAccessDenied(). There are cases when it will be neither if the door
+        // does not support feedback. accessResult.getAccessDecision() is the actual specific result
+        // behind the scenes
+        if let accessResult = result {
+            if accessResult.isAccessGranted() {
+                setReaderVisualState(reader, .granted)
+            } else if accessResult.isAccessDenied() {
+                setReaderVisualState(reader, .denied)
+            } else {
+                setReaderVisualState(reader, .requested)
+            }
         } else {
             setReaderVisualState(reader, .denied)
         }
