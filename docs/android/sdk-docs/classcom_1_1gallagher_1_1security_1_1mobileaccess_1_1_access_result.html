@@ -82,6 +82,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa95238e6e707b26b143980125cfd5f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ee40f118ad20a9430ef2501004508d7"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_access_result.html#a6ee40f118ad20a9430ef2501004508d7">isAccessGranted</a> ()</td></tr>
 <tr class="separator:a6ee40f118ad20a9430ef2501004508d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12542c5a568ce44836036edb298954e2"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_access_result.html#a12542c5a568ce44836036edb298954e2">isAccessDenied</a> ()</td></tr>
+<tr class="separator:a12542c5a568ce44836036edb298954e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dce9e2070e4e6a568ba7c8846aec56c"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_access_result.html#a7dce9e2070e4e6a568ba7c8846aec56c">toString</a> ()</td></tr>
 <tr class="separator:a7dce9e2070e4e6a568ba7c8846aec56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -130,6 +132,27 @@ Public Member Functions</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a12542c5a568ce44836036edb298954e2" name="a12542c5a568ce44836036edb298954e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12542c5a568ce44836036edb298954e2">&#9670;&nbsp;</a></span>isAccessDenied()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean com.gallagher.security.mobileaccess.AccessResult.isAccessDenied </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Convenience method which returns false if the <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_access_decision.html">AccessDecision</a> is one of the denied results, else false </p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>                                    {</div>
+<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">return</span> mAccessDecision.getValue() &lt; 0;</div>
+<div class="line"><span class="lineno">   67</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a6ee40f118ad20a9430ef2501004508d7" name="a6ee40f118ad20a9430ef2501004508d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ee40f118ad20a9430ef2501004508d7">&#9670;&nbsp;</a></span>isAccessGranted()</h2>
 
@@ -165,9 +188,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   66</span>                             { <span class="comment">// for debugging/logging only</span></div>
-<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">return</span> String.format(Locale.US, <span class="stringliteral">&quot;&lt;AccessResult decision=&#39;%1$s&#39;, mode = &#39;%2$s&#39;&gt;&quot;</span>, mAccessDecision, mAccessMode);</div>
-<div class="line"><span class="lineno">   68</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>                             { <span class="comment">// for debugging/logging only</span></div>
+<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">return</span> String.format(Locale.US, <span class="stringliteral">&quot;&lt;AccessResult decision=&#39;%1$s&#39;, mode = &#39;%2$s&#39;&gt;&quot;</span>, mAccessDecision, mAccessMode);</div>
+<div class="line"><span class="lineno">   73</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>

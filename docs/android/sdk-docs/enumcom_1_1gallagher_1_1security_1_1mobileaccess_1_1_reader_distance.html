@@ -92,17 +92,17 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a74f7322d65ad0a33262c23643b3764a1"><td class="memItemLeft" align="right" valign="top"><a id="a74f7322d65ad0a33262c23643b3764a1" name="a74f7322d65ad0a33262c23643b3764a1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>NEAR</b> =(0)</td></tr>
+<tr class="memitem:a74f7322d65ad0a33262c23643b3764a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a74f7322d65ad0a33262c23643b3764a1">NEAR</a> =(0)</td></tr>
 <tr class="separator:a74f7322d65ad0a33262c23643b3764a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79fe3f1a8f6192d8c6c7981d20f21667"><td class="memItemLeft" align="right" valign="top"><a id="a79fe3f1a8f6192d8c6c7981d20f21667" name="a79fe3f1a8f6192d8c6c7981d20f21667"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MEDIUM</b> =(1)</td></tr>
+<tr class="memitem:a79fe3f1a8f6192d8c6c7981d20f21667"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a79fe3f1a8f6192d8c6c7981d20f21667">MEDIUM</a> =(1)</td></tr>
 <tr class="separator:a79fe3f1a8f6192d8c6c7981d20f21667"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20c638c87646745f35420bbab0098864"><td class="memItemLeft" align="right" valign="top"><a id="a20c638c87646745f35420bbab0098864" name="a20c638c87646745f35420bbab0098864"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FAR</b> =(2)</td></tr>
+<tr class="memitem:a20c638c87646745f35420bbab0098864"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a20c638c87646745f35420bbab0098864">FAR</a> =(2)</td></tr>
 <tr class="separator:a20c638c87646745f35420bbab0098864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >If Bluetooth signals are visible from multiple readers at a given physical location, <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html">ReaderDistance</a> can be used to infer which reader is physically closer to the phone.</p>
+<p >Note: These values do not adhere to any particular unit of measure, and two phones in the same play may disagree on values for a given reader due to the margin of error inherent in measuring a Bluetooth signal. If you use them, you should only do so in an abstract way, such as showing different colored icons for a near vs far reader. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a67136bba4b497fb1409e16a3dff140b7" name="a67136bba4b497fb1409e16a3dff140b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67136bba4b497fb1409e16a3dff140b7">&#9670;&nbsp;</a></span>ReaderDistance()</h2>
 
@@ -118,9 +118,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   13</span>                              {</div>
-<div class="line"><span class="lineno">   14</span>        mValue = value;</div>
-<div class="line"><span class="lineno">   15</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>                              {</div>
+<div class="line"><span class="lineno">   27</span>        mValue = value;</div>
+<div class="line"><span class="lineno">   28</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -170,34 +170,37 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   31</span>                                                                                                                                                {</div>
-<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">if</span>(manualConnectPathLoss &lt;= 0) { <span class="comment">// if manual connect is disabled we never see the reader until we&#39;re right on top of it</span></div>
-<div class="line"><span class="lineno">   33</span>            <span class="keywordflow">return</span> NEAR;</div>
-<div class="line"><span class="lineno">   34</span>        }</div>
-<div class="line"><span class="lineno">   35</span>        <span class="comment">// 100 is the &quot;max&quot; RSSI we&#39;ve seen in testing, so adjust the max PL we think we should theoretically see</span></div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordtype">double</span> manualPL = Math.min(manualConnectPathLoss, 100 + txPower);</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>        <span class="comment">// although you can configure auto pathloss down to 1, I&#39;ve never seen lower than about 15 or so. Use this as our lower limit</span></div>
-<div class="line"><span class="lineno">   39</span>        <span class="keywordtype">double</span> autoPL = Math.max(15, autoConnectPathLoss);</div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>        <span class="keywordtype">double</span> plRange = manualPL - autoPL;</div>
-<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">if</span>(plRange &lt; 5) {</div>
-<div class="line"><span class="lineno">   43</span>            <span class="comment">// if the difference between manual and auto connect range is small, we&#39;re not really going to get a meaningful value</span></div>
-<div class="line"><span class="lineno">   44</span>            <span class="comment">// also this prevents a possible divide-by-zero below</span></div>
-<div class="line"><span class="lineno">   45</span>            <span class="keywordflow">return</span> NEAR;</div>
-<div class="line"><span class="lineno">   46</span>        }</div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordtype">double</span> plInRange = measuredPathLoss - autoPL;</div>
-<div class="line"><span class="lineno">   49</span> </div>
-<div class="line"><span class="lineno">   50</span>        <span class="keywordtype">double</span> result = plInRange / plRange;</div>
-<div class="line"><span class="lineno">   51</span>        <span class="keywordflow">if</span>(result &lt; 0.4) {</div>
-<div class="line"><span class="lineno">   52</span>            <span class="keywordflow">return</span> NEAR;</div>
-<div class="line"><span class="lineno">   53</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(result &lt; 0.75) {</div>
-<div class="line"><span class="lineno">   54</span>            <span class="keywordflow">return</span> MEDIUM;</div>
-<div class="line"><span class="lineno">   55</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   56</span>            <span class="keywordflow">return</span> FAR;</div>
-<div class="line"><span class="lineno">   57</span>        }</div>
-<div class="line"><span class="lineno">   58</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>                                                                                                                                                {</div>
+<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">if</span>(manualConnectPathLoss &lt;= 0) { <span class="comment">// if manual connect is disabled we never see the reader until we&#39;re right on top of it</span></div>
+<div class="line"><span class="lineno">   46</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a74f7322d65ad0a33262c23643b3764a1">NEAR</a>;</div>
+<div class="line"><span class="lineno">   47</span>        }</div>
+<div class="line"><span class="lineno">   48</span>        <span class="comment">// 100 is the &quot;max&quot; RSSI we&#39;ve seen in testing, so adjust the max PL we think we should theoretically see</span></div>
+<div class="line"><span class="lineno">   49</span>        <span class="keywordtype">double</span> manualPL = Math.min(manualConnectPathLoss, 100 + txPower);</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>        <span class="comment">// although you can configure auto pathloss down to 1, I&#39;ve never seen lower than about 15 or so. Use this as our lower limit</span></div>
+<div class="line"><span class="lineno">   52</span>        <span class="keywordtype">double</span> autoPL = Math.max(15, autoConnectPathLoss);</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordtype">double</span> plRange = manualPL - autoPL;</div>
+<div class="line"><span class="lineno">   55</span>        <span class="keywordflow">if</span>(plRange &lt; 5) {</div>
+<div class="line"><span class="lineno">   56</span>            <span class="comment">// if the difference between manual and auto connect range is small, we&#39;re not really going to get a meaningful value</span></div>
+<div class="line"><span class="lineno">   57</span>            <span class="comment">// also this prevents a possible divide-by-zero below</span></div>
+<div class="line"><span class="lineno">   58</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a74f7322d65ad0a33262c23643b3764a1">NEAR</a>;</div>
+<div class="line"><span class="lineno">   59</span>        }</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>        <span class="keywordtype">double</span> plInRange = measuredPathLoss - autoPL;</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>        <span class="keywordtype">double</span> result = plInRange / plRange;</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">if</span>(result &lt; 0.4) {</div>
+<div class="line"><span class="lineno">   65</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a74f7322d65ad0a33262c23643b3764a1">NEAR</a>;</div>
+<div class="line"><span class="lineno">   66</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(result &lt; 0.75) {</div>
+<div class="line"><span class="lineno">   67</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a79fe3f1a8f6192d8c6c7981d20f21667">MEDIUM</a>;</div>
+<div class="line"><span class="lineno">   68</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a20c638c87646745f35420bbab0098864">FAR</a>;</div>
+<div class="line"><span class="lineno">   70</span>        }</div>
+<div class="line"><span class="lineno">   71</span>    }</div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance_html_a20c638c87646745f35420bbab0098864"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a20c638c87646745f35420bbab0098864">com.gallagher.security.mobileaccess.ReaderDistance.FAR</a></div><div class="ttdeci">FAR</div><div class="ttdef"><b>Definition:</b> ReaderDistance.java:23</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance_html_a74f7322d65ad0a33262c23643b3764a1"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a74f7322d65ad0a33262c23643b3764a1">com.gallagher.security.mobileaccess.ReaderDistance.NEAR</a></div><div class="ttdeci">NEAR</div><div class="ttdef"><b>Definition:</b> ReaderDistance.java:19</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance_html_a79fe3f1a8f6192d8c6c7981d20f21667"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a79fe3f1a8f6192d8c6c7981d20f21667">com.gallagher.security.mobileaccess.ReaderDistance.MEDIUM</a></div><div class="ttdeci">MEDIUM</div><div class="ttdef"><b>Definition:</b> ReaderDistance.java:21</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -215,9 +218,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   17</span>                          {</div>
-<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">return</span> mValue;</div>
-<div class="line"><span class="lineno">   19</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>                          {</div>
+<div class="line"><span class="lineno">   31</span>        <span class="keywordflow">return</span> mValue;</div>
+<div class="line"><span class="lineno">   32</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -245,15 +248,61 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p >Returns null if the int can't be parsed </p>
-<div class="fragment"><div class="line"><span class="lineno">   22</span>                                                        {</div>
-<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">for</span>(ReaderDistance r : values()) {</div>
-<div class="line"><span class="lineno">   24</span>            <span class="keywordflow">if</span>(r.mValue == i) {</div>
-<div class="line"><span class="lineno">   25</span>                <span class="keywordflow">return</span> r;</div>
-<div class="line"><span class="lineno">   26</span>            }</div>
-<div class="line"><span class="lineno">   27</span>        }</div>
-<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
-<div class="line"><span class="lineno">   29</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   35</span>                                                        {</div>
+<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">for</span>(ReaderDistance r : values()) {</div>
+<div class="line"><span class="lineno">   37</span>            <span class="keywordflow">if</span>(r.mValue == i) {</div>
+<div class="line"><span class="lineno">   38</span>                <span class="keywordflow">return</span> r;</div>
+<div class="line"><span class="lineno">   39</span>            }</div>
+<div class="line"><span class="lineno">   40</span>        }</div>
+<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
+<div class="line"><span class="lineno">   42</span>    }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a20c638c87646745f35420bbab0098864" name="a20c638c87646745f35420bbab0098864"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20c638c87646745f35420bbab0098864">&#9670;&nbsp;</a></span>FAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">com.gallagher.security.mobileaccess.ReaderDistance.FAR =(2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The SDK believes this reader is far away </p>
+
+</div>
+</div>
+<a id="a79fe3f1a8f6192d8c6c7981d20f21667" name="a79fe3f1a8f6192d8c6c7981d20f21667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79fe3f1a8f6192d8c6c7981d20f21667">&#9670;&nbsp;</a></span>MEDIUM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">com.gallagher.security.mobileaccess.ReaderDistance.MEDIUM =(1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The SDK believes this reader is a medium distance away </p>
+
+</div>
+</div>
+<a id="a74f7322d65ad0a33262c23643b3764a1" name="a74f7322d65ad0a33262c23643b3764a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74f7322d65ad0a33262c23643b3764a1">&#9670;&nbsp;</a></span>NEAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">com.gallagher.security.mobileaccess.ReaderDistance.NEAR =(0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The SDK believes this reader is close to the phone </p>
+
 </div>
 </div>
 <hr/>The documentation for this enum was generated from the following file:<ul>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['very_5flow_0',['VERY_LOW',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_connection_sensitivity.html#ae59adfe8ce5897466d330ac277590d24',1,'com::gallagher::security::mobileaccess::BluetoothConnectionSensitivity']]]
+  ['unknown_0',['UNKNOWN',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_access_decision.html#ae0e5f4253a28961078daca775c87b556',1,'com::gallagher::security::mobileaccess::AccessDecision']]]
 ];

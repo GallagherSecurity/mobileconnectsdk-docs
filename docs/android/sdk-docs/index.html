@@ -70,7 +70,7 @@ $(function() {
 <h1><a class="anchor" id="autotoc_md1"></a>
 Contents</h1>
 <ul>
-<li><a class="el" href="index.html#prerequisites">Pre-requisites</a></li>
+<li><a class="el" href="index.html#prerequisites">Prerequisites</a></li>
 <li><a class="el" href="index.html#gettingstarted">Getting Started</a><ul>
 <li><a class="el" href="index.html#configure_sdk">Configure the Mobile Connect SDK</a></li>
 </ul>
@@ -82,50 +82,52 @@ Contents</h1>
 </ul>
 </li>
 <li><a class="el" href="index.html#readeraccess">Reader Discovery and Access</a><ul>
-<li><a class="el" href="index.html#reader_verifysdk">Verifying if the SDK is functioning</a></li>
+<li><a class="el" href="index.html#reader_verifysdk">Verifying if the SDK is Functioning</a></li>
 <li><a class="el" href="index.html#reader_autoconnect">Auto-connect</a></li>
-<li><a class="el" href="index.html#reader_discovery">Discovery of readers</a></li>
-<li><a class="el" href="index.html#reader_manualconnect">Manual connect</a></li>
+<li><a class="el" href="index.html#reader_discovery">Discovery of Readers</a></li>
+<li><a class="el" href="index.html#reader_manualconnect">Manual Connect</a></li>
 </ul>
 </li>
 <li><a class="el" href="index.html#salto">Salto</a></li>
 <li><a class="el" href="index.html#digital_id">Digital ID</a></li>
+<li><a class="el" href="index.html#aperio_ble">Aperio BLE</a></li>
 <li><a class="el" href="index.html#faq">Frequently Asked Questions</a><ul>
-<li><a class="el" href="index.html#faq_location_permissions">Why does the SDK need permission to access the user's location?</a></li>
-<li><a class="el" href="index.html#faq_device_pin_required">Why does the device need screen lock / system-level PIN enabled?</a></li>
+<li><a class="el" href="index.html#faq_location_permissions">Why does the SDK Need Permission to Access the User's Location?</a></li>
+<li><a class="el" href="index.html#faq_device_pin_required">Why does the Device Need Screen Lock / System-Level PIN Enabled?</a></li>
 </ul>
 </li>
 <li><a class="el" href="index.html#customising">Customising the SDK</a><ul>
 <li><a class="el" href="index.html#configure_notifications">Configure Android Notifications</a></li>
-<li><a class="el" href="index.html#configure_messages">Customising SDK messages</a></li>
+<li><a class="el" href="index.html#configure_messages">Customising SDK Messages</a></li>
 </ul>
 </li>
 <li><a class="el" href="index.html#troubleshooting">Troubleshooting</a><ul>
-<li><a class="el" href="index.html#configure_logging">Configure logging (optional)</a></li>
-<li><a class="el" href="index.html#ts_no_feature_updates">I'm not receiving Digital ID or Salto Updates from the cloud</a></li>
-<li><a class="el" href="index.html#ts_duplicate_bouncycastle">I get &quot;Duplicate class org.bouncycastle...&quot; errors when compiling</a></li>
+<li><a class="el" href="index.html#configure_logging">Configure Logging (optional)</a></li>
+<li><a class="el" href="index.html#ts_no_feature_updates">I'm not Receiving Digital ID or Salto Updates from the Cloud</a></li>
+<li><a class="el" href="index.html#ts_duplicate_bouncycastle">I Get &quot;Duplicate class org.bouncycastle...&quot; Errors when Compiling</a></li>
+<li><a class="el" href="index.html#ts_android_34_issues">I Get Issues after Updating my App's Target to SDK 34</a></li>
 </ul>
 </li>
 </ul>
 <p ><a class="anchor" id="prerequisites"></a> </p>
 <h1><a class="anchor" id="autotoc_md2"></a>
-Pre-requisites</h1>
+Prerequisites</h1>
 <ul>
-<li>This developer guide references version <b>16.1</b> of the Gallagher Mobile Connect SDK for Android</li>
-<li>Android Studio - This document tested against Android Studio Flamingo | 2022.2.1 Patch 1</li>
+<li>This developer guide references version <b>16.4</b> of the Gallagher Mobile Connect SDK for Android</li>
+<li>Android Studio - This document tested against Android Studio Jellyfish | 2023.3.1</li>
 <li>An app targeting Android 6 or later</li>
 </ul>
 <p ><a class="anchor" id="gettingstarted"></a> </p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Getting Started</h1>
 <h2><a class="anchor" id="autotoc_md4"></a>
-1. Add the SDK files to your project</h2>
+1. Add the SDK Files to Your Project</h2>
 <p >Unzip the zip file.</p>
 <p >Place the <code>gallagher-mobile-access</code> directory under the <code>app</code> folder of your Android Studio project.</p>
 <p >Example:</p>
 <p ><img src="android-studio-app-folder.png" alt="example" class="inline"/></p>
 <h2><a class="anchor" id="autotoc_md5"></a>
-2. Edit build.gradle under your app folder</h2>
+2. Edit build.gradle Under Your App Folder</h2>
 <p >Add a <code>repositories</code> section with the value <br  />
  </p><pre class="fragment">maven { url "file://$projectDir/gallagher-mobile-access" }
 </pre><p> Also add Java version 8 source compatibility</p>
@@ -187,11 +189,13 @@ Getting Started</h1>
 <div class="line"> </div>
 <div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.BLUETOOTH&quot;</span> /&gt;</div>
 <div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.BLUETOOTH_ADMIN&quot;</span> /&gt;</div>
-<div class="line">        </div>
+<div class="line"> </div>
 <div class="line"><span class="comment">&lt;!-- Required for Android 6.0 to 10 when using Bluetooth LE --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</span> /&gt;</div>
+<div class="line">&lt;<span class="keywordtype">uses-permission-sdk-23</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</span></div>
+<div class="line">    <span class="keyword">tools:node</span>=<span class="stringliteral">&quot;replace&quot;</span> /&gt;</div>
 <div class="line"><span class="comment">&lt;!-- Required for Android 10 to 12 when using Bluetooth LE --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span> /&gt;</div>
+<div class="line">&lt;<span class="keywordtype">uses-permission-sdk-23</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span></div>
+<div class="line">    <span class="keyword">tools:node</span>=<span class="stringliteral">&quot;replace&quot;</span> /&gt;</div>
 <div class="line"><span class="comment">&lt;!-- Required for Android 10 and 11 when using Bluetooth LE in the background --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_BACKGROUND_LOCATION&quot;</span> /&gt;</div>
 <div class="line"> </div>
@@ -214,7 +218,7 @@ Getting Started</h1>
 <div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.POST_NOTIFICATIONS&quot;</span> /&gt;</div>
 </div><!-- fragment --><p ><a class="anchor" id="configure_sdk"></a> </p>
 <h2><a class="anchor" id="autotoc_md7"></a>
-4. Configure the Mobile Connect SDK within your application</h2>
+4. Configure the Mobile Connect SDK within Your Application</h2>
 <p >The SDK must be configured before it can be used. To do this, call the <code>MobileAccessProvider.configure</code> method. We recommend you do this in your <code>Application onCreate</code> method. If you are using background access (either bluetooth or NFC) and you do not configure the SDK at or before <code>Application onCreate</code>, then the SDK may crash on launch.</p>
 <p >The configure method has the following arguments:</p>
 <ul>
@@ -232,7 +236,8 @@ Getting Started</h1>
 </ul>
 <p >You may use the <code>MobileAccessProvider.getInstance()</code> method to obtain a reference to the SDK via the <code>MobileAccess</code> interface from any point in your application, however you MUST have called <code>MobileAccessProvider.configure()</code> first. Attempting to get <code>getInstance()</code> without configure will result in a Runtime exception being thrown.</p>
 <p ><b>Reference:</b> <br  />
- <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access_provider.html">MobileAccessProvider</a> <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <br  />
+ <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access_provider.html">MobileAccessProvider</a> <br  />
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <br  />
 </p>
 <p >In order to get the SDK up and running, you will most likely want to call the <code>setScanning()</code> method and pass true.</p>
 <p >Here is an example of an application which starts scanning and auto-connect upon launch. If you do not have any such existing infrastructure, the simplest way to do this is to implement a custom Application class for your android app.</p>
@@ -309,7 +314,8 @@ Mobile Credentials</h1>
 <p >Use the <code>getMobileCredentials()</code> method. This will return <code>Collection&lt;MobileCredential&gt;</code> - which you should copy into your own <code>ArrayList</code> or other stable collection.</p>
 <p ><b>Reference:</b> <br  />
  <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <br  />
- <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_credential.html">MobileCredential</a></p>
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_credential.html">MobileCredential</a> <br  />
+</p>
 <p ><a class="anchor" id="mobilecredentials_deregister"></a> </p>
 <h2><a class="anchor" id="autotoc_md11"></a>
 3. Deleting a Mobile Credential</h2>
@@ -325,13 +331,14 @@ Mobile Credentials</h1>
 </div><!-- fragment --><p ><b>Reference:</b> <br  />
  <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <br  />
  <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_credential_delete_listener.html">CredentialDeleteListener</a> <br  />
- <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_credential.html">MobileCredential</a></p>
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_credential.html">MobileCredential</a> <br  />
+</p>
 <p ><a class="anchor" id="readeraccess"></a> </p>
 <h1><a class="anchor" id="autotoc_md12"></a>
 Reader Discovery and Access</h1>
 <p ><a class="anchor" id="reader_verifysdk"></a> </p>
 <h2><a class="anchor" id="autotoc_md13"></a>
-1. Verifying if the SDK is functioning</h2>
+1. Verifying if the SDK is Functioning</h2>
 <p >There are a variety of reasons why the SDK may not work even though you have called <code>setScanning</code>, such as Bluetooth or NFC being disabled in your device system settings, lack of permissions, etc.</p>
 <p >You should use the <code>addSdkStateListener(sdkStateListener)</code> method. The SDK will asynchronously call the callback methods on the <code>sdkStateListener</code> to inform you of state changes. Callbacks will arrive on the main thread.</p>
 <p >You may wish to log these state changes, or prompt the user to perform some action (such as granting permissions, or giving them a button to click to enable Bluetooth, etc)</p>
@@ -362,7 +369,7 @@ Reader Discovery and Access</h1>
 1. Auto-connect</h2>
 <p >You must call the <code>enableAutomaticAccess()</code> method in order to enable auto-connect. You can call <code>disableAutomaticAccess()</code> to disable it later if you require. Note that enabling and disabling automatic access does not affect bluetooth scanning, which continues until you call <code>stopScanning()</code></p>
 <p >By default, the Mobile Connect SDK will automatically attempt to connect to any nearby readers if the device enters the configured range.</p>
-<p >If you wish to be informed about auto connect events, use the <code>addAutomaticAccessListener(automaticAccessListener)</code> method. The SDK will asynchronously call the callback methods on the <code>automaticAccessListener</code> to inform you of success or failure. Callbacks will arrive on the main thread.</p>
+<p >If you wish to be informed about auto-connect events, use the <code>addAutomaticAccessListener(automaticAccessListener)</code> method. The SDK will asynchronously call the callback methods on the <code>automaticAccessListener</code> to inform you of success or failure. Callbacks will arrive on the main thread.</p>
 <p >Any calls to <code>addAutomaticAccessListener</code> should be balanced by a call to <code>removeAutomaticAccessListener</code> to prevent memory leaks.</p>
 <p ><em>Example:</em> </p><div class="fragment"><div class="line">@Override</div>
 <div class="line"><span class="keyword">public</span> <span class="keywordtype">void</span> onCreate(Bundle savedInstanceState) {</div>
@@ -400,7 +407,7 @@ Reader Discovery and Access</h1>
 </p>
 <p ><a class="anchor" id="reader_discovery"></a> </p>
 <h2><a class="anchor" id="autotoc_md15"></a>
-2. Discovery of readers</h2>
+2. Discovery of Readers</h2>
 <p >Use the <code>setReaderUpdateListener(readerUpdateListener)</code> method to provide a callback to be called when a reader is discovered via Bluetooth or NFC.</p>
 <p >If you wish to show an interactive list of nearby readers in your application, you can use this to maintain a list of readers and other related information (such as visual state, appearance, etc) and display that information.</p>
 <p >If your app only wants to use the auto-connect feature of the Mobile Connect SDK, then you can skip this section; The SDK will work regardless of whether you call <code>setReaderUpdateListener</code></p>
@@ -430,7 +437,8 @@ Reader Discovery and Access</h1>
  <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <br  />
  <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_update_listener.html">ReaderUpdateListener</a> <br  />
  <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_attributes.html">ReaderAttributes</a> <br  />
- <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_update_type.html">ReaderUpdateType</a></p>
+ <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_update_type.html">ReaderUpdateType</a> <br  />
+</p>
 <p ><a class="anchor" id="reader_manualconnect"></a> </p>
 <h2><a class="anchor" id="autotoc_md16"></a>
 3. Manual Connect</h2>
@@ -460,7 +468,8 @@ Reader Discovery and Access</h1>
  <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <br  />
  <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader.html">Reader</a> <br  />
  <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_access_result.html">AccessResult</a> <br  />
- <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_connection_error.html">ReaderConnectionError</a></p>
+ <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_connection_error.html">ReaderConnectionError</a> <br  />
+</p>
 <p ><a class="anchor" id="salto"></a> </p>
 <h1><a class="anchor" id="autotoc_md17"></a>
 Salto</h1>
@@ -468,7 +477,7 @@ Salto</h1>
 Using SALTO keys with Mobile Connect</h2>
 <p >Note: If you are not using the Salto integration on your site, you do not need to add the Salto library dependencies or make any other Salto related changes. You can ignore this section of the developer guide.</p>
 <h3><a class="anchor" id="autotoc_md19"></a>
-1. Add the required library dependencies</h3>
+1. Add the Required Library Dependencies</h3>
 <p >To use Salto keys with Mobile Connect you will need to add imports for the Salto JustIN Mobile SDK and Google Guava libraries in your app's gradle file</p>
 <p >Example:</p>
 <div class="fragment"><div class="line">dependencies {</div>
@@ -482,23 +491,23 @@ Using SALTO keys with Mobile Connect</h2>
 <div class="line">    implementation(group: &#39;com.google.guava&#39;, name: &#39;guava&#39;, version: &#39;29.0-android&#39;)</div>
 <div class="line">}</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md20"></a>
-2. Add the Salto BLE Service to &lt;tt&gt;AndroidManifest.xml&lt;/tt&gt;</h3>
+2. Add the Salto BLE Service to AndroidManifest.xml</h3>
 <p >Add the following within your <code>&lt;application&gt;</code> tag:</p>
 <div class="fragment"><div class="line"><span class="comment">&lt;!-- Required for SALTO JustIN SDK BLE communications --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">service</span> </div>
 <div class="line">    <span class="keyword">android:name</span>=<span class="stringliteral">&quot;com.saltosystems.justinmobile.sdk.ble.JustinBleService&quot;</span></div>
 <div class="line">    <span class="keyword">android:enabled</span>=<span class="stringliteral">&quot;true&quot;</span> /&gt;</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md21"></a>
-3. Configure Mobile Connect SDK to include Salto as an enabled feature</h3>
+3. Configure Mobile Connect SDK to Include Salto as an Enabled Feature</h3>
 <p >Add <code>SdkFeature.SALTO</code> to the list of enabled features passed into the <code>MobileAccessProvider.configure</code> method call.</p>
 <p ><b>Reference:</b> <br  />
  <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access_provider.html">MobileAccessProvider</a> <br  />
  <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html">SdkFeature</a> <br  />
 </p>
 <h3><a class="anchor" id="autotoc_md22"></a>
-4. Implement the SaltoUpdateListener interface</h3>
+4. Implement the SaltoUpdateListener Interface</h3>
 <p >This is a listener that handles Salto Key updates. Its single callback function <code>onSaltoKeysUpdated</code> will notify of changes to available Salto Key Identifiers.</p>
-<p >Add the listener using the <code>addSaltoUpdateListener</code> method. After a listener is added, it will first be called back with the existing list of available Salto Key Identifiers to be added. After this the listener will be called back with any updates as they are received from the cloud.</p>
+<p >Add the listener using the <code>addSaltoUpdateListener</code> method. After a listener is added, it will first be called back with the existing list of available Salto Key Identifiers to be added. After this the listener will be called back with any updates as they are received from the Gallagher cloud.</p>
 <p >Any calls to <code>addSaltoUpdateListener</code> should be balanced by a call to <code>removeSaltoUpdateListener</code> to prevent memory leaks.</p>
 <p >Finally you must call the <code>syncCredentialItemUpdates</code> function which will kick off a sync request to the Gallagher Cloud.</p>
 <p >Example:</p>
@@ -534,10 +543,12 @@ Using SALTO keys with Mobile Connect</h2>
 <div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p ><b>Reference:</b> <br  />
- <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_update_listener.html">SaltoUpdateListener</a> <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_key_identifier.html">SaltoKeyIdentifier</a> <br  />
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <br  />
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_update_listener.html">SaltoUpdateListener</a> <br  />
+ <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_key_identifier.html">SaltoKeyIdentifier</a> <br  />
 </p>
 <h3><a class="anchor" id="autotoc_md23"></a>
-5. Implement the SdkFeatureStateListener to listen for update errors</h3>
+5. Implement the SdkFeatureStateListener to Listen for Update Errors</h3>
 <p >Salto Key Identifier updates are received from the Gallagher Cloud. <br  />
  Connection problems and other issues may occur which prevent updates from being received. This listener can be implemented to be notified when such errors or state changes occur.</p>
 <p >Listeners should be added using <code>addSdkFeatureStateListener</code>. The SDK will asynchronously call the callback methods on the <code>sdkStateListener</code> to inform you of errors or state changes. Callbacks will arrive on the main thread.</p>
@@ -559,7 +570,12 @@ Using SALTO keys with Mobile Connect</h2>
 <div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p ><b>Reference:</b> <br  />
- <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_error.html">SaltoError</a> <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html">SdkFeature</a> <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature_state_listener.html">SdkFeatureStateListener</a> <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature_state.html">SdkFeatureState</a></p>
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <br  />
+ <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_error.html">SaltoError</a> <br  />
+ <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html">SdkFeature</a> <br  />
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature_state_listener.html">SdkFeatureStateListener</a> <br  />
+ <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature_state.html">SdkFeatureState</a> <br  />
+</p>
 <h2><a class="anchor" id="autotoc_md24"></a>
 SaltoAccessListener</h2>
 <p >This listener provides feedback on Salto access requests, with two callback functions:</p><ul>
@@ -591,23 +607,34 @@ SaltoAccessListener</h2>
 <div class="line">        Toast.makeText(getActivity(), String.format(<span class="stringliteral">&quot;Salto access result received: %s&quot;</span>, decision.toString()), Toast.LENGTH_SHORT).show();</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><p ><b>Reference:</b> <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_key_identifier.html">SaltoAccessListener</a> <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_access_result.html">SaltoAccessResult</a> - An enum of potential access results <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_access_decision.html">SaltoAccessDecision</a> - An object containing a Salto Access Result and audit trail <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_error.html">SaltoError</a></p>
+</div><!-- fragment --><p ><b>Reference:</b> <br  />
+ <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_key_identifier.html">SaltoAccessListener</a> <br  />
+ <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_access_result.html">SaltoAccessResult</a> - An enum of potential access results <br  />
+ <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_access_decision.html">SaltoAccessDecision</a> - An object containing a Salto Access Result and audit trail <br  />
+ <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_error.html">SaltoError</a> <br  />
+</p>
+<h2><a class="anchor" id="autotoc_md25"></a>
+Salto Audit Event Trail Support</h2>
+<p >The Salto audit event trail sync feature enables the Mobile Connect SDK to receive real-time Salto events for offline Salto readers on remote locations and send them to Command Centre and Salto servers via the Gallagher cloud without the need for badging at Salto update points.</p>
+<p >The Mobile Connect SDK version 16.4 and above has added support for transmitting a Cardholder's Salto audit event trail for Command Centre Server version 9.0 and above, with the use of Salto JustIN Mobile SDK version 3.1.0.</p>
+<p >The feature is not configurable in the Mobile Connect SDK but rather configured at the server and encoded in the Cardholder Salto mobile key.</p>
+<p >The event trails sync can be enabled/disabled at a server level or per Cardholder in the Command Centre system.</p>
 <p ><a class="anchor" id="digital_id"></a> </p>
-<h1><a class="anchor" id="autotoc_md25"></a>
+<h1><a class="anchor" id="autotoc_md26"></a>
 Digital ID</h1>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Using Digital IDs with Mobile Connect SDK</h2>
-<h3><a class="anchor" id="autotoc_md27"></a>
-1. Configure Mobile Connected SDK to include Digital ID as an enabled feature</h3>
+<h3><a class="anchor" id="autotoc_md28"></a>
+1. Configure Mobile Connected SDK to Include Digital ID as an Enabled Feature</h3>
 <p >Add <code>SdkFeature.DIGITAL_ID</code> to the list of enabled features passed into the <code>MobileAccessProvider.configure</code> method call.</p>
 <p ><b>Reference:</b> <br  />
  <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access_provider.html">MobileAccessProvider</a> <br  />
  <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html">SdkFeature</a> <br  />
 </p>
-<h3><a class="anchor" id="autotoc_md28"></a>
+<h3><a class="anchor" id="autotoc_md29"></a>
 2. Implement the DigitalIdListener</h3>
 <p >This is a listener that handles Digital ID updates. Its single callback function <code>onDigitalIdUpdated</code> will notify of changes to available Digital IDs.</p>
-<p >Add the listener using the <code>addDigitalIdListener</code> method. After a listener is added, it will first be called back with the existing list of available Digital IDs to be added. After this the listener will be called back with any updates as they are received from the cloud.</p>
+<p >Add the listener using the <code>addDigitalIdListener</code> method. After a listener is added, it will first be called back with the existing list of available Digital IDs to be added. After this the listener will be called back with any updates as they are received from the Gallagher cloud.</p>
 <p >Any calls to <code>addDigitalIdListener</code> should be balanced by a call to <code>removeDigitalIdListener</code> to prevent memory leaks.</p>
 <p >Finally you must call the <code>syncCredentialItemUpdates</code> function which will kick off a sync request to the Gallagher Cloud.</p>
 <p >Example: </p><div class="fragment"><div class="line">@Override</div>
@@ -643,8 +670,8 @@ Using Digital IDs with Mobile Connect SDK</h2>
  <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_digital_id.html">DigitalId</a> <br  />
  <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_digital_id_listener.html">DigitalIdListener</a> <br  />
 </p>
-<h3><a class="anchor" id="autotoc_md29"></a>
-3. Implement the SdkFeatureStateListener to listen for update errors</h3>
+<h3><a class="anchor" id="autotoc_md30"></a>
+3. Implement the SdkFeatureStateListener to Listen for Update Errors</h3>
 <p >Digital ID updates are received from the Gallagher Cloud. Connection problems and other issues may occur which prevent updates from being received. This listener can be implemented to be notified when such errors or state changes occur.</p>
 <p >Listeners should be added using the <code>addSdkFeatureStateListener</code> method. The SDK will asynchronously call the callback methods to inform you of errors or state changes. Callbacks will arrive on the main thread.</p>
 <p >This listener is a shared channel for errors of all features from <code>SdkFeature</code>. Errors can be filtered by their type to handle a specific feature's errors.</p>
@@ -665,17 +692,74 @@ Using Digital IDs with Mobile Connect SDK</h2>
 <div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p ><b>Reference:</b> <br  />
- <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_digital_id_error.html">DigitalIdError</a> <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html">SdkFeature</a> <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature_state_listener.html">SdkFeatureStateListener</a> <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature_state.html">SdkFeatureState</a></p>
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <br  />
+ <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_digital_id_error.html">DigitalIdError</a> <br  />
+ <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html">SdkFeature</a> <br  />
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature_state_listener.html">SdkFeatureStateListener</a> <br  />
+ <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature_state.html">SdkFeatureState</a> <br  />
+</p>
+<p ><a class="anchor" id="aperio_ble"></a> </p>
+<h1><a class="anchor" id="autotoc_md31"></a>
+Aperio BLE</h1>
+<h2><a class="anchor" id="autotoc_md32"></a>
+Using Aperio BLE Access with Mobile Connect SDK</h2>
+<p >Aperio BLE credentials are used automatically by the Mobile Connect SDK once badged at an Aperio BLE wired and non-wired readers.</p>
+<p >Note: Aperio credentials are only used when the SDK is scanning for BLE in the foreground.</p>
+<h3><a class="anchor" id="autotoc_md33"></a>
+1. Configure Mobile Connect SDK to Include Aperio as an Enabled Feature</h3>
+<p >Add <code>SdkFeature.APERIO</code> to the list of enabled features passed into the <code>MobileAccessProvider.configure</code> method call.</p>
+<p ><b>Reference:</b> <br  />
+ <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access_provider.html">MobileAccessProvider</a> <br  />
+ <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html">SdkFeature</a> <br  />
+</p>
+<h3><a class="anchor" id="autotoc_md34"></a>
+2. Fetching Aperio BLE Credentials</h3>
+<p >You must call the <code>syncCredentialItemUpdates</code> function which will kick off a sync request of Aperio BLE credentials to the Gallagher Cloud.</p>
+<p ><em>Example:</em> </p><div class="fragment"><div class="line">mMobileAccess.syncCredentialItemUpdates();</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md35"></a>
+3. Implement the SdkFeatureStateDelegate to be Notified of any Update Errors</h3>
+<p >Aperio credential updates are received from the Gallagher Cloud. <br  />
+ Connection problems and other issues may occur which prevent updates from being received. This delegate can be implemented to be notified when such errors or state changes occur.</p>
+<p >Delegates should be added using <code>addSdkFeatureStateListener</code>. The SDK will asynchronously call the callback methods on the provided delegate to inform you of errors or state changes. Callbacks will arrive on the main thread.</p>
+<p >This delegate is a shared channel for receiving errors from all features from <code>SdkFeature</code>. Errors can be filtered by their type to handle a specific feature's errors.</p>
+<p ><em>Example:</em> </p><div class="fragment"><div class="line">@Override</div>
+<div class="line"><span class="keyword">public</span> <span class="keywordtype">void</span> onFeatureStatesChanged(@NonNull Collection&lt;SdkFeatureState&gt; featureStates) {</div>
+<div class="line">    <span class="keywordtype">boolean</span> hasCloudConnectionError = featureStates.contains(SdkFeatureState.ERROR_CLOUD_CONNECTION_FAILED);</div>
+<div class="line">    <span class="keywordflow">if</span> (hasCloudConnectionError) {</div>
+<div class="line">        Log.e(<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;Failed to connect to the Gallagher Cloud for updates&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">@Override</div>
+<div class="line"><span class="keyword">public</span> <span class="keywordtype">void</span> onFeatureError(@NonNull Error error) {</div>
+<div class="line">    <span class="comment">// handle Digital ID errors here</span></div>
+<div class="line">    <span class="keywordflow">if</span> (error instanceof AperioError) {</div>
+<div class="line">        Log.e(<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;An Aperio error has been received&quot;</span>, error);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p ><b>Reference:</b> <br  />
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_access.html">MobileAccess</a> <br  />
+ <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_aperio_error.html">AperioError</a> <br  />
+ <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html">SdkFeature</a> <br  />
+ <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature_state_listener.html">SdkFeatureStateListener</a> <br  />
+ <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature_state.html">SdkFeatureState</a> <br  />
+</p>
+<h3><a class="anchor" id="autotoc_md36"></a>
+3. Access with Aperio BLE Credentials</h3>
+<p >Aperio BLE credentials are presented automatically by the Mobile Connect SDK instead of Mobile Credentials and it uses the existing <a class="el" href="index.html#reader_autoconnect">&quot;Auto-connect&quot;</a> setup mentioned in <a class="el" href="index.html#readeraccess">Reader Discovery and Access</a></p>
+<h3><a class="anchor" id="autotoc_md37"></a>
+4. Aperio BLE Reader discovery</h3>
+<p >Aperio BLE readers can be discovered using ReaderUpdateListener which is the same way of discovering Gallagher BLE readers. For more information refer to <a class="el" href="index.html#reader_discovery">&quot;Discovery of Readers&quot;</a> section mentioned in <a class="el" href="index.html#readeraccess">Reader Discovery and Access</a></p>
 <p ><a class="anchor" id="faq"></a> </p>
-<h1><a class="anchor" id="autotoc_md30"></a>
+<h1><a class="anchor" id="autotoc_md38"></a>
 Frequently Asked Questions</h1>
 <p ><a class="anchor" id="faq_location_permissions"></a> </p>
-<h2><a class="anchor" id="autotoc_md31"></a>
-Why does the SDK need permission to access the user's location?</h2>
-<p >Android does not let Apps use Bluetooth without location permissions. This is because an app manufacturer could use Bluetooth beacons with known locations (such as department store) to triangulage the location of your device.</p>
+<h2><a class="anchor" id="autotoc_md39"></a>
+Why does the SDK Need Permission to Access the User's Location?</h2>
+<p >Android does not let apps use Bluetooth without location permissions. This is because an app manufacturer could use Bluetooth beacons with known locations (such as department stores) to triangulate the location of your device.</p>
 <p >The Mobile Connect SDK does not obtain or calculate the user's location at any time, nor does it activate the GPS.</p>
 <p ><b>Android 6 through 9:</b></p>
-<p >These devices require <code>android.permission.ACCESS_COARSE_LOCATION</code> in your android manifest, and you must also request this programatically from within your app's code using the [<code>requestPermissions</code>]() method. The SDK will not do this for you.</p>
+<p >These devices require <code>android.permission.ACCESS_COARSE_LOCATION</code> in your android manifest, and you must also request this programmatically from within your app's code using the <code>requestPermissions()</code> method. The SDK will not do this for you.</p>
 <p >For more information please see <a href="https://developer.android.com/training/permissions/requesting">developer.android.com/training/permissions/requesting</a></p>
 <p ><b>Android 10 and 11:</b> In addition to the permissions required by Android 6-9, <code>android.permission.ACCESS_FINE_LOCATION</code> is now required to use bluetooth while the app is visible on-screen, and <code>android.permission.ACCESS_BACKGROUND_LOCATION</code> is now required to use bluetooth when the app is not visible.</p>
 <p >For more information please see <a href="https://developer.android.com/about/versions/10/privacy/changes">developer.android.com/about/versions/10/privacy/changes</a></p>
@@ -687,12 +771,12 @@ Why does the SDK need permission to access the user's location?</h2>
 <p ><b>Guidance:</b></p>
 <p >You should include all the required permissions in your <code>AndroidManifest.xml</code> file, but then conditionally only use <code>requestPermissions()</code> for the ones you need, depending on the device, and your app's target Android SDK version.</p>
 <p >The Mobile Connect SDK sample app contains code which demonstrates this. The Mobile Connect SDK will tell you (via <code>onStateChanged</code> callbacks) if you are missing some permissions, and it will then prompt when required.</p>
-<h3><a class="anchor" id="autotoc_md32"></a>
-Note regarding BLE_ERROR_NO_BACKGROUND_LOCATION_PERMISSION</h3>
+<h3><a class="anchor" id="autotoc_md40"></a>
+Note Regarding BLE_ERROR_NO_BACKGROUND_LOCATION_PERMISSION</h3>
 <p >The Mobile Connect SDK will always present this error via <code>onStateChanged</code> if your app is running on Android 10, and you do not have the permission. It does this all the time, regardless of whether you have configured background scanning or not. If your app is not configured to use Bluetooth in the background, you can ignore <code>BLE_ERROR_NO_BACKGROUND_LOCATION_PERMISSION</code></p>
 <p ><a class="anchor" id="faq_device_pin_required"></a> </p>
-<h2><a class="anchor" id="autotoc_md33"></a>
-Why does the device need screen lock / system-level PIN enabled?</h2>
+<h2><a class="anchor" id="autotoc_md41"></a>
+Why does the Device Need Screen Lock / System-Level PIN Enabled?</h2>
 <p >If a user attempts to register a mobile credential on an Android device which does not have screen lock enabled, the registration operation will fail.</p>
 <p >This is due to a technical implementation detail and is to improve security.</p>
 <p >Internally, the Mobile Connect SDK stores two FIDO credentials for each site.</p>
@@ -701,23 +785,23 @@ Why does the device need screen lock / system-level PIN enabled?</h2>
 <li>The second-factor credential requires the mobile device user to input either a PIN or their fingerprint, and is used when the Command Centre Access Zone is in PINs mode.</li>
 </ol>
 <p >The second-factor credential needs to be more secure, because zones in PINs mode typically have much higher physical security requirements. As such, the Mobile Connect SDK requests that Android performs additional encryption on the keys associated with second-factor credentials. This is implemented in Android by using the screen lock feature, which is why credential registration requires screen lock to be enabled.</p>
-<p >Refer <a href="https://developer.android.com/training/articles/keystore#UserAuthentication">developer.android.com/training/articles/keystore_UserAuthentication</a> for Android documentation.</p>
+<p >Refer to <a href="https://developer.android.com/training/articles/keystore#UserAuthentication">developer.android.com/training/articles/keystore_UserAuthentication</a> for Android documentation.</p>
 <p >Note that as per the Android documentation, if the user registers, then subsequently turns off their device level screen lock, then the second-factor keys will be invalidated. They will be able to authenticate against readers where the Access Zone is not in PINs mode, however if they attempt to authenticate where the second factor is required, this will fail. The only available solution is for that user to re-enable their screen lock, then repeat the registration process.</p>
 <p ><a class="anchor" id="customising"></a> </p>
-<h1><a class="anchor" id="autotoc_md34"></a>
+<h1><a class="anchor" id="autotoc_md42"></a>
 Customising the SDK</h1>
 <p ><a class="anchor" id="configure_notifications"></a> </p>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Configuring Android Notifications</h2>
-<p >If your application uses the background access feature of the Mobile Connect SDK, then when the user encounters a reader that is configured to require a second factor, they will need to unlock the phone in order to complete the request. (For example, You can't prompt someone to enter a PIN when the phone is locked)</p>
+<p >If your application uses the background access feature of the Mobile Connect SDK, then when the user encounters a reader that is configured to require a second factor, they will need to unlock the phone in order to complete the request. (For example, you can't prompt someone to enter a PIN when the phone is locked)</p>
 <p >In order to facilitate this, the SDK will show a pop-up notification asking the user to unlock their phone.</p>
-<p >On Android versions 7 and older, the SDK is able to achieve this without requiring any support from the surrounding app (although you may optionally wish to customise the display of this pop-up notification - see <b>Customising SDK messages</b> below)</p>
+<p >On Android versions 7 and older, the SDK is able to achieve this without requiring any support from the surrounding app (although you may optionally wish to customise the display of this pop-up notification - see <b>Customising SDK Messages</b> below)</p>
 <p >Android 8.0 (Oreo) introduced significant changes to the way Android applications manage notifications and background services.</p>
 <p >Specifically, the Mobile Connect SDK is impacted by:</p><ul>
 <li>On Android 8+, all notifications must be assigned a notification channel (<a href="https://developer.android.com/training/notify-user/channels.html">More Information</a>)</li>
 <li>On Android 8+, persistent services are not allowed unless they display a "foreground notification" informing the user of their existence (<a href="https://developer.android.com/about/versions/oreo/background.html">More information</a>)</li>
 </ul>
-<p >What this means is that if you wish to use the Background Access feature of the SDK, you should create notification channels for the pop-up and persistent foreground notifications, and pass the channel ID's to the <code>MobileAccessProvider.configure(...)</code> method using the <code>NotitificationsConfiguration</code> object.</p>
+<p >What this means is that if you wish to use the Background Access feature of the SDK, you should create notification channels for the pop-up and persistent foreground notifications, and pass the channel IDs to the <code>MobileAccessProvider.configure(...)</code> method using the <code>NotificationsConfiguration</code> object.</p>
 <p >For more information, refer to <a href="https://developer.android.com/training/notify-user/channels.html">Google's "Create and Manage Notification Channels" documentation</a>, and refer to the <code>onCreate</code> method in <code>Application.java</code> in the SDK sample application.</p>
 <p >Here is a code snippet taken from the SDK sample application which demonstrates this</p>
 <div class="fragment"><div class="line"><span class="comment">// Notification channel IDs for android 8+</span></div>
@@ -748,18 +832,18 @@ Configuring Android Notifications</h2>
 <div class="line">        EnumSet.noneOf(SdkFeature.class), <span class="comment">// Not using Salto or Digital ID</span></div>
 <div class="line">        CloudTlsValidationMode.ANY_VALID_CERTIFICATE_REQUIRED,</div>
 <div class="line">        <span class="keyword">null</span>);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md36"></a>
-Android 13 Notifications changes</h2>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md44"></a>
+Android 13 Notifications Changes</h2>
 <p >Android 13 (API level 33) and higher supports a runtime permission for sending non-exempt (including Foreground Services (FGS)) notifications from an app. This change helps users focus on the notifications that are most important to them.</p>
 <p >If you want push notifications to appear, you must include the POST_NOTIFICATIONS permission in your manifest.</p>
 <p >Refer <a href="https://developer.android.com/develop/ui/views/notifications/notification-permission">Notification runtime permission</a></p>
 <p ><a class="anchor" id="configure_messages"></a> </p>
-<h2><a class="anchor" id="autotoc_md37"></a>
-2. Customising SDK messages</h2>
+<h2><a class="anchor" id="autotoc_md45"></a>
+2. Customising SDK Messages</h2>
 <p >The SDK will at times need to prompt the user for information, such as to enter their fingerprint or passcode. By default the SDK will generate messages in English, however you have the ability to alter these messages - either to simply change the message text to better suit your application, or to translate it into other languages.</p>
-<p >The SDK uses Android's resource system to manage these messages. In the SDK we define a number of string and image resources; If you wish to customise them, you can declare resources with the same ID's in your host application, which will override the resources from the SDK.</p>
+<p >The SDK uses Android's resource system to manage these messages. In the SDK we define a number of string and image resources; If you wish to customise them, you can declare resources with the same IDs in your host application, which will override the resources from the SDK.</p>
 <p >For a full example refer to the strings.xml, colors.xml and other resources in the SDK sample application</p>
-<h3><a class="anchor" id="autotoc_md38"></a>
+<h3><a class="anchor" id="autotoc_md46"></a>
 2.1. Notification Details</h3>
 <p ><b>Pop-up "unlock device" notifications:</b></p>
 <p >As above, if you have enabled background access, the SDK will show a pop-up notification asking the user to unlock their device if needed.</p>
@@ -793,9 +877,9 @@ Android 13 Notifications changes</h2>
 </div><!-- fragment --><p ><code>icon:</code></p>
 <p >Create a vector xml drawable and give it the name of <code>ic_ggl_mobile_access_scanning_icon</code>. If you do not customise this, the default icon is the <a href="https://material.io/icons/#ic_tap_and_play">"tap and play" icon from the Material Design icon set</a></p>
 <p >Note: the same icon is used for unlock notifications and the persistent foreground notification.</p>
-<h3><a class="anchor" id="autotoc_md39"></a>
+<h3><a class="anchor" id="autotoc_md47"></a>
 2.2 Registration Details</h3>
-<p >When the user registers a mobile credential, the SDK will ask them for either their PIN or Fingerprint, as per the registration section earlier in this document.</p>
+<p >When the user registers a mobile credential, the SDK will ask them for either their PIN or Fingerprint, as per the <a class="el" href="index.html#mobilecredentials_register">Registration</a> section earlier in this document.</p>
 <p >To customise the appearance of the registration prompts, do the following:</p>
 <p ><code>strings.xml</code> </p><div class="fragment"><div class="line"><span class="comment">&lt;!-- This will be passed to String.format, %s is optional and will be substituted for the site/company name.</span></div>
 <div class="line"><span class="comment">If you do not customise this, the default is an empty string, which will not show a title --&gt;</span></div>
@@ -803,7 +887,7 @@ Android 13 Notifications changes</h2>
 <div class="line"><span class="comment">&lt;!-- This will be passed to String.format, %s is optional and will be substituted for the site/company name.</span></div>
 <div class="line"><span class="comment">If you do not customise this, the default is [Register for &quot;%s&quot;] --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_mobilecredential_register_message&quot;</span>&gt;<span class="keyword">Register</span> <span class="keyword">for</span> <span class="stringliteral">&quot;%s&quot;</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md40"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md48"></a>
 2.3 Authentication Details</h3>
 <p >When the user attempts to access a door that requires second factor authentication, the SDK will ask them for either their PIN or Fingerprint - whatever they chose when they previously registered their credential.</p>
 <p >To customise the appearance of the authentication prompts, do the following:</p>
@@ -824,25 +908,25 @@ Android 13 Notifications changes</h2>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_fingerprint_try_again&quot;</span>&gt;<span class="keyword">Please</span> <span class="keyword">try</span> <span class="keyword">again</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
 <div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ggl_fingerprint_success&quot;</span>&gt;<span class="keyword">Success</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
 </div><!-- fragment --><p ><a class="anchor" id="troubleshooting"></a> </p>
-<h1><a class="anchor" id="autotoc_md41"></a>
+<h1><a class="anchor" id="autotoc_md49"></a>
 Troubleshooting</h1>
 <p ><a class="anchor" id="configure_logging"></a> </p>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md50"></a>
 Configuring Logging (optional)</h2>
 <p >If you encounter unexpected errors or behaviour, you may wish to enable logging from the SDK to help with troubleshooting.</p>
 <p >Internally, the Android SDK uses the standard Java <b>slf4j</b> logging abstractions. If your app uses an slf4j compatible logging framework, then log output from the SDK will be appended to your logs automatically.</p>
-<p >If your app has a high log level (debug, verbose, etc) you may wish to filter out debug or verbose messages from the SDK; You can do this by filtering log output from the package <code>com.gallagher.security</code></p>
+<p >If your app has a high log level (debug, verbose, etc) you may wish to filter out debug or verbose messages from the SDK; you can do this by filtering log output from the package <code>com.gallagher.security</code></p>
 <p >Configuration of Android logging frameworks is beyond the scope of this document, however the Android SDK sample application demonstrates using the logback-android framework to enable SDK log output.</p>
 <p ><a class="anchor" id="ts_no_feature_updates"></a> </p>
-<h2><a class="anchor" id="autotoc_md43"></a>
-I'm not receiving Digital ID or Salto Updates from the cloud</h2>
-<p >Ensure you have added your listeners and are requesting to sync with the Cloud e.g.</p>
+<h2><a class="anchor" id="autotoc_md51"></a>
+I'm not Receiving Digital ID or Salto Updates from the Cloud</h2>
+<p >Ensure you have added your listeners and are requesting to sync with the Gallagher Cloud e.g.</p>
 <div class="fragment"><div class="line">mMobileAccess.addDigitalIdListener(<span class="keyword">this</span>);</div>
 <div class="line">mMobileAccess.syncCredentialItemUpdates();</div>
 </div><!-- fragment --><p ><a class="anchor" id="ts_duplicate_bouncycastle"></a> </p>
-<h2><a class="anchor" id="autotoc_md44"></a>
-I get "Duplicate class org.bouncycastle..." errors when compiling</h2>
-<p >Release 15 of the Mobile Connect SDK for Android uses BouncyCastle for End to End encryption of Salto keys and Digital ID's. <a href="https://www.bouncycastle.org/">BouncyCastle</a> is an open source cryptography library which is very widely used, and is deployed as part of the Android operating system itself. Unfortunately the version that ships with older Android devices may be out of date; as such we need to explicitly reference a newer version.</p>
+<h2><a class="anchor" id="autotoc_md52"></a>
+I Get "Duplicate class org.bouncycastle..." Errors when Compiling</h2>
+<p >Release 15 of the Mobile Connect SDK for Android uses BouncyCastle for End to End encryption of Salto keys and Digital IDs. <a href="https://www.bouncycastle.org/">BouncyCastle</a> is an open source cryptography library which is very widely used, and is deployed as part of the Android operating system itself. Unfortunately the version that ships with older Android devices may be out of date; as such we need to explicitly reference a newer version.</p>
 <p >Our SDK specifically references the following packages:</p><ul>
 <li><code>bcprov-jdk15to18:1.68</code></li>
 <li><code>bcpkix-jdk15to18:1.68</code></li>
@@ -855,6 +939,19 @@ I get "Duplicate class org.bouncycastle..." errors when compiling</h2>
 <div class="line">        exclude group: &#39;org.bouncycastle&#39; // other bouncycastle is already loaded</div>
 <div class="line">    }</div>
 <div class="line">    ...</div>
+</div><!-- fragment --><p ><a class="anchor" id="ts_android_34_issues"></a> </p>
+<h2><a class="anchor" id="autotoc_md53"></a>
+The GallagherMobileAccess SDK Crashes When I Updated My App to Target SDK Level 34</h2>
+<p >Android 14 (SDK 34) introduced new requirements for Foreground services. The GallagherMobileAccess SDK uses a Foreground Service for its BLE scanning functionality.</p>
+<p >SDK implementers are required to add the following to their AndroidManifest.xml file:</p>
+<div class="fragment"><div class="line"><span class="comment">&lt;!-- permission to denote foreground service types for BLE scanning. Required for Android 14 --&gt;</span></div>
+<div class="line">    &lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE&quot;</span> /&gt;</div>
+</div><!-- fragment --><p >The declared service in the same file must be also be updated with the following:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">service</span></div>
+<div class="line">            <span class="keyword">android:name</span>=<span class="stringliteral">&quot;com.gallagher.security.mobileaccess.BleBackgroundService&quot;</span></div>
+<div class="line">            <span class="keyword">android:exported</span>=<span class="stringliteral">&quot;false&quot;</span></div>
+<div class="line">            <span class="keyword">android:stopWithTask</span>=<span class="stringliteral">&quot;false&quot;</span></div>
+<div class="line">            <span class="keyword">android:foregroundServiceType</span>=<span class="stringliteral">&quot;connectedDevice&quot;</span>/&gt;</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

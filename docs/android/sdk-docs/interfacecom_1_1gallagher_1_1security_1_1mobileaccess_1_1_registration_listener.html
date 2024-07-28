@@ -76,16 +76,74 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae6a39f438399522267820060b2b95ad8"><td class="memItemLeft" align="right" valign="top"><a id="ae6a39f438399522267820060b2b95ad8" name="ae6a39f438399522267820060b2b95ad8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>onRegistrationCompleted</b> (@Nullable <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_credential.html">MobileCredential</a> credential, @Nullable <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_registration_error.html">RegistrationError</a> error)</td></tr>
+<tr class="memitem:ae6a39f438399522267820060b2b95ad8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_registration_listener.html#ae6a39f438399522267820060b2b95ad8">onRegistrationCompleted</a> (@Nullable <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_credential.html">MobileCredential</a> credential, @Nullable <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_registration_error.html">RegistrationError</a> error)</td></tr>
 <tr class="separator:ae6a39f438399522267820060b2b95ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae235b7780e60ad072977b2bf05bf5d6b"><td class="memItemLeft" align="right" valign="top"><a id="ae235b7780e60ad072977b2bf05bf5d6b" name="ae235b7780e60ad072977b2bf05bf5d6b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>onAuthenticationTypeSelectionRequested</b> (<a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type_selector.html">SecondFactorAuthenticationTypeSelector</a> selector)</td></tr>
+<tr class="memitem:ae235b7780e60ad072977b2bf05bf5d6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_registration_listener.html#ae235b7780e60ad072977b2bf05bf5d6b">onAuthenticationTypeSelectionRequested</a> (<a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type_selector.html">SecondFactorAuthenticationTypeSelector</a> selector)</td></tr>
 <tr class="separator:ae235b7780e60ad072977b2bf05bf5d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >An interface which helps determine the results of activating a Mobile Credential </p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae235b7780e60ad072977b2bf05bf5d6b" name="ae235b7780e60ad072977b2bf05bf5d6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae235b7780e60ad072977b2bf05bf5d6b">&#9670;&nbsp;</a></span>onAuthenticationTypeSelectionRequested()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.gallagher.security.mobileaccess.RegistrationListener.onAuthenticationTypeSelectionRequested </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type_selector.html">SecondFactorAuthenticationTypeSelector</a>&#160;</td>
+          <td class="paramname"><em>selector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >function which gets called if the credential being registered is a two factor credential </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selector</td><td>a blocking lambda that needs to be called passing completed(true/false) and <a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type.html">SecondFactorAuthenticationType</a> to allow the registration process to complete </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae6a39f438399522267820060b2b95ad8" name="ae6a39f438399522267820060b2b95ad8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6a39f438399522267820060b2b95ad8">&#9670;&nbsp;</a></span>onRegistrationCompleted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.gallagher.security.mobileaccess.RegistrationListener.onRegistrationCompleted </td>
+          <td>(</td>
+          <td class="paramtype">@Nullable <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_mobile_credential.html">MobileCredential</a>&#160;</td>
+          <td class="paramname"><em>credential</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">@Nullable <a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_registration_error.html">RegistrationError</a>&#160;</td>
+          <td class="paramname"><em>error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Function which gets called once the credential registration is completed successfully. Otherwise, a non-nil error to indicate failure </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">credential</td><td>If non-nil instance of the registered credential when the registration completes successfully </td></tr>
+    <tr><td class="paramname">error</td><td>If non-nil, the registration failed, and this contains the error </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>RegistrationListener.java</li>
 </ul>
 </div><!-- contents -->
