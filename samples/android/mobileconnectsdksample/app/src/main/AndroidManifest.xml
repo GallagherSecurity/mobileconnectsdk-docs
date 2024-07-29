@@ -36,6 +36,9 @@
     <!-- Required for Android 13 and later when using push notifications -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <!-- permission to denote foreground service types for BLE scanning. Required for Android 14 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+
     <application
         android:name=".Application"
         android:allowBackup="true"
@@ -56,7 +59,8 @@
         <service
             android:name="com.gallagher.security.mobileaccess.BleBackgroundService"
             android:exported="false"
-            android:stopWithTask="false" />
+            android:stopWithTask="false"
+            android:foregroundServiceType="connectedDevice"/>
 
         <service
             android:name="com.gallagher.security.mobileaccess.NfcBackgroundService"
