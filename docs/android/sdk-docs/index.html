@@ -945,13 +945,13 @@ The GallagherMobileAccess SDK Crashes When I Updated My App to Target SDK Level 
 <p >Android 14 (SDK 34) introduced new requirements for Foreground services. The GallagherMobileAccess SDK uses a Foreground Service for its BLE scanning functionality.</p>
 <p >SDK implementers are required to add the following to their AndroidManifest.xml file:</p>
 <div class="fragment"><div class="line"><span class="comment">&lt;!-- permission to denote foreground service types for BLE scanning. Required for Android 14 --&gt;</span></div>
-<div class="line">    &lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE&quot;</span> /&gt;</div>
+<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE&quot;</span> /&gt;</div>
 </div><!-- fragment --><p >The declared service in the same file must be also be updated with the following:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">service</span></div>
-<div class="line">            <span class="keyword">android:name</span>=<span class="stringliteral">&quot;com.gallagher.security.mobileaccess.BleBackgroundService&quot;</span></div>
-<div class="line">            <span class="keyword">android:exported</span>=<span class="stringliteral">&quot;false&quot;</span></div>
-<div class="line">            <span class="keyword">android:stopWithTask</span>=<span class="stringliteral">&quot;false&quot;</span></div>
-<div class="line">            <span class="keyword">android:foregroundServiceType</span>=<span class="stringliteral">&quot;connectedDevice&quot;</span>/&gt;</div>
+<div class="line">    <span class="keyword">android:name</span>=<span class="stringliteral">&quot;com.gallagher.security.mobileaccess.BleBackgroundService&quot;</span></div>
+<div class="line">    <span class="keyword">android:exported</span>=<span class="stringliteral">&quot;false&quot;</span></div>
+<div class="line">    <span class="keyword">android:stopWithTask</span>=<span class="stringliteral">&quot;false&quot;</span></div>
+<div class="line">    <span class="keyword">android:foregroundServiceType</span>=<span class="stringliteral">&quot;connectedDevice&quot;</span>/&gt;</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
