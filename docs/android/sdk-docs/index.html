@@ -105,6 +105,7 @@ Contents</h1>
 <li><a class="el" href="index.html#configure_logging">Configure Logging (optional)</a></li>
 <li><a class="el" href="index.html#ts_no_feature_updates">I'm not Receiving Digital ID or Salto Updates from the Cloud</a></li>
 <li><a class="el" href="index.html#ts_duplicate_bouncycastle">I Get &quot;Duplicate class org.bouncycastle...&quot; Errors when Compiling</a></li>
+<li><a class="el" href="index.html#ts_android_34_issues">I Get Issues after Updating my App's Target to SDK 34</a></li>
 </ul>
 </li>
 </ul>
@@ -938,6 +939,19 @@ I Get "Duplicate class org.bouncycastle..." Errors when Compiling</h2>
 <div class="line">        exclude group: &#39;org.bouncycastle&#39; // other bouncycastle is already loaded</div>
 <div class="line">    }</div>
 <div class="line">    ...</div>
+</div><!-- fragment --><p ><a class="anchor" id="ts_android_34_issues"></a> </p>
+<h2><a class="anchor" id="autotoc_md53"></a>
+The GallagherMobileAccess SDK Crashes When I Updated My App to Target SDK Level 34</h2>
+<p >Android 14 (SDK 34) introduced new requirements for Foreground services. The GallagherMobileAccess SDK uses a Foreground Service for its BLE scanning functionality.</p>
+<p >SDK implementers are required to add the following to their AndroidManifest.xml file:</p>
+<div class="fragment"><div class="line"><span class="comment">&lt;!-- permission to denote foreground service types for BLE scanning. Required for Android 14 --&gt;</span></div>
+<div class="line">    &lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE&quot;</span> /&gt;</div>
+</div><!-- fragment --><p >The declared service in the same file must be also be updated with the following:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">service</span></div>
+<div class="line">            <span class="keyword">android:name</span>=<span class="stringliteral">&quot;com.gallagher.security.mobileaccess.BleBackgroundService&quot;</span></div>
+<div class="line">            <span class="keyword">android:exported</span>=<span class="stringliteral">&quot;false&quot;</span></div>
+<div class="line">            <span class="keyword">android:stopWithTask</span>=<span class="stringliteral">&quot;false&quot;</span></div>
+<div class="line">            <span class="keyword">android:foregroundServiceType</span>=<span class="stringliteral">&quot;connectedDevice&quot;</span>/&gt;</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
