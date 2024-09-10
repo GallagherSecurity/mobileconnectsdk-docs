@@ -167,9 +167,9 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_notifications_configuration.html">NotificationsConfiguration</a> </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>    {</div>
-<div class="line"><span class="lineno">   64</span>        <span class="keyword">this</span>(unlockNotificationChannelId, unlockNotificationIntent, bleForegroundServiceNotificationChannelId, bleForegroundServiceNotificationIntent, <span class="keyword">null</span>);</div>
-<div class="line"><span class="lineno">   65</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   61</span>    {</div>
+<div class="line"><span class="lineno">   62</span>        <span class="keyword">this</span>(unlockNotificationChannelId, unlockNotificationIntent, bleForegroundServiceNotificationChannelId, bleForegroundServiceNotificationIntent, <span class="keyword">null</span>);</div>
+<div class="line"><span class="lineno">   63</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -216,13 +216,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   76</span>    {</div>
-<div class="line"><span class="lineno">   77</span>        mUnlockNotificationChannelId = unlockNotificationChannelId;</div>
-<div class="line"><span class="lineno">   78</span>        mUnlockNotificationIntent = unlockNotificationIntent;</div>
-<div class="line"><span class="lineno">   79</span>        mBleForegroundServiceNotificationChannelId = bleForegroundServiceNotificationChannelId;</div>
-<div class="line"><span class="lineno">   80</span>        mBleForegroundServiceNotificationIntent = bleForegroundServiceNotificationIntent;</div>
-<div class="line"><span class="lineno">   81</span>        mPushNotificationsChannelId = pushNotificationsChannelId;</div>
-<div class="line"><span class="lineno">   82</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   74</span>    {</div>
+<div class="line"><span class="lineno">   75</span>        mUnlockNotificationChannelId = unlockNotificationChannelId;</div>
+<div class="line"><span class="lineno">   76</span>        mUnlockNotificationIntent = unlockNotificationIntent;</div>
+<div class="line"><span class="lineno">   77</span>        mBleForegroundServiceNotificationChannelId = bleForegroundServiceNotificationChannelId;</div>
+<div class="line"><span class="lineno">   78</span>        mBleForegroundServiceNotificationIntent = bleForegroundServiceNotificationIntent;</div>
+<div class="line"><span class="lineno">   79</span>        mPushNotificationsChannelId = pushNotificationsChannelId;</div>
+<div class="line"><span class="lineno">   80</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -243,9 +243,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The notification channel to use to show the foreground service notification. If null, the foreground service will fail to start, and you will not be able to use Bluetooth unless your app is on-screen (or you have some other pre-existing foreground service).</dd></dl>
 <p>Note: NFC will still work in the background even without the notification </p>
-<div class="fragment"><div class="line"><span class="lineno">  111</span>                                                                 {</div>
-<div class="line"><span class="lineno">  112</span>        <span class="keywordflow">return</span> mBleForegroundServiceNotificationChannelId;</div>
-<div class="line"><span class="lineno">  113</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">  109</span>                                                                 {</div>
+<div class="line"><span class="lineno">  110</span>        <span class="keywordflow">return</span> mBleForegroundServiceNotificationChannelId;</div>
+<div class="line"><span class="lineno">  111</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -264,9 +264,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Creates an intent to execute when the foreground service notification is clicked on. This intent can launch your application for example If null, then clicking on the unlock notification will simply do nothing. </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  120</span>                                                                     {</div>
-<div class="line"><span class="lineno">  121</span>        <span class="keywordflow">return</span> mBleForegroundServiceNotificationIntent;</div>
-<div class="line"><span class="lineno">  122</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">  118</span>                                                                     {</div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">return</span> mBleForegroundServiceNotificationIntent;</div>
+<div class="line"><span class="lineno">  120</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -284,9 +284,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  128</span>                                                  {</div>
-<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">return</span> mPushNotificationsChannelId;</div>
-<div class="line"><span class="lineno">  130</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">  126</span>                                                  {</div>
+<div class="line"><span class="lineno">  127</span>        <span class="keywordflow">return</span> mPushNotificationsChannelId;</div>
+<div class="line"><span class="lineno">  128</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -305,9 +305,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The notification channel to use to show the unlock notification when it is required. If null, the SDK will not show unlock notifications which will lead to a poor user experience if they ever need to interact with readers requiring second factor authentication </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   90</span>                                                   {</div>
-<div class="line"><span class="lineno">   91</span>        <span class="keywordflow">return</span> mUnlockNotificationChannelId;</div>
-<div class="line"><span class="lineno">   92</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   88</span>                                                   {</div>
+<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">return</span> mUnlockNotificationChannelId;</div>
+<div class="line"><span class="lineno">   90</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -326,9 +326,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Creates an intent to execute when the unlock notification is clicked on. This intent can launch your application for example If null, then clicking on the unlock notification will simply do nothing. </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   99</span>                                                       {</div>
-<div class="line"><span class="lineno">  100</span>        <span class="keywordflow">return</span> mUnlockNotificationIntent;</div>
-<div class="line"><span class="lineno">  101</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   97</span>                                                       {</div>
+<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">return</span> mUnlockNotificationIntent;</div>
+<div class="line"><span class="lineno">   99</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>

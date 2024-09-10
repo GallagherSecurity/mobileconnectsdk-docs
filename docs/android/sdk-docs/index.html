@@ -106,6 +106,8 @@ Contents</h1>
 <li><a class="el" href="index.html#ts_no_feature_updates">I'm not Receiving Digital ID or Salto Updates from the Cloud</a></li>
 <li><a class="el" href="index.html#ts_duplicate_bouncycastle">I Get &quot;Duplicate class org.bouncycastle...&quot; Errors when Compiling</a></li>
 <li><a class="el" href="index.html#ts_android_34_issues">I Get Issues after Updating my App's Target to SDK 34</a></li>
+<li><a class="el" href="index.html#ts_obfuscation">I Get Errors with Obfuscation Enabled</a></li>
+<li><a class="el" href="index.html#ts_permission_override">I'm Getting Prompted for Permissions I Didn't Add to the Manifest</a></li>
 </ul>
 </li>
 </ul>
@@ -140,7 +142,7 @@ Getting Started</h1>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line">android {</div>
-<div class="line">    compileSdkVersion 30</div>
+<div class="line">    compileSdkVersion 33</div>
 <div class="line"> </div>
 <div class="line">    compileOptions {</div>
 <div class="line">        sourceCompatibility JavaVersion.VERSION_1_8</div>
@@ -156,66 +158,13 @@ Getting Started</h1>
 <div class="line">    // Gallagher Mobile Connect SDK</div>
 <div class="line">    implementation &#39;com.gallagher.security:gallaghermobileaccess:VERSION&#39;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><p> <a class="anchor" id="edit_android_manifest"></a> </p>
+<h2><a class="anchor" id="autotoc_md6"></a>
 3. Edit AndroidManifest.xml</h2>
-<p >Add the following within your <code>&lt;application&gt;</code> tag:</p>
-<div class="fragment"><div class="line"><span class="comment">&lt;!-- Required for Bluetooth Background Access - Not required if you only want foreground --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">service</span> </div>
-<div class="line">    <span class="keyword">android:name</span>=<span class="stringliteral">&quot;com.gallagher.security.mobileaccess.BleBackgroundService&quot;</span></div>
-<div class="line">    <span class="keyword">android:exported</span>=<span class="stringliteral">&quot;false&quot;</span></div>
-<div class="line">    <span class="keyword">android:stopWithTask</span>=<span class="stringliteral">&quot;false&quot;</span> /&gt;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">&lt;!-- Required for NFC Access - Not required if you only want bluetooth (e.g. Manual Connect only) --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">service</span></div>
-<div class="line">    <span class="keyword">android:name</span>=<span class="stringliteral">&quot;com.gallagher.security.mobileaccess.NfcBackgroundService&quot;</span></div>
-<div class="line">    <span class="keyword">android:enabled</span>=<span class="stringliteral">&quot;true&quot;</span></div>
-<div class="line">    <span class="keyword">android:exported</span>=<span class="stringliteral">&quot;true&quot;</span></div>
-<div class="line">    <span class="keyword">android:permission</span>=<span class="stringliteral">&quot;android.permission.BIND_NFC_SERVICE&quot;</span>&gt;</div>
-<div class="line">    </div>
-<div class="line">    &lt;<span class="keywordtype">intent-filter</span>&gt;</div>
-<div class="line">        &lt;<span class="keywordtype">action</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.nfc.cardemulation.action.HOST_APDU_SERVICE&quot;</span> /&gt;</div>
-<div class="line">    &lt;/<span class="keywordtype">intent-filter</span>&gt;</div>
-<div class="line">    </div>
-<div class="line">    &lt;<span class="keywordtype">meta-data</span></div>
-<div class="line">        <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.nfc.cardemulation.host_apdu_service&quot;</span></div>
-<div class="line">        <span class="keyword">android:resource</span>=<span class="stringliteral">&quot;@xml/ggl_apduservice&quot;</span> /&gt;</div>
-<div class="line">&lt;/<span class="keywordtype">service</span>&gt;</div>
-</div><!-- fragment --><p >Add the following within your <code>&lt;manifest&gt;</code> tag, before the <code>&lt;application&gt;</code> tag:</p>
-<div class="fragment"><div class="line"><span class="comment">&lt;!-- Credential registration --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.INTERNET&quot;</span> /&gt;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">&lt;!-- Bluetooth LE --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-feature</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.hardware.bluetooth_le&quot;</span> <span class="keyword">android:required</span>=<span class="stringliteral">&quot;true&quot;</span> /&gt;</div>
-<div class="line"> </div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.BLUETOOTH&quot;</span> /&gt;</div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.BLUETOOTH_ADMIN&quot;</span> /&gt;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">&lt;!-- Required for Android 6.0 to 10 when using Bluetooth LE --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission-sdk-23</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</span></div>
-<div class="line">    <span class="keyword">tools:node</span>=<span class="stringliteral">&quot;replace&quot;</span> /&gt;</div>
-<div class="line"><span class="comment">&lt;!-- Required for Android 10 to 12 when using Bluetooth LE --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission-sdk-23</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span></div>
-<div class="line">    <span class="keyword">tools:node</span>=<span class="stringliteral">&quot;replace&quot;</span> /&gt;</div>
-<div class="line"><span class="comment">&lt;!-- Required for Android 10 and 11 when using Bluetooth LE in the background --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_BACKGROUND_LOCATION&quot;</span> /&gt;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">&lt;!-- Required for Android 12 and later when using BLE for scanning --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.BLUETOOTH_SCAN&quot;</span> <span class="keyword">android:usesPermissionFlags</span>=<span class="stringliteral">&quot;neverForLocation&quot;</span> /&gt;</div>
-<div class="line"><span class="comment">&lt;!-- Required for Android 12 and later when using BLE for scanning --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.BLUETOOTH_CONNECT&quot;</span> /&gt;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">&lt;!-- permission for BLE scanning in the background if you wish to enable that feature - https://developer.android.com/about/versions/pie/android-9.0-changes-28 --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.FOREGROUND_SERVICE&quot;</span> /&gt;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">&lt;!-- NFC --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.NFC&quot;</span> /&gt;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">&lt;!-- Unlock notification wakes the screen --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.WAKE_LOCK&quot;</span> /&gt;</div>
-<div class="line">        </div>
-<div class="line"><span class="comment">&lt;!-- Push Notifications --&gt;</span></div>
-<div class="line"><span class="comment">&lt;!-- Required for Android 13 and later when using push notifications --&gt;</span></div>
-<div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.POST_NOTIFICATIONS&quot;</span> /&gt;</div>
+<p >The GallagherMobileAccess SDK manifest implements the required permissions for the SDK to function, however you may wish to use some of these capabilites (for instance, you may not wish to use Bluetooth, in which case you could override the Location and Nearby devices permissions to avoid prompting the user for these permissions unnecessarily).</p>
+<p >Once you have included the SDK in your app, you can view the manifest in Android Studio through the 'Merged Manifest' function, then by clicking on the SDK itself.</p>
+<p >To override a specific permission add the following to your manifest:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">uses-permission</span> <span class="keyword">android:name</span>=<span class="stringliteral">&quot;android.permission.ACCESS_BACKGROUND_LOCATION&quot;</span> <span class="keyword">tools:node</span>=<span class="stringliteral">&quot;remove&quot;</span> /&gt;</div>
 </div><!-- fragment --><p ><a class="anchor" id="configure_sdk"></a> </p>
 <h2><a class="anchor" id="autotoc_md7"></a>
 4. Configure the Mobile Connect SDK within Your Application</h2>
@@ -478,7 +427,7 @@ Using SALTO keys with Mobile Connect</h2>
 <p >Note: If you are not using the Salto integration on your site, you do not need to add the Salto library dependencies or make any other Salto related changes. You can ignore this section of the developer guide.</p>
 <h3><a class="anchor" id="autotoc_md19"></a>
 1. Add the Required Library Dependencies</h3>
-<p >To use Salto keys with Mobile Connect you will need to add imports for the Salto JustIN Mobile SDK and Google Guava libraries in your app's gradle file</p>
+<p >To use Salto keys with Mobile Connect you will need to add imports for the Salto JustIN Mobile SDK library in your app's gradle file</p>
 <p >Example:</p>
 <div class="fragment"><div class="line">dependencies {</div>
 <div class="line">    // android appcompat, your other libs</div>
@@ -487,8 +436,7 @@ Using SALTO keys with Mobile Connect</h2>
 <div class="line">    implementation &#39;com.gallagher.security:gallaghermobileaccess:VERSION&#39;</div>
 <div class="line"> </div>
 <div class="line">    // Salto JustIN Mobile SDK</div>
-<div class="line">    implementation(group: &#39;com.saltosystems&#39;, name: &#39;salto-justinmobile-sdk&#39;, version: &#39;3.1.0&#39;, ext: &#39;aar&#39;)</div>
-<div class="line">    implementation(group: &#39;com.google.guava&#39;, name: &#39;guava&#39;, version: &#39;29.0-android&#39;)</div>
+<div class="line">    implementation(group: &#39;com.saltosystems&#39;, name: &#39;salto-justinmobile-sdk&#39;, version: &#39;4.1.0&#39;, ext: &#39;aar&#39;)</div>
 <div class="line">}</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md20"></a>
 2. Add the Salto BLE Service to AndroidManifest.xml</h3>
@@ -496,6 +444,7 @@ Using SALTO keys with Mobile Connect</h2>
 <div class="fragment"><div class="line"><span class="comment">&lt;!-- Required for SALTO JustIN SDK BLE communications --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">service</span> </div>
 <div class="line">    <span class="keyword">android:name</span>=<span class="stringliteral">&quot;com.saltosystems.justinmobile.sdk.ble.JustinBleService&quot;</span></div>
+<div class="line">    <span class="keyword">android:exported</span>=<span class="stringliteral">&quot;false&quot;</span></div>
 <div class="line">    <span class="keyword">android:enabled</span>=<span class="stringliteral">&quot;true&quot;</span> /&gt;</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md21"></a>
 3. Configure Mobile Connect SDK to Include Salto as an Enabled Feature</h3>
@@ -952,7 +901,41 @@ The GallagherMobileAccess SDK Crashes When I Updated My App to Target SDK Level 
 <div class="line">    <span class="keyword">android:exported</span>=<span class="stringliteral">&quot;false&quot;</span></div>
 <div class="line">    <span class="keyword">android:stopWithTask</span>=<span class="stringliteral">&quot;false&quot;</span></div>
 <div class="line">    <span class="keyword">android:foregroundServiceType</span>=<span class="stringliteral">&quot;connectedDevice&quot;</span>/&gt;</div>
-</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- fragment --><p ><b>If you use the Salto JustIN Mobile SDK library:</b></p>
+<p >You will need the updated version of the Salto JustIN Mobile SDK library (4.1.0) to support SDK level 34. You will additionally have to update your manifest to include the following if you have not done so already.</p>
+<div class="fragment"><div class="line"><span class="comment">&lt;!-- Required for SALTO JustIN SDK BLE communications --&gt;</span></div>
+<div class="line">&lt;<span class="keywordtype">service</span> </div>
+<div class="line">    <span class="keyword">android:name</span>=<span class="stringliteral">&quot;com.saltosystems.justinmobile.sdk.ble.JustinBleService&quot;</span></div>
+<div class="line">    <span class="keyword">android:exported</span>=<span class="stringliteral">&quot;false&quot;</span></div>
+<div class="line">    <span class="keyword">android:enabled</span>=<span class="stringliteral">&quot;true&quot;</span> /&gt;</div>
+</div><!-- fragment --><p ><a class="anchor" id="ts_obfuscation"></a> </p>
+<h2><a class="anchor" id="autotoc_md54"></a>
+I Get Errors with Obfuscation Enabled</h2>
+<p ><b>Obfuscation is not supported by the Mobile Connect SDK, and we cannot provide support for issues that arise from using obfuscation tools such as ProGuard or R8.</b></p>
+<p >If you do wish to use ProGuard or R8, we suggest adding the following rules to your ProGuard configuration file:</p>
+<div class="fragment"><div class="line"># Keep all classes in the Gallagher security SDK package</div>
+<div class="line">-keep class com.gallagher.security.** { *; }</div>
+<div class="line"> </div>
+<div class="line"># Keep all class members in the Gallagher security SDK package</div>
+<div class="line">-keepclassmembers class com.gallagher.security.** {</div>
+<div class="line">*;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"># Keep the TrustManager class and its methods</div>
+<div class="line">-keep class javax.net.ssl.X509TrustManager { *; }</div>
+<div class="line"> </div>
+<div class="line">-keepclassmembers class javax.net.ssl.X509TrustManager {</div>
+<div class="line">public void checkServerTrusted(java.security.cert.X509Certificate[], java.lang.String, java.lang.String);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"># Keep the BouncyCastle and SpongyCastle classes and their methods</div>
+<div class="line">-keep class org.bouncycastle.** { *; }</div>
+<div class="line">-keep class org.spongycastle.** { *; }</div>
+</div><!-- fragment --><p ><a class="anchor" id="ts_permission_override"></a> </p>
+<h2><a class="anchor" id="autotoc_md55"></a>
+I'm Getting Prompted for Permissions I Didn't Add to the Manifest</h2>
+<p >The permissions required to run the SDK are located within the GallagherMobileAccess SDK manifest. To override a permission see <a class="el" href="index.html#edit_android_manifest">Edit Android Manifest</a>. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
