@@ -1,4 +1,4 @@
-# Disclaimer
+## Disclaimer
 
 This project contains sample code that is provided **for educational purposes only**. The code in this repository is **not actively maintained** and should **not be used in production environments**.
 
