@@ -1,3 +1,13 @@
+## Disclaimer
+
+This project contains sample code that is provided **for educational purposes only**. The code in this repository is **not actively maintained** and should **not be used in production environments**.
+
+- The sample code does not receive security updates or bug fixes.
+- There is no guarantee of stability, performance, or correctness.
+- **Do not use this code in production systems** without proper security and performance reviews.
+
+## Pre-requisites
+
 You should read the document **Mobile Connect SDK Integration Guide TIP** in conjunction with this sample application.
 
 ## Command Centre Pre-requisites
