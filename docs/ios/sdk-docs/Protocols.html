@@ -109,9 +109,6 @@
                 <a class="nav-group-task-link" href="Enums/MobileCredentialKeyStatus.html">MobileCredentialKeyStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/ProvisioningErrorCode.html">ProvisioningErrorCode</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ReaderActionType.html">ReaderActionType</a>
               </li>
               <li class="nav-group-task">
@@ -143,6 +140,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SecondFactorVerificationType.html">SecondFactorVerificationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/WalletPrepareProvisioningErrorCode.html">WalletPrepareProvisioningErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/WalletProvisioningError.html">WalletProvisioningError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/WalletUpdateError.html">WalletUpdateError</a>
               </li>
             </ul>
           </li>
@@ -197,6 +203,12 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/StringValueConvertible.html">StringValueConvertible</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/WalletUpdateDelegate.html">WalletUpdateDelegate</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -235,6 +247,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/SharedCredential.html">SharedCredential</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Wallet.html">Wallet</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -264,6 +279,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Typealiases.html#/s:21GallagherMobileAccess38SecondFactorAuthenticationTypeSelectora">SecondFactorAuthenticationTypeSelector</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Typealiases.html#/s:21GallagherMobileAccess22WalletMigrationHandlera">WalletMigrationHandler</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -282,34 +300,6 @@
           <div class="section-content">
             <div class="task-group">
               <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:21GallagherMobileAccess05SaltoC8DelegateP"></a>
-                    <a name="//apple_ref/swift/Protocol/SaltoAccessDelegate" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess05SaltoC8DelegateP">SaltoAccessDelegate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A delegate for implementing handlers of Salto access requests</p>
-
-                        <a href="Protocols/SaltoAccessDelegate.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SaltoAccessDelegate</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -360,34 +350,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">NotificationsDelegate</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:21GallagherMobileAccess19SaltoUpdateDelegateP"></a>
-                    <a name="//apple_ref/swift/Protocol/SaltoUpdateDelegate" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess19SaltoUpdateDelegateP">SaltoUpdateDelegate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A delegate for implementing a handler of Salto updates</p>
-
-                        <a href="Protocols/SaltoUpdateDelegate.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SaltoUpdateDelegate</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -623,6 +585,62 @@ which provides a stable programmatic string value (as opposed to <code>descripti
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:21GallagherMobileAccess05SaltoC8DelegateP"></a>
+                    <a name="//apple_ref/swift/Protocol/SaltoAccessDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess05SaltoC8DelegateP">SaltoAccessDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate for implementing handlers of Salto access requests</p>
+
+                        <a href="Protocols/SaltoAccessDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SaltoAccessDelegate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess19SaltoUpdateDelegateP"></a>
+                    <a name="//apple_ref/swift/Protocol/SaltoUpdateDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess19SaltoUpdateDelegateP">SaltoUpdateDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate for implementing a handler of Salto updates</p>
+
+                        <a href="Protocols/SaltoUpdateDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SaltoUpdateDelegate</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:21GallagherMobileAccess23SdkFeatureStateDelegateP"></a>
                     <a name="//apple_ref/swift/Protocol/SdkFeatureStateDelegate" class="dashAnchor"></a>
                     <a class="token" href="#/s:21GallagherMobileAccess23SdkFeatureStateDelegateP">SdkFeatureStateDelegate</a>
@@ -633,7 +651,7 @@ which provides a stable programmatic string value (as opposed to <code>descripti
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A delegate for changes to the Feature states. All errors for Notifications, Salto, Aperio and Digital ID features will come through here.</p>
+                        <p>A delegate for changes to the Feature states. All errors for Notifications, Salto, Aperio, Digital ID and Wallet features will come through here.</p>
 
                         <a href="Protocols/SdkFeatureStateDelegate.html" class="slightly-smaller">See more</a>
                       </div>
@@ -670,6 +688,62 @@ which provides a stable programmatic string value (as opposed to <code>descripti
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SdkStateDelegate</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess26WalletProvisioningDelegateP"></a>
+                    <a name="//apple_ref/swift/Protocol/WalletProvisioningDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess26WalletProvisioningDelegateP">WalletProvisioningDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate for implementing handlers on Wallet provisioning for a given Mobile Credential</p>
+
+                        <a href="Protocols/WalletProvisioningDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">WalletProvisioningDelegate</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess20WalletUpdateDelegateP"></a>
+                    <a name="//apple_ref/swift/Protocol/WalletUpdateDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess20WalletUpdateDelegateP">WalletUpdateDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate for implementing a handler of Wallet Updates</p>
+
+                        <a href="Protocols/WalletUpdateDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">WalletUpdateDelegate</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -740,7 +814,7 @@ which provides a stable programmatic string value (as opposed to <code>descripti
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-05-23)</p>
+      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-11-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

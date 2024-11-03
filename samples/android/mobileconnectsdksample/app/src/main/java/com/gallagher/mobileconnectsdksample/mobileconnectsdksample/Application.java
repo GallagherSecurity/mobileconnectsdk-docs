@@ -7,10 +7,12 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioAttributes;
 import android.os.Build;
 import android.provider.Settings;
+
 import androidx.annotation.RequiresApi;
 
 import com.gallagher.security.mobileaccess.BluetoothScanMode;
@@ -22,12 +24,18 @@ import com.gallagher.security.mobileaccess.SdkFeature;
 
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.EnumSet;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.android.LogcatAppender;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.rolling.FixedWindowRollingPolicy;
+import ch.qos.logback.core.rolling.RollingFileAppender;
+import ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy;
+import ch.qos.logback.core.util.FileSize;
 import ch.qos.logback.core.util.StatusPrinter;
 
 public class Application extends android.app.Application {
@@ -131,6 +139,48 @@ public class Application extends android.app.Application {
     private void configureLogging(LoggerContext loggerContext) {
         loggerContext.reset();
 
+        File logFilesDir = getLogFilesDir(this);
+
+        RollingFileAppender<ILoggingEvent> fileAppender = null;
+
+        if (logFilesDir != null) {
+            loggerContext.putProperty("LOG_DIR", logFilesDir.getAbsolutePath());
+
+            PatternLayoutEncoder encoder = new PatternLayoutEncoder();
+            encoder.setContext(loggerContext);
+            encoder.setPattern("%d{dd:MM:yy HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n");
+            encoder.start();
+
+            File logFile = new File(logFilesDir, "MobileConnectSampleApp.log");
+
+            FixedWindowRollingPolicy rollingPolicy = new FixedWindowRollingPolicy();
+            rollingPolicy.setContext(loggerContext);
+
+            // NOTE: we cannot put full stops in file names or else everything breaks
+            rollingPolicy.setFileNamePattern(loggerContext.getProperty("LOG_DIR") + "/MobileConnectSampleApp_%i.log");
+            rollingPolicy.setMinIndex(1);
+            rollingPolicy.setMaxIndex(4);
+
+            SizeBasedTriggeringPolicy<ILoggingEvent> triggeringPolicy = new SizeBasedTriggeringPolicy<>();
+            triggeringPolicy.setContext(loggerContext);
+            triggeringPolicy.setMaxFileSize(FileSize.valueOf("3000 KB")); // logs rotate when they *exceed* this value, so set it at 4000KB which is not quite 4MB so we don't go over that limit
+
+            fileAppender = new RollingFileAppender<>();
+            fileAppender.setName("File Appender");
+            fileAppender.setAppend(true);
+            fileAppender.setContext(loggerContext);
+            fileAppender.setFile(logFile.getAbsolutePath());
+            fileAppender.setEncoder(encoder);
+            fileAppender.setRollingPolicy(rollingPolicy);
+            fileAppender.setTriggeringPolicy(triggeringPolicy);
+
+            rollingPolicy.setParent(fileAppender);
+
+            triggeringPolicy.start();
+            rollingPolicy.start();
+            fileAppender.start();
+        }
+
         // setup LogcatAppender to write to the standard Android Logcat
         PatternLayoutEncoder encoder2 = new PatternLayoutEncoder();
         encoder2.setContext(loggerContext);
@@ -152,9 +202,11 @@ public class Application extends android.app.Application {
         // qualify Logger to disambiguate from org.slf4j.Logger
         ch.qos.logback.classic.Logger root = (ch.qos.logback.classic.Logger) LoggerFactory.getLogger(ch.qos.logback.classic.Logger.ROOT_LOGGER_NAME);
         root.addAppender(logcatAppender);
+        if (fileAppender != null) {
+            root.addAppender(fileAppender);
+        }
 
-        // Only show errors from the SDK, even though the app itself is logging at debug level
-        ((ch.qos.logback.classic.Logger)LoggerFactory.getLogger("com.gallagher.security")).setLevel(Level.ERROR);
+        ((ch.qos.logback.classic.Logger)LoggerFactory.getLogger("com.gallagher.security")).setLevel(Level.DEBUG);
 
         if (BuildConfig.DEBUG) {
             root.setLevel(Level.DEBUG);
@@ -164,8 +216,25 @@ public class Application extends android.app.Application {
 
         root.info("----- Application onCreate -----");
         root.info("App Version: {}, BuildType {}", BuildConfig.VERSION_NAME, BuildConfig.BUILD_TYPE);
-        root.info("OS Version: {} ({}) - API {}", new Object[]{System.getProperty("os.version"), Build.VERSION.INCREMENTAL, Build.VERSION.SDK_INT});
-        root.info("Device: {}, Model: {}, Product {}", new Object[]{Build.DEVICE, Build.MODEL, Build.PRODUCT});
+        root.info("OS Version: {} ({}) - API {}", System.getProperty("os.version"), Build.VERSION.INCREMENTAL, Build.VERSION.SDK_INT);
+        root.info("Device: {}, Model: {}, Product {}", Build.DEVICE, Build.MODEL, Build.PRODUCT);
+        root.info("GallagherMobileAccess SDK Version: {}", com.gallagher.security.mobileaccess.BuildConfig.MOBILECONNECT_SDK_VERSION_NAME);
+
         StatusPrinter.print(loggerContext);
     }
+
+    public static File getLogFilesDir(Context context) {
+        File internalCC = context.getFilesDir();
+        File internalLogs = new File(internalCC, "logs");
+        if (!internalLogs.exists()) {
+            internalLogs.mkdirs();
+        }
+
+        if (internalLogs.exists()) {
+            return internalLogs;
+        }
+
+        return null;
+    }
+
 }

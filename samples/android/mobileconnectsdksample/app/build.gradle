@@ -6,8 +6,8 @@ repositories {
 }
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion = '31.0.0'
+    compileSdkVersion 34
+    buildToolsVersion = '34.0.0'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -16,10 +16,10 @@ android {
 
     defaultConfig {
         applicationId "com.gallagher.mobileconnectsdksample.mobileconnectsdksample"
-        minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 1604061
-        versionName "16.04.061"
+        minSdkVersion 24
+        targetSdkVersion 34
+        versionCode 1700025
+        versionName "17.00.025"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -28,6 +28,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    namespace 'com.gallagher.mobileconnectsdksample.mobileconnectsdksample'
 }
 
 // set the output file to be sample-app
@@ -57,6 +63,6 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

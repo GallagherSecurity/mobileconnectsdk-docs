@@ -5,12 +5,6 @@ package com.gallagher.mobileconnectsdksample.mobileconnectsdksample;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import com.gallagher.security.mobileaccess.DeleteOption;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +14,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.gallagher.security.mobileaccess.DeleteOption;
 import com.gallagher.security.mobileaccess.MobileAccess;
 import com.gallagher.security.mobileaccess.MobileAccessProvider;
 import com.gallagher.security.mobileaccess.MobileCredential;
@@ -30,6 +27,7 @@ import com.gallagher.security.mobileaccess.RegistrationError;
 import com.gallagher.security.mobileaccess.RegistrationListener;
 import com.gallagher.security.mobileaccess.SecondFactorAuthenticationType;
 import com.gallagher.security.mobileaccess.SecondFactorAuthenticationTypeSelector;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.net.URI;
 import java.net.URISyntaxException;
