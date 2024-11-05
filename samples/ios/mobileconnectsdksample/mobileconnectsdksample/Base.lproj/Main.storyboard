@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2hg-ny-BPj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2hg-ny-BPj">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="credentialCell" id="RAr-RR-4J1" customClass="CredentialCell" customModule="mobileconnectsdksample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="375" height="121"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="credentialCell" rowHeight="236" id="RAr-RR-4J1" customClass="CredentialCell" customModule="mobileconnectsdksample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="375" height="236"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RAr-RR-4J1" id="4xN-2B-k1r">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="236"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Facility Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCm-mF-9P0">
@@ -44,7 +44,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9A-aW-iLy">
-                                            <rect key="frame" x="16" y="91.5" width="48.5" height="18.5"/>
+                                            <rect key="frame" x="16" y="91.5" width="48.5" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -67,18 +67,44 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dlm-Nn-dCZ" userLabel="WalletView">
+                                            <rect key="frame" x="16" y="129.5" width="343" height="85.5"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFd-pn-VX9" userLabel="AddToWalletButton" customClass="PKAddPassButton">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="41.5"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <connections>
+                                                        <action selector="addToWalletClicked:" destination="RAr-RR-4J1" eventType="touchUpInside" id="9C4-JT-bwk"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lb3-Fh-aSx" userLabel="ViewInWalletButton">
+                                                    <rect key="frame" x="0.0" y="41.5" width="343" height="44"/>
+                                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="X7F-ya-raf"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="View in Wallet"/>
+                                                    <connections>
+                                                        <action selector="viewInWalletClicked:" destination="RAr-RR-4J1" eventType="touchUpInside" id="nGI-g9-CN4"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="3jo-yZ-2Ki" firstAttribute="firstBaseline" secondItem="l9A-aW-iLy" secondAttribute="firstBaseline" id="6ax-h4-TNi"/>
                                         <constraint firstItem="HoV-8k-GSv" firstAttribute="leading" secondItem="4xN-2B-k1r" secondAttribute="leadingMargin" id="BUP-hm-XQp"/>
                                         <constraint firstItem="l9A-aW-iLy" firstAttribute="leading" secondItem="4xN-2B-k1r" secondAttribute="leadingMargin" id="FcW-L8-ZYN"/>
                                         <constraint firstItem="gmo-aK-T60" firstAttribute="leading" secondItem="HoV-8k-GSv" secondAttribute="trailing" constant="8" id="GoV-E2-BjN"/>
+                                        <constraint firstItem="dlm-Nn-dCZ" firstAttribute="leading" secondItem="4xN-2B-k1r" secondAttribute="leadingMargin" id="Irr-eh-KlF"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gmo-aK-T60" secondAttribute="trailing" id="Iwu-tg-rQc"/>
                                         <constraint firstItem="KCm-mF-9P0" firstAttribute="top" secondItem="4xN-2B-k1r" secondAttribute="topMargin" id="Kk3-fV-rkW"/>
                                         <constraint firstItem="gmo-aK-T60" firstAttribute="firstBaseline" secondItem="HoV-8k-GSv" secondAttribute="firstBaseline" id="N0E-ai-Mwv"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="KCm-mF-9P0" secondAttribute="trailing" id="PB2-04-dmN"/>
                                         <constraint firstItem="l9A-aW-iLy" firstAttribute="top" secondItem="HoV-8k-GSv" secondAttribute="bottom" constant="8" id="PXx-S8-RCa"/>
                                         <constraint firstItem="Q6h-jk-drR" firstAttribute="leading" secondItem="4xN-2B-k1r" secondAttribute="leadingMargin" id="ZrJ-WX-WX5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dlm-Nn-dCZ" secondAttribute="bottom" constant="10" id="brs-jr-Drk"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="8hB-jx-10t" secondAttribute="trailing" id="btX-ui-8io"/>
                                         <constraint firstItem="3jo-yZ-2Ki" firstAttribute="leading" secondItem="l9A-aW-iLy" secondAttribute="trailing" constant="8" id="dCT-Z4-b4k"/>
                                         <constraint firstItem="HoV-8k-GSv" firstAttribute="top" secondItem="Q6h-jk-drR" secondAttribute="bottom" constant="8" id="dwE-j0-NK0"/>
@@ -86,15 +112,19 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="3jo-yZ-2Ki" secondAttribute="trailing" id="fV6-do-3vg"/>
                                         <constraint firstItem="8hB-jx-10t" firstAttribute="firstBaseline" secondItem="Q6h-jk-drR" secondAttribute="firstBaseline" id="iAW-ix-Bda"/>
                                         <constraint firstItem="8hB-jx-10t" firstAttribute="leading" secondItem="Q6h-jk-drR" secondAttribute="trailing" constant="8" id="jEC-ZF-Wey"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="l9A-aW-iLy" secondAttribute="bottom" id="k6M-MV-iO9"/>
                                         <constraint firstItem="KCm-mF-9P0" firstAttribute="leading" secondItem="4xN-2B-k1r" secondAttribute="leadingMargin" id="m7n-s5-8df"/>
+                                        <constraint firstItem="dlm-Nn-dCZ" firstAttribute="top" secondItem="3jo-yZ-2Ki" secondAttribute="bottom" constant="20" id="s49-bB-hca"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dlm-Nn-dCZ" secondAttribute="trailing" id="t59-qO-tO9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="_addToWalletButton" destination="rFd-pn-VX9" id="QP0-ab-HqO"/>
                                     <outlet property="_facilityNameLabel" destination="KCm-mF-9P0" id="rDM-aE-xoq"/>
                                     <outlet property="_registeredDateLabel" destination="8hB-jx-10t" id="T4d-E8-DOp"/>
                                     <outlet property="_secondFactorLabel" destination="gmo-aK-T60" id="XTH-09-xXt"/>
                                     <outlet property="_statusLabel" destination="3jo-yZ-2Ki" id="lWx-fU-RXy"/>
+                                    <outlet property="_viewInWalletButton" destination="Lb3-Fh-aSx" id="zUe-6B-DOv"/>
+                                    <outlet property="_walletView" destination="dlm-Nn-dCZ" id="MAk-9H-IsW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -104,6 +134,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Credentials" id="eLn-7X-zj7">
+                        <barButtonItem key="leftBarButtonItem" title="Logs" id="tvJ-yc-Uui">
+                            <connections>
+                                <action selector="sendLogs:" destination="H1r-XU-olu" id="jML-DX-etc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dLd-GD-0H8">
                             <connections>
                                 <segue destination="3Zh-bZ-rJd" kind="presentation" id="64u-sI-R8A"/>
@@ -113,7 +148,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGt-MF-PDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="388" y="-462"/>
+            <point key="canvasLocation" x="388" y="-462.8185907046477"/>
         </scene>
         <!--Register Credential-->
         <scene sceneID="ry5-J9-Nrz">
@@ -575,6 +610,9 @@
         <image name="ic_class" width="27" height="27"/>
         <image name="ic_content_copy" width="27" height="27"/>
         <image name="ic_phonelink_ring" width="27" height="27"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

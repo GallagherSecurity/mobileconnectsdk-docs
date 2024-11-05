@@ -6,8 +6,8 @@ repositories {
 }
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion = '31.0.0'
+    compileSdk 34
+    buildToolsVersion = '34.0.0'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -16,10 +16,10 @@ android {
 
     defaultConfig {
         applicationId "com.gallagher.mobileconnectsdksample.mobileconnectsdksample"
-        minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 1604061
-        versionName "16.04.061"
+        minSdkVersion 24
+        targetSdkVersion 34
+        versionCode 1700027
+        versionName "17.00.027"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -28,11 +28,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    namespace 'com.gallagher.mobileconnectsdksample.mobileconnectsdksample'
 }
 
 // set the output file to be sample-app
-android.applicationVariants.all { variant ->
-    variant.outputs.all {
+android.applicationVariants.configureEach { variant ->
+    variant.outputs.configureEach {
         outputFileName = "sample-app-${variant.name}.apk"
     }
 }
@@ -41,22 +47,22 @@ dependencies {
     implementation 'com.gallagher.security:gallaghermobileaccess:+'
 
     // Salto JustIN Mobile SDK
-    implementation(group: 'com.saltosystems', name: 'salto-justinmobile-sdk', version: '3.1.0', ext: 'aar')
+    implementation(group: 'com.saltosystems', name: 'salto-justinmobile-sdk', version: '4.1.0', ext: 'aar')
     implementation(group: 'com.google.guava', name: 'guava', version: '29.0-android')
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
 
     implementation('com.github.tony19:logback-android:2.0.0') {
         exclude group: 'com.google.android', module: 'android'
     }
     implementation 'org.slf4j:slf4j-api:1.7.30'
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }

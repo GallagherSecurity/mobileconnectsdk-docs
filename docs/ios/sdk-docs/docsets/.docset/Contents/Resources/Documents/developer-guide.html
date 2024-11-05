@@ -108,9 +108,6 @@
                 <a class="nav-group-task-link" href="Enums/MobileCredentialKeyStatus.html">MobileCredentialKeyStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/ProvisioningErrorCode.html">ProvisioningErrorCode</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ReaderActionType.html">ReaderActionType</a>
               </li>
               <li class="nav-group-task">
@@ -142,6 +139,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SecondFactorVerificationType.html">SecondFactorVerificationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/WalletPrepareProvisioningErrorCode.html">WalletPrepareProvisioningErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/WalletProvisioningError.html">WalletProvisioningError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/WalletUpdateError.html">WalletUpdateError</a>
               </li>
             </ul>
           </li>
@@ -196,6 +202,12 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/StringValueConvertible.html">StringValueConvertible</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/WalletUpdateDelegate.html">WalletUpdateDelegate</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -234,6 +246,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/SharedCredential.html">SharedCredential</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Wallet.html">Wallet</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -263,6 +278,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Typealiases.html#/s:21GallagherMobileAccess38SecondFactorAuthenticationTypeSelectora">SecondFactorAuthenticationTypeSelector</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Typealiases.html#/s:21GallagherMobileAccess22WalletMigrationHandlera">WalletMigrationHandler</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -280,26 +298,40 @@
 <li><a href="#gettingstarted">Getting Started</a></li>
 <li><a href="#mobilecredentials">Mobile Credentials</a></li>
 <li><a href="#readerdiscovery">Reader Discovery and Access</a></li>
+<li><a href="#backgroundaccess">Background Access</a></li>
 <li><a href="#salto">Salto</a></li>
 <li><a href="#digital_id">Digital ID</a></li>
 <li><a href="#aperio_ble">Aperio BLE</a></li>
-<li><a href="#backgroundaccess">Background Access</a></li>
-<li><a href="#faq">Frequently Asked Questions</a></li>
-<li><a href="#customising">Troubleshooting / Customising the SDK</a>
+<li><a href="#mobile_wallet">Wallet</a></li>
+<li><a href="#faq">Frequently Asked Questions</a>
 
 <ul>
-<li><a href="#configure_logging">Configure Logging (optional)</a></li>
+<li><a href="#faq_device_passcode">Why does the Device Need a Passcode Enabled?</a></li>
+</ul></li>
+<li><a href="#customising">Customising the SDK</a>
+
+<ul>
 <li><a href="#configure_messages">Customising SDK Messages</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul></li>
+<li><a href="#troubleshooting">Troubleshooting</a>
+
+<ul>
+<li><a href="#configure_logging">Configure Logging (Optional)</a></li>
+<li><a href="#ts_no_feature_updates">I&rsquo;m not Receiving Mobile Credential Updates (i.e. Digital ID or Salto) from the Cloud</a></li>
+<li><a href="#ts_wallet_provisioning_fail">Wallet Pass Provisioning is Failing</a></li>
+<li><a href="#ts_wallet_migration">Wallet Feature Calls <code>onWalletMigrationDetected</code> Within the Provisioning Flow</a></li>
+<li><a href="#ts_wallet_show_add_button">User Has Passes on Both Phone and Watch but <code>shouldShowAddToWalletButton</code> Function is Suggesting Showing the Button</a></li>
+<li><a href="#ts_wallet_deactivate">Deactivating the Mobile Credential Doesn&rsquo;t Deactivate the Apple Pass</a></li>
+<li><a href="#ts_wallet_no_access">Add Apple Pass is Active But the User is Getting Access Denied at the Reader</a></li>
 </ul></li>
 </ul>
 <h2 id='prerequisites-a-name-prerequisites-a' class='heading'>Prerequisites<a name=prerequisites></a></h2>
 
 <ul>
-<li>This developer guide references version 16.4 of the Gallagher Mobile Connect SDK for iOS</li>
-<li>Xcode 15 - This document tested against Xcode 15.3 (15E204a)</li>
+<li>This developer guide references version 17.0 of the Gallagher Mobile Connect SDK for iOS</li>
+<li>Xcode 16 - This document tested against Xcode 16.0 (16A242d)</li>
 <li>An app targeting iOS 12 or later</li>
-<li>Swift 5.10 - The functionality and interfaces provided by the SDK are swift; you must use swift to access them.</li>
+<li>Swift 6.0 - The functionality and interfaces provided by the SDK are swift; you must use swift to access them.</li>
 </ul>
 <h2 id='getting-started-a-name-gettingstarted-a' class='heading'>Getting Started<a name=gettingstarted></a></h2>
 <h3 id='1-add-the-sdk-framework-to-your-project' class='heading'>1. Add the SDK Framework to Your Project</h3>
@@ -317,7 +349,7 @@
 <p>Example:
 <img src="img/xcode-embedded-binaries.png" alt="Xcode project settings embedded binaries"></p>
 
-<p><em>NOTE:</em> The sample project may contain a reference to <code>SaltoJustINMobileSDK.xcframework</code>.<br>
+<p><em>Note:</em> The sample project may contain a reference to <code>SaltoJustINMobileSDK.xcframework</code>.<br>
 If your Command Centre server does not have a Salto integration, then you will not need this, and you can remove the reference.</p>
 <h3 id='3-configure-your-application-plist' class='heading'>3. Configure Your Application - Plist</h3>
 
@@ -331,7 +363,7 @@ If your Command Centre server does not have a Salto integration, then you will n
 </code></pre>
 
 <p>You may wish to customise the text.</p>
-<h3 id='4-configure-the-mobile-connect-sdk-within-your-application' class='heading'>4. Configure the Mobile Connect SDK within Your Application.</h3>
+<h3 id='4-configure-the-mobile-connect-sdk-within-your-application' class='heading'>4. Configure the Mobile Connect SDK within Your Application</h3>
 
 <p>The SDK must be configured before it can be used. To do this, call the <code>MobileAccessProvider.configure</code> method. </p>
 
@@ -659,6 +691,104 @@ Note that enabling and disabling automatic access does not affect bluetooth scan
 <a href="Protocols/Reader.html">Reader</a><br>
 <a href="Structs/ReaderAction.html">ReaderAction</a><br>
 <a href="Enums/ReaderConnectionError.html">ReaderConnectionError</a>  </p>
+
+<p><br></p>
+<h2 id='background-access-a-name-backgroundaccess-a' class='heading'>Background Access<a name=backgroundaccess></a></h2>
+
+<p>By default, the SDK will continuously scan for and connect to Bluetooth enabled readers while it is running in the foreground. This is the standard behaviour for iOS applications.</p>
+
+<p>If you would like it to only scan (for example) when a particular ViewController is on-screen, then you should use the <code>setScanning</code> method to control this.</p>
+
+<p>If you would like the SDK to scan for readers while it is <em>not</em> visible in the foreground, you will need to enable background access. </p>
+
+<p>There are two &ldquo;levels&rdquo; of background access functionality</p>
+<h3 id='1-standard-background-access' class='heading'>1. Standard Background Access</h3>
+
+<p>This employs the default Apple Core Bluetooth background processing behaviour, as determined by Apple. This behaviour may (and has in the past) change between iOS versions. For more information refer to <a href="https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothBackgroundProcessingForIOSApps/PerformingTasksWhileYourAppIsInTheBackground.html">Apple&rsquo;s Core Bluetooth Background Processing Documentation</a></p>
+
+<p>Enabling standard background access requires no code changes.<br>
+Add the following to your app&rsquo;s <code>Info.plist</code></p>
+<pre class="highlight xml"><code><span class="nt">&lt;key&gt;</span>UIBackgroundModes<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;array&gt;</span>
+    <span class="nt">&lt;string&gt;</span>bluetooth-central<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;/array&gt;</span>
+</code></pre>
+
+<p>Unfortunately, beginning with iOS 10, Apple aggressively throttles background scanning in order to conserve battery life. 
+The observed behaviour of &ldquo;standard&rdquo; background access on an iOS 10 or newer phone is generally that nothing appears to happen when the app is not in the foreground, however you can usually &ldquo;trigger&rdquo; background access as follows:</p>
+
+<ol>
+<li>Lock the phone screen</li>
+<li>Approach and place your phone next to a reader</li>
+<li>Turn the phone screen on - The act of turning the phone screen on seems to trigger Apple&rsquo;s background behaviour</li>
+</ol>
+
+<p>As per Apple&rsquo;s documentation, even when your app is running in the background iOS may kill it after some time. The exact rules around when and if iOS will kill it vary and change over time, but generally if you make heavy use of your phone, you can expect iOS to kill it more quickly in order to free up resources for other apps.</p>
+<h3 id='2-extended-background-access' class='heading'>2. Extended Background Access</h3>
+
+<p>The Mobile Connect SDK offers an improved ability to scan for readers in the background, however this requires your app to request use of Background Location services. The SDK does not actually use or monitor the user&rsquo;s location at all, but the permission is required to enable the extended scanning mode.</p>
+
+<p>To enable this, you must do the following</p>
+
+<ol>
+<li><p>Set the SDK&rsquo;s <code>backgroundScanningMode</code> property to <code>.extended</code></p></li>
+<li><p>Enable iOS background location services as according to <a href="https://developer.apple.com/documentation/corelocation/choosing_the_authorization_level_for_location_services/requesting_always_authorization">Apple&rsquo;s Requesting Always Authorization</a> documentation. In summary - use <code>CLLocationManager.requestAlwaysAuthorization()</code>, and add the required keys to your Info.plist.</p></li>
+</ol>
+
+<p><em>Example:</em></p>
+<pre class="highlight xml"><code><span class="nt">&lt;key&gt;</span>NSLocationAlwaysUsageDescription<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;string&gt;</span>Your location is needed to detect readers using Bluetooth®. GPS is not used and your location is never shared.<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;key&gt;</span>NSLocationAlwaysAndWhenInUseUsageDescription<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;string&gt;</span>Your location is needed to detect readers using Bluetooth®. GPS is not used and your location is never shared.<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;key&gt;</span>NSLocationWhenInUseUsageDescription<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;string&gt;</span>Your location is needed to detect readers using Bluetooth®. GPS is not used and your location is never shared.<span class="nt">&lt;/string&gt;</span>
+...
+<span class="nt">&lt;key&gt;</span>UIBackgroundModes<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;array&gt;</span>
+    <span class="nt">&lt;string&gt;</span>location<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;string&gt;</span>bluetooth-central<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;/array&gt;</span>
+</code></pre>
+
+<p>The observed behaviour of &ldquo;standard&rdquo; background access on an iPhone is generally that access works regardless of whether the app is visible or the screen is powered on or off, <em>however</em> iOS will still kill the app periodically if it is in the background for a period of time.</p>
+
+<p>Extended background scanning also uses more battery - causing a roughly 10% additional drop in battery life over a work-day period.</p>
+<h3 id='3-background-access-notifications' class='heading'>3. Background Access Notifications</h3>
+
+<p>If the SDK determines that we are within auto-connect range of a reader, but that reader requires second factor authorisation, it will display a Notification asking the user to open the app.</p>
+
+<p>This is required because second factor authorisation involves asking the user for a passcode or fingerprint, which isn&rsquo;t possible unless the app is visible in the foreground.</p>
+
+<p>By default however, iOS does not allow notifications unless the user grants permission. You can request permission using the following code snippet:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">notificationSettings</span> <span class="o">=</span> <span class="kt">UIUserNotificationSettings</span><span class="p">(</span><span class="nv">types</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="n">alert</span><span class="p">,</span> <span class="o">.</span><span class="n">badge</span><span class="p">,</span> <span class="o">.</span><span class="n">sound</span><span class="p">],</span> <span class="nv">categories</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="kt">UIApplication</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">registerUserNotificationSettings</span><span class="p">(</span><span class="n">notificationSettings</span><span class="p">)</span>
+</code></pre>
+
+<p>For a full example, refer to <code>AppDelegate.swift</code> in the SDK sample app, specifically the <code>enableExtendedBackgroundScanning()</code> method</p>
+
+<p><strong>IMPORTANT! App Store Review Information:</strong> If you wish to publish an app to the App Store which has &ldquo;always&rdquo; background location scanning privileges, Apple&rsquo;s app-review team takes this seriously. You may need to provide sufficient documentation explaining exactly what and why the background location tracking is used for, and you must demonstrate that you have implemented the proper permission checks according to Apple&rsquo;s documentation. Apple may contact you to discuss this.</p>
+
+<p>For example, in order to get app review approval for Gallagher&rsquo;s Mobile Connect application, we were required to submit a video of the app being used in the background, and they contacted us via the phone to discuss and understand the feature.</p>
+
+<p>We are required to place the following text in our app&rsquo;s description in the App Store:  </p>
+
+<blockquote>
+<p>Continued use of GPS running in the background can dramatically decrease battery life.</p>
+</blockquote>
+
+<p>We also place the following text in our app review notes in iTunes connect, which we find helps prevent accidental rejection:</p>
+
+<blockquote>
+<p>The app uses Background location updates to enable scanning for bluetooth readers while the app is in the background.</p>
+
+<p>As previously requested by app review, we have implemented the proper permission check with appropriate description (shown in the video when enabling background scanning) and added the required disclaimer about background location affecting battery life to the app description.</p>
+
+<p>If the user does not grant background location permissions to the app, it detects this, and the &ldquo;Background Scanning&rdquo; setting remains off. The app will continue to work correctly in the foreground.</p>
+
+<p>If the user subsequently wants to turn background scanning on, but has previously denied location permissions, the app will detect this and offer to open the iOS Settings app so they can manually grant the location permissions.</p>
+</blockquote>
+
+<p><br></p>
 <h2 id='salto-a-name-salto-a' class='heading'>Salto<a name=salto></a></h2>
 <h3 id='using-salto-keys-with-mobile-connect' class='heading'>Using SALTO Keys with Mobile Connect</h3>
 
@@ -679,7 +809,7 @@ Note that enabling and disabling automatic access does not affect bluetooth scan
 
 <p>This is a delegate that handles Salto Key updates. Its single callback function <code>onSaltoKeyUpdated</code> will notify of changes to available SaltoKeyIdentifiers. </p>
 
-<p>Add the delegate using the <code>addSaltoUpdateDelegate</code> method. After a delegate is added, it will first be called back with the existing list of available SaltoKeyIdentifiers to be added. After this, the delegate will be called back with any updates as they are received from the Gallagher cloud. </p>
+<p>Add the delegate using the <code>addSaltoUpdateDelegate</code> method. After a delegate is added, it will first be called back with the existing list of available SaltoKeyIdentifiers to be added. After this, the delegate will be called back with any updates as they are received from the Gallagher Cloud. </p>
 
 <p>Any calls to <code>addSaltoUpdateDelegate</code> should be balanced by a call to <code>removeSaltoUpdateDelegate</code> to prevent memory leaks.</p>
 
@@ -781,13 +911,15 @@ Called after the access transaction has completed successfully, or if an error h
 <a href="Enums/SaltoError.html">SaltoError</a>  </p>
 <h3 id='salto-audit-event-trail-support' class='heading'>Salto Audit Event Trail Support</h3>
 
-<p>The Salto audit event trail sync feature enables the Mobile Connect SDK to receive real-time Salto events for offline Salto readers on remote locations and send them to Command Centre and Salto servers via the Gallagher cloud without the need for badging at Salto update points.</p>
+<p>The Salto audit event trail sync feature enables the Mobile Connect SDK to receive real-time Salto events for offline Salto readers on remote locations and send them to Command Centre and Salto servers via the Gallagher Cloud without the need for badging at Salto update points.</p>
 
 <p>The Mobile Connect SDK version 16.4 and above has added support for transmitting a Cardholder&rsquo;s Salto audit event trail for Command Centre Server version 9.0 and above, with the use of Salto JustIN Mobile SDK version 3.1.0. </p>
 
 <p>The feature is not configurable in the Mobile Connect SDK but rather configured at the server and encoded in the Cardholder Salto mobile key. </p>
 
 <p>The event trails sync can be enabled/disabled at a server level or per Cardholder in the Command Centre system. </p>
+
+<p><br></p>
 <h2 id='digital-id-a-name-digital_id-a' class='heading'>Digital ID<a name=digital_id></a></h2>
 <h3 id='using-digital-ids-with-mobile-connect-sdk' class='heading'>Using Digital IDs with Mobile Connect SDK</h3>
 <h4 id='1-configure-mobile-connect-sdk-to-include-digital-id-as-an-enabled-feature' class='heading'>1. Configure Mobile Connect SDK to Include Digital ID as an Enabled Feature</h4>
@@ -801,7 +933,7 @@ Called after the access transaction has completed successfully, or if an error h
 
 <p>This is a delegate that handles Digital ID updates. Its single callback function <code>onDigitalIdUpdated</code> will notify of changes to available Digital IDs.</p>
 
-<p>Add the delegate using the <code>addDigitalIdDelegate</code> method. After a delegate is added, it will first be called back with the existing list of available Digital IDs to be added. After this the delegate will be called back with any updates as they are received from the Gallagher cloud. </p>
+<p>Add the delegate using the <code>addDigitalIdDelegate</code> method. After a delegate is added, it will first be called back with the existing list of available Digital IDs to be added. After this the delegate will be called back with any updates as they are received from the Gallagher Cloud. </p>
 
 <p>Any calls to <code>addDigitalIdDelegate</code> should be balanced by a call to <code>removeDigitalIdDelegate</code> to prevent memory leaks.</p>
 
@@ -929,106 +1061,244 @@ Connection problems and other issues may occur which prevent updates from being 
 <h4 id='3-access-with-aperio-ble-credentials' class='heading'>3. Access with Aperio BLE Credentials</h4>
 
 <p>Aperio BLE credentials are presented automatically by the Mobile Connect SDK instead of Mobile Credentials and it uses the existing &ldquo;Auto-connect&rdquo; setup mentioned in <a href="#readerdiscovery">Reader Discovery and Access</a></p>
-<h4 id='4-aperio-ble-reader-discovery' class='heading'>4. Aperio BLE Reader discovery</h4>
+<h4 id='4-aperio-ble-reader-discovery' class='heading'>4. Aperio BLE Reader Discovery</h4>
 
 <p>Aperio BLE readers can be discovered using ReaderUpdateDelegate which is the same way of discovering Gallagher BLE readers.
 For more information refer to &ldquo;Discovery of Readers&rdquo; section mentioned in <a href="#readerdiscovery">Reader Discovery and Access</a></p>
-<h2 id='background-access-a-name-backgroundaccess-a' class='heading'>Background Access<a name=backgroundaccess></a></h2>
 
-<p>By default, the SDK will continuously scan for and connect to Bluetooth enabled readers while it is running in the foreground. This is the standard behaviour for iOS applications.</p>
+<p><br></p>
+<h2 id='wallet-a-name-mobile_wallet-a' class='heading'>Wallet<a name=mobile_wallet></a></h2>
+<h3 id='wallet-feature-pre-requisites-a-name-wallet_prerequisites-a' class='heading'>Wallet Feature Pre-requisites<a name=wallet_prerequisites></a></h3>
 
-<p>If you would like it to only scan (for example) when a particular ViewController is on-screen, then you should use the <code>setScanning</code> method to control this.</p>
+<ul>
+<li>Apple Wallet is a licensed feature and requires Command Centre Server v9.10 or later to be enabled and fully configured in order for the Mobile Connect SDK to use the wallet feature.</li>
+<li>The Wallet feature requires:
 
-<p>If you would like the SDK to scan for readers while it is <em>not</em> visible in the foreground, you will need to enable background access. </p>
+<ul>
+<li>iPhone running iOS 16 or later.</li>
+<li>(Optional) paired Apple Watch running watchOS 10 or later.</li>
+</ul></li>
+<li>Gallagher requires that you provide your Apple <em>App ID (TeamID.AppBundleID)</em> and <em>App Store ID</em> so it can be configured when creating your site&rsquo;s pass details and template, so that the back of the pass can link to your app.<br>
+Other <em>optional</em> details:
 
-<p>There are two &ldquo;levels&rdquo; of background access functionality</p>
-<h3 id='1-standard-background-access' class='heading'>1. Standard Background Access.</h3>
+<ul>
+<li>App Launch URL (Optional): A URL to be passed to the associated app when launching it from the linked app section of the pass, setting this property requires providing Gallagher your App Store ID.</li>
+<li>App URL Scheme (Optional): URL scheme that the app is registered for to deep link from transaction notifications, setting this property requires providing Gallagher your App Store ID.</li>
+</ul></li>
+</ul>
+<h3 id='application-required-entitlement' class='heading'>Application Required Entitlement</h3>
 
-<p>This employs the default Apple Core Bluetooth background processing behaviour, as determined by Apple. This behaviour may (and has in the past) change between iOS versions. For more information refer to <a href="https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothBackgroundProcessingForIOSApps/PerformingTasksWhileYourAppIsInTheBackground.html">Apple&rsquo;s Core Bluetooth Background Processing Documentation</a></p>
+<p>To allow a user to provision a pass to Apple Wallet from within your app, you will need to request the required entitlement from Apple.</p>
+<h4 id='1-request-entitlement-from-apple' class='heading'>1. Request Entitlement from Apple</h4>
 
-<p>Enabling standard background access requires no code changes.<br>
-Add the following to your app&rsquo;s <code>Info.plist</code></p>
-<pre class="highlight xml"><code><span class="nt">&lt;key&gt;</span>UIBackgroundModes<span class="nt">&lt;/key&gt;</span>
-<span class="nt">&lt;array&gt;</span>
-    <span class="nt">&lt;string&gt;</span>bluetooth-central<span class="nt">&lt;/string&gt;</span>
-<span class="nt">&lt;/array&gt;</span>
-</code></pre>
+<p>Request <strong><em>com.apple.developer.contactless-payment-pass-provisioning:[“shareablecredential”]</em></strong> entitlement by emailing <a href="mailto:applepayentitlements@apple.com">applepayentitlements@apple.com</a> with the following information:</p>
 
-<p>Unfortunately, beginning with iOS 10, Apple aggressively throttle background scanning in order to conserve battery life. 
-The observed behaviour of &ldquo;standard&rdquo; background access on an iOS 10 or newer phone is generally that nothing appears to happen when the app is not in the foreground, however you can usually &ldquo;trigger&rdquo; background access as follows:</p>
+<ul>
+<li>Your proposed use cases for access pass provisioning.</li>
+<li>The country your business headquarters is located.</li>
+<li>Organization name.</li>
+<li>Application name.</li>
+<li>Team ID (Your Apple Developer account Team ID).</li>
+<li>App ID (Your app&rsquo;s App Store ID).</li>
+</ul>
 
-<ol>
-<li>Lock the phone screen</li>
-<li>Approach and place your phone next to a reader</li>
-<li>Turn the phone screen on - The act of turning the phone screen on seems to trigger apple&rsquo;s background behaviour</li>
-</ol>
+<p>You will <strong>receive an email confirmation</strong> if your application is granted the entitlement.</p>
+<h4 id='2-create-a-provisioning-profile' class='heading'>2. Create a Provisioning Profile</h4>
 
-<p>As per Apple&rsquo;s documentation, even when your app is running in the background iOS may kill it after some time. The exact rules around when and if iOS will kill it vary and change over time, but generally if you make heavy use of your phone, you can expect iOS to kill it more quickly in order to free up resources for other apps.</p>
-<h3 id='2-extended-background-access' class='heading'>2. Extended Background Access.</h3>
+<p>After Apple grants you the entitlement, add the entitlement to your application provisioning profile. <em>Ensure that you use the same profile to develop the app in Xcode.</em></p>
 
-<p>The Mobile Connect SDK offers an improved ability to scan for readers in the background, however this requires your app to request use of Background Location services. The SDK does not actually use or monitor the user&rsquo;s location at all, but the permission is required to enable the extended scanning mode.</p>
+<ul>
+<li>Create a new identifier or update your existing app identifier with an extra capability by selecting <strong>Contactless Pass Provisioning (SharableCredential)</strong> Under the Additional Capabilities tab.</li>
+<li>Add a new provisioning profile or update your existing one to use the identifier you created in the previous step. 
+<em>**Note:</em>* For Entitlements, select Default to include the entitlement in the profile automatically.*</li>
+</ul>
+<h4 id='3-create-a-provisioning-profile' class='heading'>3. Create a Provisioning Profile</h4>
 
-<p>To enable this, you must do the following</p>
+<p>After you generate and download the provisioning profile, add the profile in Xcode to use within your application, making sure that you have selected the correct profile under Signing &amp; Capabilities tab of the project.</p>
 
-<ol>
-<li><p>Set the SDK&rsquo;s <code>backgroundScanningMode</code> property to <code>.extended</code></p></li>
-<li><p>Enable iOS background location services as according to <a href="https://developer.apple.com/documentation/corelocation/choosing_the_authorization_level_for_location_services/requesting_always_authorization">Apple&rsquo;s Requesting Always Authorization</a> documentation. In summary - use <code>CLLocationManager.requestAlwaysAuthorization()</code>, and add the required keys to your Info.plist</p></li>
-</ol>
+<ul>
+<li>Create an entitlements plist for your app with the following key:</li>
+</ul>
+<pre class="highlight plist"><code><span class="p">&lt;</span><span class="mh">d</span><span class="err">i</span><span class="mh">c</span><span class="err">t</span><span class="p">&gt;</span><span class="w">
+    </span><span class="p">&lt;</span><span class="err">k</span><span class="mh">e</span><span class="err">y</span><span class="p">&gt;</span><span class="l">com.apple.developer.contactless-payment-pass-provisioning</span><span class="p">&lt;</span><span class="err">/k</span><span class="mh">e</span><span class="err">y</span><span class="p">&gt;</span><span class="w">
+    </span><span class="p">&lt;</span><span class="err">tru</span><span class="mh">e</span><span class="err">/</span><span class="p">&gt;</span><span class="w">
+</span><span class="p">&lt;</span><span class="err">/</span><span class="mh">d</span><span class="err">i</span><span class="mh">c</span><span class="err">t</span><span class="p">&gt;</span><span class="w">
+</span></code></pre>
+
+<ul>
+<li>Update your project to use the entitlement plist by setting <strong><em>Build Settings &gt; Code Signing Entitlement</em></strong> to point to the new entitlement file you created.</li>
+</ul>
+
+<p><strong><em>Note:</em></strong> For an example of the entitlement file, refer to <code>mobileconnectsdksample.entitlements</code> in the SDK sample app.</p>
+<h3 id='configure-mobile-connect-sdk-to-include-wallet-feature' class='heading'>Configure Mobile Connect SDK to Include Wallet Feature</h3>
+<h4 id='1-enable-the-wallet-feature-in-the-sdk' class='heading'>1. Enable the Wallet Feature in the SDK</h4>
+
+<p>Add <code><a href="Structs/SdkFeature.html#/s:21GallagherMobileAccess10SdkFeatureV6walletACvpZ">SdkFeature.wallet</a></code> to the list of enabled features passed into the <code>MobileAccessProvider.configure</code> method call.</p>
+
+<p><strong>Reference:</strong><br>
+<a href="Classes/MobileAccessProvider.html">MobileAccessProvider</a><br>
+<a href="Structs/SdkFeature.html">SdkFeature</a>  </p>
+<h4 id='2-implement-the-walletupdatedelegate' class='heading'>2. Implement the WalletUpdateDelegate</h4>
+
+<p>This is a delegate that handles Wallet updates. Its single callback function <code>onWalletsUpdated</code> will notify of Wallet changes and availability of related passes in the Apple Wallet app.</p>
+
+<p>Add the delegate using the <code>addWalletUpdateDelegate</code> method. After a delegate is added, it will first be called back with the existing list of available Wallets to be added. After this, the delegate will be called back with any updates as they are received from the Gallagher Cloud or from the Wallet app. </p>
+
+<p>Any calls to <code>addWalletUpdateDelegate</code> should be balanced by a call to <code>removeWalletUpdateDelegate</code> to prevent memory leaks.</p>
+
+<p>Finally you must call the <code>syncCredentialItemUpdates</code> function which will kick off a sync request to the Gallagher Cloud. </p>
 
 <p><em>Example:</em></p>
-<pre class="highlight xml"><code><span class="nt">&lt;key&gt;</span>NSLocationAlwaysUsageDescription<span class="nt">&lt;/key&gt;</span>
-<span class="nt">&lt;string&gt;</span>Your location is needed to detect readers using Bluetooth®. GPS is not used and your location is never shared.<span class="nt">&lt;/string&gt;</span>
-<span class="nt">&lt;key&gt;</span>NSLocationAlwaysAndWhenInUseUsageDescription<span class="nt">&lt;/key&gt;</span>
-<span class="nt">&lt;string&gt;</span>Your location is needed to detect readers using Bluetooth®. GPS is not used and your location is never shared.<span class="nt">&lt;/string&gt;</span>
-<span class="nt">&lt;key&gt;</span>NSLocationWhenInUseUsageDescription<span class="nt">&lt;/key&gt;</span>
-<span class="nt">&lt;string&gt;</span>Your location is needed to detect readers using Bluetooth®. GPS is not used and your location is never shared.<span class="nt">&lt;/string&gt;</span>
-...
-<span class="nt">&lt;key&gt;</span>UIBackgroundModes<span class="nt">&lt;/key&gt;</span>
-<span class="nt">&lt;array&gt;</span>
-    <span class="nt">&lt;string&gt;</span>location<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;string&gt;</span>bluetooth-central<span class="nt">&lt;/string&gt;</span>
-<span class="nt">&lt;/array&gt;</span>
+<pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="n">mobileAccess</span><span class="o">.</span><span class="nf">addWalletUpdateDelegate</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+    <span class="c1">// Fetch any registered mobile credential updates from the Gallagher Cloud</span>
+    <span class="n">mobileAccess</span><span class="o">.</span><span class="nf">syncCredentialItemUpdates</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="kd">deinit</span> <span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="n">mobileAccess</span><span class="o">.</span><span class="nf">removeWalletUpdateDelegate</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">onWalletsUpdated</span><span class="p">(</span><span class="n">_</span> <span class="nv">addedOrUpdatedWallets</span><span class="p">:</span> <span class="p">[</span><span class="kt">Wallet</span><span class="p">],</span> <span class="n">_</span> <span class="nv">removedWallets</span><span class="p">:</span> <span class="p">[</span><span class="kt">Wallet</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">wallet</span> <span class="k">in</span> <span class="n">addedOrUpdatedWallets</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">walletIndex</span> <span class="o">=</span> <span class="n">wallets</span><span class="o">.</span><span class="nf">firstIndex</span><span class="p">(</span><span class="nv">where</span><span class="p">:</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">credentialId</span> <span class="o">==</span> <span class="n">wallet</span><span class="o">.</span><span class="n">credentialId</span> <span class="p">})</span> <span class="p">{</span>
+            <span class="n">wallets</span><span class="p">[</span><span class="n">walletIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">wallet</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">wallets</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">wallet</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="o">...</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">wallet</span> <span class="k">in</span> <span class="n">removedWallets</span> <span class="p">{</span>
+        <span class="n">wallets</span><span class="o">.</span><span class="nf">removeAll</span><span class="p">(</span><span class="nv">where</span><span class="p">:</span> <span class="p">{</span><span class="nv">$0</span><span class="o">.</span><span class="n">credentialId</span> <span class="o">==</span> <span class="n">wallet</span><span class="o">.</span><span class="n">credentialId</span> <span class="p">})</span>
+
+        <span class="o">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
-<p>The observed behaviour of &ldquo;standard&rdquo; background access on an iOS 10 or 11 phone is generally that access works regardless of whether the app is visible or the screen is powered on or off, <em>however</em> iOS will still kill the app periodically if it is in the background for a period of time.</p>
+<p><strong><em>Note:</em></strong> For the full example, refer to <code>RegistrationsViewController.swift</code> in the SDK sample app. </p>
 
-<p>Extended background scanning also uses more battery - causing a roughly (with large margin of error) 10% additional drop in battery life over a work-day period.</p>
-<h3 id='3-background-access-notifications' class='heading'>3. Background Access Notifications</h3>
+<p><strong>Reference:</strong><br>
+<a href="Structs/Wallet.html">Wallet</a><br>
+<a href="Protocols/WalletUpdateDelegate.html">WalletUpdateDelegate</a><br>
+<a href="Enums/WalletUpdateError.html">WalletUpdateError</a>  </p>
+<h4 id='3-implement-the-sdkfeaturestatedelegate-to-be-notified-of-any-update-errors' class='heading'>3. Implement the SdkFeatureStateDelegate to be Notified of Any Update Errors</h4>
 
-<p>If the SDK determines that we are within auto-connect range of a reader, but that reader requires second factor authorisation, it will display a Notification asking the user to open the App.</p>
+<p>Wallet updates are received from the Gallagher Cloud.<br>
+Connection problems and other issues may occur which prevent updates from being received. This delegate can be implemented to be notified when such errors or state changes occur.</p>
 
-<p>This is required because second factor authorisation involves asking the user for a passcode or fingerprint, which isn&rsquo;t possible unless the App is visible in the foreground.</p>
+<p>Delegates should be added using <code>addSdkFeatureStateDelegate</code>. The SDK will asynchronously call the callback methods on the provided delegate to inform you of errors or state changes. Callbacks will arrive on the main thread.</p>
 
-<p>By default however, iOS does not allow notifications unless the user grants permission. You can request permission using the following code snippet:</p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">notificationSettings</span> <span class="o">=</span> <span class="kt">UIUserNotificationSettings</span><span class="p">(</span><span class="nv">types</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="n">alert</span><span class="p">,</span> <span class="o">.</span><span class="n">badge</span><span class="p">,</span> <span class="o">.</span><span class="n">sound</span><span class="p">],</span> <span class="nv">categories</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-<span class="kt">UIApplication</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">registerUserNotificationSettings</span><span class="p">(</span><span class="n">notificationSettings</span><span class="p">)</span>
+<p>This delegate is a shared channel for receiving errors from all features from <code><a href="Structs/SdkFeature.html">SdkFeature</a></code>. Errors can be filtered by their type to handle a specific feature&rsquo;s errors.</p>
+
+<p><em>Example:</em></p>
+<pre class="highlight swift"><code><span class="c1">// Convenient way to register for any sdk feature states/errors instead of implementing SdkFeatureStateDelegate directly on the concrete class</span>
+<span class="n">mobileAccess</span><span class="o">.</span><span class="n">addSdkFeatureStateDelegate</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="n">featureStates</span> <span class="k">in</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">this</span> <span class="o">=</span> <span class="k">self</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">featureStates</span><span class="o">.</span><span class="nf">contains</span><span class="p">(</span><span class="o">.</span><span class="n">errorCloudConnectionFailed</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">mobileAccess</span><span class="o">.</span><span class="nf">syncCredentialItemUpdates</span><span class="p">()</span> <span class="c1">// try connecting again</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">featureStates</span><span class="o">.</span><span class="nf">contains</span><span class="p">(</span><span class="o">.</span><span class="n">errorMobileWalletNotSupported</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">toast</span><span class="p">(</span><span class="s">"Wallet feature is not supported for this device, the feature is only available for 'iPhone' devices supporting iOS16 and later"</span><span class="p">)</span>
+    <span class="p">}</span> 
+<span class="p">}</span> <span class="nv">onFeatureError</span><span class="p">:</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">walletError</span> <span class="o">=</span> <span class="n">error</span> <span class="k">as?</span> <span class="kt">WalletUpdateError</span> <span class="p">{</span>
+        <span class="nf">toast</span><span class="p">(</span><span class="s">"Wallet update error </span><span class="se">\(</span><span class="n">walletError</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
-<p>For a full example, refer to <code>AppDelegate.swift</code> in the SDK sample app, specifically the <code>enableExtendedBackgroundScanning()</code> method</p>
+<p><strong>Reference:</strong><br>
+<a href="Protocols/MobileAccess.html">MobileAccess</a><br>
+<a href="Enums/WalletUpdateError.html">WalletUpdateError</a><br>
+<a href="Structs/SdkFeature.html">SdkFeature</a><br>
+<a href="Enums/SdkFeatureState.html">SdkFeatureState</a><br>
+<a href="Protocols/SdkFeatureStateDelegate.html">SdkFeatureStateDelegate</a>  </p>
+<h4 id='4-quot-add-to-apple-wallet-quot-button' class='heading'>4. &ldquo;Add to Apple Wallet&rdquo; Button</h4>
 
-<p><strong>IMPORTANT! App Store Review Information:</strong> If you wish to publish an app to the App Store which has &ldquo;always&rdquo; background location scanning privileges, Apple&rsquo;s App-review team take this  seriously. You may need to provide sufficient documentation explaning exactly what and why the background location tracking is used for, and you must demonstrate that you have implemented the proper permission checks according to Apple&rsquo;s documentation. Apple may contact you to discuss this.</p>
+<p>The <em>&ldquo;Add to Apple Wallet&rdquo;</em> button is how a user triggers the process of provisioning a pass to the device and paired watch if one exists.</p>
 
-<p>For example, in order to get App review approval for Gallagher&rsquo;s Mobile Connect application, we were required to submit a video of the app being used in the background, and they contacted us via the phone to discuss and understand the feature.</p>
+<ul>
+<li>Add to your view a button with class type <code>PKAddPassButton</code>. This will ensure that you are following the <a href="https://developer.apple.com/wallet/add-to-apple-wallet-guidelines/">Add to Apple Wallet guidelines</a>.</li>
+<li>Display the button to indicate to the user that a pass can be added, you can achieve that by checking the <code><a href="Structs/Wallet.html">Wallet</a></code> instance <code>shouldShowAddToWalletButton</code>.</li>
+<li><em>(Optional)</em> You can navigate to the pass once provisioned in the Wallet app by using the <code><a href="Structs/Wallet.html">Wallet</a></code> instance <code>passUrl</code>.<br></li>
+</ul>
 
-<p>We are required to place the following text in our app&rsquo;s description in the app store:  </p>
+<p><strong><em>Note:</em></strong> For the full example, refer to <code>RegistrationsViewController.swift</code> in the SDK sample app. </p>
 
-<blockquote>
-<p>Continued use of GPS running in the background can dramatically decrease battery life.</p>
-</blockquote>
+<p>The following table explains the logic behind the helper function of the &ldquo;Add to Apple Wallet&rdquo; button:</p>
 
-<p>We also place the following text in our App review notes in itunes connect, which we find helps prevent accidental rejection:</p>
+<table><thead>
+<tr>
+<th>On Primary Device</th>
+<th>On Paired Device</th>
+<th>Display Logic</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Pass exists</td>
+<td>Pass exists</td>
+<td>Don&rsquo;t display button</td>
+</tr>
+<tr>
+<td>Pass exists</td>
+<td>Pass doesn&rsquo;t exist</td>
+<td>display button</td>
+</tr>
+<tr>
+<td>Pass doesn&rsquo;t exist</td>
+<td>Pass exists, or pass doesn&rsquo;t exist</td>
+<td>Display button</td>
+</tr>
+</tbody></table>
 
-<blockquote>
-<p>The app uses Background location updates to enable scanning for bluetooth readers while the app is in the background</p>
+<p><strong><em>Note:</em></strong> <code>shouldShowAddToWalletButton</code> value will always be <code>true</code> if your App ID (TeamID.AppBundleID) is not configured/added to the the Apple pass details used for your site, refer to <a href="#wallet_prerequisites">Wallet Feature Pre-requisites</a> for the required data. </p>
 
-<p>As previously requested by app review, we have implemented the proper permission check with appropriate description (shown in the video when enabling background scanning) and added the required disclaimer about background location affecting battery life to the app description.</p>
+<p><strong>Reference:</strong><br>
+<a href="Structs/Wallet.html">Wallet</a>  </p>
+<h4 id='5-provision-a-pass' class='heading'>5. Provision a Pass</h4>
 
-<p>If the user does not grant background location permissions to the app, it detects this, and the &ldquo;Background Scanning&rdquo; setting remains off. The app will continue to work correctly in the foreground.</p>
+<p>Once you add the <em>&ldquo;Add to Apple Wallet&rdquo;</em> button in the app, you can use <code>startProvisioningWallet</code> method to initiate provisioning a pass. The SDK will asynchronously call the callback methods on the <code><a href="Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a></code> to inform you of success or failure.</p>
 
-<p>If the user subsequently wants to turn background scanning on, but has previously denied location permissions, the app will detect this and offer to open the iOS Settings app so they can manually grant the location permissions.</p>
-</blockquote>
+<p>The Mobile Connect SDK provides a function to trigger pass provisioning for a user. The function is asynchronous and can be triggered from any thread. The result is returned using  <code><a href="Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a></code></p>
+<pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">addWallet</span><span class="p">(</span><span class="nv">wallet</span><span class="p">:</span> <span class="kt">Wallet</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="c1">// You can choose to implement 'WalletProvisioningDelegate' on a concrete class or use the extension function below provide a block handler for `onWalletMigrationDetected` and `onProvisioningCompleted`</span>
+    <span class="n">mobileAccess</span><span class="o">.</span><span class="nf">startProvisioningWallet</span><span class="p">(</span>
+        <span class="n">wallet</span><span class="p">,</span>
+        <span class="nv">passThumbnailImage</span><span class="p">:</span> <span class="n">templatePassImage</span><span class="p">,</span>
+        <span class="nv">passDescription</span><span class="p">:</span> <span class="s">"Adding Sample App Apple Pass"</span><span class="p">,</span>
+        <span class="nv">presentingViewController</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span>
+        <span class="nv">onWalletMigrationDetected</span><span class="p">:</span> <span class="p">{</span> <span class="n">handler</span> <span class="k">in</span>
+            <span class="nf">handler</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="nv">onWalletProvisioningCompleted</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="n">wallet</span><span class="p">,</span> <span class="n">succeeded</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+            <span class="k">guard</span> <span class="k">let</span> <span class="nv">this</span> <span class="o">=</span> <span class="k">self</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+            <span class="k">if</span> <span class="n">succeeded</span> <span class="p">{</span>
+                <span class="c1">// update UI</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="k">let</span> <span class="nv">e</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
+                <span class="nf">toast</span><span class="p">(</span><span class="s">"Provisioning wallet failed, try again later."</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong><em>Note:</em></strong> For the full example, refer to <code>RegistrationsViewController.swift</code> in the SDK sample app. </p>
+
+<p><strong>Reference:</strong><br>
+<a href="Protocols/MobileAccess.html">MobileAccess</a><br>
+<a href="Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a>  </p>
+
+<p><br></p>
 <h2 id='frequently-asked-questions-a-name-faq-a' class='heading'>Frequently Asked Questions<a name=faq></a></h2>
-<h3 id='1-why-does-the-device-need-a-passcode-enabled' class='heading'>1. Why does the device need a passcode enabled?</h3>
+<h3 id='why-does-the-device-need-a-passcode-enabled-a-name-faq_device_passcode-a' class='heading'>Why does the Device Need a Passcode Enabled?<a name=faq_device_passcode></a></h3>
 
 <p>If a user attempts to register a mobile credential on an Apple device which does not have a passcode enabled, the registration operation will fail.</p>
 
@@ -1044,23 +1314,8 @@ The observed behaviour of &ldquo;standard&rdquo; background access on an iOS 10 
 <p>The second-factor credential needs to be more secure, because zones in PINs mode typically have much higher physical security requirements. As such, the Mobile Connect SDK requests that Apple performs additional encryption on the keys associated with second-factor credentials. This is implemented in iOS by using the passcode feature, which is why credential registration requires a passcode to be enabled.</p>
 
 <p>Note that if a user registers, then turns off their passcode, the second-factor keys will be invalidated. They will be able to authenticate against readers where the Access Zone is not in PINs mode, however if they attempt to authenticate where second factor is required, they will fail. The only available solution is for that user to re-enable their passcode, then repeat the registration process.</p>
-<h2 id='troubleshooting-customising-the-sdk-a-name-customising-a' class='heading'>Troubleshooting / Customising the SDK<a name=customising></a></h2>
-<h3 id='1-configuring-logging-optional-a-name-configure_logging-a' class='heading'>1. Configuring Logging (optional)<a name=configure_logging></a></h3>
-
-<p>If you encounter unexpected errors or behaviour, you may wish to enable logging from the SDK to help with troubleshooting.</p>
-
-<p>By default, the SDK will not log anything.
-To enable logging, you have two options:</p>
-
-<ol>
-<li><p>Construct a <code>LogConfiguration(fileURL: aFileUrl)</code> struct, and assign it to static the <code><a href="Classes/Log.html#/s:21GallagherMobileAccess3LogC13configurationAA0D13ConfigurationVvpZ">Log.configuration</a></code> property. This will cause the SDK to write its log output to the given file. You are responsible for creating any subdirectories or otherwise making the file available.</p></li>
-<li><p>Construct a <code>LogConfiguration(externalWriter: LogWriter)</code> struct, and assign it to static the <code><a href="Classes/Log.html#/s:21GallagherMobileAccess3LogC13configurationAA0D13ConfigurationVvpZ">Log.configuration</a></code> property. When the SDK wishes to log something, it will invoke <code>write(level: LogLevel, message: () -&gt; String, parameters: LogParameters)</code> method on the externalWriter.</p></li>
-</ol>
-
-<p>For more information, please refer to the SwiftDocs</p>
-
-<p>For an example, please see the file <code>AppDelegate.swift</code> in the iOS SDK sample application, which redirects the SDK&rsquo;s internal logging to the system-wide <code>os_log</code> infrastructure.</p>
-<h3 id='2-customising-sdk-messages-a-name-configure_messages-a' class='heading'>2. Customising SDK Messages<a name=configure_messages></a></h3>
+<h2 id='customising-the-sdk-a-name-customising-a' class='heading'>Customising the SDK<a name=customising></a></h2>
+<h3 id='customising-sdk-messages-a-name-configure_messages-a' class='heading'>Customising SDK Messages<a name=configure_messages></a></h3>
 
 <p>The SDK will at times need to prompt the user for information, such as to enter their fingerprint or passcode. By default the SDK will generate messages in English, however you have the ability to alter these messages - either to simply change the message text to better suit your application, or to translate it into other languages.</p>
 
@@ -1079,9 +1334,9 @@ To enable logging, you have two options:</p>
 
 <p><strong>Reference:</strong>
 <a href="Structs/MobileAccessLocalization.html">MobileAccessLocalization</a>  </p>
-<h4 id='2-1-notificationdetails' class='heading'>2.1. notificationDetails</h4>
+<h4 id='1-notification-details' class='heading'>1. Notification Details</h4>
 
-<p>If your application uses the background access feature of the Mobile Connect SDK, then when the user encounters a reader that is configured to require a second factor, they will need to open the App in order to complete the request. (For example, you can&rsquo;t prompt someone for their fingerprint when your app isn&rsquo;t on-screen)</p>
+<p>If your application uses the background access feature of the Mobile Connect SDK, then when the user encounters a reader that is configured to require a second factor, they will need to open the app in order to complete the request. (For example, you can&rsquo;t prompt someone for their fingerprint when your app isn&rsquo;t on-screen)</p>
 
 <p>In order to facilitate this, the SDK will show a Local Notification asking the user to open the app. When the SDK wants to show this notification, it will call the <code>notificationDetails</code> localization callback.</p>
 
@@ -1093,7 +1348,7 @@ To enable logging, you have two options:</p>
 
 <p><strong>Reference:</strong><br>
 <a href="Typealiases.html#/s:23GallagherMobileAccessNN27NotificationDetailsProvidera">NotificationDetailsProvider</a>  </p>
-<h4 id='2-2-registrationdetails' class='heading'>2.2 registrationDetails</h4>
+<h4 id='2-registration-details' class='heading'>2. Registration Details</h4>
 
 <p>When the user registers a mobile credential, the SDK will ask them for either their Passcode or Fingerprint/Face ID, as per the <a href="#registering">Registering a Mobile Credential</a> section earlier in this document.</p>
 
@@ -1107,7 +1362,7 @@ To enable logging, you have two options:</p>
 
 <p><strong>Reference:</strong><br>
 <a href="Typealiases.html#/s:23GallagherMobileAccessNN27RegistrationDetailsProvidera">RegistrationDetailsProvider</a>  </p>
-<h4 id='2-3-authenticationdetails' class='heading'>2.3 authenticationDetails</h4>
+<h4 id='3-authentication-details' class='heading'>3. Authentication Details</h4>
 
 <p>When the user attempts to access a door that requires second factor authentication, the SDK will ask them for either their Passcode or Fingerprint/Face ID - whatever they chose when they previously registered their credential.</p>
 
@@ -1121,14 +1376,78 @@ To enable logging, you have two options:</p>
 
 <p><strong>Reference:</strong><br>
 <a href="Typealiases.html#/s:23GallagherMobileAccessNN29AuthenticationDetailsProvidera">AuthenticationDetailsProvider</a>  </p>
-<h3 id='3-troubleshooting-a-name-troubleshooting-a' class='heading'>3. Troubleshooting<a name=troubleshooting></a></h3>
+<h2 id='troubleshooting-a-name-troubleshooting-a' class='heading'>Troubleshooting<a name=troubleshooting></a></h2>
+<h3 id='configuring-logging-optional-a-name-configure_logging-a' class='heading'>Configuring Logging (Optional)<a name=configure_logging></a></h3>
 
-<p><strong>Why aren&rsquo;t I receiving Digital ID or Salto Updates?</strong></p>
+<p>If you encounter unexpected errors or behaviour, you may wish to enable logging from the SDK to help with troubleshooting.</p>
+
+<p>By default, the SDK will not log anything.
+To enable logging, you have two options:</p>
+
+<ol>
+<li><p>Construct a <code>LogConfiguration(fileURL: aFileUrl)</code> struct, and assign it to static the <code><a href="Classes/Log.html#/s:21GallagherMobileAccess3LogC13configurationAA0D13ConfigurationVvpZ">Log.configuration</a></code> property. This will cause the SDK to write its log output to the given file. You are responsible for creating any subdirectories or otherwise making the file available.</p></li>
+<li><p>Construct a <code>LogConfiguration(externalWriter: LogWriter)</code> struct, and assign it to static the <code><a href="Classes/Log.html#/s:21GallagherMobileAccess3LogC13configurationAA0D13ConfigurationVvpZ">Log.configuration</a></code> property. When the SDK wishes to log something, it will invoke <code>write(level: LogLevel, message: () -&gt; String, parameters: LogParameters)</code> method on the externalWriter.</p></li>
+</ol>
+
+<p>For more information, please refer to the SwiftDocs</p>
+
+<p>For an example, please see the file <code>AppDelegate.swift</code> in the iOS SDK sample application, which redirects the SDK&rsquo;s internal logging to the system-wide <code>os_log</code> infrastructure.</p>
+<h3 id='i-39-m-not-receiving-mobile-credential-updates-i-e-digital-id-or-salto-from-the-cloud-a-name-ts_no_feature_updates-a' class='heading'>I&rsquo;m not Receiving Mobile Credential Updates (i.e. Digital ID or Salto) from the Cloud<a name=ts_no_feature_updates></a></h3>
 
 <p>Ensure you have added yourself as a delegate and are requesting to sync with the Cloud i.e.</p>
 <pre class="highlight swift"><code><span class="n">_mobileAccess</span><span class="o">.</span><span class="nf">addDigitalIdDelegate</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
 <span class="n">_mobileAccess</span><span class="o">.</span><span class="nf">syncCredentialItemUpdates</span><span class="p">()</span>
 </code></pre>
+<h3 id='wallet-pass-provisioning-is-failing-a-name-ts_wallet_provisioning_fail-a' class='heading'>Wallet Pass Provisioning is Failing<a name=ts_wallet_provisioning_fail></a></h3>
+
+<p>Provisioning a pass can fail for multiple reasons at different parts of the flow, all failures are returned as <code><a href="Enums/WalletProvisioningError.html">WalletProvisioningError</a></code>:</p>
+
+<ul>
+<li><strong>Validation of Command Centre Server setup, the Mobile Credential, and the Cardholder:</strong> The validation happens at the start of the provisioning flow. Most failures can be resolved by the operator or later by trying to re-provision again. This type of error is wrapped with <code>.prepareProvisioningError(message, code)</code>. Refer to <code><a href="Enums/WalletPrepareProvisioningErrorCode.html">WalletPrepareProvisioningErrorCode</a></code> for the full list of codes.<br>
+These are some of the common reasons:<br>
+
+<ul>
+<li>Command Centre Server misconfiguration.</li>
+<li>Command Centre Server is offline to the Gallagher Cloud.</li>
+<li>Inactive Mobile Credential or de-authorised Cardholder.</li>
+</ul></li>
+<li><strong>Apple Access Platform Failures:</strong> Once the data is validated, the Mobile Connect SDK hands the data to Apple Access Platform.<br>
+The <strong>user</strong> will get a message from Apple communicating the cause of the failure, however, the Mobile Connect SDK can only get a generic error message from Apple PassKit SDK which will be mapped to error <code>.addWalletToSecureElementFailed(message)</code><br>
+Here are some of the possible failures:
+
+<ul>
+<li>An iCloud account binding failure: An iCloud account can only be used against one Cardholder in the Command Centre system. Once a pass is provisioned to a Cardholder, the iCloud account is bound to that Cardholder and cannot be used with other Cardholders.</li>
+<li>Device limits reached failure: The user has migrated the pass more than once to different devices within the last 90 days from the first provisioning.<br></li>
+<li>Failure adding the pass to Secure Element: This is a rare failure that can happen at the final stage of adding a pass to the device Secure Element.</li>
+</ul></li>
+</ul>
+
+<p><strong>Note:</strong> Due to security concerns, to resolve any binding or device limit failures the site must contact Gallagher Technical Support.</p>
+
+<p><strong>Reference:</strong><br>
+<a href="Enums/WalletProvisioningError.html">WalletProvisioningError</a><br>
+<a href="Enums/WalletPrepareProvisioningErrorCode.html">WalletPrepareProvisioningErrorCode</a>  </p>
+<h3 id='wallet-feature-calls-code-onwalletmigrationdetected-code-within-the-provisioning-flow-a-name-ts_wallet_migration-a' class='heading'>Wallet Feature Calls <code>onWalletMigrationDetected</code> Within the Provisioning Flow<a name=ts_wallet_migration></a></h3>
+
+<p>A user is allowed only one pass per device type (iPhone and pair Apple Watch). If the user gets a new iPhone and would like to migrate the pass to the new device then a new Mobile Credential will be required to be issued and registered for the new device and upon clicking the &ldquo;Add to Apple Wallet&rdquo; button on the new device a migration will be detected by the Mobile Connect SDK. When the migration is detected, it is recommended to notify and allow the user to confirm the migration before continuing.</p>
+
+<p>To migrate a pass from one paired watch to another, the user will need to remove the pass from the older watch, unpair the old watch, and then re-add the pass to the new watch via the app &ldquo;Add to Apple Wallet&rdquo; button.</p>
+
+<p><strong>Notes:</strong> </p>
+
+<ul>
+<li>Only 1 migration per device type is allowed every 90 days.<br></li>
+<li>Migrating a pass to a new device will remove the pass from the older device.</li>
+</ul>
+<h3 id='user-has-passes-on-both-phone-and-watch-but-code-shouldshowaddtowalletbutton-code-function-is-suggesting-showing-the-button-a-name-ts_wallet_show_add_button-a' class='heading'>User Has Passes on Both Phone and Watch but <code>shouldShowAddToWalletButton</code> Function is Suggesting Showing the Button<a name=ts_wallet_show_add_button></a></h3>
+
+<p>The function can falsely report that the button should be shown. This may be due to a misconfiguration of the pass details in the Apple Business Register (ABR) portal. The pass details need to be configured with your App ID (TeamID.AppBundleID) in order for the SDK to be able to access and filter the list of passes provided by Apple&rsquo;s PassKit library. Refer to <a href="#wallet_prerequisites">Wallet Feature Pre-requisites</a> for the required data.</p>
+<h3 id='deactivating-the-mobile-credential-doesn-39-t-deactivate-the-apple-pass-a-name-ts_wallet_deactivate-a' class='heading'>Deactivating the Mobile Credential Doesn&rsquo;t Deactivate the Apple Pass<a name=ts_wallet_deactivate></a></h3>
+
+<p>Mobile Credentials are used <strong>only</strong> to provision a pass to the Apple Wallet App. Once the pass is provisioned, it must be managed from within the Apple Wallet app or from the user’s iCloud account.</p>
+<h3 id='add-apple-pass-is-active-but-the-user-is-getting-access-denied-at-the-reader-a-name-ts_wallet_no_access-a' class='heading'>Add Apple Pass is Active But the User is Getting Access Denied at the Reader<a name=ts_wallet_no_access></a></h3>
+
+<p>There could be delays between successfully adding Apple pass to the Wallet app and syncing it down to on-premise Command Centre Server and Controller. In most cases the syncing is not noticeable.</p>
 
           </div>
         </section>
@@ -1137,7 +1456,7 @@ To enable logging, you have two options:</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-05-23)</p>
+      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-11-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

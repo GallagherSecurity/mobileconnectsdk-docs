@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ProvisioningErrorCode Enumeration Reference</title>
+    <title>Wallet Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Enum/ProvisioningErrorCode" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/Wallet" class="dashAnchor"></a>
 
-    <a title="ProvisioningErrorCode Enumeration Reference"></a>
+    <a title="Wallet Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html"> Reference</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      ProvisioningErrorCode Enumeration Reference
+      Wallet Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -109,9 +109,6 @@
                 <a class="nav-group-task-link" href="../Enums/MobileCredentialKeyStatus.html">MobileCredentialKeyStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/ProvisioningErrorCode.html">ProvisioningErrorCode</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ReaderActionType.html">ReaderActionType</a>
               </li>
               <li class="nav-group-task">
@@ -143,6 +140,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SecondFactorVerificationType.html">SecondFactorVerificationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/WalletPrepareProvisioningErrorCode.html">WalletPrepareProvisioningErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/WalletProvisioningError.html">WalletProvisioningError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/WalletUpdateError.html">WalletUpdateError</a>
               </li>
             </ul>
           </li>
@@ -197,6 +203,12 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/StringValueConvertible.html">StringValueConvertible</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/WalletUpdateDelegate.html">WalletUpdateDelegate</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -235,6 +247,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SharedCredential.html">SharedCredential</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Wallet.html">Wallet</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -264,6 +279,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess38SecondFactorAuthenticationTypeSelectora">SecondFactorAuthenticationTypeSelector</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess22WalletMigrationHandlera">WalletMigrationHandler</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -272,15 +290,16 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>ProvisioningErrorCode</h1>
+            <h1>Wallet</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ProvisioningErrorCode</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Wallet</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Represents a mobile Wallet</p>
+
           </div>
         </section>
 
@@ -291,9 +310,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:21GallagherMobileAccess21ProvisioningErrorCodeO23getCardholderCallFailedyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/getCardholderCallFailed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess21ProvisioningErrorCodeO23getCardholderCallFailedyA2CmF">getCardholderCallFailed</a>
+                    <a name="/s:21GallagherMobileAccess6WalletV12credentialIdSSvp"></a>
+                    <a name="//apple_ref/swift/Property/credentialId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess6WalletV12credentialIdSSvp">credentialId</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -301,13 +320,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The  programmatic ID of the Mobile Credential to which this Wallet belongs</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">getCardholderCallFailed</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">credentialId</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -317,9 +337,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:21GallagherMobileAccess21ProvisioningErrorCodeO21commandCentreNotFoundyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/commandCentreNotFound" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess21ProvisioningErrorCodeO21commandCentreNotFoundyA2CmF">commandCentreNotFound</a>
+                    <a name="/s:21GallagherMobileAccess6WalletV20sourceSiteFacilityIdSivp"></a>
+                    <a name="//apple_ref/swift/Property/sourceSiteFacilityId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess6WalletV20sourceSiteFacilityIdSivp">sourceSiteFacilityId</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -327,13 +347,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Facility Id of the site this Digital ID was received from or zero if the same as the Mobile Credential</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">commandCentreNotFound</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">sourceSiteFacilityId</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -343,9 +364,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:21GallagherMobileAccess21ProvisioningErrorCodeO21applePassTypeNotFoundyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/applePassTypeNotFound" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess21ProvisioningErrorCodeO21applePassTypeNotFoundyA2CmF">applePassTypeNotFound</a>
+                    <a name="/s:21GallagherMobileAccess6WalletV13passAccountIdSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/passAccountId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess6WalletV13passAccountIdSSSgvp">passAccountId</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -353,13 +374,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Id for the pass from PassKit, shared across the user&rsquo;s wallets</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">applePassTypeNotFound</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">passAccountId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -369,9 +391,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:21GallagherMobileAccess21ProvisioningErrorCodeO34commandCentreInvalidAppleKeysOrTCIyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/commandCentreInvalidAppleKeysOrTCI" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess21ProvisioningErrorCodeO34commandCentreInvalidAppleKeysOrTCIyA2CmF">commandCentreInvalidAppleKeysOrTCI</a>
+                    <a name="/s:21GallagherMobileAccess6WalletV12hasLocalPassSbvp"></a>
+                    <a name="//apple_ref/swift/Property/hasLocalPass" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess6WalletV12hasLocalPassSbvp">hasLocalPass</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -379,13 +401,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>true, if a Wallet for the given site exists on the phone, false otherwise.
+Note: The value will be false if your App ID (TeamID.AppBundleID) is not configured/added to the Apple pass details used for your site.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">commandCentreInvalidAppleKeysOrTCI</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hasLocalPass</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -395,9 +419,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:21GallagherMobileAccess21ProvisioningErrorCodeO23cardholderNotAuthorisedyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/cardholderNotAuthorised" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess21ProvisioningErrorCodeO23cardholderNotAuthorisedyA2CmF">cardholderNotAuthorised</a>
+                    <a name="/s:21GallagherMobileAccess6WalletV12hasWatchPassSbvp"></a>
+                    <a name="//apple_ref/swift/Property/hasWatchPass" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess6WalletV12hasWatchPassSbvp">hasWatchPass</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -405,13 +429,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>true, if a Wallet for the given site exists on a paired watch, false otherwise.
+Note: The value will be false if your App ID (TeamID.AppBundleID) is not configured/added to the Apple pass details used for your site.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardholderNotAuthorised</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hasWatchPass</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -421,9 +447,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:21GallagherMobileAccess21ProvisioningErrorCodeO24mobileCredentialDisabledyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/mobileCredentialDisabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess21ProvisioningErrorCodeO24mobileCredentialDisabledyA2CmF">mobileCredentialDisabled</a>
+                    <a name="/s:21GallagherMobileAccess6WalletV14hasPairedWatchSbvp"></a>
+                    <a name="//apple_ref/swift/Property/hasPairedWatch" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess6WalletV14hasPairedWatchSbvp">hasPairedWatch</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -431,13 +457,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>true, if device has paired watch else returns false.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mobileCredentialDisabled</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hasPairedWatch</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -447,9 +474,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:21GallagherMobileAccess21ProvisioningErrorCodeO18cardholderNotFoundyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/cardholderNotFound" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess21ProvisioningErrorCodeO18cardholderNotFoundyA2CmF">cardholderNotFound</a>
+                    <a name="/s:21GallagherMobileAccess6WalletV7passUrl10Foundation3URLVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/passUrl" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess6WalletV7passUrl10Foundation3URLVSgvp">passUrl</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -457,13 +484,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>A helper property to retrieve the Apple pass instance URL in the wallet app. It can be used to navigate to the pass in the Apple wallet app.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardholderNotFound</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">passUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -473,9 +501,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:21GallagherMobileAccess21ProvisioningErrorCodeO34unauthorisedCardTemplateIdentifieryA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/unauthorisedCardTemplateIdentifier" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess21ProvisioningErrorCodeO34unauthorisedCardTemplateIdentifieryA2CmF">unauthorisedCardTemplateIdentifier</a>
+                    <a name="/s:21GallagherMobileAccess6WalletV015shouldShowAddToD6ButtonSbyF"></a>
+                    <a name="//apple_ref/swift/Method/shouldShowAddToWalletButton()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess6WalletV015shouldShowAddToD6ButtonSbyF">shouldShowAddToWalletButton()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -483,39 +511,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unauthorisedCardTemplateIdentifier</span></code></pre>
+                        <p>Helper function returns true if the pass has not been provisioned to the device or to a paired watch, otherwise returns false.
+Note: The function will return false if your App ID (TeamID.AppBundleID) is not configured/added to the Apple pass details used for your site.</p>
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:21GallagherMobileAccess21ProvisioningErrorCodeO7unknownyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/unknown" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess21ProvisioningErrorCodeO7unknownyA2CmF">unknown</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">shouldShowAddToWalletButton</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -530,7 +534,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-05-23)</p>
+      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-11-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

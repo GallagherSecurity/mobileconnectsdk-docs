@@ -23,11 +23,11 @@ import com.gallagher.security.mobileaccess.SaltoAccessListener;
 import com.gallagher.security.mobileaccess.SaltoAccessResult;
 import com.gallagher.security.mobileaccess.SaltoError;
 import com.gallagher.security.mobileaccess.SaltoKeyIdentifier;
+import com.gallagher.security.mobileaccess.SaltoOpeningMode;
+import com.gallagher.security.mobileaccess.SaltoOpeningParams;
 import com.gallagher.security.mobileaccess.SaltoUpdateListener;
 import com.gallagher.security.mobileaccess.SdkFeatureState;
 import com.gallagher.security.mobileaccess.SdkFeatureStateListener;
-import com.gallagher.security.mobileaccess.SaltoOpeningMode;
-import com.gallagher.security.mobileaccess.SaltoOpeningParams;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -78,7 +78,19 @@
 
         <!-- Important: for the SALTO JustIN SDK -->
         <service android:name="com.saltosystems.justinmobile.sdk.ble.JustinBleService"
-            android:enabled="true" />
+            android:enabled="true"
+            android:exported="false" />
+        <!-- This provider is used to gain temp access to our log files so that we can email them -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.gallagher.mobileconnectsdksample.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
     </application>
 
 </manifest>

@@ -28,4 +28,7 @@
     <!-- Foreground notification -->
     <string name="ggl_foreground_notification_title">SCANNING FOR DOORS:</string>
 
+    <!-- Drawer Content Descriptions -->
+     <string name="settings_menu_open">SettingsMenuOpen</string>
+    <string name="settings_menu_close">SettingsMenuClose</string>
 </resources>

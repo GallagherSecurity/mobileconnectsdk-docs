@@ -109,9 +109,6 @@
                 <a class="nav-group-task-link" href="../Enums/MobileCredentialKeyStatus.html">MobileCredentialKeyStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/ProvisioningErrorCode.html">ProvisioningErrorCode</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ReaderActionType.html">ReaderActionType</a>
               </li>
               <li class="nav-group-task">
@@ -143,6 +140,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SecondFactorVerificationType.html">SecondFactorVerificationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/WalletPrepareProvisioningErrorCode.html">WalletPrepareProvisioningErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/WalletProvisioningError.html">WalletProvisioningError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/WalletUpdateError.html">WalletUpdateError</a>
               </li>
             </ul>
           </li>
@@ -197,6 +203,12 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/StringValueConvertible.html">StringValueConvertible</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/WalletUpdateDelegate.html">WalletUpdateDelegate</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -235,6 +247,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SharedCredential.html">SharedCredential</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Wallet.html">Wallet</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -263,6 +278,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess38SecondFactorAuthenticationTypeSelectora">SecondFactorAuthenticationTypeSelector</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:21GallagherMobileAccess22WalletMigrationHandlera">WalletMigrationHandler</a>
               </li>
             </ul>
           </li>
@@ -903,6 +921,25 @@ Can be invoked from any thread</p>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An instance of a sdk state delegate to callback on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -930,6 +967,25 @@ Can be invoked from any thread</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeSdkStateDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SdkStateDelegate.html">SdkStateDelegate</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An instance of a sdk state delegate to remove. The functions on this object will not be called back on anymore</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -968,6 +1024,25 @@ rather than having to implement the <code>ReaderUpdateDelegate</code> protocol y
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An instance of a reader update delegate to callback on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -995,6 +1070,25 @@ Can be invoked from any thread</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeReaderUpdateDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ReaderUpdateDelegate.html">ReaderUpdateDelegate</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An instance of a reader update delegate to remove. The functions on this object will not be called back on anymore</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1178,6 +1272,10 @@ Must get on the main thread</p>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The global errors or warnings from the SDK as a collection</p>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -1194,7 +1292,8 @@ Must get on the main thread</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Synchronously gets the feature states of the SDK</p>
+                        <p>Synchronously gets the feature states of the SDK
+Must get on the main thread</p>
 
                       </div>
                       <div class="declaration">
@@ -1225,7 +1324,8 @@ Must get on the main thread</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Listens to the feature states of the SDK. Warnings and errors will be announced via the handler provided</p>
+                        <p>Listens to the feature states of the SDK. Warnings and errors will be announced via the handler provided
+Can be invoked from any thread</p>
 
                       </div>
                       <div class="declaration">
@@ -1235,6 +1335,25 @@ Must get on the main thread</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addSdkFeatureStateDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SdkFeatureStateDelegate.html">SdkFeatureStateDelegate</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An instance of a feature state delegate to callback on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1299,7 +1418,8 @@ Must get on the main thread</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Triggers an async request to the Gallagher cloud for related item updates for registered mobile credentials
-Resulting updates for Notifications, Salto Keys, Digital IDs will be published in the background through associated delegates</p>
+Resulting updates for Notifications, Salto Keys, Digital IDs will be published in the background through associated delegates
+Can be invoked from any thread</p>
 
                       </div>
                       <div class="declaration">
@@ -1327,7 +1447,8 @@ Resulting updates for Notifications, Salto Keys, Digital IDs will be published i
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Triggers an async request to the Gallagher cloud for related item updates for registered mobile credentials, calling <code>onSyncCompleted</code> after the sync process finishes.
-Resulting updates for Notifications, Salto Keys, Digital IDs will be published in the background through associated delegates</p>
+Resulting updates for Notifications, Salto Keys, Digital IDs will be published in the background through associated delegates
+Can be invoked from any thread</p>
 
                       </div>
                       <div class="declaration">
@@ -1495,7 +1616,7 @@ Can be invoked from any thread</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes a delegate for handling Salto Keys available to registered MobileCredentials
+                        <p>Removes a Salto update delegate by reference
 Can be invoked from any thread</p>
 
                       </div>
@@ -1520,6 +1641,198 @@ Can be invoked from any thread</p>
                               <td>
                                 <div>
                                   <p>The Salto delegate to be removed</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess0bC0P23addWalletUpdateDelegateyyAA0efG0_pF"></a>
+                    <a name="//apple_ref/swift/Method/addWalletUpdateDelegate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess0bC0P23addWalletUpdateDelegateyyAA0efG0_pF">addWalletUpdateDelegate(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a delegate for handling Wallets available to registered Mobile Credentials
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mi">16</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">addWalletUpdateDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WalletUpdateDelegate.html">WalletUpdateDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The delegate that will start having its relevant methods called with Wallet updates</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess0bC0P26removeWalletUpdateDelegateyyAA0efG0_pF"></a>
+                    <a name="//apple_ref/swift/Method/removeWalletUpdateDelegate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess0bC0P26removeWalletUpdateDelegateyyAA0efG0_pF">removeWalletUpdateDelegate(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes a Wallet update delegate by reference
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mi">16</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">removeWalletUpdateDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WalletUpdateDelegate.html">WalletUpdateDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An instance of a Wallet update delegate to remove. The functions on this object will not be called back on anymore</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess0bC0P23startProvisioningWallet_18passThumbnailImage0G11Description24presentingViewController8delegateyAA0F0V_So7UIImageCSSSo06UIViewM0CAA0fE8Delegate_ptF"></a>
+                    <a name="//apple_ref/swift/Method/startProvisioningWallet(_:passThumbnailImage:passDescription:presentingViewController:delegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess0bC0P23startProvisioningWallet_18passThumbnailImage0G11Description24presentingViewController8delegateyAA0F0V_So7UIImageCSSSo06UIViewM0CAA0fE8Delegate_ptF">startProvisioningWallet(_:<wbr>passThumbnailImage:<wbr>passDescription:<wbr>presentingViewController:<wbr>delegate:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Triggers a wallet add and returns the result via a wallet provisioning delegate.
+Can be invoked from any thread</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mi">16</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">startProvisioningWallet</span><span class="p">(</span><span class="n">_</span> <span class="nv">wallet</span><span class="p">:</span> <span class="kt"><a href="../Structs/Wallet.html">Wallet</a></span><span class="p">,</span> <span class="nv">passThumbnailImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">,</span> <span class="nv">passDescription</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">presentingViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>wallet</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Wallet to provision</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>passThumbnailImage</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An image to display in the Add to Wallet preview screen. It is recommended that this image matches final pass.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>passDescription</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A description to display in the Add to Wallet preview screen.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>presentingViewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view controller to present the Add to Wallet ViewController.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An instance of a Wallet provisioning delegate to return provisioning results to.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1721,73 +2034,6 @@ The range extension remains active until the next door is encountered, or until 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:21GallagherMobileAccess0bC0PAAE21sendNotificationToken04apnsF015onSendCompletedy10Foundation4DataV_ys6ResultOySayAA0B10Credential_pGs5Error_pGctF"></a>
-                    <a name="//apple_ref/swift/Method/sendNotificationToken(apnsToken:onSendCompleted:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess0bC0PAAE21sendNotificationToken04apnsF015onSendCompletedy10Foundation4DataV_ys6ResultOySayAA0B10Credential_pGs5Error_pGctF">sendNotificationToken(apnsToken:<wbr>onSendCompleted:<wbr>)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Extension which passes nil for &ldquo;forCredentials&rdquo; because swift protocols can&rsquo;t declare methods with optional parameters</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendNotificationToken</span><span class="p">(</span><span class="nv">apnsToken</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">onSendCompleted</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Protocols/MobileCredential.html">MobileCredential</a></span><span class="p">],</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:21GallagherMobileAccess0bC0PAAE22authenticateCredential_8authType14isSecondFactor14requestTimeout25onAuthenticationCompletedAA17JwtResultDelegate_pAA0bE0_p_AA0be4AuthG0OSbSdySSSg_AA0N10TokenErrorOSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/authenticateCredential(_:authType:isSecondFactor:requestTimeout:onAuthenticationCompleted:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess0bC0PAAE22authenticateCredential_8authType14isSecondFactor14requestTimeout25onAuthenticationCompletedAA17JwtResultDelegate_pAA0bE0_p_AA0be4AuthG0OSbSdySSSg_AA0N10TokenErrorOSgtctF">authenticateCredential(_:<wbr>authType:<wbr>isSecondFactor:<wbr>requestTimeout:<wbr>onAuthenticationCompleted:<wbr>)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Extension which lets you call <code>authenticateCredential</code> and provide a block as the callback handler,
-rather than having to implement the <code>JwtResultDelegate</code> protocol yourself on a concrete class</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="nf">authenticateCredential</span><span class="p">(</span>
-    <span class="n">_</span> <span class="nv">mobileCredential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MobileCredential.html">MobileCredential</a></span><span class="p">,</span>
-    <span class="nv">authType</span><span class="p">:</span> <span class="kt">MobileCredentialAuthType</span><span class="p">,</span>
-    <span class="nv">isSecondFactor</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
-    <span class="nv">requestTimeout</span><span class="p">:</span><span class="kt">TimeInterval</span> <span class="o">=</span> <span class="n">defaultNetworkServiceRequestTimeout</span><span class="p">,</span>
-    <span class="nv">onAuthenticationCompleted</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">jwt</span><span class="p">:</span> <span class="kt">Jwt</span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">AuthenticationTokenError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kt">JwtResultDelegate</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:21GallagherMobileAccess0bC0PAAE18registerCredential3url23onRegistrationCompleted0G36AuthenticationTypeSelectionRequestedAA0H8Delegate_p10Foundation3URLV_yAA0bE0_pSg_AA0H5ErrorOSgtcyySb_AA012SecondFactorjK0OSgtcctF"></a>
                     <a name="//apple_ref/swift/Method/registerCredential(url:onRegistrationCompleted:onAuthenticationTypeSelectionRequested:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:21GallagherMobileAccess0bC0PAAE18registerCredential3url23onRegistrationCompleted0G36AuthenticationTypeSelectionRequestedAA0H8Delegate_p10Foundation3URLV_yAA0bE0_pSg_AA0H5ErrorOSgtcyySb_AA012SecondFactorjK0OSgtcctF">registerCredential(url:<wbr>onRegistrationCompleted:<wbr>onAuthenticationTypeSelectionRequested:<wbr>)</a>
@@ -1956,9 +2202,9 @@ rather than having to implement the <code><a href="../Protocols/DigitalIdDelegat
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:21GallagherMobileAccess0bC0PAAE14addE2eDelegate06onSiteE12KeysReceivedAA0e10EncryptionF0_pySayAA0hE3KeyVG_AItc_tF"></a>
-                    <a name="//apple_ref/swift/Method/addE2eDelegate(onSiteE2eKeysReceived:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess0bC0PAAE14addE2eDelegate06onSiteE12KeysReceivedAA0e10EncryptionF0_pySayAA0hE3KeyVG_AItc_tF">addE2eDelegate(onSiteE2eKeysReceived:<wbr>)</a>
+                    <a name="/s:21GallagherMobileAccess0bC0PAAE26addSdkFeatureStateDelegate02onF13StatesChanged0iF5ErrorAA0efgH0_pySayAA0efG0OGc_ys0L0_pctF"></a>
+                    <a name="//apple_ref/swift/Method/addSdkFeatureStateDelegate(onFeatureStatesChanged:onFeatureError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess0bC0PAAE26addSdkFeatureStateDelegate02onF13StatesChanged0iF5ErrorAA0efgH0_pySayAA0efG0OGc_ys0L0_pctF">addSdkFeatureStateDelegate(onFeatureStatesChanged:<wbr>onFeatureError:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1969,8 +2215,8 @@ rather than having to implement the <code><a href="../Protocols/DigitalIdDelegat
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Extension which lets you call <code>addE2eDelegate</code> and provide a block as the callback handler
-rather than having to implement the <code>E2eEncryptionDelegate</code> protocol yourself on a concrete class</p>
+                        <p>Extension which lets you call <code>addSdkFeatureStateDelegate</code> and provide a block as the callback handler
+rather than having to implement the <code><a href="../Protocols/SdkFeatureStateDelegate.html">SdkFeatureStateDelegate</a></code> protocol yourself on a concrete class</p>
 
                       </div>
                       <div class="declaration">
@@ -1978,7 +2224,7 @@ rather than having to implement the <code>E2eEncryptionDelegate</code> protocol 
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="nf">addE2eDelegate</span><span class="p">(</span><span class="nv">onSiteE2eKeysReceived</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">addedOrUpdatedSiteKeys</span><span class="p">:</span> <span class="p">[</span><span class="kt">SiteE2eKey</span><span class="p">],</span> <span class="n">_</span> <span class="nv">removedSiteKeys</span><span class="p">:</span> <span class="p">[</span><span class="kt">SiteE2eKey</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kt">E2eEncryptionDelegate</span></code></pre>
+<span class="kd">func</span> <span class="nf">addSdkFeatureStateDelegate</span><span class="p">(</span><span class="nv">onFeatureStatesChanged</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">featureStates</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/SdkFeatureState.html">SdkFeatureState</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">(),</span> <span class="nv">onFeatureError</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/SdkFeatureStateDelegate.html">SdkFeatureStateDelegate</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2091,6 +2337,40 @@ rather than having to implement the <code><a href="../Protocols/AccessDelegate.h
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess0bC0PAAE23startProvisioningWallet_18passThumbnailImage0G11Description24presentingViewController02onF17MigrationDetected0nfE9CompletedAA0fE8Delegate_pAA0F0V_So7UIImageCSSSo06UIViewM0CyySbccyAL_SbAA0fE5ErrorOSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/startProvisioningWallet(_:passThumbnailImage:passDescription:presentingViewController:onWalletMigrationDetected:onWalletProvisioningCompleted:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess0bC0PAAE23startProvisioningWallet_18passThumbnailImage0G11Description24presentingViewController02onF17MigrationDetected0nfE9CompletedAA0fE8Delegate_pAA0F0V_So7UIImageCSSSo06UIViewM0CyySbccyAL_SbAA0fE5ErrorOSgtctF">startProvisioningWallet(_:<wbr>passThumbnailImage:<wbr>passDescription:<wbr>presentingViewController:<wbr>onWalletMigrationDetected:<wbr>onWalletProvisioningCompleted:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Extension which lets you call <code>startWalletProvisioning</code> and provide a block handler for <code>onWalletMigrationDetected</code> and <code>onProvisioningCompleted</code>, 
+rather than having to implement the <code><a href="../Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a></code> protocol yourself on a concrete class</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mi">16</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
+<span class="kd">@discardableResult</span>
+<span class="kd">func</span> <span class="nf">startProvisioningWallet</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">wallet</span><span class="p">:</span><span class="kt"><a href="../Structs/Wallet.html">Wallet</a></span><span class="p">,</span> <span class="nv">passThumbnailImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">,</span> <span class="nv">passDescription</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">presentingViewController</span><span class="p">:</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">onWalletMigrationDetected</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:21GallagherMobileAccess22WalletMigrationHandlera">WalletMigrationHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span><span class="p">(),</span> <span class="nv">onWalletProvisioningCompleted</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">wallet</span><span class="p">:</span><span class="kt"><a href="../Structs/Wallet.html">Wallet</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">succeeded</span><span class="p">:</span><span class="kt">Bool</span><span class="p">,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Enums/WalletProvisioningError.html">WalletProvisioningError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -2099,7 +2379,7 @@ rather than having to implement the <code><a href="../Protocols/AccessDelegate.h
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-05-23)</p>
+      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-11-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

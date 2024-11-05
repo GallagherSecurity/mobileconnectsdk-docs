@@ -109,9 +109,6 @@
                 <a class="nav-group-task-link" href="Enums/MobileCredentialKeyStatus.html">MobileCredentialKeyStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/ProvisioningErrorCode.html">ProvisioningErrorCode</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ReaderActionType.html">ReaderActionType</a>
               </li>
               <li class="nav-group-task">
@@ -143,6 +140,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SecondFactorVerificationType.html">SecondFactorVerificationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/WalletPrepareProvisioningErrorCode.html">WalletPrepareProvisioningErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/WalletProvisioningError.html">WalletProvisioningError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/WalletUpdateError.html">WalletUpdateError</a>
               </li>
             </ul>
           </li>
@@ -197,6 +203,12 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/StringValueConvertible.html">StringValueConvertible</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/WalletProvisioningDelegate.html">WalletProvisioningDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/WalletUpdateDelegate.html">WalletUpdateDelegate</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -235,6 +247,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/SharedCredential.html">SharedCredential</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Wallet.html">Wallet</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -263,6 +278,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Typealiases.html#/s:21GallagherMobileAccess38SecondFactorAuthenticationTypeSelectora">SecondFactorAuthenticationTypeSelector</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Typealiases.html#/s:21GallagherMobileAccess22WalletMigrationHandlera">WalletMigrationHandler</a>
               </li>
             </ul>
           </li>
@@ -333,34 +351,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MobileCredentialFilter</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:21GallagherMobileAccess05SaltoC8DecisionO"></a>
-                    <a name="//apple_ref/swift/Enum/SaltoAccessDecision" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess05SaltoC8DecisionO">SaltoAccessDecision</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Access decision results returned from the Salto JustIN mobile SDK after attempting to open a Salto door.</p>
-
-                        <a href="Enums/SaltoAccessDecision.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoAccessDecision</span> <span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
 
                         </div>
                       </div>
@@ -530,33 +520,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BackgroundScanningMode</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:21GallagherMobileAccess21ProvisioningErrorCodeO"></a>
-                    <a name="//apple_ref/swift/Enum/ProvisioningErrorCode" class="dashAnchor"></a>
-                    <a class="token" href="#/s:21GallagherMobileAccess21ProvisioningErrorCodeO">ProvisioningErrorCode</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                        <a href="Enums/ProvisioningErrorCode.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ProvisioningErrorCode</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -907,6 +870,34 @@ different colored icons for a near vs far reader.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:21GallagherMobileAccess05SaltoC8DecisionO"></a>
+                    <a name="//apple_ref/swift/Enum/SaltoAccessDecision" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess05SaltoC8DecisionO">SaltoAccessDecision</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Access decision results returned from the Salto JustIN mobile SDK after attempting to open a Salto door.</p>
+
+                        <a href="Enums/SaltoAccessDecision.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoAccessDecision</span> <span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:21GallagherMobileAccess15SdkFeatureStateO"></a>
                     <a name="//apple_ref/swift/Enum/SdkFeatureState" class="dashAnchor"></a>
                     <a class="token" href="#/s:21GallagherMobileAccess15SdkFeatureStateO">SdkFeatureState</a>
@@ -963,6 +954,90 @@ different colored icons for a near vs far reader.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:21GallagherMobileAccess23WalletProvisioningErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/WalletProvisioningError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess23WalletProvisioningErrorO">WalletProvisioningError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enum describing wallet provisioning error types</p>
+
+                        <a href="Enums/WalletProvisioningError.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WalletProvisioningError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess34WalletPrepareProvisioningErrorCodeO"></a>
+                    <a name="//apple_ref/swift/Enum/WalletPrepareProvisioningErrorCode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess34WalletPrepareProvisioningErrorCodeO">WalletPrepareProvisioningErrorCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enum describing invalid Wallet prepare provisioning error codes from the Gallagher cloud.</p>
+
+                        <a href="Enums/WalletPrepareProvisioningErrorCode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WalletPrepareProvisioningErrorCode</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess17WalletUpdateErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/WalletUpdateError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess17WalletUpdateErrorO">WalletUpdateError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Errors that can occur when working with Wallet updates</p>
+
+                        <a href="Enums/WalletUpdateError.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WalletUpdateError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">Hashable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:21GallagherMobileAccess8LogLevelO"></a>
                     <a name="//apple_ref/swift/Enum/LogLevel" class="dashAnchor"></a>
                     <a class="token" href="#/s:21GallagherMobileAccess8LogLevelO">LogLevel</a>
@@ -996,7 +1071,7 @@ different colored icons for a near vs far reader.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-05-23)</p>
+      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-11-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
