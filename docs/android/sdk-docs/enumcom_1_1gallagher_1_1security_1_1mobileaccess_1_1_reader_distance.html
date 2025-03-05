@@ -75,6 +75,8 @@ $(function() {
   <div class="headertitle"><div class="title">com.gallagher.security.mobileaccess.ReaderDistance Enum Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Inherits <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html">com.gallagher.security.mobileaccess.StringValueConvertible</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -82,6 +84,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a67136bba4b497fb1409e16a3dff140b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fc6131e447d0bb7e0522ec0081c401d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a3fc6131e447d0bb7e0522ec0081c401d">getValue</a> ()</td></tr>
 <tr class="separator:a3fc6131e447d0bb7e0522ec0081c401d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a862bf18cda63f9afcc1526b1acb55bf2"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a862bf18cda63f9afcc1526b1acb55bf2">stringValue</a> ()</td></tr>
+<tr class="separator:a862bf18cda63f9afcc1526b1acb55bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1770be4194b622681a08e8052156582"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html#af1770be4194b622681a08e8052156582">stringValue</a> ()</td></tr>
+<tr class="separator:af1770be4194b622681a08e8052156582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -256,6 +262,38 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   40</span>        }</div>
 <div class="line"><span class="lineno">   41</span>        <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
 <div class="line"><span class="lineno">   42</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a862bf18cda63f9afcc1526b1acb55bf2" name="a862bf18cda63f9afcc1526b1acb55bf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a862bf18cda63f9afcc1526b1acb55bf2">&#9670;&nbsp;</a></span>stringValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String com.gallagher.security.mobileaccess.ReaderDistance.stringValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>a programmatic string representation of this object. This value is NOT localised and is stable, so you can make logical decisions based on it's value </dd></dl>
+
+<p>Implements <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html#af1770be4194b622681a08e8052156582">com.gallagher.security.mobileaccess.StringValueConvertible</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>                                {</div>
+<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">switch</span> (<span class="keyword">this</span>) {</div>
+<div class="line"><span class="lineno">   77</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a74f7322d65ad0a33262c23643b3764a1">NEAR</a>:</div>
+<div class="line"><span class="lineno">   78</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;near&quot;</span>;</div>
+<div class="line"><span class="lineno">   79</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a79fe3f1a8f6192d8c6c7981d20f21667">MEDIUM</a>:</div>
+<div class="line"><span class="lineno">   80</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;medium&quot;</span>;</div>
+<div class="line"><span class="lineno">   81</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_distance.html#a20c638c87646745f35420bbab0098864">FAR</a>:</div>
+<div class="line"><span class="lineno">   82</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;far&quot;</span>;</div>
+<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   84</span>                <span class="keywordflow">throw</span> <span class="keyword">new</span> FatalError(<span class="stringliteral">&quot;Impossible value for ReaderDistance enum&quot;</span>);</div>
+<div class="line"><span class="lineno">   85</span>        }</div>
+<div class="line"><span class="lineno">   86</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>

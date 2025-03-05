@@ -133,6 +133,9 @@
                 <a class="nav-group-task-link" href="Enums/SaltoOpeningMode.html">SaltoOpeningMode</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SaltoTechnologyVersion.html">SaltoTechnologyVersion</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SdkFeatureState.html">SdkFeatureState</a>
               </li>
               <li class="nav-group-task">
@@ -140,6 +143,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SecondFactorVerificationType.html">SecondFactorVerificationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/WalletDeviceStatus.html">WalletDeviceStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/WalletPrepareProvisioningErrorCode.html">WalletPrepareProvisioningErrorCode</a>
@@ -216,6 +222,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/AccessResult.html">AccessResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/AddToWalletDisplayStatus.html">AddToWalletDisplayStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/DigitalId.html">DigitalId</a>
@@ -321,8 +330,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AperioError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AperioError</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AperioError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AperioError</span><span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
@@ -350,7 +359,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MobileCredentialFilter</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MobileCredentialFilter</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -378,8 +387,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">SaltoError</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">SaltoError</span><span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
@@ -407,7 +416,35 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoOpeningMode</span> <span class="p">:</span> <span class="kt">UInt8</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoOpeningMode</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess22SaltoTechnologyVersionO"></a>
+                    <a name="//apple_ref/swift/Enum/SaltoTechnologyVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess22SaltoTechnologyVersionO">SaltoTechnologyVersion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An enum defining Salto technology versions used in unlocking params.</p>
+
+                        <a href="Enums/SaltoTechnologyVersion.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoTechnologyVersion</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -435,7 +472,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CloudNetworkConnectionError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">LocalizedError</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CloudNetworkConnectionError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">LocalizedError</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -463,7 +500,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DigitalIdError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">Hashable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DigitalIdError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -491,7 +528,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DigitalIdStatusType</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DigitalIdStatusType</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -519,7 +556,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BackgroundScanningMode</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BackgroundScanningMode</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -547,7 +584,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CloudTlsValidationMode</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CloudTlsValidationMode</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -603,7 +640,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AccessDecision</span> <span class="p">:</span> <span class="kt">Int8</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AccessDecision</span> <span class="p">:</span> <span class="kt">Int8</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -631,7 +668,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AccessMode</span> <span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AccessMode</span> <span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -664,7 +701,7 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReaderDistance</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReaderDistance</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -692,7 +729,7 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReaderActionType</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReaderActionType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -720,7 +757,7 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReaderUpdateType</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReaderUpdateType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -748,7 +785,7 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MobileCredentialKeyStatus</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MobileCredentialKeyStatus</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -776,7 +813,7 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SecondFactorVerificationType</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SecondFactorVerificationType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -804,7 +841,7 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DeleteOption</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DeleteOption</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -832,7 +869,7 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SecondFactorAuthenticationType</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SecondFactorAuthenticationType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -888,7 +925,7 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoAccessDecision</span> <span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SaltoAccessDecision</span> <span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -916,7 +953,7 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SdkFeatureState</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SdkFeatureState</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -944,7 +981,7 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MobileAccessState</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MobileAccessState</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1028,7 +1065,34 @@ different colored icons for a near vs far reader.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WalletUpdateError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">Hashable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WalletUpdateError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:21GallagherMobileAccess18WalletDeviceStatusO"></a>
+                    <a name="//apple_ref/swift/Enum/WalletDeviceStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:21GallagherMobileAccess18WalletDeviceStatusO">WalletDeviceStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Enums/WalletDeviceStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WalletDeviceStatus</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StringValueConvertible.html">StringValueConvertible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1071,7 +1135,7 @@ different colored icons for a near vs far reader.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2024-11-01)</p>
+      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-02-10)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
