@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>17.00.014</string>
+	<string>17.01.050</string>
 	<key>CFBundleVersion</key>
-	<string>17.00.014</string>
+	<string>17.01.050</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothPeripheralUsageDescription</key>
