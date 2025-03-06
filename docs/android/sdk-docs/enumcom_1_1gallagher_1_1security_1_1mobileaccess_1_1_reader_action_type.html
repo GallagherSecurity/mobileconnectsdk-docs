@@ -68,12 +68,22 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">com.gallagher.security.mobileaccess.ReaderActionType Enum Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Inherits <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html">com.gallagher.security.mobileaccess.StringValueConvertible</a>.</p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0e771085d892d97eb84807039c5a9455"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a0e771085d892d97eb84807039c5a9455">stringValue</a> ()</td></tr>
+<tr class="separator:a0e771085d892d97eb84807039c5a9455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1770be4194b622681a08e8052156582"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html#af1770be4194b622681a08e8052156582">stringValue</a> ()</td></tr>
+<tr class="separator:af1770be4194b622681a08e8052156582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a9681e86eabc72bf7ef050b00d8d26c3e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a9681e86eabc72bf7ef050b00d8d26c3e">REQUEST_ACCESS</a></td></tr>
@@ -103,7 +113,70 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Enum describing the action types allowed for a reader </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0e771085d892d97eb84807039c5a9455" name="a0e771085d892d97eb84807039c5a9455"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e771085d892d97eb84807039c5a9455">&#9670;&nbsp;</a></span>stringValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String com.gallagher.security.mobileaccess.ReaderActionType.stringValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>a programmatic string representation of this object. This value is NOT localised and is stable, so you can make logical decisions based on it's value </dd></dl>
+
+<p>Implements <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html#af1770be4194b622681a08e8052156582">com.gallagher.security.mobileaccess.StringValueConvertible</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>                                {</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">switch</span> (<span class="keyword">this</span>) {</div>
+<div class="line"><span class="lineno">   45</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a9681e86eabc72bf7ef050b00d8d26c3e">REQUEST_ACCESS</a>:</div>
+<div class="line"><span class="lineno">   46</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;requestAccess&quot;</span>;</div>
+<div class="line"><span class="lineno">   47</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a9668b641243d5122ddead988c9a8afc6">ENUMERATE</a>:</div>
+<div class="line"><span class="lineno">   48</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;enumerate&quot;</span>;</div>
+<div class="line"><span class="lineno">   49</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#ac790fb71cd16228bcae574f6bedbdce7">ARM</a>:</div>
+<div class="line"><span class="lineno">   50</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;arm&quot;</span>;</div>
+<div class="line"><span class="lineno">   51</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a5e38809fdc35573b7bdc40de4e3ec528">DISARM</a>:</div>
+<div class="line"><span class="lineno">   52</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;disarm&quot;</span>;</div>
+<div class="line"><span class="lineno">   53</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a7c88878ab229569d27a60519ece52200">MODE1</a>:</div>
+<div class="line"><span class="lineno">   54</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;mode1&quot;</span>;</div>
+<div class="line"><span class="lineno">   55</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a80baae1bf3fccf55e06367f31db93517">MODE2</a>:</div>
+<div class="line"><span class="lineno">   56</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;mode2&quot;</span>;</div>
+<div class="line"><span class="lineno">   57</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a9559946cb35bded9945625994f955747">SCHEDULE</a>:</div>
+<div class="line"><span class="lineno">   58</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;schedule&quot;</span>;</div>
+<div class="line"><span class="lineno">   59</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#ae5446dd1ba1da95d0f96c29c87e0dc1e">ARM_MODE1</a>:</div>
+<div class="line"><span class="lineno">   60</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;armMode1&quot;</span>;</div>
+<div class="line"><span class="lineno">   61</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a64363dc01d2413aef15701fcd7696df5">ARM_MODE2</a>:</div>
+<div class="line"><span class="lineno">   62</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;armMode2&quot;</span>;</div>
+<div class="line"><span class="lineno">   63</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a9b803a9198c0aeaa2aa9a34afe84aae4">DISARM_MODE1</a>:</div>
+<div class="line"><span class="lineno">   64</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;disarmMode1&quot;</span>;</div>
+<div class="line"><span class="lineno">   65</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a547d4b7d73033e19efc67083cf58cf10">DISARM_MODE2</a>:</div>
+<div class="line"><span class="lineno">   66</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;disarmMode2&quot;</span>;</div>
+<div class="line"><span class="lineno">   67</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a6f4dd00d350b74db4f353d08e1a37d24">OUTPUT</a>:</div>
+<div class="line"><span class="lineno">   68</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;output&quot;</span>;</div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   70</span>                <span class="keywordflow">throw</span> <span class="keyword">new</span> FatalError(<span class="stringliteral">&quot;Impossible value for ReaderActionType enum&quot;</span>);</div>
+<div class="line"><span class="lineno">   71</span>        }</div>
+<div class="line"><span class="lineno">   72</span>    }</div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_a547d4b7d73033e19efc67083cf58cf10"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a547d4b7d73033e19efc67083cf58cf10">com.gallagher.security.mobileaccess.ReaderActionType.DISARM_MODE2</a></div><div class="ttdeci">DISARM_MODE2</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:37</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_a5e38809fdc35573b7bdc40de4e3ec528"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a5e38809fdc35573b7bdc40de4e3ec528">com.gallagher.security.mobileaccess.ReaderActionType.DISARM</a></div><div class="ttdeci">DISARM</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:19</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_a64363dc01d2413aef15701fcd7696df5"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a64363dc01d2413aef15701fcd7696df5">com.gallagher.security.mobileaccess.ReaderActionType.ARM_MODE2</a></div><div class="ttdeci">ARM_MODE2</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:33</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_a6f4dd00d350b74db4f353d08e1a37d24"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a6f4dd00d350b74db4f353d08e1a37d24">com.gallagher.security.mobileaccess.ReaderActionType.OUTPUT</a></div><div class="ttdeci">OUTPUT</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:39</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_a7c88878ab229569d27a60519ece52200"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a7c88878ab229569d27a60519ece52200">com.gallagher.security.mobileaccess.ReaderActionType.MODE1</a></div><div class="ttdeci">MODE1</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:23</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_a80baae1bf3fccf55e06367f31db93517"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a80baae1bf3fccf55e06367f31db93517">com.gallagher.security.mobileaccess.ReaderActionType.MODE2</a></div><div class="ttdeci">MODE2</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:27</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_a9559946cb35bded9945625994f955747"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a9559946cb35bded9945625994f955747">com.gallagher.security.mobileaccess.ReaderActionType.SCHEDULE</a></div><div class="ttdeci">SCHEDULE</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:29</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_a9668b641243d5122ddead988c9a8afc6"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a9668b641243d5122ddead988c9a8afc6">com.gallagher.security.mobileaccess.ReaderActionType.ENUMERATE</a></div><div class="ttdeci">ENUMERATE</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:15</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_a9681e86eabc72bf7ef050b00d8d26c3e"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a9681e86eabc72bf7ef050b00d8d26c3e">com.gallagher.security.mobileaccess.ReaderActionType.REQUEST_ACCESS</a></div><div class="ttdeci">REQUEST_ACCESS</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:13</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_a9b803a9198c0aeaa2aa9a34afe84aae4"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a9b803a9198c0aeaa2aa9a34afe84aae4">com.gallagher.security.mobileaccess.ReaderActionType.DISARM_MODE1</a></div><div class="ttdeci">DISARM_MODE1</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:35</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_ac790fb71cd16228bcae574f6bedbdce7"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#ac790fb71cd16228bcae574f6bedbdce7">com.gallagher.security.mobileaccess.ReaderActionType.ARM</a></div><div class="ttdeci">ARM</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:17</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type_html_ae5446dd1ba1da95d0f96c29c87e0dc1e"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#ae5446dd1ba1da95d0f96c29c87e0dc1e">com.gallagher.security.mobileaccess.ReaderActionType.ARM_MODE1</a></div><div class="ttdeci">ARM_MODE1</div><div class="ttdef"><b>Definition:</b> ReaderActionType.java:31</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
 <a id="ac790fb71cd16228bcae574f6bedbdce7" name="ac790fb71cd16228bcae574f6bedbdce7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac790fb71cd16228bcae574f6bedbdce7">&#9670;&nbsp;</a></span>ARM</h2>
 

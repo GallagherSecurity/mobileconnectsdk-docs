@@ -18,8 +18,8 @@ android {
         applicationId "com.gallagher.mobileconnectsdksample.mobileconnectsdksample"
         minSdkVersion 24
         targetSdkVersion 34
-        versionCode 1700027
-        versionName "17.00.027"
+        versionCode 1701026
+        versionName "17.01.026"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

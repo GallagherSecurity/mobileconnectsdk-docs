@@ -75,6 +75,8 @@ $(function() {
   <div class="headertitle"><div class="title">com.gallagher.security.mobileaccess.BluetoothScanMode Enum Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Inherits <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html">com.gallagher.security.mobileaccess.StringValueConvertible</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -86,6 +88,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aaded588cab20d5875f710fba00f7de28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a644546e07f7a4a4935d6042ccb927692"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a644546e07f7a4a4935d6042ccb927692">isForegroundMode</a> ()</td></tr>
 <tr class="separator:a644546e07f7a4a4935d6042ccb927692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ddd92ddbcbb6e220b8da326adb47146"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a5ddd92ddbcbb6e220b8da326adb47146">isBackgroundServiceRequired</a> ()</td></tr>
+<tr class="separator:a5ddd92ddbcbb6e220b8da326adb47146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23733aa5ea76e50d64da1b5679fff430"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a23733aa5ea76e50d64da1b5679fff430">stringValue</a> ()</td></tr>
+<tr class="separator:a23733aa5ea76e50d64da1b5679fff430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1770be4194b622681a08e8052156582"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html#af1770be4194b622681a08e8052156582">stringValue</a> ()</td></tr>
+<tr class="separator:af1770be4194b622681a08e8052156582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -125,9 +133,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   36</span>                             {</div>
-<div class="line"><span class="lineno">   37</span>        mValue = i;</div>
-<div class="line"><span class="lineno">   38</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>                             {</div>
+<div class="line"><span class="lineno">   38</span>        mValue = i;</div>
+<div class="line"><span class="lineno">   39</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -155,14 +163,14 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   47</span>                                                    {</div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">for</span>(BluetoothScanMode m : BluetoothScanMode.values()){</div>
-<div class="line"><span class="lineno">   49</span>            <span class="keywordflow">if</span>(m.mValue == value){</div>
-<div class="line"><span class="lineno">   50</span>                <span class="keywordflow">return</span> m;</div>
-<div class="line"><span class="lineno">   51</span>            }</div>
-<div class="line"><span class="lineno">   52</span>        }</div>
-<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
-<div class="line"><span class="lineno">   54</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>                                                    {</div>
+<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">for</span> (BluetoothScanMode m : BluetoothScanMode.values()) {</div>
+<div class="line"><span class="lineno">   50</span>            <span class="keywordflow">if</span> (m.mValue == value){</div>
+<div class="line"><span class="lineno">   51</span>                <span class="keywordflow">return</span> m;</div>
+<div class="line"><span class="lineno">   52</span>            }</div>
+<div class="line"><span class="lineno">   53</span>        }</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
+<div class="line"><span class="lineno">   55</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -180,9 +188,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   42</span>                          {</div>
-<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">return</span> mValue;</div>
-<div class="line"><span class="lineno">   44</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>                          {</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">return</span> mValue;</div>
+<div class="line"><span class="lineno">   45</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -201,10 +209,32 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >Convenience method to test if the mode is a background mode or not </p>
-<div class="fragment"><div class="line"><span class="lineno">   57</span>                                      {</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span> <span class="keyword">this</span> != <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a224302d087d190f33660a54efecd633c">FOREGROUND_ONLY</a>;</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
-<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode_html_a224302d087d190f33660a54efecd633c"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a224302d087d190f33660a54efecd633c">com.gallagher.security.mobileaccess.BluetoothScanMode.FOREGROUND_ONLY</a></div><div class="ttdeci">FOREGROUND_ONLY</div><div class="ttdef"><b>Definition:</b> BluetoothScanMode.java:34</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>                                      {</div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">return</span> <span class="keyword">this</span> != <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a224302d087d190f33660a54efecd633c">FOREGROUND_ONLY</a>;</div>
+<div class="line"><span class="lineno">   60</span>    }</div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode_html_a224302d087d190f33660a54efecd633c"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a224302d087d190f33660a54efecd633c">com.gallagher.security.mobileaccess.BluetoothScanMode.FOREGROUND_ONLY</a></div><div class="ttdeci">FOREGROUND_ONLY</div><div class="ttdef"><b>Definition:</b> BluetoothScanMode.java:35</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5ddd92ddbcbb6e220b8da326adb47146" name="a5ddd92ddbcbb6e220b8da326adb47146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ddd92ddbcbb6e220b8da326adb47146">&#9670;&nbsp;</a></span>isBackgroundServiceRequired()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean com.gallagher.security.mobileaccess.BluetoothScanMode.isBackgroundServiceRequired </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Convenience method to test if the BleBackgroundService is required for this mode </p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>                                                 {</div>
+<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">return</span> <span class="keyword">this</span> != <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a224302d087d190f33660a54efecd633c">FOREGROUND_ONLY</a> &amp;&amp; <span class="keyword">this</span> != <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#abff07d5ef6a97b9907da6dd969b5c9a7">BACKGROUND_SCREEN_ON</a>;</div>
+<div class="line"><span class="lineno">   70</span>    }</div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode_html_abff07d5ef6a97b9907da6dd969b5c9a7"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#abff07d5ef6a97b9907da6dd969b5c9a7">com.gallagher.security.mobileaccess.BluetoothScanMode.BACKGROUND_SCREEN_ON</a></div><div class="ttdeci">BACKGROUND_SCREEN_ON</div><div class="ttdef"><b>Definition:</b> BluetoothScanMode.java:29</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -223,10 +253,52 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >Convenience method to test if the mode is a foreground mode </p>
-<div class="fragment"><div class="line"><span class="lineno">   62</span>                                      {</div>
-<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">return</span> !<a class="code hl_function" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#aaded588cab20d5875f710fba00f7de28">isBackgroundMode</a>();</div>
-<div class="line"><span class="lineno">   64</span>    }</div>
-<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode_html_aaded588cab20d5875f710fba00f7de28"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#aaded588cab20d5875f710fba00f7de28">com.gallagher.security.mobileaccess.BluetoothScanMode.isBackgroundMode</a></div><div class="ttdeci">boolean isBackgroundMode()</div><div class="ttdef"><b>Definition:</b> BluetoothScanMode.java:57</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>                                      {</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">return</span> !<a class="code hl_function" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#aaded588cab20d5875f710fba00f7de28">isBackgroundMode</a>();</div>
+<div class="line"><span class="lineno">   65</span>    }</div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode_html_aaded588cab20d5875f710fba00f7de28"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#aaded588cab20d5875f710fba00f7de28">com.gallagher.security.mobileaccess.BluetoothScanMode.isBackgroundMode</a></div><div class="ttdeci">boolean isBackgroundMode()</div><div class="ttdef"><b>Definition:</b> BluetoothScanMode.java:58</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a23733aa5ea76e50d64da1b5679fff430" name="a23733aa5ea76e50d64da1b5679fff430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23733aa5ea76e50d64da1b5679fff430">&#9670;&nbsp;</a></span>stringValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String com.gallagher.security.mobileaccess.BluetoothScanMode.stringValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>a programmatic string representation of this object. This value is NOT localised and is stable, so you can make logical decisions based on it's value </dd></dl>
+
+<p>Implements <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html#af1770be4194b622681a08e8052156582">com.gallagher.security.mobileaccess.StringValueConvertible</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   74</span>                                {</div>
+<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">switch</span> (<span class="keyword">this</span>) {</div>
+<div class="line"><span class="lineno">   76</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a6c55ee41cfa4351e66905be51fcda3ce">BACKGROUND_OPPORTUNISTIC</a>:</div>
+<div class="line"><span class="lineno">   77</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;backgroundOpportunistic&quot;</span>;</div>
+<div class="line"><span class="lineno">   78</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a4e9034ea3f5f49142a099a035a72e2ff">BACKGROUND_LOW_POWER</a>:</div>
+<div class="line"><span class="lineno">   79</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;backgroundLowPower&quot;</span>;</div>
+<div class="line"><span class="lineno">   80</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a54cca5273ff7ddc69cce94d961ba5d26">BACKGROUND_BALANCED</a>:</div>
+<div class="line"><span class="lineno">   81</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;backgroundBalanced&quot;</span>;</div>
+<div class="line"><span class="lineno">   82</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a2a2c9d56dbd0309f4cfe1ad2cc52690f">BACKGROUND_LOW_LATENCY</a>:</div>
+<div class="line"><span class="lineno">   83</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;backgroundLowLatency&quot;</span>;</div>
+<div class="line"><span class="lineno">   84</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#abff07d5ef6a97b9907da6dd969b5c9a7">BACKGROUND_SCREEN_ON</a>:</div>
+<div class="line"><span class="lineno">   85</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;backgroundScreenOn&quot;</span>;</div>
+<div class="line"><span class="lineno">   86</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a224302d087d190f33660a54efecd633c">FOREGROUND_ONLY</a>:</div>
+<div class="line"><span class="lineno">   87</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;foregroundOnly&quot;</span>;</div>
+<div class="line"><span class="lineno">   88</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   89</span>                <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="stringliteral">&quot;Unknown BluetoothScanMode&quot;</span>);</div>
+<div class="line"><span class="lineno">   90</span>        }</div>
+<div class="line"><span class="lineno">   91</span>    }</div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode_html_a2a2c9d56dbd0309f4cfe1ad2cc52690f"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a2a2c9d56dbd0309f4cfe1ad2cc52690f">com.gallagher.security.mobileaccess.BluetoothScanMode.BACKGROUND_LOW_LATENCY</a></div><div class="ttdeci">BACKGROUND_LOW_LATENCY</div><div class="ttdef"><b>Definition:</b> BluetoothScanMode.java:25</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode_html_a4e9034ea3f5f49142a099a035a72e2ff"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a4e9034ea3f5f49142a099a035a72e2ff">com.gallagher.security.mobileaccess.BluetoothScanMode.BACKGROUND_LOW_POWER</a></div><div class="ttdeci">BACKGROUND_LOW_POWER</div><div class="ttdef"><b>Definition:</b> BluetoothScanMode.java:18</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode_html_a54cca5273ff7ddc69cce94d961ba5d26"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a54cca5273ff7ddc69cce94d961ba5d26">com.gallagher.security.mobileaccess.BluetoothScanMode.BACKGROUND_BALANCED</a></div><div class="ttdeci">BACKGROUND_BALANCED</div><div class="ttdef"><b>Definition:</b> BluetoothScanMode.java:22</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode_html_a6c55ee41cfa4351e66905be51fcda3ce"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_scan_mode.html#a6c55ee41cfa4351e66905be51fcda3ce">com.gallagher.security.mobileaccess.BluetoothScanMode.BACKGROUND_OPPORTUNISTIC</a></div><div class="ttdeci">BACKGROUND_OPPORTUNISTIC</div><div class="ttdef"><b>Definition:</b> BluetoothScanMode.java:14</div></div>
 </div><!-- fragment -->
 </div>
 </div>

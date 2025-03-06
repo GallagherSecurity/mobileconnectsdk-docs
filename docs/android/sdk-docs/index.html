@@ -108,6 +108,7 @@ Contents</h1>
 <li><a class="el" href="index.html#ts_android_34_issues">I Get Issues after Updating my App's Target to SDK 34</a></li>
 <li><a class="el" href="index.html#ts_obfuscation">I Get Errors with Obfuscation Enabled</a></li>
 <li><a class="el" href="index.html#ts_permission_override">I'm Getting Prompted for Permissions I Didn't Add to the Manifest</a></li>
+<li><a class="el" href="index.html#ts_compilation_or_runtime_errors">I'm Getting Compilation or Runtime Errors Where A Class Or Function is Missing</a></li>
 </ul>
 </li>
 </ul>
@@ -317,7 +318,7 @@ Reader Discovery and Access</h1>
 <h2><a class="anchor" id="autotoc_md14"></a>
 1. Auto-connect</h2>
 <p >You must call the <code>enableAutomaticAccess()</code> method in order to enable auto-connect. You can call <code>disableAutomaticAccess()</code> to disable it later if you require. Note that enabling and disabling automatic access does not affect bluetooth scanning, which continues until you call <code>stopScanning()</code></p>
-<p >By default, the Mobile Connect SDK will automatically attempt to connect to any nearby readers if the device enters the configured range.</p>
+<p >By default, the Mobile Connect SDK will automatically attempt to connect to any nearby readers if the device enters the configured range. After a connection has finished, automatic connections to the same reader will be blocked for the next 10 seconds.</p>
 <p >If you wish to be informed about auto-connect events, use the <code>addAutomaticAccessListener(automaticAccessListener)</code> method. The SDK will asynchronously call the callback methods on the <code>automaticAccessListener</code> to inform you of success or failure. Callbacks will arrive on the main thread.</p>
 <p >Any calls to <code>addAutomaticAccessListener</code> should be balanced by a call to <code>removeAutomaticAccessListener</code> to prevent memory leaks.</p>
 <p ><em>Example:</em> </p><div class="fragment"><div class="line">@Override</div>
@@ -934,7 +935,16 @@ I Get Errors with Obfuscation Enabled</h2>
 </div><!-- fragment --><p ><a class="anchor" id="ts_permission_override"></a> </p>
 <h2><a class="anchor" id="autotoc_md55"></a>
 I'm Getting Prompted for Permissions I Didn't Add to the Manifest</h2>
-<p >The permissions required to run the SDK are located within the GallagherMobileAccess SDK manifest. To override a permission see <a class="el" href="index.html#edit_android_manifest">Edit Android Manifest</a>. </p>
+<p >The permissions required to run the SDK are located within the GallagherMobileAccess SDK manifest. To override a permission see <a class="el" href="index.html#edit_android_manifest">Edit Android Manifest</a>.</p>
+<p ><a class="anchor" id="ts_compilation_or_runtime_errors"></a> </p>
+<h2><a class="anchor" id="autotoc_md56"></a>
+I'm Getting Compilation or Runtime Errors Where A Class Or Function is Missing</h2>
+<p >These can often be caused by a library that is used by the GallagherMobileAccess SDK being overridden by a declared library in your app's gradle file. See the <a href="https://docs.gradle.org/current/userguide/dependency_resolution.html">Gradle Documentation</a> for more information on how these versions are resolved.</p>
+<p >Should you find one of these errors (e.g. Fatal Exception: java.lang.NoSuchMethodError: No static method startForeground(Landroid/app/Service;ILandroid/app/Notification;I)V in class Landroidx/core/app/ServiceCompat; or its super classes) try the following steps:</p>
+<p >We can see the library in question is androidx.core. Searching the Android documentation will lead you to the function in question (<a href="https://developer.android.com/reference/androidx/core/app/ServiceCompat#startForeground(android.app.Service,int,android.app.Notification,int)">ServiceCompat Documentation</a>)</p>
+<p >This shows us see that this method was added in version 1.12.0. Now we can look at our resolved dependencies to see which version is being used. The 'Analyze dependencies' function of Android Studio is very helpful here (<a href="https://www.jetbrains.com/guide/java/tutorials/analyzing-dependencies/dependency-analyzer/">Documentation</a>)</p>
+<p >Once we have run the Analyze Dependencies step, we can search for the specific library we're interested in, which will show us the resolved version. The 'Usages' panel on the right of the window will show how the dependency version was resolved.</p>
+<p >The fix for this will depend on how the dependency has been resolved, but generally declaring the correct version in your app's gradle file will resolve the issue. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

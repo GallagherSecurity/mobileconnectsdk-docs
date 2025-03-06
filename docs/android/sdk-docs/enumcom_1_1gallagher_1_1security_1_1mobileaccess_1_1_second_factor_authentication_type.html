@@ -68,12 +68,22 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">com.gallagher.security.mobileaccess.SecondFactorAuthenticationType Enum Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Inherits <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html">com.gallagher.security.mobileaccess.StringValueConvertible</a>.</p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ac940cac02b4945134b37664a28e802e2"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type.html#ac940cac02b4945134b37664a28e802e2">stringValue</a> ()</td></tr>
+<tr class="separator:ac940cac02b4945134b37664a28e802e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1770be4194b622681a08e8052156582"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html#af1770be4194b622681a08e8052156582">stringValue</a> ()</td></tr>
+<tr class="separator:af1770be4194b622681a08e8052156582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:addca68f5e6515f72357fc22c8e7a8ee5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type.html#addca68f5e6515f72357fc22c8e7a8ee5">PIN</a></td></tr>
@@ -83,7 +93,40 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Enum describing the type used to register two factor credential with </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac940cac02b4945134b37664a28e802e2" name="ac940cac02b4945134b37664a28e802e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac940cac02b4945134b37664a28e802e2">&#9670;&nbsp;</a></span>stringValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String com.gallagher.security.mobileaccess.SecondFactorAuthenticationType.stringValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>a programmatic string representation of this object. This value is NOT localised and is stable, so you can make logical decisions based on it's value </dd></dl>
+
+<p>Implements <a class="el" href="interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_string_value_convertible.html#af1770be4194b622681a08e8052156582">com.gallagher.security.mobileaccess.StringValueConvertible</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   19</span>                                {</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">switch</span> (<span class="keyword">this</span>) {</div>
+<div class="line"><span class="lineno">   21</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type.html#addca68f5e6515f72357fc22c8e7a8ee5">PIN</a>:</div>
+<div class="line"><span class="lineno">   22</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;pin&quot;</span>;</div>
+<div class="line"><span class="lineno">   23</span>            <span class="keywordflow">case</span> <a class="code hl_variable" href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type.html#a09c9b9d6ce0718faeec83b83005ddafc">FINGERPRINT</a>:</div>
+<div class="line"><span class="lineno">   24</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;fingerprint&quot;</span>;</div>
+<div class="line"><span class="lineno">   25</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   26</span>                <span class="keywordflow">throw</span> <span class="keyword">new</span> FatalError(<span class="stringliteral">&quot;Impossible value for SecondFactorAuthenticationType enum&quot;</span>);</div>
+<div class="line"><span class="lineno">   27</span>        }</div>
+<div class="line"><span class="lineno">   28</span>    }</div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type_html_a09c9b9d6ce0718faeec83b83005ddafc"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type.html#a09c9b9d6ce0718faeec83b83005ddafc">com.gallagher.security.mobileaccess.SecondFactorAuthenticationType.FINGERPRINT</a></div><div class="ttdeci">FINGERPRINT</div><div class="ttdef"><b>Definition:</b> SecondFactorAuthenticationType.java:15</div></div>
+<div class="ttc" id="aenumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type_html_addca68f5e6515f72357fc22c8e7a8ee5"><div class="ttname"><a href="enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_second_factor_authentication_type.html#addca68f5e6515f72357fc22c8e7a8ee5">com.gallagher.security.mobileaccess.SecondFactorAuthenticationType.PIN</a></div><div class="ttdeci">PIN</div><div class="ttdef"><b>Definition:</b> SecondFactorAuthenticationType.java:13</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
 <a id="a09c9b9d6ce0718faeec83b83005ddafc" name="a09c9b9d6ce0718faeec83b83005ddafc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09c9b9d6ce0718faeec83b83005ddafc">&#9670;&nbsp;</a></span>FINGERPRINT</h2>
 
