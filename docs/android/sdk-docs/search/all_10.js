@@ -7,8 +7,9 @@ var searchData=
   ['normal_4',['NORMAL',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_bluetooth_connection_sensitivity.html#a7a50d844986e6a0ab3573c50637d4da5',1,'com::gallagher::security::mobileaccess::BluetoothConnectionSensitivity']]],
   ['note_20regarding_20ble_5ferror_5fno_5fbackground_5flocation_5fpermission_5',['Note Regarding BLE_ERROR_NO_BACKGROUND_LOCATION_PERMISSION',['../index.html#autotoc_md40',1,'']]],
   ['notification_20details_6',['1. Notification Details',['../index.html#autotoc_md45',1,'']]],
-  ['notifications_7',['notifications',['../index.html#autotoc_md42',1,'Configuring Android Notifications'],['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html#a57655575860e69e6f2b951c52db60343',1,'com.gallagher.security.mobileaccess.SdkFeature.NOTIFICATIONS']]],
-  ['notifications_20changes_8',['Android 13 Notifications Changes',['../index.html#autotoc_md43',1,'']]],
-  ['notificationsconfiguration_9',['notificationsconfiguration',['../classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_notifications_configuration.html',1,'com.gallagher.security.mobileaccess.NotificationsConfiguration'],['../classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_notifications_configuration.html#aa321ec2c44fdff1a3b2aa8fa873fd55e',1,'com.gallagher.security.mobileaccess.NotificationsConfiguration.NotificationsConfiguration()']]],
-  ['notified_20of_20any_20update_20errors_10',['3. Implement the SdkFeatureStateDelegate to be Notified of any Update Errors',['../index.html#autotoc_md35',1,'']]]
+  ['notifications_7',['NOTIFICATIONS',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_feature.html#a57655575860e69e6f2b951c52db60343',1,'com::gallagher::security::mobileaccess::SdkFeature']]],
+  ['notifications_8',['Configuring Android Notifications',['../index.html#autotoc_md42',1,'']]],
+  ['notifications_20changes_9',['Android 13 Notifications Changes',['../index.html#autotoc_md43',1,'']]],
+  ['notificationsconfiguration_10',['NotificationsConfiguration',['../classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_notifications_configuration.html',1,'com.gallagher.security.mobileaccess.NotificationsConfiguration'],['../classcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_notifications_configuration.html#aa321ec2c44fdff1a3b2aa8fa873fd55e',1,'com.gallagher.security.mobileaccess.NotificationsConfiguration.NotificationsConfiguration()']]],
+  ['notified_20of_20any_20update_20errors_11',['3. Implement the SdkFeatureStateDelegate to be Notified of any Update Errors',['../index.html#autotoc_md35',1,'']]]
 ];
