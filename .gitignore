@@ -6,3 +6,5 @@ docs/ios/sdk-docs/undocumented.json
 /samples/server/aspnet/Data/database.sqlitedb
 /samples/server/nodejs/node_modules
 /samples/server/nodejs/data
+docs/android/.DS_Store
+docs/.DS_Store

@@ -124,7 +124,7 @@ Contents</h1>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 Prerequisites</h1>
 <ul>
-<li>This developer guide references version <b>17.3</b> of the Gallagher Mobile Connect SDK for Android</li>
+<li>This developer guide references version <b>17.2</b> of the Gallagher Mobile Connect SDK for Android</li>
 <li>Android Studio - This document tested against Android Studio Narwhal | 2025.1.1 Patch 1</li>
 <li>An app targeting Android 7 or later</li>
 </ul>
@@ -229,9 +229,6 @@ Mobile Credentials</h1>
 <p>You can also build the invitation url using the <span class="tt">resolveInvitationUri(invitationBaseUrl, invitationCode)</span> method in the Mobile Connect SDK. <br  />
  Given an invitation code, and the hostname of the Gallagher Cloud Server (<a href="https://commandcentre-ap-southeast-2.security.gallagher.cloud">https://commandcentre-ap-southeast-2.security.gallagher.cloud</a>) you may call this method to generate the invitation URL.</p>
 <p>When getting started, the easiest option will most likely be to use the Command Centre Client to send yourself an invitation via email, and use the invitation code from the "Manual Registration" section of the standard Gallagher invitation email message.</p>
-<p>Alternatively you can register an intent filter for your app <a href="https://developer.android.com/training/app-links/deep-linking">Android Documentation</a> using a deep link. This will allow the user to launch your app by clicking the link in the Gallagher invitation email message, with the invitation information included in the intent.</p>
-<p>The default URL Scheme prefix to add is 'gglcredential'. Alternatively you can supply a custom email template, including a custom URL Scheme prefix by contacting your local Gallagher technical representative and informing them you would like to set up a customized email message for Mobile Connect credential invitations.</p>
-<p>For a comprehensive example, please see the <span class="tt">handleDeepLink()</span> function in the file <span class="tt">MainActivity.java</span> in the Android SDK sample application.</p>
 <p><b>Note:</b> By default, credentials sent for the Mobile Connect app will also require a second step of SMS verification. <br  />
  <b>SMS verification is not supported for third-party apps using the Mobile Connect SDK</b>, so in order to email yourself a credential without the SMS step you must create a new Mobile Credential Card Type using the Command Centre Configuration client, and use this card type when sending your test credential email.</p>
 <p><img src="mobile-credential-cardtype-no-sms.png" alt="Mobile Credential Configuration screenshot" class="inline"/></p>

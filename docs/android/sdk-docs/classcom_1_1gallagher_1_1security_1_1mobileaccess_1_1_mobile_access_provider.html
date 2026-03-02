@@ -155,27 +155,27 @@ static final Long&#160;</td><td class="memItemRight"><b>TOTP_ALLOWABLE_TIME_WIND
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>                                                  {</div>
-<div class="line"><span class="lineno">   72</span>        <span class="comment">// Gallagher Internal Note: This is the real method that the Mobile Connect app uses, the other overloads are for compatibility with SDK users</span></div>
-<div class="line"><span class="lineno">   73</span> </div>
-<div class="line"><span class="lineno">   74</span>        <span class="comment">// If we have already called configure</span></div>
-<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">if</span> (sMobileAccess != <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">   76</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> FatalError(<span class="stringliteral">&quot;Cannot call configure twice&quot;</span>);</div>
-<div class="line"><span class="lineno">   77</span>        }</div>
-<div class="line"><span class="lineno">   78</span> </div>
-<div class="line"><span class="lineno">   79</span>        <span class="comment">// Set defaults for the parameters that have been omitted</span></div>
-<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">if</span> (databaseFilePath == <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">   81</span>            databaseFilePath = <span class="keyword">new</span> File(application.getNoBackupFilesDir(), <span class="stringliteral">&quot;com.gallagher.security.mobileaccess.db&quot;</span>).getPath();</div>
-<div class="line"><span class="lineno">   82</span>        }</div>
+<div class="fragment"><div class="line"><span class="lineno">   67</span>                                                  {</div>
+<div class="line"><span class="lineno">   68</span>        <span class="comment">// Gallagher Internal Note: This is the real method that the Mobile Connect app uses, the other overloads are for compatibility with SDK users</span></div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>        <span class="comment">// If we have already called configure</span></div>
+<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">if</span> (sMobileAccess != <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">   72</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> FatalError(<span class="stringliteral">&quot;Cannot call configure twice&quot;</span>);</div>
+<div class="line"><span class="lineno">   73</span>        }</div>
+<div class="line"><span class="lineno">   74</span> </div>
+<div class="line"><span class="lineno">   75</span>        <span class="comment">// Set defaults for the parameters that have been omitted</span></div>
+<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">if</span> (databaseFilePath == <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">   77</span>            databaseFilePath = <span class="keyword">new</span> File(application.getNoBackupFilesDir(), <span class="stringliteral">&quot;com.gallagher.security.mobileaccess.db&quot;</span>).getPath();</div>
+<div class="line"><span class="lineno">   78</span>        }</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>        <span class="comment">// Remove the built-in BouncyCastle we can use a version we specify</span></div>
+<div class="line"><span class="lineno">   81</span>        Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME);</div>
+<div class="line"><span class="lineno">   82</span>        Security.addProvider(<span class="keyword">new</span> BouncyCastleProvider());</div>
 <div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>        <span class="comment">// Remove the built-in BouncyCastle we can use a version we specify</span></div>
-<div class="line"><span class="lineno">   85</span>        Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME);</div>
-<div class="line"><span class="lineno">   86</span>        Security.addProvider(<span class="keyword">new</span> BouncyCastleProvider());</div>
-<div class="line"><span class="lineno">   87</span> </div>
-<div class="line"><span class="lineno">   88</span>        <span class="comment">// Create the SDK singleton</span></div>
-<div class="line"><span class="lineno">   89</span>        sMobileAccess = <span class="keyword">new</span> DefaultMobileAccess(application, databaseFilePath, cloudTlsValidationMode, enabledFeatures, notificationsConfiguration, config);</div>
-<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">return</span> sMobileAccess;</div>
-<div class="line"><span class="lineno">   91</span>    }</div>
+<div class="line"><span class="lineno">   84</span>        <span class="comment">// Create the SDK singleton</span></div>
+<div class="line"><span class="lineno">   85</span>        sMobileAccess = <span class="keyword">new</span> DefaultMobileAccess(application, databaseFilePath, cloudTlsValidationMode, enabledFeatures, notificationsConfiguration, config);</div>
+<div class="line"><span class="lineno">   86</span>        <span class="keywordflow">return</span> sMobileAccess;</div>
+<div class="line"><span class="lineno">   87</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -216,19 +216,19 @@ static final Long&#160;</td><td class="memItemRight"><b>TOTP_ALLOWABLE_TIME_WIND
 </table>
 </div><div class="memdoc">
 <p>Convenience overload to configure the SDK for backwards compatibility </p>
-<div class="fragment"><div class="line"><span class="lineno">   36</span>                                                                                                     {</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>        <span class="comment">// set up the fido authenticators module</span></div>
-<div class="line"><span class="lineno">   39</span>        FidoAuthenticatorsHelpers.setupAuthenticators();</div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">return</span> configure(</div>
-<div class="line"><span class="lineno">   42</span>                application,</div>
-<div class="line"><span class="lineno">   43</span>                databaseFilePath,</div>
-<div class="line"><span class="lineno">   44</span>                <span class="keyword">new</span> NotificationsConfiguration(unlockNotificationChannelId, <span class="keyword">null</span>, bleServiceForegroundNotificationChannelId, <span class="keyword">null</span>),</div>
-<div class="line"><span class="lineno">   45</span>                EnumSet.noneOf(SdkFeature.class),</div>
-<div class="line"><span class="lineno">   46</span>                CloudTlsValidationMode.ANY_VALID_CERTIFICATE_REQUIRED,</div>
-<div class="line"><span class="lineno">   47</span>                <span class="keyword">null</span>);</div>
-<div class="line"><span class="lineno">   48</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   32</span>                                                                                                     {</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>        <span class="comment">// set up the fido authenticators module</span></div>
+<div class="line"><span class="lineno">   35</span>        FidoAuthenticatorsHelpers.setupAuthenticators();</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">return</span> configure(</div>
+<div class="line"><span class="lineno">   38</span>                application,</div>
+<div class="line"><span class="lineno">   39</span>                databaseFilePath,</div>
+<div class="line"><span class="lineno">   40</span>                <span class="keyword">new</span> NotificationsConfiguration(unlockNotificationChannelId, <span class="keyword">null</span>, bleServiceForegroundNotificationChannelId, <span class="keyword">null</span>),</div>
+<div class="line"><span class="lineno">   41</span>                EnumSet.noneOf(SdkFeature.class),</div>
+<div class="line"><span class="lineno">   42</span>                CloudTlsValidationMode.ANY_VALID_CERTIFICATE_REQUIRED,</div>
+<div class="line"><span class="lineno">   43</span>                <span class="keyword">null</span>);</div>
+<div class="line"><span class="lineno">   44</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -254,13 +254,13 @@ static final Long&#160;</td><td class="memItemRight"><b>TOTP_ALLOWABLE_TIME_WIND
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   93</span>                                                          {</div>
-<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">if</span> (sMobileAccess == <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">   95</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> FatalError(<span class="stringliteral">&quot;Call configure before calling getInstance&quot;</span>);</div>
-<div class="line"><span class="lineno">   96</span>        }</div>
-<div class="line"><span class="lineno">   97</span> </div>
-<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">return</span> sMobileAccess;</div>
-<div class="line"><span class="lineno">   99</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>                                                          {</div>
+<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">if</span> (sMobileAccess == <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">   91</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> FatalError(<span class="stringliteral">&quot;Call configure before calling getInstance&quot;</span>);</div>
+<div class="line"><span class="lineno">   92</span>        }</div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">return</span> sMobileAccess;</div>
+<div class="line"><span class="lineno">   95</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
