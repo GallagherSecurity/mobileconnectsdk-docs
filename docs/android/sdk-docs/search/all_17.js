@@ -2,7 +2,7 @@ var searchData=
 [
   ['under_20your_20app_20folder_0',['2. Edit build.gradle Under Your App Folder',['../index.html#autotoc_md5',1,'']]],
   ['unknown_1',['UNKNOWN',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_access_decision.html#ae0e5f4253a28961078daca775c87b556',1,'com::gallagher::security::mobileaccess::AccessDecision']]],
-  ['update_20errors_2',['update errors',['../index.html#autotoc_md35',1,'3. Implement the SdkFeatureStateDelegate to be Notified of any Update Errors'],['../index.html#autotoc_md30',1,'3. Implement the SdkFeatureStateListener to Listen for Update Errors'],['../index.html#autotoc_md23',1,'5. Implement the SdkFeatureStateListener to Listen for Update Errors']]],
+  ['update_20errors_2',['Update Errors',['../index.html#autotoc_md35',1,'3. Implement the SdkFeatureStateDelegate to be Notified of any Update Errors'],['../index.html#autotoc_md30',1,'3. Implement the SdkFeatureStateListener to Listen for Update Errors'],['../index.html#autotoc_md23',1,'5. Implement the SdkFeatureStateListener to Listen for Update Errors']]],
   ['updates_20i_20e_20digital_20id_20or_20salto_20from_20the_20cloud_3',['I Don&apos;t Receive Mobile Credential Updates (i.e. Digital ID or Salto) from the Cloud',['../index.html#autotoc_md50',1,'']]],
   ['updating_20my_20app_20s_20target_20to_20sdk_2034_4',['I Get Issues After Updating my App&apos;s Target to SDK 34',['../index.html#autotoc_md55',1,'']]],
   ['updating_20my_20app_20s_20target_20to_20sdk_2035_5',['I Get Issues After Updating my App&apos;s Target to SDK 35',['../index.html#autotoc_md56',1,'']]],

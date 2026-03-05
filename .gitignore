@@ -1,3 +1,9 @@
+# macOS
+.DS_Store
+
+# Gradle
+.gradle/
+
 docs/ios/sdk-docs/undocumented.json
 /.vs
 /samples/server/aspnet/.vs
