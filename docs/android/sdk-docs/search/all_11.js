@@ -22,8 +22,9 @@ var searchData=
   ['onsaltokeysupdated_19',['onSaltoKeysUpdated',['../interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_salto_update_listener.html#ae9d0e0193dcaa0ab7af8c82274fb951f',1,'com::gallagher::security::mobileaccess::SaltoUpdateListener']]],
   ['onstatechanged_20',['onStateChanged',['../interfacecom_1_1gallagher_1_1security_1_1mobileaccess_1_1_sdk_state_listener.html#a434660e08a25ea94e686e2dfe85ee06d',1,'com::gallagher::security::mobileaccess::SdkStateListener']]],
   ['optional_21',['Configure Logging (Optional)',['../index.html#autotoc_md49',1,'']]],
-  ['or_20runtime_20errors_20where_20a_20class_20or_20function_20is_20missing_22',['I Get Compilation or Runtime Errors Where a Class or Function is Missing',['../index.html#autotoc_md54',1,'']]],
-  ['or_20salto_20from_20the_20cloud_23',['I Don&apos;t Receive Mobile Credential Updates (i.e. Digital ID or Salto) from the Cloud',['../index.html#autotoc_md50',1,'']]],
-  ['org_20bouncycastle_20errors_20when_20compiling_24',['I Get &quot;Duplicate class org.bouncycastle...&quot; Errors when Compiling',['../index.html#autotoc_md51',1,'']]],
-  ['output_25',['OUTPUT',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a6f4dd00d350b74db4f353d08e1a37d24',1,'com::gallagher::security::mobileaccess::ReaderActionType']]]
+  ['or_20function_20is_20missing_22',['I Get Compilation or Runtime Errors Where a Class or Function is Missing',['../index.html#autotoc_md54',1,'']]],
+  ['or_20runtime_20errors_20where_20a_20class_20or_20function_20is_20missing_23',['I Get Compilation or Runtime Errors Where a Class or Function is Missing',['../index.html#autotoc_md54',1,'']]],
+  ['or_20salto_20from_20the_20cloud_24',['I Don&apos;t Receive Mobile Credential Updates (i.e. Digital ID or Salto) from the Cloud',['../index.html#autotoc_md50',1,'']]],
+  ['org_20bouncycastle_20errors_20when_20compiling_25',['I Get &quot;Duplicate class org.bouncycastle...&quot; Errors when Compiling',['../index.html#autotoc_md51',1,'']]],
+  ['output_26',['OUTPUT',['../enumcom_1_1gallagher_1_1security_1_1mobileaccess_1_1_reader_action_type.html#a6f4dd00d350b74db4f353d08e1a37d24',1,'com::gallagher::security::mobileaccess::ReaderActionType']]]
 ];

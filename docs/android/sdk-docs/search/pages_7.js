@@ -1,4 +1,29 @@
 var searchData=
 [
-  ['sdk_20for_20android_20developer_20guide_0',['Gallagher Mobile Connect SDK for Android - Developer Guide',['../index.html',1,'']]]
+  ['changes_0',['Android 13 Notifications Changes',['../index.html#autotoc_md43',1,'']]],
+  ['class_20or_20function_20is_20missing_1',['I Get Compilation or Runtime Errors Where a Class or Function is Missing',['../index.html#autotoc_md54',1,'']]],
+  ['class_20org_20bouncycastle_20errors_20when_20compiling_2',['I Get &quot;Duplicate class org.bouncycastle...&quot; Errors when Compiling',['../index.html#autotoc_md51',1,'']]],
+  ['cloud_3',['I Don&apos;t Receive Mobile Credential Updates (i.e. Digital ID or Salto) from the Cloud',['../index.html#autotoc_md50',1,'']]],
+  ['compilation_20or_20runtime_20errors_20where_20a_20class_20or_20function_20is_20missing_4',['I Get Compilation or Runtime Errors Where a Class or Function is Missing',['../index.html#autotoc_md54',1,'']]],
+  ['compiling_5',['I Get &quot;Duplicate class org.bouncycastle...&quot; Errors when Compiling',['../index.html#autotoc_md51',1,'']]],
+  ['configure_20logging_20optional_6',['Configure Logging (Optional)',['../index.html#autotoc_md49',1,'']]],
+  ['configure_20mobile_20connect_20sdk_20to_20include_20aperio_20as_20an_20enabled_20feature_7',['1. Configure Mobile Connect SDK to Include Aperio as an Enabled Feature',['../index.html#autotoc_md33',1,'']]],
+  ['configure_20mobile_20connect_20sdk_20to_20include_20salto_20as_20an_20enabled_20feature_8',['3. Configure Mobile Connect SDK to Include Salto as an Enabled Feature',['../index.html#autotoc_md21',1,'']]],
+  ['configure_20mobile_20connected_20sdk_20to_20include_20digital_20id_20as_20an_20enabled_20feature_9',['1. Configure Mobile Connected SDK to Include Digital ID as an Enabled Feature',['../index.html#autotoc_md28',1,'']]],
+  ['configure_20the_20mobile_20connect_20sdk_20within_20your_20application_10',['4. Configure the Mobile Connect SDK within Your Application',['../index.html#autotoc_md7',1,'']]],
+  ['configuring_20android_20notifications_11',['Configuring Android Notifications',['../index.html#autotoc_md42',1,'']]],
+  ['connect_12',['Connect',['../index.html#autotoc_md16',1,'3. Manual Connect'],['../index.html#autotoc_md18',1,'Using SALTO keys with Mobile Connect']]],
+  ['connect_13',['1. Auto-connect',['../index.html#autotoc_md14',1,'']]],
+  ['connect_20sdk_14',['Connect SDK',['../index.html#autotoc_md32',1,'Using Aperio BLE Access with Mobile Connect SDK'],['../index.html#autotoc_md27',1,'Using Digital IDs with Mobile Connect SDK']]],
+  ['connect_20sdk_20for_20android_20developer_20guide_15',['Gallagher Mobile Connect SDK for Android - Developer Guide',['../index.html',1,'']]],
+  ['connect_20sdk_20to_20include_20aperio_20as_20an_20enabled_20feature_16',['1. Configure Mobile Connect SDK to Include Aperio as an Enabled Feature',['../index.html#autotoc_md33',1,'']]],
+  ['connect_20sdk_20to_20include_20salto_20as_20an_20enabled_20feature_17',['3. Configure Mobile Connect SDK to Include Salto as an Enabled Feature',['../index.html#autotoc_md21',1,'']]],
+  ['connect_20sdk_20within_20your_20application_18',['4. Configure the Mobile Connect SDK within Your Application',['../index.html#autotoc_md7',1,'']]],
+  ['connected_20sdk_20to_20include_20digital_20id_20as_20an_20enabled_20feature_19',['1. Configure Mobile Connected SDK to Include Digital ID as an Enabled Feature',['../index.html#autotoc_md28',1,'']]],
+  ['contents_20',['Contents',['../index.html#autotoc_md1',1,'']]],
+  ['credential_21',['Credential',['../index.html#autotoc_md9',1,'1. Registering a Mobile Credential'],['../index.html#autotoc_md11',1,'3. Deleting a Mobile Credential']]],
+  ['credential_20updates_20i_20e_20digital_20id_20or_20salto_20from_20the_20cloud_22',['I Don&apos;t Receive Mobile Credential Updates (i.e. Digital ID or Salto) from the Cloud',['../index.html#autotoc_md50',1,'']]],
+  ['credentials_23',['Credentials',['../index.html#autotoc_md34',1,'2. Fetching Aperio BLE Credentials'],['../index.html#autotoc_md10',1,'2. Listing Registered Credentials'],['../index.html#autotoc_md36',1,'3. Access with Aperio BLE Credentials'],['../index.html#autotoc_md8',1,'Mobile Credentials']]],
+  ['customising_20sdk_20messages_24',['Customising SDK Messages',['../index.html#autotoc_md44',1,'']]],
+  ['customising_20the_20sdk_25',['Customising the SDK',['../index.html#autotoc_md41',1,'']]]
 ];
